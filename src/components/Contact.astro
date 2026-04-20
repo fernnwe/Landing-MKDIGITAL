@@ -1,0 +1,93 @@
+<section id="contacto" class="section contact">
+  <div class="container contact-grid">
+
+    <div>
+      <h2>¿Listo para instalar tu software?</h2>
+      <p>
+        Todos nuestros servicios se realizan de forma remota.
+        Escríbenos por WhatsApp y comenzamos hoy mismo.
+      </p>
+
+      <div class="contact-cards">
+        <div class="mini-card">
+          ⚡ Atención rápida
+        </div>
+        <div class="mini-card">
+          💻 Soporte remoto
+        </div>
+        <div class="mini-card">
+          🔒 Instalación segura
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-box">
+      <h3>Contactar por WhatsApp</h3>
+      <p>Respuesta inmediata</p>
+
+      <a 
+        href="https://wa.me/50581088124?text=Hola,%20quiero%20instalar%20software"
+        target="_blank"
+        class="btn-primary whatsapp-btn"
+      >
+        Escribir ahora
+      </a>
+
+      <span class="note">Horario: 6am - 9pm (Hora Nicaragua)</span>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.contact{
+  background:linear-gradient(180deg,#050505,#0a0a0a);
+}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.contact-box{
+  background:var(--glass);
+  padding:40px;
+  border-radius:24px;
+  border:1px solid var(--border);
+  text-align:center;
+}
+
+.whatsapp-btn{
+  width:100%;
+  margin-top:20px;
+  text-align:center;
+}
+
+.note{
+  display:block;
+  margin-top:15px;
+  font-size:.8rem;
+  color:var(--muted);
+}
+
+.contact-cards{
+  display:flex;
+  gap:15px;
+  margin-top:25px;
+  flex-wrap:wrap;
+}
+
+.mini-card{
+  background:var(--glass);
+  border:1px solid var(--border);
+  padding:10px 16px;
+  border-radius:30px;
+  font-size:.9rem;
+}
+
+@media(max-width:900px){
+  .contact-grid{grid-template-columns:1fr}
+}
+</style>

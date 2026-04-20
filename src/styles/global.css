@@ -1,21 +1,45 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@600;700;800&display=swap');
+/* ================= GOOGLE FONTS ================= */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@600;700;800&display=swap');
 
+/* ================= VARIABLES ================= */
 :root{
   --primary:#00B3C9;
   --accent:#1ED6E6;
   --dark:#050505;
+  --dark2:#0B0B0B;
   --gray:#101010;
+  --card:#0F1720;
   --light:#F5F7FA;
+  --muted:#9ca3af;
+  --border:rgba(255,255,255,0.06);
+
+  --radius:18px;
+  --shadow-soft:0 10px 30px rgba(0,0,0,.35);
+  --shadow-glow:0 0 35px rgba(0,179,201,.35);
 }
 
-*{margin:0;padding:0;box-sizing:border-box}
+/* ================= RESET ================= */
+*,
+*::before,
+*::after{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
 
 body{
-  font-family:Inter;
-  background:var(--dark);
+  font-family:Inter, sans-serif;
+  background:linear-gradient(180deg,var(--dark),#000);
   color:var(--light);
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
 }
 
+/* ================= GLOBAL ================= */
 .container{
   max-width:1200px;
   margin:auto;
@@ -23,25 +47,184 @@ body{
 }
 
 .section{
-  padding:110px 0;
+  padding:120px 0;
+  position:relative;
 }
 
-h1,h2,h3{
-  font-family:Poppins;
+/* glow decorativo de fondo */
+.section::before{
+  content:"";
+  position:absolute;
+  width:400px;
+  height:400px;
+  background:radial-gradient(circle,var(--primary),transparent 70%);
+  opacity:.08;
+  filter:blur(80px);
+  top:-150px;
+  left:-150px;
+  pointer-events:none;
 }
 
+/* ================= TIPOGRAFÍA ================= */
+h1,h2,h3,h4{
+  font-family:Poppins, sans-serif;
+  letter-spacing:.3px;
+}
+
+h1{
+  font-size:clamp(2.5rem,4vw,3.5rem);
+  line-height:1.1;
+}
+
+h2{
+  font-size:clamp(2rem,3vw,2.6rem);
+  margin-bottom:18px;
+}
+
+h3{
+  font-size:1.3rem;
+  margin-bottom:8px;
+}
+
+p{
+  color:var(--muted);
+  font-size:1.05rem;
+}
+
+/* ================= BOTONES ================= */
 .btn-primary{
   background:linear-gradient(90deg,var(--primary),var(--accent));
-  padding:16px 34px;
+  padding:16px 36px;
   border-radius:40px;
   text-decoration:none;
-  color:black;
+  color:#000;
   font-weight:700;
-  display:inline-block;
-  transition:.3s;
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  transition:.35s;
+  box-shadow:0 10px 25px rgba(0,179,201,.25);
 }
 
 .btn-primary:hover{
-  transform:scale(1.05);
-  box-shadow:0 0 25px #00b3c966;
+  transform:translateY(-3px);
+  box-shadow:var(--shadow-glow);
+}
+
+/* botón secundario */
+.btn-outline{
+  border:1px solid var(--border);
+  padding:15px 34px;
+  border-radius:40px;
+  text-decoration:none;
+  color:var(--light);
+  font-weight:600;
+  transition:.3s;
+}
+
+.btn-outline:hover{
+  border-color:var(--primary);
+  color:var(--accent);
+}
+
+/* ================= CARDS ================= */
+.card{
+  background:linear-gradient(180deg,#0c1118,#090d13);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:30px;
+  transition:.35s;
+  box-shadow:var(--shadow-soft);
+  position:relative;
+  overflow:hidden;
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,rgba(0,179,201,.25),transparent);
+  opacity:0;
+  transition:.5s;
+}
+
+.card:hover{
+  transform:translateY(-8px);
+  border-color:rgba(0,179,201,.35);
+}
+
+.card:hover::after{
+  opacity:1;
+}
+
+/* ================= GRID ================= */
+.grid{
+  display:grid;
+  gap:28px;
+}
+
+.grid-3{
+  grid-template-columns:repeat(3,1fr);
+}
+
+.grid-2{
+  grid-template-columns:repeat(2,1fr);
+}
+
+/* ================= ICONOS ================= */
+.icon{
+  width:54px;
+  height:54px;
+  border-radius:14px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(145deg,#00b3c920,#1ed6e620);
+  color:var(--accent);
+  font-size:24px;
+  margin-bottom:18px;
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+  position:sticky;
+  top:0;
+  backdrop-filter:blur(12px);
+  background:rgba(0,0,0,.55);
+  border-bottom:1px solid var(--border);
+  z-index:999;
+}
+
+/* ================= HERO DECOR ================= */
+.hero-glow{
+  position:absolute;
+  right:-120px;
+  top:0;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,var(--accent),transparent 70%);
+  opacity:.15;
+  filter:blur(120px);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width:900px){
+  .grid-3{grid-template-columns:1fr 1fr;}
+}
+
+@media (max-width:600px){
+  .section{padding:90px 0}
+  .grid-3,
+  .grid-2{grid-template-columns:1fr}
+}
+
+/* FIX botones clickeables dentro de cards glass */
+a{
+  position:relative;
+  z-index:5;
+}
+
+.card{
+  position:relative;
+  z-index:1;
 }
