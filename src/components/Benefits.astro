@@ -1,0 +1,79 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section id="beneficios" class="section">
+  <div class="container grid2">
+
+    <div class="text">
+      <h2>¿Por qué elegir MKDigital?</h2>
+
+      <ul class="list">
+        <li>
+          <Icon name="mdi:clock-fast" /> Soporte inmediato
+        </li>
+
+        <li>
+          <Icon name="mdi:home" /> Servicio 100% remoto
+        </li>
+
+        <li>
+          <Icon name="mdi:cash" /> Precios accesibles
+        </li>
+
+        <li>
+          <Icon name="mdi:account-star" /> Atención personalizada
+        </li>
+      </ul>
+    </div>
+
+    <img src="/soporte.jpg" alt="Soporte remoto MKDigital" class="benefit-img">
+
+  </div>
+</section>
+
+<style>
+
+.benefit-img{
+  width:100%;
+  border-radius:20px;
+  box-shadow:0 0 40px #00b3c944;
+}
+
+.grid2{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:60px;
+  align-items:center;
+}
+
+.list{
+  list-style:none;
+  margin-top:25px;
+}
+
+.list li{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  margin:18px 0;
+  font-size:20px;
+}
+
+svg{
+  width:28px;
+  height:28px;
+  color:var(--primary);
+}
+
+@media(max-width:768px){
+  .grid2{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .list li{
+    justify-content:center;
+  }
+}
+</style>

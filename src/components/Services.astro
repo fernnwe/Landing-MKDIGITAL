@@ -1,0 +1,78 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section id="servicios" class="section">
+  <div class="container">
+    <h2>Nuestros Servicios</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <Icon name="mdi:microsoft-office"/>
+        <h3>Office 2021 / 2024</h3>
+        <p>Instalación y activación remota</p>
+      </div>
+
+      <div class="card">
+        <Icon name="mdi:adobe"/>
+        <h3>Adobe & Autodesk</h3>
+        <p>Programas de diseño profesional</p>
+      </div>
+
+      <div class="card">
+        <Icon name="mdi:shield-check"/>
+        <h3>Avast Premium</h3>
+        <p>Protección total para tu PC</p>
+      </div>
+
+      <div class="card">
+        <Icon name="mdi:web"/>
+        <h3>Desarrollo Web</h3>
+        <p>Sitios modernos a medida</p>
+      </div>
+
+      <div class="card">
+        <Icon name="mdi:cash-register"/>
+        <h3>FactuLite & ViperPOS</h3>
+        <p>Software de facturación</p>
+      </div>
+
+      <div class="card">
+        <Icon name="mdi:rocket-launch"/>
+        <h3>Optimización PC</h3>
+        <p>Drivers + limpieza + rendimiento</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+  margin-top:60px;
+}
+
+.card{
+  background:var(--gray);
+  padding:35px;
+  border-radius:18px;
+  text-align:center;
+  transition:.3s;
+}
+
+.card:hover{
+  transform:translateY(-10px);
+  border:1px solid var(--primary);
+}
+
+.card svg{
+  width:50px;
+  height:50px;
+  color:var(--primary);
+  margin-bottom:20px;
+}
+</style>

@@ -1,0 +1,54 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<nav class="nav">
+  <div class="container nav-content">
+    <div class="logo">MK<span>DIGITAL</span></div>
+
+    <div class="links">
+      <a href="#servicios">Servicios</a>
+      <a href="#beneficios">Beneficios</a>
+      <a href="#contacto" class="btn-primary">WhatsApp</a>
+    </div>
+  </div>
+</nav>
+
+<style>
+.nav{
+  position:fixed;
+  width:100%;
+  background:#000000cc;
+  backdrop-filter:blur(12px);
+  padding:18px 0;
+  z-index:999;
+}
+
+.nav-content{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.links{
+  display:flex;
+  gap:30px;
+  align-items:center;
+}
+
+.links a{
+  text-decoration:none;
+  color:white;
+  font-weight:500;
+}
+
+.logo{
+  font-family:Poppins;
+  font-size:26px;
+}
+.logo span{color:var(--primary)}
+
+@media(max-width:768px){
+  .links a:not(.btn-primary){display:none}
+}
+</style>
