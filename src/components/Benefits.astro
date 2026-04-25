@@ -2,78 +2,222 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<section id="beneficios" class="section">
-  <div class="container grid2">
+<section id="beneficios" class="section benefits">
+  <div class="container benefits-grid">
 
-    <div class="text">
-      <h2>¿Por qué elegir MKDigital?</h2>
-
-      <ul class="list">
-        <li>
-          <Icon name="mdi:clock-fast" /> Soporte inmediato
-        </li>
-
-        <li>
-          <Icon name="mdi:home" /> Servicio 100% remoto
-        </li>
-
-        <li>
-          <Icon name="mdi:cash" /> Precios accesibles
-        </li>
-
-        <li>
-          <Icon name="mdi:account-star" /> Atención personalizada
-        </li>
-      </ul>
+    <!-- IMAGEN -->
+    <div class="benefits-image">
+      <div class="image-glow"></div>
+      <img src="/soporte.jpg" alt="Soporte remoto MKDigital">
     </div>
 
-    <img src="/soporte.jpg" alt="Soporte remoto MKDigital" class="benefit-img">
+    <!-- TEXTO -->
+    <div class="benefits-content">
+
+      <span class="badge">POR QUÉ ELEGIRNOS</span>
+
+      <h2>Soporte confiable, rápido y profesional</h2>
+
+      <p class="benefits-desc">
+        Brindamos soporte remoto profesional para empresas y usuarios
+        que necesitan soluciones inmediatas sin salir de casa.
+      </p>
+
+      <!-- LISTA -->
+      <div class="benefits-list">
+
+        <div class="benefit-item">
+          <div class="icon">
+            <Icon name="mdi:clock-fast"/>
+          </div>
+          <div>
+            <h4>Atención inmediata</h4>
+            <p>Comenzamos el soporte en minutos vía WhatsApp.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="icon">
+            <Icon name="mdi:laptop"/>
+          </div>
+          <div>
+            <h4>Servicio 100% remoto</h4>
+            <p>Sin traslados, sin perder tiempo.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="icon">
+            <Icon name="mdi:cash-multiple"/>
+          </div>
+          <div>
+            <h4>Precios accesibles</h4>
+            <p>Soluciones profesionales a precios justos.</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="icon">
+            <Icon name="mdi:account-star"/>
+          </div>
+          <div>
+            <h4>Atención personalizada</h4>
+            <p>Te guiamos paso a paso durante todo el proceso.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- STATS -->
+      <div class="benefits-stats">
+        <div><strong>+350</strong><span>Clientes felices</span></div>
+        <div><strong>15 min</strong><span>Tiempo de respuesta</span></div>
+        <div><strong>100%</strong><span>Remoto</span></div>
+      </div>
+
+    </div>
 
   </div>
 </section>
 
 <style>
 
-.benefit-img{
-  width:100%;
-  border-radius:20px;
-  box-shadow:0 0 40px #00b3c944;
+/* fondo suave */
+.benefits{
+  background:
+    radial-gradient(circle at 80% 20%, #00B3C920 0%, transparent 40%),
+    radial-gradient(circle at 10% 80%, #1ED6E620 0%, transparent 40%);
 }
 
-.grid2{
+/* GRID */
+.benefits-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:60px;
+  gap:80px;
   align-items:center;
 }
 
-.list{
-  list-style:none;
-  margin-top:25px;
+/* ===== IMAGEN ===== */
+.benefits-image{
+  position:relative;
 }
 
-.list li{
+.image-glow{
+  position:absolute;
+  inset:-30px;
+  background:linear-gradient(120deg,#00B3C9,#1ED6E6);
+  filter:blur(80px);
+  opacity:.25;
+}
+
+.benefits-image img{
+  width:100%;
+  border-radius:30px;
+  position:relative;
+  box-shadow:0 30px 60px rgba(0,0,0,.4);
+}
+
+/* ===== TEXTO ===== */
+.badge{
+  display:inline-block;
+  padding:7px 18px;
+  border-radius:30px;
+  background:linear-gradient(90deg,#00B3C920,#1ED6E620);
+  color:var(--primary);
+  font-size:.75rem;
+  letter-spacing:.6px;
+  margin-bottom:18px;
+}
+
+.benefits-content h2{
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.benefits-desc{
+  color:var(--muted);
+  margin-bottom:35px;
+  max-width:500px;
+}
+
+/* LISTA */
+.benefits-list{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.benefit-item{
+  display:flex;
+  gap:18px;
+  background:var(--glass);
+  padding:18px;
+  border-radius:18px;
+  border:1px solid var(--border);
+  transition:.3s;
+}
+
+.benefit-item:hover{
+  transform:translateX(8px);
+  border-color:var(--primary);
+}
+
+.icon{
+  background:linear-gradient(120deg,#00B3C9,#1ED6E6);
+  padding:12px;
+  border-radius:14px;
   display:flex;
   align-items:center;
-  gap:15px;
-  margin:18px 0;
-  font-size:20px;
+  justify-content:center;
 }
 
-svg{
-  width:28px;
-  height:28px;
+.icon svg{
+  width:22px;
+  height:22px;
+  color:white;
+}
+
+.benefit-item h4{
+  margin:0 0 4px 0;
+}
+
+.benefit-item p{
+  margin:0;
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+/* STATS */
+.benefits-stats{
+  display:flex;
+  gap:40px;
+  margin-top:35px;
+}
+
+.benefits-stats strong{
+  font-size:28px;
+  display:block;
   color:var(--primary);
 }
 
-@media(max-width:768px){
-  .grid2{
+.benefits-stats span{
+  font-size:.8rem;
+  color:var(--muted);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .benefits-grid{
     grid-template-columns:1fr;
+  }
+
+  .benefits-content{
     text-align:center;
   }
 
-  .list li{
+  .benefits-stats{
     justify-content:center;
   }
 }
+
 </style>

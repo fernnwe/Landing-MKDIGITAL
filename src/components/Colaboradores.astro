@@ -1,0 +1,184 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section id="equipo" class="section team">
+  <div class="container">
+
+    <div class="section-header">
+      <span class="badge">EQUIPO MKDIGITAL</span>
+      <h2>Colaboradores</h2>
+      <p>
+        Profesionales encargados de brindar soporte remoto seguro,
+        rápido y confiable a nuestros clientes.
+      </p>
+    </div>
+
+    <div class="team-grid">
+
+      <!-- CEO -->
+      <div class="team-card ceo">
+
+        <span class="ceo-badge">CEO</span>
+
+        <div class="avatar">
+          <Icon name="mdi:crown"/>
+        </div>
+
+        <h3>Ing. Fernando Aguirre</h3>
+        <span class="role">Asesor en software y soporte técnico</span>
+
+        <div class="skills">
+          <span>Encargado</span>
+          <span>Atención al cliente</span>
+          <span>Soporte técnico</span>
+        </div>
+      </div>
+
+      <!-- ERNESTO -->
+      <div class="team-card">
+        <div class="avatar">
+          <Icon name="mdi:account-cog"/>
+        </div>
+
+        <h3>Ing. Ernesto Schwartz</h3>
+        <span class="role">Especialista en soporte técnico</span>
+
+        <div class="skills">
+          <span>Instalación de programas</span>
+          <span>Configuración y optimización</span>
+          <span>Soporte técnico</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+
+/* HEADER */
+.section-header{
+  text-align:center;
+  max-width:650px;
+  margin:0 auto 60px;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 18px;
+  border-radius:30px;
+  background:linear-gradient(90deg,#00B3C920,#1ED6E620);
+  color:var(--primary);
+  font-size:.75rem;
+  letter-spacing:.6px;
+  margin-bottom:18px;
+}
+
+/* GRID */
+.team-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:40px;
+  align-items:stretch;
+}
+
+/* CARD BASE */
+.team-card{
+  background:var(--glass);
+  padding:40px;
+  border-radius:25px;
+  text-align:center;
+  border:1px solid var(--border);
+  transition:.35s;
+  position:relative;
+  overflow:hidden;
+}
+
+.team-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,#00B3C940,transparent);
+  opacity:.25;
+}
+
+.team-card:hover{
+  transform:translateY(-12px);
+  border-color:var(--primary);
+}
+
+/* CEO DESTACADO */
+.ceo{
+  transform:scale(1.05);
+  border:1px solid transparent;
+  background:
+    linear-gradient(#0a0a0a,#0a0a0a) padding-box,
+    linear-gradient(120deg,#00B3C9,#1ED6E6) border-box;
+  box-shadow:0 20px 60px rgba(0,179,201,.25);
+}
+
+.ceo:hover{
+  transform:scale(1.08) translateY(-10px);
+}
+
+/* BADGE CEO */
+.ceo-badge{
+  position:absolute;
+  top:18px;
+  right:18px;
+  font-size:.7rem;
+  padding:5px 12px;
+  border-radius:20px;
+  background:linear-gradient(90deg,#00B3C9,#1ED6E6);
+  color:black;
+  font-weight:600;
+}
+
+/* AVATAR */
+.avatar{
+  width:80px;
+  height:80px;
+  margin:auto auto 20px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(120deg,#00B3C9,#1ED6E6);
+}
+
+.avatar svg{
+  width:38px;
+  height:38px;
+  color:white;
+}
+
+/* TEXTOS */
+.team-card h3{
+  margin-bottom:8px;
+}
+
+.role{
+  display:block;
+  color:var(--muted);
+  font-size:.9rem;
+  margin-bottom:20px;
+}
+
+/* SKILLS */
+.skills{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:center;
+}
+
+.skills span{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:.75rem;
+}
+
+</style>

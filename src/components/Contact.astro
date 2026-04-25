@@ -1,93 +1,179 @@
-<section id="contacto" class="section contact">
+<section id="contacto" class="section contact-section">
   <div class="container contact-grid">
 
-    <div>
+    <!-- TEXTO IZQUIERDA -->
+    <div class="contact-info">
+
+      <span class="badge">CONTACTO</span>
       <h2>¿Listo para instalar tu software?</h2>
-      <p>
+
+      <p class="contact-desc">
         Todos nuestros servicios se realizan de forma remota.
         Escríbenos por WhatsApp y comenzamos hoy mismo.
       </p>
 
       <div class="contact-cards">
-        <div class="mini-card">
-          ⚡ Atención rápida
-        </div>
-        <div class="mini-card">
-          💻 Soporte remoto
-        </div>
-        <div class="mini-card">
-          🔒 Instalación segura
-        </div>
+        <div class="mini-card">⚡ Atención rápida</div>
+        <div class="mini-card">💻 Soporte remoto</div>
+        <div class="mini-card">🔒 Instalación segura</div>
       </div>
+
     </div>
 
+    <!-- TARJETA DERECHA -->
     <div class="contact-box">
-      <h3>Contactar por WhatsApp</h3>
-      <p>Respuesta inmediata</p>
+
+      <div class="whatsapp-icon">💬</div>
+
+      <h3>Hablar por WhatsApp</h3>
+      <p class="contact-sub">Respuesta rápida en minutos</p>
 
       <a 
         href="https://wa.me/50581088124?text=Hola,%20quiero%20instalar%20software"
         target="_blank"
-        class="btn-primary whatsapp-btn"
+        class="whatsapp-btn"
       >
-        Escribir ahora
+        Escribir ahora →
       </a>
 
-      <span class="note">Horario: 6am - 9pm (Hora Nicaragua)</span>
+      <span class="note">Horario: 6am - 9pm • Hora Nicaragua</span>
+
     </div>
 
   </div>
 </section>
 
 <style>
-.contact{
-  background:linear-gradient(180deg,#050505,#0a0a0a);
+
+/* Fondo glow */
+.contact-section{
+  position:relative;
+  background:
+    radial-gradient(circle at 15% 20%, #00B3C915 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, #1ED6E615 0%, transparent 40%);
 }
 
+/* GRID */
 .contact-grid{
   display:grid;
   grid-template-columns:1.2fr 1fr;
-  gap:60px;
+  gap:70px;
   align-items:center;
 }
 
-.contact-box{
-  background:var(--glass);
-  padding:40px;
-  border-radius:24px;
-  border:1px solid var(--border);
-  text-align:center;
+/* IZQUIERDA */
+.contact-info h2{
+  font-size:2.3rem;
+  margin:15px 0;
 }
 
-.whatsapp-btn{
-  width:100%;
-  margin-top:20px;
-  text-align:center;
-}
-
-.note{
-  display:block;
-  margin-top:15px;
-  font-size:.8rem;
+.contact-desc{
   color:var(--muted);
+  font-size:1.1rem;
+  line-height:1.7;
 }
 
+/* BADGE */
+.badge{
+  display:inline-block;
+  background:linear-gradient(90deg,#00B3C920,#1ED6E620);
+  color:var(--accent);
+  padding:7px 18px;
+  border-radius:30px;
+  font-size:.75rem;
+  letter-spacing:.5px;
+}
+
+/* MINI BADGES */
 .contact-cards{
   display:flex;
   gap:15px;
-  margin-top:25px;
+  margin-top:35px;
   flex-wrap:wrap;
 }
 
 .mini-card{
-  background:var(--glass);
-  border:1px solid var(--border);
-  padding:10px 16px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:12px 18px;
   border-radius:30px;
   font-size:.9rem;
+  backdrop-filter:blur(8px);
 }
 
-@media(max-width:900px){
-  .contact-grid{grid-template-columns:1fr}
+/* TARJETA WHATSAPP */
+.contact-box{
+  padding:55px 40px;
+  border-radius:30px;
+  text-align:center;
+  background:rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px);
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 30px 60px rgba(0,0,0,.35);
+  position:relative;
+  overflow:hidden;
 }
+
+/* Glow animado */
+.contact-box::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,#00B3C940,transparent);
+  opacity:.6;
+}
+
+/* Icono burbuja */
+.whatsapp-icon{
+  width:80px;
+  height:80px;
+  margin:auto;
+  margin-bottom:20px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:34px;
+  background:linear-gradient(135deg,#00B3C930,#1ED6E630);
+  box-shadow:0 0 25px #00b3c940;
+}
+
+.contact-sub{
+  color:var(--muted);
+  margin-bottom:25px;
+}
+
+/* BOTÓN */
+.whatsapp-btn{
+  display:block;
+  text-decoration:none;
+  font-weight:600;
+  padding:16px;
+  border-radius:40px;
+  background:linear-gradient(90deg,#00B3C9,#1ED6E6);
+  color:white;
+  transition:.3s;
+  box-shadow:0 10px 30px #00b3c950;
+}
+
+.whatsapp-btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 15px 40px #00b3c980;
+}
+
+.note{
+  display:block;
+  margin-top:18px;
+  font-size:.8rem;
+  color:var(--muted);
+}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .contact-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+}
+
 </style>

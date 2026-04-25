@@ -1,17 +1,181 @@
-<section id="contacto" class="section cta">
+<section id="contacto" class="section cta-section">
   <div class="container">
-    <h2>¿Tu PC está lenta o necesitas software?</h2>
-    <p>Escríbenos y resolvemos hoy mismo.</p>
-    <a href="https://wa.me/50581088124" class="btn-primary">
-      Escribir por WhatsApp
-    </a>
+
+    <div class="cta-box">
+
+      <span class="badge">SOPORTE REMOTO INMEDIATO</span>
+
+      <h2>¿Tu PC está lenta o necesitas software?</h2>
+      <p class="cta-desc">
+        Escríbenos por WhatsApp y resolvemos hoy mismo.  
+        Instalación rápida, segura y 100% remota.
+      </p>
+
+      <a href="https://wa.me/50581088124" target="_blank" class="cta-button">
+        💬 Escribir por WhatsApp
+      </a>
+
+      <!-- PAGOS -->
+      <div class="payments">
+        <p class="pay-title">Métodos de pago</p>
+
+        <div class="banks">
+          <span class="bank">🏦 BANPRO</span>
+          <span class="bank">🏦 BAC</span>
+          <span class="bank">🏦 LAFISE</span>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <i class="fa-brands fa-cc-visa"></i>
+            <span>Visa</span>
+          </div>
+
+          <div class="card">
+            <i class="fa-brands fa-cc-mastercard"></i>
+            <span>Mastercard</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
 <style>
-.cta{
-  text-align:center;
-  background:linear-gradient(90deg,#00B3C9,#1ED6E6);
-  color:black;
+
+/* Fondo suave */
+.cta-section{
+  padding:110px 0;
+  background:
+    radial-gradient(circle at 20% 20%, #00B3C920 0%, transparent 40%),
+    radial-gradient(circle at 80% 80%, #1ED6E620 0%, transparent 40%);
 }
+
+/* Caja central */
+.cta-box{
+  max-width:780px;
+  margin:auto;
+  text-align:center;
+  padding:70px 50px;
+  border-radius:30px;
+  background:rgba(255,255,255,0.04);
+  backdrop-filter: blur(16px);
+  border:1px solid rgba(255,255,255,0.08);
+  box-shadow:0 30px 60px rgba(0,0,0,.35);
+  position:relative;
+  overflow:hidden;
+}
+
+.cta-box::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent,#00B3C940,transparent);
+  opacity:.5;
+}
+
+/* Badge */
+.badge{
+  display:inline-block;
+  padding:7px 18px;
+  border-radius:30px;
+  background:linear-gradient(90deg,#00B3C920,#1ED6E620);
+  color:var(--accent);
+  font-size:.75rem;
+  letter-spacing:.6px;
+  margin-bottom:18px;
+}
+
+.cta-box h2{
+  font-size:2.4rem;
+  margin-bottom:15px;
+}
+
+.cta-desc{
+  color:var(--muted);
+  font-size:1.1rem;
+  margin-bottom:35px;
+}
+
+/* BOTÓN */
+.cta-button{
+  display:inline-block;
+  padding:16px 34px;
+  border-radius:40px;
+  font-size:1.1rem;
+  font-weight:600;
+  text-decoration:none;
+  color:white;
+  background:linear-gradient(90deg,#00B3C9,#1ED6E6);
+  transition:.3s;
+  box-shadow:0 10px 30px #00b3c950;
+}
+
+.cta-button:hover{
+  transform:scale(1.08);
+  box-shadow:0 15px 40px #00b3c980;
+}
+
+/* PAGOS */
+.payments{
+  margin-top:40px;
+}
+
+.pay-title{
+  color:var(--muted);
+  font-size:.9rem;
+  margin-bottom:15px;
+}
+
+/* Bancos */
+.banks{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+
+.bank{
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:8px 16px;
+  border-radius:30px;
+  font-size:.85rem;
+}
+
+/* Tarjetas */
+.cards{
+  display:flex;
+  gap:15px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+
+.card{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.08);
+  padding:10px 18px;
+  border-radius:30px;
+  font-size:.9rem;
+}
+
+/* Iconos tarjetas */
+.card i{
+  font-size:1.6rem;
+}
+
+.fa-cc-visa{
+  color:#1A1F71;
+}
+
+.fa-cc-mastercard{
+  color:#EB001B;
+}
+
 </style>

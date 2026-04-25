@@ -1,4 +1,4 @@
-<section class="section">
+<section class="section software-section">
   <div class="container">
 
     <div class="section-header">
@@ -15,10 +15,12 @@
 
       <!-- FACTULITE -->
       <div class="card software-card">
-        <div class="software-icon">📱</div>
+        <div class="icon-wrap">
+          <div class="software-icon">📱</div>
+        </div>
 
-        <h3>FactuLite</h3>
         <span class="software-badge">Android App</span>
+        <h3>FactuLite</h3>
 
         <p>
           Aplicación móvil de facturación ideal para pequeños negocios,
@@ -32,22 +34,19 @@
           <li>✔ Instalación remota incluida</li>
         </ul>
 
-        <a 
-  href="https://factulite.net" 
-  target="_blank" 
-  rel="noopener noreferrer"
-  class="btn-primary"
->
-  Ver FactuLite
-</a>
+        <a href="https://factulite.net" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Ver FactuLite →
+        </a>
       </div>
 
       <!-- VIPERPOS -->
       <div class="card software-card">
-        <div class="software-icon">💻</div>
+        <div class="icon-wrap">
+          <div class="software-icon">💻</div>
+        </div>
 
-        <h3>ViperPOS</h3>
         <span class="software-badge">Sistema Web POS</span>
+        <h3>ViperPOS</h3>
 
         <p>
           Sistema profesional de facturación e inventario accesible desde
@@ -61,14 +60,9 @@
           <li>✔ Instalación y configuración online</li>
         </ul>
 
-        <a 
-  href="https://www.viperpos.net/" 
-  target="_blank" 
-  rel="noopener noreferrer"
-  class="btn-primary"
->
-  Ver ViperPOS
-</a>
+        <a href="https://www.viperpos.net/" target="_blank" rel="noopener noreferrer" class="btn-primary">
+          Ver ViperPOS →
+        </a>
       </div>
 
     </div>
@@ -77,46 +71,139 @@
 </section>
 
 <style>
-.section-header{
-  text-align:center;
-  max-width:700px;
-  margin:0 auto 60px;
+
+/* Fondo decorativo */
+.software-section{
+  position:relative;
+  background: radial-gradient(circle at 20% 10%, #00B3C910 0%, transparent 40%),
+              radial-gradient(circle at 80% 90%, #1ED6E610 0%, transparent 40%);
 }
 
+/* Header */
+.section-header{
+  text-align:center;
+  max-width:720px;
+  margin:0 auto 70px;
+}
+
+.section-header h2{
+  font-size:2.2rem;
+  margin-bottom:15px;
+}
+
+.section-header p{
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* Badge superior */
 .badge{
   display:inline-block;
   background:linear-gradient(90deg,#00B3C920,#1ED6E620);
   color:var(--accent);
-  padding:6px 14px;
+  padding:7px 18px;
   border-radius:30px;
-  font-size:.8rem;
-  margin-bottom:15px;
+  font-size:.75rem;
+  letter-spacing:.5px;
+  margin-bottom:18px;
 }
 
+/* Cards */
 .software-card{
   position:relative;
+  padding:40px 32px;
+  border-radius:20px;
+  background:rgba(255,255,255,0.03);
+  backdrop-filter: blur(12px);
+  border:1px solid rgba(255,255,255,0.06);
+  transition:.35s;
+  overflow:hidden;
+}
+
+.software-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,transparent, #00B3C920, transparent);
+  opacity:0;
+  transition:.4s;
+}
+
+.software-card:hover{
+  transform:translateY(-10px);
+  border:1px solid rgba(0,179,201,.35);
+  box-shadow:0 20px 40px rgba(0,0,0,.35);
+}
+
+.software-card:hover::before{
+  opacity:1;
+}
+
+/* Icono circular glow */
+.icon-wrap{
+  width:70px;
+  height:70px;
+  border-radius:50%;
+  background:linear-gradient(135deg,#00B3C930,#1ED6E630);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:20px;
+  box-shadow:0 0 25px #00b3c930;
 }
 
 .software-icon{
-  font-size:42px;
-  margin-bottom:15px;
+  font-size:32px;
 }
 
+/* Tipo de software */
 .software-badge{
   display:inline-block;
-  font-size:.8rem;
+  font-size:.75rem;
   color:var(--accent);
-  margin-bottom:12px;
+  margin-bottom:8px;
+  letter-spacing:.5px;
 }
 
+/* Textos */
+.software-card h3{
+  font-size:1.5rem;
+  margin-bottom:10px;
+}
+
+.software-card p{
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* Features */
 .features{
   list-style:none;
-  margin:20px 0 30px;
+  margin:25px 0 35px;
   padding:0;
 }
 
 .features li{
-  margin-bottom:8px;
+  margin-bottom:10px;
   color:var(--muted);
+  font-size:.95rem;
 }
+
+/* Botón */
+.btn-primary{
+  display:inline-block;
+  padding:12px 24px;
+  border-radius:30px;
+  text-decoration:none;
+  font-weight:600;
+  background:linear-gradient(90deg,var(--accent),#1ED6E6);
+  color:white;
+  transition:.3s;
+}
+
+.btn-primary:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 25px #00b3c950;
+}
+
 </style>
