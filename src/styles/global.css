@@ -228,3 +228,17 @@ a{
   position:relative;
   z-index:1;
 }
+
+/* ================= FIX NAVBAR ANCLAS ================= */
+section,
+[id]{
+  scroll-margin-top:110px;
+}
+
+/* pequeño offset extra para móviles */
+@media(max-width:768px){
+  section,
+  [id]{
+    scroll-margin-top:95px;
+  }
+}
