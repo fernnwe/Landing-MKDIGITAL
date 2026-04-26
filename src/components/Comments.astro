@@ -1,0 +1,49 @@
+---
+// Cambia esto por tu shortname de Disqus
+const disqusShortname = "mkdigital-1";
+---
+
+<section id="comentarios" class="comments">
+  <div class="container">
+    <h2>Comentarios de clientes</h2>
+    <p class="subtitle">
+      Mira lo que opinan nuestros clientes sobre nuestro soporte remoto.
+    </p>
+
+    <div id="disqus_thread"></div>
+  </div>
+</section>
+
+<script is:inline>
+  var disqus_config = function () {
+    this.page.url = window.location.href;
+    this.page.identifier = "mkdigital-home";
+  };
+
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://' + "mkdigital-1" + '.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+  })();
+</script>
+
+<style>
+.comments{
+  padding:120px 0;
+  background:#0b0b0b;
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+
+.comments h2{
+  text-align:center;
+  font-size:40px;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:50px;
+}
+</style>
