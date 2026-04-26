@@ -1,0 +1,115 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="software" id="software">
+  <div class="container">
+
+    <h2>Software que instalamos diariamente</h2>
+    <p class="subtitle">
+      Trabajamos con los programas más utilizados por estudiantes, empresas y profesionales.
+    </p>
+
+    <div class="logos">
+
+      <div class="logo-card">
+        <Icon name="mdi:microsoft-windows" />
+        <span>Windows</span>
+      </div>
+
+      <div class="logo-card">
+        <Icon name="mdi:microsoft-office" />
+        <span>Microsoft Office</span>
+      </div>
+
+      <div class="logo-card">
+        <Icon name="simple-icons:adobe" />
+        <span>Adobe</span>
+      </div>
+
+      <div class="logo-card">
+        <Icon name="simple-icons:autodesk" />
+        <span>AutoCAD</span>
+      </div>
+
+      <div class="logo-card">
+        <Icon name="simple-icons:sketchup" />
+        <span>SketchUp</span>
+      </div>
+
+      <div class="logo-card">
+        <Icon name="simple-icons:autodesk" />
+        <span>Revit</span>
+      </div>
+
+      <div class="logo-card">
+        <Icon name="mdi:cpu-64-bit" />
+        <span>Drivers</span>
+      </div>
+
+      <div class="logo-card">
+        <Icon name="mdi:shield-check" />
+        <span>Antivirus</span>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+.software{
+  padding:120px 0;
+  background:#0b0b0b;
+  border-top:1px solid rgba(255,255,255,0.05);
+}
+
+.software h2{
+  text-align:center;
+  font-size:42px;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  text-align:center;
+  color:var(--muted);
+  margin-bottom:70px;
+}
+
+.logos{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:30px;
+}
+
+.logo-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:20px;
+  padding:35px;
+  text-align:center;
+  transition:.3s;
+}
+
+.logo-card:hover{
+  transform:translateY(-6px);
+  border-color:var(--primary);
+}
+
+.logo-card svg{
+  width:50px;
+  height:50px;
+  color:var(--primary);
+  margin-bottom:15px;
+}
+
+.logo-card span{
+  display:block;
+  font-weight:600;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .logos{grid-template-columns:repeat(2,1fr);}
+}
+</style>

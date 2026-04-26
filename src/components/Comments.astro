@@ -1,29 +1,31 @@
 ---
-// Cambia esto por tu shortname de Disqus
 const disqusShortname = "mkdigital-1";
+const pageIdentifier = Astro.url.pathname;
+const pageUrl = Astro.url.href;
 ---
 
-<section id="comentarios" class="comments">
+<section class="comments">
   <div class="container">
     <h2>Comentarios de clientes</h2>
     <p class="subtitle">
-      Mira lo que opinan nuestros clientes sobre nuestro soporte remoto.
+      Lee experiencias reales de personas que han confiado en nuestro soporte remoto.
     </p>
 
     <div id="disqus_thread"></div>
   </div>
 </section>
 
-<script is:inline>
+<script is:inline define:vars={{ disqusShortname, pageIdentifier, pageUrl }}>
   var disqus_config = function () {
-    this.page.url = window.location.href;
-    this.page.identifier = "mkdigital-home";
+    this.page.url = pageUrl;
+    this.page.identifier = pageIdentifier;
   };
 
-  (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://' + "mkdigital-1" + '.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
+  (function () {
+    var d = document, s = d.createElement("script");
+    s.src = "https://" + disqusShortname + ".disqus.com/embed.js";
+    s.setAttribute("data-timestamp", +new Date());
+    s.async = true;
     (d.head || d.body).appendChild(s);
   })();
 </script>
@@ -45,4 +47,8 @@ const disqusShortname = "mkdigital-1";
   text-align:center;
   color:var(--muted);
   margin-bottom:50px;
+  max-width:600px;
+  margin-left:auto;
+  margin-right:auto;
 }
+</style>
