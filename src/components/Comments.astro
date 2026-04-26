@@ -1,6 +1,6 @@
 ---
 const disqusShortname = "mkdigital-1";
-const pageIdentifier = Astro.url.pathname;
+const pageIdentifier = Astro.url.pathname; 
 const pageUrl = Astro.url.href;
 ---
 
@@ -15,16 +15,16 @@ const pageUrl = Astro.url.href;
   </div>
 </section>
 
-<script is:inline define:vars={{ disqusShortname, pageIdentifier, pageUrl }}>
+<script is:inline define:vars={{ pageUrl, pageIdentifier }}>
   var disqus_config = function () {
     this.page.url = pageUrl;
     this.page.identifier = pageIdentifier;
   };
 
-  (function () {
-    var d = document, s = d.createElement("script");
-    s.src = "https://" + disqusShortname + ".disqus.com/embed.js";
-    s.setAttribute("data-timestamp", +new Date());
+  (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://mkdigital-1.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
     s.async = true;
     (d.head || d.body).appendChild(s);
   })();
