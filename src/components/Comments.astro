@@ -1,49 +1,105 @@
 ---
-// Cambia esto por tu shortname de Disqus
 const disqusShortname = "mkdigital-1";
 ---
 
 <section id="comentarios" class="comments">
   <div class="container">
-    <h2>Comentarios de clientes</h2>
+
+    <span class="badge">TESTIMONIOS</span>
+    <h2>Opiniones reales de clientes</h2>
+
     <p class="subtitle">
-      Mira lo que opinan nuestros clientes sobre nuestro soporte remoto.
+      Más de <strong>500 instalaciones remotas realizadas</strong> en toda Nicaragua.
+      Lee experiencias reales o deja tu comentario.
     </p>
 
-    <div id="disqus_thread"></div>
+    <!-- Tarjeta contenedora -->
+    <div class="disqus-card">
+      <div id="disqus_thread"></div>
+    </div>
+
   </div>
 </section>
 
 <script is:inline>
-  var disqus_config = function () {
-    this.page.url = window.location.href;
-    this.page.identifier = "mkdigital-home";
-  };
+  // Lazy load para que Disqus no ralentice la web
+  const loadDisqus = () => {
+    if (window.disqusLoaded) return;
+    window.disqusLoaded = true;
 
-  (function() {
-    var d = document, s = d.createElement('script');
+    var disqus_config = function () {
+      this.page.url = window.location.href;
+      this.page.identifier = "mkdigital-home";
+    };
+
+    const d = document, s = d.createElement('script');
     s.src = 'https://' + "mkdigital-1" + '.disqus.com/embed.js';
     s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-  })();
+    d.body.appendChild(s);
+  };
+
+  // Cargar cuando el usuario llegue a la sección
+  const observer = new IntersectionObserver(entries => {
+    if(entries[0].isIntersecting){
+      loadDisqus();
+      observer.disconnect();
+    }
+  });
+
+  observer.observe(document.querySelector("#comentarios"));
 </script>
 
 <style>
 .comments{
-  padding:120px 0;
+  padding:130px 0;
   background:#0b0b0b;
   border-top:1px solid rgba(255,255,255,0.05);
+  text-align:center;
 }
 
+/* Badge */
+.badge{
+  display:inline-block;
+  padding:8px 18px;
+  border-radius:30px;
+  background:linear-gradient(90deg,#00B3C920,#1ED6E620);
+  color:var(--primary);
+  font-size:.75rem;
+  letter-spacing:.6px;
+}
+
+/* Title */
 .comments h2{
-  text-align:center;
-  font-size:40px;
-  margin-bottom:10px;
+  font-size:44px;
+  margin:18px 0 10px;
 }
 
+/* Subtitle */
 .subtitle{
-  text-align:center;
   color:var(--muted);
-  margin-bottom:50px;
+  max-width:650px;
+  margin:0 auto 60px;
+  font-size:18px;
+}
+
+/* Tarjeta contenedora */
+.disqus-card{
+  background:rgba(255,255,255,0.03);
+  padding:35px;
+  border-radius:22px;
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(12px);
+  box-shadow:0 25px 60px rgba(0,0,0,.4);
+}
+
+/* Widget spacing */
+#disqus_thread{
+  margin-top:10px;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .comments h2{font-size:32px}
+  .subtitle{font-size:16px}
 }
 </style>
