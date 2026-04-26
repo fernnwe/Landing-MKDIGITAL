@@ -1,0 +1,204 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="section anydesk">
+  <div class="container anydesk-grid">
+
+    <!-- TEXTO -->
+    <div class="anydesk-text">
+      <span class="badge">CONEXIÓN REMOTA SEGURA</span>
+      <h2>¿Cómo descargar AnyDesk?</h2>
+
+      <p class="desc">
+        Para comenzar el soporte remoto solo necesitas descargar
+        AnyDesk. No requiere instalación y tarda menos de 1 minuto.
+      </p>
+
+      <div class="steps">
+
+        <div class="step">
+          <div class="num">1</div>
+          <div>
+            <h4>Descargar</h4>
+            <p>Haz clic en el botón y descarga AnyDesk desde la web oficial.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">2</div>
+          <div>
+            <h4>Abrir el archivo</h4>
+            <p>Abre el programa descargado. No necesitas instalar nada.</p>
+          </div>
+        </div>
+
+        <div class="step">
+          <div class="num">3</div>
+          <div>
+            <h4>Enviar tu ID</h4>
+            <p>Envíanos el número que aparece y comenzamos el soporte.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <a href="https://anydesk.com/es" target="_blank" class="download-btn">
+        <Icon name="mdi:download" />
+        Descargar AnyDesk
+      </a>
+
+      <!-- NUEVO BLOQUE VIDEO -->
+      <div class="video-help">
+        <Icon name="mdi:play-circle-outline" />
+        <p>¿Tienes problemas descargando o abriendo AnyDesk?</p>
+        <a href="https://drive.google.com/file/d/17cp_besLdN9NnNC1BpB9ox5oZVscdHLS/view?usp=sharing" target="_blank">
+          Ver video tutorial paso a paso
+        </a>
+      </div>
+
+    </div>
+
+    <!-- TARJETA VISUAL -->
+    <div class="anydesk-card">
+      <div class="card-glow"></div>
+
+      <div class="card">
+        <Icon name="simple-icons:anydesk" class="anydesk-icon" />
+        <h3>Soporte remoto seguro</h3>
+        <p>Conexión cifrada y control total del proceso en tiempo real.</p>
+
+        <div class="features">
+          <span>✔ No requiere instalación</span>
+          <span>✔ Conexión segura</span>
+          <span>✔ Rápido y ligero</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.anydesk-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:70px;
+  align-items:center;
+}
+
+.desc{
+  color:var(--muted);
+  margin:15px 0 30px;
+  font-size:1.1rem;
+}
+
+.steps{
+  display:flex;
+  flex-direction:column;
+  gap:20px;
+  margin-bottom:30px;
+}
+
+.step{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+}
+
+.num{
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  background:linear-gradient(120deg,#00B3C9,#1ED6E6);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:bold;
+}
+
+.download-btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:15px 30px;
+  border-radius:40px;
+  text-decoration:none;
+  color:white;
+  font-weight:600;
+  background:linear-gradient(90deg,#00B3C9,#1ED6E6);
+  box-shadow:0 10px 30px #00b3c950;
+  transition:.3s;
+}
+
+.download-btn:hover{ transform:scale(1.07); }
+
+/* BLOQUE VIDEO */
+.video-help{
+  margin-top:25px;
+  padding:18px;
+  border-radius:18px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.video-help svg{
+  width:28px;
+  height:28px;
+  color:#ff4d4d;
+}
+
+.video-help p{ color:var(--muted); }
+
+.video-help a{
+  color:var(--primary);
+  font-weight:600;
+  text-decoration:none;
+}
+
+/* CARD */
+.anydesk-card{ position:relative; }
+.card-glow{
+  position:absolute;
+  inset:-20px;
+  background:linear-gradient(120deg,#00B3C9,#1ED6E6);
+  filter:blur(80px);
+  opacity:.35;
+}
+
+.card{
+  position:relative;
+  text-align:center;
+  padding:45px;
+  border-radius:25px;
+  background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,0.08);
+}
+
+.anydesk-icon{
+  width:60px;
+  height:60px;
+  margin-bottom:15px;
+  color:#ff4d4d;
+}
+
+.features{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-top:15px;
+  color:var(--muted);
+}
+
+@media(max-width:900px){
+  .anydesk-grid{
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+  .step{ justify-content:center; }
+}
+</style>
