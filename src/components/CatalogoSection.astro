@@ -1,303 +1,155 @@
 ---
 import { Icon } from "astro-icon/components";
+
+const productos = [
+  {nombre:"Office 2021 Pro Plus", precio:"C$350", cat:"microsoft", icon:"mdi:microsoft-office"},
+  {nombre:"Office 2024 Pro Plus", precio:"C$400", cat:"microsoft", icon:"mdi:microsoft-office", badge:"Más vendido"},
+  {nombre:"Nitro Pro PDF", precio:"C$400", cat:"microsoft", icon:"mdi:file-pdf-box"},
+
+  {nombre:"Pack Adobe (3 Apps)", precio:"C$1,000", cat:"adobe", icon:"mdi:adobe"},
+  {nombre:"Pack Adobe (7 Apps)", precio:"C$2,000", cat:"adobe", icon:"mdi:adobe", badge:"Más vendido"},
+  {nombre:"Pack Adobe (10 Apps)", precio:"C$3,100", cat:"adobe", icon:"mdi:adobe"},
+  {nombre:"Photoshop + Illustrator", precio:"C$700", cat:"adobe", icon:"mdi:palette"},
+  {nombre:"Adobe Acrobat", precio:"C$400", cat:"adobe", icon:"mdi:file-pdf-box"},
+
+  {nombre:"AutoCAD 2026", precio:"C$500", cat:"autodesk", icon:"mdi:ruler-square", badge:"Más vendido"},
+  {nombre:"AutoCAD LT", precio:"C$750", cat:"autodesk", icon:"mdi:ruler"},
+  {nombre:"Revit / Civil 3D", precio:"C$1,000", cat:"autodesk", icon:"mdi:office-building"},
+  {nombre:"3DS Max", precio:"C$750", cat:"autodesk", icon:"mdi:cube"},
+  {nombre:"Sketchup Pro", precio:"C$500", cat:"autodesk", icon:"mdi:home-city"},
+  {nombre:"VRay", precio:"C$500", cat:"autodesk", icon:"mdi:blur"},
+
+  {nombre:"Malwarebytes Premium", precio:"C$500", cat:"seguridad", icon:"mdi:shield-check"},
+  {nombre:"Avast Premium", precio:"C$500", cat:"seguridad", icon:"mdi:shield-check"},
+
+  {nombre:"CorelDraw", precio:"C$500", cat:"otros", icon:"mdi:palette"},
+  {nombre:"FL Studio 25", precio:"C$750", cat:"otros", icon:"mdi:music"},
+
+  {nombre:"FactuLite Android", precio:"Consultar", cat:"servicios", icon:"mdi:cellphone", badge:"Producto Alphatech"},
+  {nombre:"ViperPOS Sistema Web", precio:"Consultar", cat:"servicios", icon:"mdi:web", badge:"Producto Alphatech"},
+  {nombre:"Sistema Facturación Windows", precio:"Consultar", cat:"servicios", icon:"mdi:monitor-dashboard", badge:"Producto propio"},
+
+  {nombre:"Optimización PC", precio:"C$800", cat:"servicios", icon:"mdi:cog"},
+  {nombre:"Instalación Drivers", precio:"C$1,600", cat:"servicios", icon:"mdi:gpu"},
+];
 ---
 
 <section class="catalogo">
   <div class="container">
     <h2>Catálogo de Software</h2>
-    <p class="subtitle">
-      Atención rápida • Activación remota • 1 semana de garantia
-    </p>
+    <p class="subtitle">Activación remota • Garantía • Soporte</p>
+
+    <input id="search" class="search" placeholder="Buscar programa..." />
+
+    <div class="filters">
+      <button onclick="filtrar('all')">Todos</button>
+      <button onclick="filtrar('microsoft')">Microsoft</button>
+      <button onclick="filtrar('adobe')">Adobe</button>
+      <button onclick="filtrar('autodesk')">Autodesk</button>
+      <button onclick="filtrar('seguridad')">Seguridad</button>
+      <button onclick="filtrar('servicios')">Servicios</button>
+    </div>
 
     <div class="grid">
-
-      <!-- OFFICE -->
-      <div class="card">
-        <span class="badge hot">Promoción</span>
-        <Icon name="mdi:microsoft-windows" class="icon microsoft" />
-        <h3>Office 2021 Pro Plus</h3>
-        <p class="desc">Word, Excel, PowerPoint, Outlook y más.</p>
-        <div class="price">C$350</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <span class="badge hot">Más vendido</span>
-        <Icon name="mdi:microsoft-windows" class="icon microsoft" />
-        <h3>Office 2024 Pro Plus</h3>
-        <div class="price">C$400</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <!-- ADOBE -->
-      <div class="card">
-        <span class="badge hot">Más vendido</span>
-        <Icon name="mdi:adobe" class="icon adobe" />
-        <h3>Pack Adobe (3 Apps)</h3>
-        <div class="price">C$1,000</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <span class="badge hot">Más vendido</span>
-        <Icon name="mdi:adobe" class="icon adobe" />
-        <h3>Pack Adobe (7 Apps)</h3>
-        <div class="price">C$2,000</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <span class="badge hot">Más vendido</span>
-        <Icon name="mdi:adobe" class="icon adobe" />
-        <h3>Pack Adobe (10 Apps)</h3>
-        <div class="price">C$3,100</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <span class="badge hot">Promoción</span>
-        <Icon name="mdi:adobe" class="icon adobe" />
-        <h3>Photoshop + Illustrator</h3>
-        <div class="price">C$700</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <span class="badge hot">más vendido</span>
-        <Icon name="mdi:file-pdf-box" class="icon adobe" />
-        <h3>Adobe Acrobat PDF</h3>
-        <div class="price">C$400</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <!-- AUTODESK -->
-      <div class="card">
-        <span class="badge hot">Más vendido</span>
-        <Icon name="mdi:ruler-square" class="icon autodesk" />
-        <h3>AutoCAD 2026</h3>
-        <div class="price">C$500</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <Icon name="mdi:ruler-square" class="icon autodesk" />
-        <h3>AutoCAD LT 2027</h3>
-        <div class="price">C$750</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <span class="badge hot">más vendido</span>
-        <Icon name="mdi:ruler-square" class="icon autodesk" />
-        <h3>Revit / Civil 3D</h3>
-        <div class="price">C$1,000</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <Icon name="mdi:cube" class="icon autodesk" />
-        <h3>Autodesk 3DS Max</h3>
-        <div class="price">C$750</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <Icon name="mdi:home-analytics" class="icon autodesk" />
-        <h3>Chaos Enscape</h3>
-        <div class="price">C$700</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <span class="badge hot">más vendido</span>
-        <Icon name="mdi:home-city" class="icon autodesk" />
-        <h3>Sketchup Pro</h3>
-        <div class="price">C$500</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <Icon name="mdi:road-variant" class="icon autodesk" />
-        <h3>CivilCAD</h3>
-        <div class="price">C$500</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <Icon name="mdi:blur" class="icon autodesk" />
-        <h3>VRay</h3>
-        <div class="price">C$500</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <!-- OTROS -->
-      <div class="card">
-        <span class="badge hot">más vendido</span>
-        <Icon name="mdi:palette" class="icon adobe" />
-        <h3>CorelDraw</h3>
-        <div class="price">C$500</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <Icon name="mdi:music" class="icon pos" />
-        <h3>FL Studio 25</h3>
-        <div class="price">C$750</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <span class="badge hot">más vendido</span>
-        <Icon name="mdi:file-document" class="icon microsoft" />
-        <h3>Nitro Pro PDF</h3>
-        <div class="price">C$400</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <Icon name="mdi:shield-check" class="icon avast" />
-        <h3>Malwarebytes Premium</h3>
-        <div class="price">C$500</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <span class="badge hot">más vendido</span>
-        <Icon name="mdi:shield-check" class="icon avast" />
-        <h3>Avast Premium</h3>
-        <div class="price">C$500</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <Icon name="mdi:cog" class="icon pos" />
-        <h3>Optimización de PC</h3>
-        <div class="price">C$800</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card">
-        <Icon name="mdi:gpu" class="icon pos" />
-        <h3>Instalación Drivers + GPU</h3>
-        <div class="price">C$1,600</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn"><Icon name="mdi:whatsapp"/> Comprar</a>
-      </div>
-
-      <div class="card highlight">
-        <span class="badge hot">Oferta</span>
-        <Icon name="mdi:web" class="icon pos" />
-        <h3>Landing Page Profesional</h3>
-        <p class="desc">Diseño y desarrollo a medida</p>
-        <div class="price">Desde C$9,250</div>
-        <a href="https://wa.me/50581088124" target="_blank" class="btn big">Solicitar</a>
-      </div>
-
+      {productos.map(p => (
+        <div class={`card ${p.cat}`}>
+          {p.badge && <span class={`badge ${p.badge.includes("propio") ? "own" : "hot"}`}>{p.badge}</span>}
+          <Icon name={p.icon} class={`icon ${p.cat}`} />
+          <h3>{p.nombre}</h3>
+          <div class="price">{p.precio}</div>
+          <a href="https://wa.me/50581088124" target="_blank" class="btn">
+            <Icon name="mdi:whatsapp"/> Comprar ahora
+          </a>
+        </div>
+      ))}
     </div>
   </div>
 </section>
 
+<script is:inline>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const cards = document.querySelectorAll(".card");
+  const searchInput = document.getElementById("search");
+
+  window.filtrar = (cat)=>{
+    cards.forEach(card=>{
+      if(cat === "all" || card.classList.contains(cat)){
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  }
+
+  searchInput.addEventListener("keyup", e=>{
+    const text = e.target.value.toLowerCase();
+    cards.forEach(card=>{
+      card.style.display = card.innerText.toLowerCase().includes(text)
+        ? "block"
+        : "none";
+    });
+  });
+
+});
+</script>
+
 <style>
 .catalogo{
   padding:120px 0;
-  background: radial-gradient(circle at top,#0b0b0b,#050505);
+  background: radial-gradient(circle at top,#0a0a0a,#040404);
 }
-
-/* TITULO */
 .catalogo h2{
   text-align:center;
   font-size:46px;
-  margin-bottom:10px;
   background:linear-gradient(90deg,#00ffa6,#00c3ff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
+.subtitle{ text-align:center;color:#9a9a9a;margin-bottom:50px; }
 
-.subtitle{
-  text-align:center;
-  color:#aaa;
-  margin-bottom:70px;
+.search{
+  width:100%; padding:18px; border-radius:14px;
+  background:#0f0f0f; border:1px solid #262626; color:#fff;
+  margin:25px 0 35px;
 }
 
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
-  gap:35px;
+.filters{ display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:50px; }
+.filters button{
+  padding:10px 20px;border-radius:25px;border:1px solid #262626;
+  background:#0e0e0e;color:#ddd;cursor:pointer;font-weight:600;
 }
+.filters button:hover{ background:#00ffa6;color:#000; }
 
-/* CARD */
+.grid{ display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:35px; }
+
 .card{
   position:relative;
   background:rgba(255,255,255,0.03);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
   border:1px solid rgba(255,255,255,.08);
-  padding:35px;
-  border-radius:22px;
-  text-align:center;
-  transition:.35s;
+  padding:35px;border-radius:24px;text-align:center;transition:.4s;
 }
+.card:hover{ transform:translateY(-12px); border-color:#00ffa6; box-shadow:0 0 35px rgba(0,255,166,.2); }
 
-.card:hover{
-  transform:translateY(-12px);
-  border-color:#00ffa6;
-  box-shadow:0 0 35px rgba(0,255,166,.18);
-}
+.badge{ position:absolute;top:15px;right:15px;font-size:12px;padding:6px 12px;border-radius:20px;font-weight:700; }
+.hot{ background:linear-gradient(90deg,#ff4d4d,#ff9a00);color:#fff; }
+.own{ background:#00ffa6;color:#000; }
 
-.highlight{
-  border:1px solid #00ffa6;
-  box-shadow:0 0 25px rgba(0,255,166,.2);
-}
+.icon{ font-size:52px;margin-bottom:18px; }
+.microsoft{color:#0078D4}
+.adobe{color:#ff0000}
+.autodesk{color:#2ecc71}
+.seguridad{color:#ff7800}
+.servicios{color:#00ffa6}
 
-/* ICON BASE */
-.icon{
-  font-size:48px;
-  margin-bottom:18px;
-}
+.price{ font-size:34px;font-weight:800;color:#00ffa6;margin:18px 0 25px; }
 
-/* COLORES REALES */
-.microsoft{ color:#0078D4; }
-.adobe{ color:#FF0000; }
-.autodesk{ color:#2ecc71; }
-.avast{ color:#ff7800; }
-.pos{ color:#00ffa6; }
-
-/* TEXT */
-.card h3{ font-size:22px; margin-bottom:10px; }
-.desc{ font-size:14px; color:#aaa; margin-bottom:20px; }
-.price{ font-size:38px; font-weight:800; margin-bottom:25px; color:#00ffa6; }
-
-/* BUTTON */
 .btn{
-  display:inline-flex;
-  gap:8px;
-  align-items:center;
-  justify-content:center;
-  padding:12px 22px;
-  border-radius:12px;
+  display:inline-flex;gap:8px;align-items:center;justify-content:center;
+  padding:13px 22px;border-radius:12px;
   background:linear-gradient(90deg,#00ffa6,#00c3ff);
-  color:#000;
-  font-weight:700;
-  text-decoration:none;
-  transition:.3s;
+  color:#000;font-weight:800;text-decoration:none;
 }
-.btn:hover{ transform:scale(1.07); }
-
-/* BADGES */
-.badge{
-  position:absolute;
-  top:15px;
-  right:15px;
-  font-size:12px;
-  padding:6px 12px;
-  border-radius:20px;
-  font-weight:700;
-}
-
-.badge.hot{
-  background:linear-gradient(90deg,#ff4d4d,#ff9a00);
-  color:#fff;
-}
-.badge.green{
-  background:#00ffa6;
-  color:#000;
-}
+.btn:hover{ transform:scale(1.08); box-shadow:0 0 20px rgba(0,255,166,.4); }
 </style>
