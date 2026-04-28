@@ -1,68 +1,68 @@
 ---
-import { Icon } from "astro-icon/components";
-
 const productos = [
-  {nombre:"Office 2021 Pro Plus", precio:"C$350", cat:"microsoft", icon:"mdi:microsoft-office"},
-  {nombre:"Office 2024 Pro Plus", precio:"C$400", cat:"microsoft", icon:"mdi:microsoft-office", badge:"Más vendido"},
-  {nombre:"Nitro Pro PDF", precio:"C$400", cat:"microsoft", icon:"mdi:file-pdf-box"},
 
-  {nombre:"Pack Adobe (3 Apps)", precio:"C$1,000", cat:"adobe", icon:"mdi:adobe"},
-  {nombre:"Pack Adobe (7 Apps)", precio:"C$2,000", cat:"adobe", icon:"mdi:adobe", badge:"Más vendido"},
-  {nombre:"Pack Adobe (10 Apps)", precio:"C$3,100", cat:"adobe", icon:"mdi:adobe"},
-  {nombre:"Photoshop + Illustrator", precio:"C$700", cat:"adobe", icon:"mdi:palette"},
-  {nombre:"Adobe Acrobat", precio:"C$400", cat:"adobe", icon:"mdi:file-pdf-box"},
+{nombre:"Office 2024 Professional Plus", precio:"C$400", cat:"microsoft", img:"/productos/office2024.png", badge:"top"},
+{nombre:"Office 2021 Professional Plus", precio:"C$350", cat:"microsoft", img:"/productos/office2021.png"},
+{nombre:"Windows 10 Pro", precio:"C$300", cat:"microsoft", img:"/productos/windows10.png"},
+{nombre:"Windows 11 Pro", precio:"C$350", cat:"microsoft", img:"/productos/windows11.png"},
 
-  {nombre:"AutoCAD 2026", precio:"C$500", cat:"autodesk", icon:"mdi:ruler-square", badge:"Más vendido"},
-  {nombre:"AutoCAD LT", precio:"C$750", cat:"autodesk", icon:"mdi:ruler"},
-  {nombre:"Revit / Civil 3D", precio:"C$1,000", cat:"autodesk", icon:"mdi:office-building"},
-  {nombre:"3DS Max", precio:"C$750", cat:"autodesk", icon:"mdi:cube"},
-  {nombre:"Sketchup Pro", precio:"C$500", cat:"autodesk", icon:"mdi:home-city"},
-  {nombre:"VRay", precio:"C$500", cat:"autodesk", icon:"mdi:blur"},
+{nombre:"Pack Adobe (3 Apps)", precio:"C$1,000", cat:"adobe", img:"/productos/adobe.jpg", badge:"top"},
+{nombre:"Pack Adobe (7 Apps)", precio:"C$2,000", cat:"adobe", img:"/productos/adobe.jpg"},
+{nombre:"Adobe Acrobat", precio:"C$400", cat:"adobe", img:"/productos/acrobat.png"},
 
-  {nombre:"Malwarebytes Premium", precio:"C$500", cat:"seguridad", icon:"mdi:shield-check"},
-  {nombre:"Avast Premium", precio:"C$500", cat:"seguridad", icon:"mdi:shield-check"},
+{nombre:"AutoCAD 2026", precio:"C$500", cat:"autodesk", img:"/productos/autocad.png", badge:"top"},
+{nombre:"Revit 2026", precio:"C$1,000", cat:"autodesk", img:"/productos/revit.png"},
 
-  {nombre:"CorelDraw", precio:"C$500", cat:"otros", icon:"mdi:palette"},
-  {nombre:"FL Studio 25", precio:"C$750", cat:"otros", icon:"mdi:music"},
+{nombre:"Avast Premium", precio:"C$500", cat:"seguridad", img:"/productos/avast.png"},
 
-  {nombre:"FactuLite Android", precio:"Consultar", cat:"servicios", icon:"mdi:cellphone", badge:"Producto Alphatech"},
-  {nombre:"ViperPOS Sistema Web", precio:"Consultar", cat:"servicios", icon:"mdi:web", badge:"Producto Alphatech"},
-  {nombre:"Sistema Facturación Windows", precio:"Consultar", cat:"servicios", icon:"mdi:monitor-dashboard", badge:"Producto propio"},
+{nombre:"FactuLite Android", precio:"Consultar", cat:"servicios", img:"/productos/factulite.png", badge:"own"},
+{nombre:"ViperPOS Sistema Web", precio:"Consultar", cat:"servicios", img:"/productos/viperpos.png", badge:"own"},
+{nombre:"Sistema Facturación Windows", precio:"Consultar", cat:"servicios", img:"/productos/facturacion.png", badge:"top"},
 
-  {nombre:"Optimización PC", precio:"C$800", cat:"servicios", icon:"mdi:cog"},
-  {nombre:"Instalación Drivers", precio:"C$1,600", cat:"servicios", icon:"mdi:gpu"},
 ];
 ---
 
 <section class="catalogo">
   <div class="container">
-    <h2>Catálogo de Software</h2>
-    <p class="subtitle">Activación remota • Garantía • Soporte</p>
 
-    <input id="search" class="search" placeholder="Buscar programa..." />
+    <h2>Catálogo de Licencias Digitales</h2>
+    <p class="subtitle">Entrega inmediata • Activación remota • Garantía incluida</p>
+
+    <input id="search" class="search" placeholder="🔎 Buscar producto..." />
 
     <div class="filters">
-      <button onclick="filtrar('all')">Todos</button>
-      <button onclick="filtrar('microsoft')">Microsoft</button>
-      <button onclick="filtrar('adobe')">Adobe</button>
-      <button onclick="filtrar('autodesk')">Autodesk</button>
-      <button onclick="filtrar('seguridad')">Seguridad</button>
-      <button onclick="filtrar('servicios')">Servicios</button>
+      <button class="active" onclick="filtrar('all', this)">Todos</button>
+      <button onclick="filtrar('microsoft', this)">Microsoft</button>
+      <button onclick="filtrar('adobe', this)">Adobe</button>
+      <button onclick="filtrar('autodesk', this)">Autodesk</button>
+      <button onclick="filtrar('seguridad', this)">Seguridad</button>
+      <button onclick="filtrar('servicios', this)">Facturación</button>
     </div>
 
-    <div class="grid">
+    <div class="grid" id="grid">
       {productos.map(p => (
-        <div class={`card ${p.cat}`}>
-          {p.badge && <span class={`badge ${p.badge.includes("propio") ? "own" : "hot"}`}>{p.badge}</span>}
-          <Icon name={p.icon} class={`icon ${p.cat}`} />
+        <div class={`card ${p.cat}`} data-name={p.nombre.toLowerCase()}>
+
+          <div class="badges">
+            {p.badge === "top" && <span class="badge hot">🔥 MÁS VENDIDO</span>}
+            {p.badge === "own" && <span class="badge own">⭐ Producto de Alphatech</span>}
+          </div>
+
+          <div class="img-box">
+            <img src={p.img} alt={p.nombre} loading="lazy"/>
+          </div>
+
           <h3>{p.nombre}</h3>
           <div class="price">{p.precio}</div>
+
           <a href="https://wa.me/50581088124" target="_blank" class="btn">
-            <Icon name="mdi:whatsapp"/> Comprar ahora
+            Comprar por WhatsApp
           </a>
+
         </div>
       ))}
     </div>
+
   </div>
 </section>
 
@@ -71,85 +71,178 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const cards = document.querySelectorAll(".card");
   const searchInput = document.getElementById("search");
+  const buttons = document.querySelectorAll(".filters button");
 
-  window.filtrar = (cat)=>{
-    cards.forEach(card=>{
-      if(cat === "all" || card.classList.contains(cat)){
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
-      }
-    });
+  let categoriaActual = "all";
+
+  window.filtrar = (cat, btn) => {
+    categoriaActual = cat;
+    buttons.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    aplicarFiltros();
   }
 
-  searchInput.addEventListener("keyup", e=>{
-    const text = e.target.value.toLowerCase();
-    cards.forEach(card=>{
-      card.style.display = card.innerText.toLowerCase().includes(text)
-        ? "block"
-        : "none";
+  searchInput.addEventListener("keyup", aplicarFiltros);
+
+  function aplicarFiltros(){
+    const texto = searchInput.value.toLowerCase();
+
+    cards.forEach(card => {
+      const coincideBusqueda = card.dataset.name.includes(texto);
+      const coincideCategoria =
+        categoriaActual === "all" || card.classList.contains(categoriaActual);
+
+      card.style.display = (coincideBusqueda && coincideCategoria) ? "flex" : "none";
     });
-  });
+  }
 
 });
 </script>
 
 <style>
 .catalogo{
-  padding:120px 0;
-  background: radial-gradient(circle at top,#0a0a0a,#040404);
+  padding:130px 0;
+  background:linear-gradient(180deg,#f6f8fb,#eef1f6);
 }
+
 .catalogo h2{
   text-align:center;
   font-size:46px;
-  background:linear-gradient(90deg,#00ffa6,#00c3ff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  color:#1a1a1a;
+  font-weight:800;
 }
-.subtitle{ text-align:center;color:#9a9a9a;margin-bottom:50px; }
+
+.subtitle{
+  text-align:center;
+  color:#666;
+  margin-bottom:50px;
+  font-size:18px;
+}
 
 .search{
-  width:100%; padding:18px; border-radius:14px;
-  background:#0f0f0f; border:1px solid #262626; color:#fff;
-  margin:25px 0 35px;
+  width:100%;
+  padding:18px;
+  border-radius:14px;
+  border:1px solid #ddd;
+  margin-bottom:35px;
+  font-size:16px;
+  box-shadow:0 5px 15px rgba(0,0,0,.05);
 }
 
-.filters{ display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:50px; }
+.filters{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  justify-content:center;
+  margin-bottom:50px;
+}
+
 .filters button{
-  padding:10px 20px;border-radius:25px;border:1px solid #262626;
-  background:#0e0e0e;color:#ddd;cursor:pointer;font-weight:600;
+  padding:10px 22px;
+  border-radius:30px;
+  border:1px solid #ddd;
+  background:#fff;
+  cursor:pointer;
+  font-weight:700;
+  transition:.3s;
 }
-.filters button:hover{ background:#00ffa6;color:#000; }
 
-.grid{ display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:35px; }
+.filters button.active,
+.filters button:hover{
+  background:#32c24d;
+  color:#fff;
+  border-color:#32c24d;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  gap:35px;
+}
 
 .card{
   position:relative;
-  background:rgba(255,255,255,0.03);
-  backdrop-filter: blur(16px);
-  border:1px solid rgba(255,255,255,.08);
-  padding:35px;border-radius:24px;text-align:center;transition:.4s;
+  background:#fff;
+  border-radius:22px;
+  padding:28px;
+  text-align:center;
+  box-shadow:0 15px 35px rgba(0,0,0,.08);
+  transition:.4s;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  min-height:440px;
 }
-.card:hover{ transform:translateY(-12px); border-color:#00ffa6; box-shadow:0 0 35px rgba(0,255,166,.2); }
 
-.badge{ position:absolute;top:15px;right:15px;font-size:12px;padding:6px 12px;border-radius:20px;font-weight:700; }
-.hot{ background:linear-gradient(90deg,#ff4d4d,#ff9a00);color:#fff; }
-.own{ background:#00ffa6;color:#000; }
+.card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 25px 60px rgba(0,0,0,.15);
+}
 
-.icon{ font-size:52px;margin-bottom:18px; }
-.microsoft{color:#0078D4}
-.adobe{color:#ff0000}
-.autodesk{color:#2ecc71}
-.seguridad{color:#ff7800}
-.servicios{color:#00ffa6}
+.badges{
+  position:absolute;
+  top:18px;
+  left:18px;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
 
-.price{ font-size:34px;font-weight:800;color:#00ffa6;margin:18px 0 25px; }
+.badge{
+  font-size:11px;
+  padding:7px 14px;
+  border-radius:30px;
+  font-weight:800;
+  letter-spacing:.5px;
+}
+
+.hot{ background:#32c24d; color:#fff; }
+.own{ background:#ffd84d; color:#000; }
+
+.img-box{
+  height:170px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:20px;
+}
+
+.img-box img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  transition:.4s;
+}
+
+.card:hover img{
+  transform:scale(1.08);
+}
+
+.card h3{
+  font-size:19px;
+  color:#333;
+  min-height:55px;
+}
+
+.price{
+  font-size:34px;
+  font-weight:900;
+  color:#32c24d;
+  margin:18px 0;
+}
 
 .btn{
-  display:inline-flex;gap:8px;align-items:center;justify-content:center;
-  padding:13px 22px;border-radius:12px;
-  background:linear-gradient(90deg,#00ffa6,#00c3ff);
-  color:#000;font-weight:800;text-decoration:none;
+  background:linear-gradient(135deg,#32c24d,#28a63f);
+  color:#fff;
+  padding:14px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:800;
+  transition:.3s;
 }
-.btn:hover{ transform:scale(1.08); box-shadow:0 0 20px rgba(0,255,166,.4); }
+
+.btn:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
 </style>
