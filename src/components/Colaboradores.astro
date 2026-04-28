@@ -18,7 +18,6 @@ import { Icon } from "astro-icon/components";
 
       <!-- CEO -->
       <div class="team-card ceo">
-
         <span class="ceo-badge">CEO</span>
 
         <div class="avatar">
@@ -46,8 +45,8 @@ import { Icon } from "astro-icon/components";
 
         <div class="skills">
           <span>Instalación de programas</span>
-          <span>Configuración y optimización</span>
-          <span>Soporte técnico</span>
+          <span>Configuración</span>
+          <span>Optimización</span>
         </div>
       </div>
 
@@ -55,13 +54,39 @@ import { Icon } from "astro-icon/components";
   </div>
 </section>
 
+<script is:inline>
+/* Animación solo cuando entra en pantalla */
+const teamObserver = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show-team");
+    }
+  });
+},{threshold:.2});
+
+teamObserver.observe(document.querySelector(".team"));
+</script>
+
 <style>
+
+/* ===== ANIMACIÓN DE ENTRADA ===== */
+.team{
+  opacity:0;
+  transform:translateY(70px);
+  transition:all .9s ease;
+  padding:120px 0;
+}
+
+.show-team{
+  opacity:1;
+  transform:translateY(0);
+}
 
 /* HEADER */
 .section-header{
   text-align:center;
   max-width:650px;
-  margin:0 auto 60px;
+  margin:0 auto 70px;
 }
 
 .badge{
@@ -75,51 +100,45 @@ import { Icon } from "astro-icon/components";
   margin-bottom:18px;
 }
 
-/* GRID */
+/* GRID RESPONSIVE PERFECTO */
 .team-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:40px;
+  gap:45px;
   align-items:stretch;
 }
 
 /* CARD BASE */
 .team-card{
   background:var(--glass);
-  padding:40px;
-  border-radius:25px;
+  padding:45px 35px;
+  border-radius:26px;
   text-align:center;
   border:1px solid var(--border);
   transition:.35s;
   position:relative;
-  overflow:hidden;
-}
-
-.team-card::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,transparent,#00B3C940,transparent);
-  opacity:.25;
+  backdrop-filter:blur(10px);
+  will-change:transform;
 }
 
 .team-card:hover{
-  transform:translateY(-12px);
+  transform:translateY(-14px);
   border-color:var(--primary);
+  box-shadow:0 20px 50px rgba(0,0,0,.2);
 }
 
 /* CEO DESTACADO */
 .ceo{
-  transform:scale(1.05);
+  transform:scale(1.06);
   border:1px solid transparent;
   background:
     linear-gradient(#0a0a0a,#0a0a0a) padding-box,
     linear-gradient(120deg,#00B3C9,#1ED6E6) border-box;
-  box-shadow:0 20px 60px rgba(0,179,201,.25);
+  box-shadow:0 25px 70px rgba(0,179,201,.25);
 }
 
 .ceo:hover{
-  transform:scale(1.08) translateY(-10px);
+  transform:scale(1.09) translateY(-12px);
 }
 
 /* BADGE CEO */
@@ -128,41 +147,43 @@ import { Icon } from "astro-icon/components";
   top:18px;
   right:18px;
   font-size:.7rem;
-  padding:5px 12px;
+  padding:6px 14px;
   border-radius:20px;
   background:linear-gradient(90deg,#00B3C9,#1ED6E6);
   color:black;
-  font-weight:600;
+  font-weight:700;
 }
 
-/* AVATAR */
+/* AVATAR OPTIMIZADO */
 .avatar{
-  width:80px;
-  height:80px;
-  margin:auto auto 20px;
+  width:90px;
+  height:90px;
+  margin:auto auto 22px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
   background:linear-gradient(120deg,#00B3C9,#1ED6E6);
+  box-shadow:0 10px 25px rgba(0,0,0,.25);
 }
 
 .avatar svg{
-  width:38px;
-  height:38px;
+  width:42px;
+  height:42px;
   color:white;
 }
 
 /* TEXTOS */
 .team-card h3{
-  margin-bottom:8px;
+  margin-bottom:6px;
+  font-size:22px;
 }
 
 .role{
   display:block;
   color:var(--muted);
   font-size:.9rem;
-  margin-bottom:20px;
+  margin-bottom:22px;
 }
 
 /* SKILLS */
@@ -176,9 +197,19 @@ import { Icon } from "astro-icon/components";
 .skills span{
   background:rgba(255,255,255,0.05);
   border:1px solid rgba(255,255,255,0.08);
-  padding:6px 12px;
+  padding:6px 13px;
   border-radius:20px;
   font-size:.75rem;
+  transition:.3s;
+}
+
+.skills span:hover{
+  border-color:var(--primary);
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .ceo{ transform:none; }
 }
 
 </style>
