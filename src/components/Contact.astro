@@ -1,197 +1,232 @@
 <section id="contacto" class="section contact-section">
   <div class="container contact-grid">
 
-    <!-- TEXTO -->
+    <!-- IZQUIERDA -->
     <div class="contact-info">
+
       <span class="badge">CONTACTO</span>
-      <h2>¿Listo para instalar tu software?</h2>
+
+      <h2>
+        ¿Listo para resolver tu problema  
+        <span>en minutos?</span>
+      </h2>
 
       <p class="contact-desc">
-        Todos nuestros servicios se realizan de forma remota.
-        Escríbenos por WhatsApp y comenzamos hoy mismo.
+        Conéctate con un técnico ahora mismo y comenzamos el soporte remoto.
+        Instalamos, optimizamos y dejamos tu computadora funcionando hoy.
       </p>
 
-      <div class="contact-cards">
-        <div class="mini-card">⚡ Atención rápida</div>
-        <div class="mini-card">💻 Soporte remoto</div>
-        <div class="mini-card">🔒 Instalación segura</div>
+      <!-- BENEFICIOS -->
+      <div class="contact-benefits">
+
+        <div class="benefit">
+          <i class="fa-solid fa-clock"></i>
+          <div>
+            <strong>Respuesta inmediata</strong>
+            <span>Tiempo promedio: 15 minutos</span>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <i class="fa-solid fa-laptop"></i>
+          <div>
+            <strong>Soporte 100% remoto</strong>
+            <span>Sin salir de casa</span>
+          </div>
+        </div>
+
+        <div class="benefit">
+          <i class="fa-solid fa-shield-halved"></i>
+          <div>
+            <strong>Proceso seguro</strong>
+            <span>Conexión protegida</span>
+          </div>
+        </div>
+
       </div>
+
+      <div class="contact-trust">
+        <i class="fa-solid fa-circle-check"></i>
+        Más de <strong>500 clientes atendidos</strong> en Nicaragua
+      </div>
+
     </div>
 
-    <!-- TARJETA -->
-    <div class="contact-box">
-      <div class="whatsapp-icon">💬</div>
+    <!-- DERECHA -->
+    <div class="contact-card">
 
-      <h3>Hablar por WhatsApp</h3>
-      <p class="contact-sub">Respuesta rápida en minutos</p>
+      <div class="card-glow"></div>
 
-      <a 
-        href="https://wa.me/50581088124?text=Hola,%20quiero%20instalar%20software"
-        target="_blank"
-        class="whatsapp-btn"
-      >
-        Escribir ahora →
-      </a>
+      <div class="contact-box">
 
-      <span class="note">Horario: 6am - 9pm • Hora Nicaragua</span>
+        <div class="whatsapp-icon">
+          <i class="fa-brands fa-whatsapp"></i>
+        </div>
+
+        <h3>Hablar por WhatsApp</h3>
+        <p class="contact-sub">Disponible de 6:00 AM a 9:00 PM</p>
+
+        <a 
+          href="https://wa.me/50581088124?text=Hola,%20quiero%20instalar%20software"
+          target="_blank"
+          class="whatsapp-btn"
+        >
+          Iniciar conversación
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+
+        <div class="contact-extra">
+          <div><i class="fa-solid fa-bolt"></i> Atención rápida</div>
+          <div><i class="fa-solid fa-lock"></i> Conexión segura</div>
+          <div><i class="fa-solid fa-desktop"></i> Soporte remoto real</div>
+        </div>
+
+      </div>
     </div>
 
   </div>
 </section>
 
-<script is:inline>
-/* Animación al aparecer */
-const contactObserver = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("show-contact");
-    }
-  });
-},{threshold:.2});
-
-contactObserver.observe(document.querySelector(".contact-section"));
-</script>
-
 <style>
 
-/* ANIMACIÓN DE ENTRADA */
+/* ===== BASE ===== */
 .contact-section{
-  opacity:0;
-  transform:translateY(70px);
-  transition:all .9s ease;
-  position:relative;
-  padding:120px 0;
+  padding:140px 0;
   background:
-    radial-gradient(circle at 15% 20%, #00B3C915 0%, transparent 40%),
-    radial-gradient(circle at 85% 80%, #1ED6E615 0%, transparent 40%);
-}
-
-.show-contact{
-  opacity:1;
-  transform:translateY(0);
+    radial-gradient(circle at 20% 20%,#00b3c930,transparent 40%),
+    radial-gradient(circle at 80% 80%,#1ed6e630,transparent 40%);
 }
 
 /* GRID */
 .contact-grid{
   display:grid;
-  grid-template-columns:1.1fr 1fr;
-  gap:80px;
+  grid-template-columns:1.1fr .9fr;
+  gap:90px;
   align-items:center;
 }
 
-/* IZQUIERDA */
+/* TITULO */
 .contact-info h2{
-  font-size:44px;
-  margin:15px 0;
+  font-size:50px;
+  line-height:1.05;
+  margin:20px 0;
+}
+
+.contact-info h2 span{
+  color:var(--primary);
+  text-shadow:0 0 25px #00b3c980;
 }
 
 .contact-desc{
-  color:var(--muted);
-  font-size:1.1rem;
-  line-height:1.7;
+  font-size:1.15rem;
   max-width:520px;
+  margin-bottom:40px;
 }
 
-.badge{
-  display:inline-block;
-  background:linear-gradient(90deg,#00B3C920,#1ED6E620);
-  color:var(--primary);
-  padding:7px 18px;
-  border-radius:30px;
-  font-size:.75rem;
-  letter-spacing:.5px;
-}
-
-/* MINI BADGES */
-.contact-cards{
+/* BENEFICIOS */
+.contact-benefits{
   display:flex;
-  gap:15px;
-  margin-top:35px;
-  flex-wrap:wrap;
+  flex-direction:column;
+  gap:18px;
 }
 
-.mini-card{
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.08);
-  padding:13px 20px;
-  border-radius:30px;
+.benefit{
+  display:flex;
+  gap:16px;
+  align-items:flex-start;
+}
+
+.benefit i{
+  font-size:20px;
+  color:var(--primary);
+  margin-top:4px;
+}
+
+.benefit span{
+  display:block;
   font-size:.9rem;
-  backdrop-filter:blur(10px);
-  transition:.3s;
+  color:var(--muted);
 }
 
-.mini-card:hover{
-  border-color:var(--primary);
+/* confianza */
+.contact-trust{
+  margin-top:30px;
+  color:var(--muted);
+  font-size:.95rem;
 }
 
-/* TARJETA */
+/* ===== TARJETA ===== */
+.contact-card{
+  position:relative;
+}
+
+.card-glow{
+  position:absolute;
+  inset:-40px;
+  background:linear-gradient(120deg,#00B3C9,#1ED6E6);
+  filter:blur(90px);
+  opacity:.35;
+}
+
 .contact-box{
-  padding:60px 45px;
-  border-radius:32px;
+  position:relative;
+  padding:50px;
+  border-radius:28px;
   text-align:center;
   background:rgba(255,255,255,0.05);
-  backdrop-filter: blur(18px);
+  backdrop-filter:blur(16px);
   border:1px solid rgba(255,255,255,0.08);
-  box-shadow:0 30px 70px rgba(0,0,0,.35);
-  position:relative;
-  overflow:hidden;
-  will-change:transform;
+  box-shadow:0 25px 60px rgba(0,0,0,.4);
+  transition:.4s;
 }
 
 .contact-box:hover{
   transform:translateY(-10px);
 }
 
-/* glow animado liviano */
-.contact-box::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:linear-gradient(120deg,transparent,#00B3C940,transparent);
-  opacity:.5;
-}
-
 /* ICONO */
 .whatsapp-icon{
-  width:85px;
-  height:85px;
-  margin:auto auto 22px;
+  width:90px;
+  height:90px;
+  margin:auto auto 25px;
   border-radius:50%;
   display:flex;
   align-items:center;
   justify-content:center;
-  font-size:36px;
+  font-size:38px;
   background:linear-gradient(135deg,#00B3C930,#1ED6E630);
-  box-shadow:0 0 30px #00b3c940;
-}
-
-.contact-sub{
-  color:var(--muted);
-  margin-bottom:25px;
+  box-shadow:0 0 40px #00b3c940;
 }
 
 /* BOTÓN */
 .whatsapp-btn{
-  display:block;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:12px;
   text-decoration:none;
   font-weight:700;
-  padding:17px;
+  padding:18px;
   border-radius:40px;
-  background:linear-gradient(90deg,#00B3C9,#1ED6E6);
+  margin:25px 0;
   color:white;
-  transition:.3s;
-  box-shadow:0 10px 30px #00b3c950;
+  background:linear-gradient(90deg,#00B3C9,#1ED6E6);
+  box-shadow:0 12px 35px #00b3c950;
+  transition:.35s;
 }
 
 .whatsapp-btn:hover{
-  transform:scale(1.06);
-  box-shadow:0 18px 45px #00b3c980;
+  transform:scale(1.05);
+  box-shadow:0 25px 60px #00b3c980;
 }
 
-.note{
-  display:block;
-  margin-top:18px;
-  font-size:.8rem;
+/* extras */
+.contact-extra{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  font-size:.85rem;
   color:var(--muted);
 }
 
@@ -200,11 +235,15 @@ contactObserver.observe(document.querySelector(".contact-section"));
   .contact-grid{
     grid-template-columns:1fr;
     text-align:center;
-    gap:50px;
+    gap:60px;
   }
 
   .contact-info h2{
-    font-size:32px;
+    font-size:36px;
+  }
+
+  .contact-benefits{
+    align-items:center;
   }
 }
 

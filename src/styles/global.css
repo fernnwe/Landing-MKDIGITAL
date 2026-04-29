@@ -1,6 +1,7 @@
 /* ================= GOOGLE FONTS ================= */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@600;700;800&display=swap');
 
+
 /* ================= VARIABLES ================= */
 :root{
   --primary:#00B3C9;
@@ -18,17 +19,25 @@
   --shadow-glow:0 0 35px rgba(0,179,201,.35);
 }
 
-/* ================= RESET ================= */
+
+/* ================= RESET GLOBAL ================= */
 *,
 *::before,
 *::after{
   margin:0;
   padding:0;
   box-sizing:border-box;
+  max-width:100%; /* 💥 evita overflow invisible */
 }
 
 html{
   scroll-behavior:smooth;
+  background:#000; /* 💥 elimina fondo blanco al hacer bounce */
+}
+
+html, body{
+  overflow-x:hidden; /* 💥 elimina scroll lateral */
+  max-width:100vw;
 }
 
 body{
@@ -37,21 +46,27 @@ body{
   color:var(--light);
   line-height:1.6;
   -webkit-font-smoothing:antialiased;
+  overscroll-behavior-x:none; /* 💥 elimina rebote lateral iPhone */
+  touch-action:pan-y;
 }
 
-/* ================= GLOBAL ================= */
+
+/* ================= CONTENEDOR GLOBAL ================= */
 .container{
   max-width:1200px;
   margin:auto;
   padding:0 24px;
 }
 
+
+/* ================= SECCIONES ================= */
 .section{
   padding:120px 0;
   position:relative;
+  overflow:hidden; /* 💥 evita que los glow rompan layout */
 }
 
-/* glow decorativo de fondo */
+/* glow decorativo global */
 .section::before{
   content:"";
   position:absolute;
@@ -64,6 +79,7 @@ body{
   left:-150px;
   pointer-events:none;
 }
+
 
 /* ================= TIPOGRAFÍA ================= */
 h1,h2,h3,h4{
@@ -91,6 +107,7 @@ p{
   font-size:1.05rem;
 }
 
+
 /* ================= BOTONES ================= */
 .btn-primary{
   background:linear-gradient(90deg,var(--primary),var(--accent));
@@ -111,7 +128,6 @@ p{
   box-shadow:var(--shadow-glow);
 }
 
-/* botón secundario */
 .btn-outline{
   border:1px solid var(--border);
   padding:15px 34px;
@@ -127,6 +143,7 @@ p{
   color:var(--accent);
 }
 
+
 /* ================= CARDS ================= */
 .card{
   background:linear-gradient(180deg,#0c1118,#090d13);
@@ -137,6 +154,7 @@ p{
   box-shadow:var(--shadow-soft);
   position:relative;
   overflow:hidden;
+  z-index:1;
 }
 
 .card::after{
@@ -157,6 +175,7 @@ p{
   opacity:1;
 }
 
+
 /* ================= GRID ================= */
 .grid{
   display:grid;
@@ -170,6 +189,7 @@ p{
 .grid-2{
   grid-template-columns:repeat(2,1fr);
 }
+
 
 /* ================= ICONOS ================= */
 .icon{
@@ -185,6 +205,7 @@ p{
   margin-bottom:18px;
 }
 
+
 /* ================= NAVBAR ================= */
 .navbar{
   position:sticky;
@@ -194,6 +215,7 @@ p{
   border-bottom:1px solid var(--border);
   z-index:999;
 }
+
 
 /* ================= HERO DECOR ================= */
 .hero-glow{
@@ -205,7 +227,9 @@ p{
   background:radial-gradient(circle,var(--accent),transparent 70%);
   opacity:.15;
   filter:blur(120px);
+  pointer-events:none;
 }
+
 
 /* ================= RESPONSIVE ================= */
 @media (max-width:900px){
@@ -218,27 +242,23 @@ p{
   .grid-2{grid-template-columns:1fr}
 }
 
-/* FIX botones clickeables dentro de cards glass */
-a{
-  position:relative;
-  z-index:5;
-}
 
-.card{
-  position:relative;
-  z-index:1;
-}
-
-/* ================= FIX NAVBAR ANCLAS ================= */
+/* ================= FIX ANCLAS NAVBAR ================= */
 section,
 [id]{
   scroll-margin-top:110px;
 }
 
-/* pequeño offset extra para móviles */
 @media(max-width:768px){
   section,
   [id]{
     scroll-margin-top:95px;
   }
+}
+
+
+/* ================= LINKS SOBRE CARDS ================= */
+a{
+  position:relative;
+  z-index:5;
 }
