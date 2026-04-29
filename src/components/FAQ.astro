@@ -13,7 +13,7 @@ import { Icon } from "astro-icon/components";
 
     <div class="faq-list">
 
-      <!-- COMO SE CONECTAN -->
+      <!-- CONEXION -->
       <details class="faq-item">
         <summary>
           <Icon name="mdi:laptop" />
@@ -21,9 +21,9 @@ import { Icon } from "astro-icon/components";
         </summary>
         <p>
           Nos conectamos de forma segura mediante 
-          <strong>AnyDesk</strong> o <strong>TeamViewer</strong>.
+          <strong>AnyDesk</strong> o <strong>TeamViewer</strong>.  
           Solo debes abrir el programa y compartir el ID temporal.
-          Tú puedes ver todo el proceso en tiempo real.
+          <strong>Tú puedes ver todo el proceso en tiempo real y cerrar la conexión cuando quieras.</strong>
         </p>
 
         <div class="remote-icons">
@@ -39,6 +39,54 @@ import { Icon } from "astro-icon/components";
         </div>
       </details>
 
+      <!-- SEGURIDAD -->
+      <details class="faq-item">
+        <summary>
+          <Icon name="mdi:shield-lock" />
+          ¿Es seguro el soporte remoto?
+        </summary>
+        <p>
+          Sí. La conexión es <strong>temporal, cifrada y privada</strong>.  
+          No tenemos acceso a tu PC sin tu permiso y la sesión se cierra automáticamente al finalizar.
+        </p>
+      </details>
+
+      <!-- WINDOWS -->
+      <details class="faq-item">
+        <summary>
+          <Icon name="mdi:microsoft-windows" />
+          ¿Los sistemas funcionan en Mac?
+        </summary>
+        <p>
+          Nuestros sistemas están <strong>optimizados para Windows</strong>.  
+          La versión para MacOS se encuentra <strong>próximamente</strong>.
+        </p>
+      </details>
+
+      <!-- FACTULITE -->
+      <details class="faq-item">
+        <summary>
+          <Icon name="mdi:cash-register" />
+          ¿Qué es FactuLite?
+        </summary>
+        <p>
+          <strong>FactuLite</strong> es un software para android.  
+          Incluye control de inventario, ventas, clientes y reportes. No necesitas conexión a internet.
+        </p>
+      </details>
+
+      <!-- VIPERPOS -->
+      <details class="faq-item">
+        <summary>
+          <Icon name="mdi:web" />
+          ¿Qué es ViperPOS?
+        </summary>
+        <p>
+          <strong>ViperPOS</strong> es el sistema POS en la nube Multisucursal.  
+          Puedes usarlo desde cualquier navegador sin instalar nada.
+        </p>
+      </details>
+
       <!-- UBICACION -->
       <details class="faq-item">
         <summary>
@@ -47,7 +95,19 @@ import { Icon } from "astro-icon/components";
         </summary>
         <p>
           Trabajamos <strong>100% remoto</strong>.  
-          No contamos con local físico, pero atendemos clientes en toda Nicaragua.
+          Atendemos clientes en toda Nicaragua.
+        </p>
+      </details>
+
+      <!-- TIEMPO -->
+      <details class="faq-item">
+        <summary>
+          <Icon name="mdi:clock-outline" />
+          ¿Cuánto tarda la instalación?
+        </summary>
+        <p>
+          La mayoría de instalaciones tardan entre 
+          <strong>20 y 40 minutos</strong>.
         </p>
       </details>
 
@@ -70,8 +130,8 @@ import { Icon } from "astro-icon/components";
           ¿Los precios están en córdobas o dólares?
         </summary>
         <p>
-          Nuestros precios están en <strong>Córdobas (NIO)</strong>,  
-          pero puedes pagar en dolares a nuestras cuentas Banpro y Lafise.
+          Los precios están en <strong>Córdobas (NIO)</strong>,  
+          pero puedes pagar en dólares.
         </p>
       </details>
 
@@ -141,7 +201,7 @@ import { Icon } from "astro-icon/components";
 
 /* FAQ */
 .faq-list{
-  max-width:800px;
+  max-width:820px;
   margin:auto;
 }
 
@@ -154,20 +214,27 @@ import { Icon } from "astro-icon/components";
   transition:.3s;
 }
 
+.faq-item:hover{
+  border-color:#00ffa6;
+  box-shadow:0 0 18px rgba(0,255,166,.15);
+}
+
 summary{
   cursor:pointer;
   font-weight:600;
   display:flex;
   gap:12px;
   align-items:center;
+  font-size:17px;
 }
 
 .faq-item p{
   margin-top:15px;
   color:var(--muted);
+  line-height:1.6;
 }
 
-/* APPS REMOTO */
+/* REMOTO */
 .remote-icons{
   display:flex;
   gap:20px;

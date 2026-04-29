@@ -5,84 +5,80 @@ import { Icon } from "astro-icon/components";
 <section id="servicios" class="section services-section">
   <div class="container">
 
+    <!-- HEADER -->
     <div class="section-header">
       <span class="badge">SERVICIOS TECNOLÓGICOS</span>
-      <h2>Nuestros Servicios</h2>
-      <p>Soluciones digitales, software y soporte técnico para impulsar tu negocio.</p>
+      <h2>Soluciones completas para tu computadora y negocio</h2>
+      <p>
+        Instalación de software, optimización y desarrollo web profesional
+        con soporte remoto en toda Nicaragua.
+      </p>
     </div>
 
+    <!-- OS BAR -->
+    <div class="os-bar">
+      <div class="os">
+        <Icon name="mdi:microsoft-windows" />
+        <span>Windows</span>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="os soon">
+        <Icon name="mdi:apple" />
+        <span>macOS • Próximamente</span>
+      </div>
+    </div>
+
+    <!-- GRID -->
     <div class="grid">
 
-      <!-- WINDOWS -->
-      <div class="card service-card">
-        <div class="icon-wrap">
-          <Icon name="mdi:microsoft-windows" />
-        </div>
+      <div class="service-card">
+        <div class="icon-wrap"><Icon name="mdi:microsoft-windows" /></div>
         <h3>Licencias Windows</h3>
-        <p>Windows 10 y 11 Home & Pro • Licencias OEM originales</p>
+        <p>Windows 10 y 11 Home & Pro con instalación remota segura.</p>
       </div>
 
-      <!-- OFFICE -->
-      <div class="card service-card">
-        <div class="icon-wrap">
-          <Icon name="mdi:microsoft-office" />
-        </div>
+      <div class="service-card">
+        <div class="icon-wrap"><Icon name="mdi:microsoft-office" /></div>
         <h3>Microsoft Office</h3>
-        <p>Office 2019, 2021 y 2024 con instalación remota</p>
+        <p>Office 2019, 2021 y 2024 activado y listo para usar.</p>
       </div>
 
-      <!-- ADOBE -->
-      <div class="card service-card">
-        <div class="icon-wrap">
-          <Icon name="mdi:adobe" />
-        </div>
-        <h3>Programas de Adobe</h3>
-        <p>Photoshop, Illustrator, Premiere y más</p>
+      <div class="service-card">
+        <div class="icon-wrap"><Icon name="mdi:adobe" /></div>
+        <h3>Suite Adobe</h3>
+        <p>Photoshop, Illustrator, Premiere, After Effects y más.</p>
       </div>
 
-      <!-- AUTODESK -->
-      <div class="card service-card">
-        <div class="icon-wrap">
-          <Icon name="mdi:cube-scan" />
-        </div>
-        <h3>Programas de Autodesk</h3>
-        <p>AutoCAD, Revit y Civil 3D</p>
+      <div class="service-card">
+        <div class="icon-wrap"><Icon name="mdi:cube-scan" /></div>
+        <h3>Software Autodesk</h3>
+        <p>AutoCAD, Revit y Civil 3D instalados y configurados.</p>
       </div>
 
-      <!-- ANTIVIRUS -->
-      <div class="card service-card">
-        <div class="icon-wrap">
-          <Icon name="mdi:shield-check" />
-        </div>
-        <h3>Avast Premium</h3>
-        <p>Licencia de 1 año</p>
+      <div class="service-card">
+        <div class="icon-wrap"><Icon name="mdi:shield-check" /></div>
+        <h3>Antivirus Premium</h3>
+        <p>Protección completa contra virus y malware.</p>
       </div>
 
-      <!-- WEB -->
-      <div class="card service-card">
-        <div class="icon-wrap">
-          <Icon name="mdi:web" />
-        </div>
+      <div class="service-card">
+        <div class="icon-wrap"><Icon name="mdi:web" /></div>
         <h3>Desarrollo Web</h3>
-        <p>Sitios modernos, rápidos y optimizados hechos a medida</p>
+        <p>Páginas modernas, rápidas y optimizadas para vender.</p>
       </div>
 
-      <!-- FACTURACION -->
-      <div class="card service-card">
-        <div class="icon-wrap">
-          <Icon name="mdi:cash-register" />
-        </div>
+      <div class="service-card">
+        <div class="icon-wrap"><Icon name="mdi:cash-register" /></div>
         <h3>Software de Facturación</h3>
-        <p>FactuLite & ViperPOS de Alpha Tech Nicaragua</p>
+        <p>FactuLite & ViperPOS desarrollados por Alpha Tech.</p>
       </div>
 
-      <!-- OPTIMIZACION -->
-      <div class="card service-card">
-        <div class="icon-wrap">
-          <Icon name="mdi:rocket-launch" />
-        </div>
+      <div class="service-card">
+        <div class="icon-wrap"><Icon name="mdi:rocket-launch" /></div>
         <h3>Optimización de PC</h3>
-        <p>Drivers, limpieza y mejora de rendimiento</p>
+        <p>Limpieza, drivers y mejora de rendimiento.</p>
       </div>
 
     </div>
@@ -92,51 +88,92 @@ import { Icon } from "astro-icon/components";
 
 <style>
 
-/* Fondo suave */
+/* SECTION BG */
 .services-section{
-  background: radial-gradient(circle at 10% 20%, #00B3C910 0%, transparent 40%),
-              radial-gradient(circle at 90% 80%, #1ED6E610 0%, transparent 40%);
+  position:relative;
+  background:
+    radial-gradient(circle at 10% 20%, rgba(0,179,201,.08), transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(0,179,201,.08), transparent 40%);
 }
 
+/* HEADER */
 .section-header{
   text-align:center;
-  max-width:700px;
-  margin:0 auto 70px;
+  max-width:720px;
+  margin:0 auto 60px;
 }
 
 .section-header h2{
-  font-size:2.2rem;
-  margin-bottom:15px;
+  font-size:42px;
+  margin:15px 0;
 }
 
 .section-header p{
   color:var(--muted);
+  font-size:18px;
 }
 
 .badge{
   display:inline-block;
-  background:linear-gradient(90deg,#00B3C920,#1ED6E620);
-  color:var(--accent);
   padding:7px 18px;
   border-radius:30px;
+  background:rgba(0,179,201,.12);
+  color:var(--primary);
   font-size:.75rem;
-  letter-spacing:.5px;
-  margin-bottom:18px;
+  letter-spacing:.6px;
 }
 
+/* OS BAR */
+.os-bar{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:30px;
+  margin-bottom:70px;
+}
+
+.os{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 18px;
+  border-radius:40px;
+  background:rgba(255,255,255,.03);
+  border:1px solid var(--border);
+  font-weight:600;
+}
+
+.os svg{
+  width:22px;
+  height:22px;
+  color:var(--primary);
+}
+
+.os.soon{
+  opacity:.55;
+  filter:grayscale(100%);
+}
+
+.divider{
+  width:1px;
+  height:28px;
+  background:var(--border);
+}
+
+/* GRID */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
   gap:30px;
 }
 
+/* CARD */
 .service-card{
-  background:rgba(255,255,255,0.03);
-  backdrop-filter: blur(12px);
-  padding:40px 30px;
-  border-radius:20px;
+  background:var(--glass);
+  border:1px solid var(--border);
+  padding:40px 28px;
+  border-radius:22px;
   text-align:center;
-  border:1px solid rgba(255,255,255,0.06);
   transition:.35s;
   position:relative;
   overflow:hidden;
@@ -146,48 +183,55 @@ import { Icon } from "astro-icon/components";
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(120deg,transparent,#00B3C920,transparent);
+  background:linear-gradient(120deg,transparent,rgba(0,179,201,.15),transparent);
   opacity:0;
   transition:.4s;
 }
 
 .service-card:hover{
-  transform:translateY(-10px);
-  border:1px solid rgba(0,179,201,.35);
-  box-shadow:0 20px 40px rgba(0,0,0,.35);
+  transform:translateY(-12px);
+  border-color:var(--primary);
+  box-shadow:0 25px 60px rgba(0,0,0,.35);
 }
 
 .service-card:hover::before{
   opacity:1;
 }
 
+/* ICON */
 .icon-wrap{
-  width:75px;
-  height:75px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#00B3C930,#1ED6E630);
+  width:70px;
+  height:70px;
+  border-radius:18px;
+  background:rgba(0,179,201,.12);
   display:flex;
   align-items:center;
   justify-content:center;
   margin:0 auto 22px;
-  box-shadow:0 0 25px #00b3c930;
 }
 
 .icon-wrap svg{
-  width:38px;
-  height:38px;
-  color:var(--accent);
+  width:36px;
+  height:36px;
+  color:var(--primary);
 }
 
 .service-card h3{
   margin-bottom:10px;
-  font-size:1.35rem;
+  font-size:1.3rem;
 }
 
 .service-card p{
   color:var(--muted);
   line-height:1.6;
   font-size:.95rem;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .section-header h2{
+    font-size:32px;
+  }
 }
 
 </style>
