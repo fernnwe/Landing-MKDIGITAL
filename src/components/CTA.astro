@@ -6,7 +6,7 @@
       <!-- IZQUIERDA -->
       <div class="cta-content">
 
-        <span class="badge">SOPORTE DISPONIBLE AHORA</span>
+        <span class="badge pulse">SOPORTE DISPONIBLE AHORA</span>
 
         <h2>
           Tu computadora funcionando  
@@ -50,7 +50,6 @@
 
       <!-- DERECHA -->
       <div class="cta-card">
-
         <div class="cta-card-glow"></div>
 
         <div class="cta-card-content">
@@ -64,22 +63,18 @@
 
           <div class="cards">
             <div class="card-pay">
-              <i class="fa-brands fa-cc-visa"></i>
-              Visa
+              <i class="fa-brands fa-cc-visa"></i> Visa
             </div>
-
             <div class="card-pay">
-              <i class="fa-brands fa-cc-mastercard"></i>
-              Mastercard
+              <i class="fa-brands fa-cc-mastercard"></i> Mastercard
             </div>
           </div>
 
           <div class="secure">
             <i class="fa-solid fa-lock"></i>
-            Pagos seguros por transferencia o deposito
+            Pagos seguros por transferencia o depósito
           </div>
         </div>
-
       </div>
 
     </div>
@@ -90,8 +85,9 @@
 
 /* ===== CTA BASE ===== */
 .cta-section{
-  padding:140px 0;
+  padding:160px 0;
   position:relative;
+  overflow:hidden;
   background:
     radial-gradient(circle at 20% 20%,#00b3c930,transparent 40%),
     radial-gradient(circle at 80% 80%,#1ed6e630,transparent 40%);
@@ -101,15 +97,38 @@
 .cta-wrapper{
   display:grid;
   grid-template-columns:1.1fr .9fr;
-  gap:80px;
+  gap:100px;
   align-items:center;
+}
+
+/* BADGE */
+.badge{
+  display:inline-block;
+  padding:7px 18px;
+  border-radius:30px;
+  background:#00b3c920;
+  color:#00B3C9;
+  font-size:.75rem;
+  letter-spacing:.6px;
+  margin-bottom:20px;
+  font-weight:700;
+}
+
+.pulse{
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(0,179,201,.4)}
+  70%{box-shadow:0 0 0 12px rgba(0,179,201,0)}
+  100%{box-shadow:0 0 0 0 rgba(0,179,201,0)}
 }
 
 /* TITULO */
 .cta-content h2{
-  font-size:52px;
+  font-size:56px;
   line-height:1.05;
-  margin-bottom:20px;
+  margin-bottom:22px;
+  letter-spacing:-1px;
 }
 
 .cta-content h2 span{
@@ -120,26 +139,34 @@
 .cta-desc{
   font-size:1.2rem;
   max-width:520px;
-  margin-bottom:35px;
+  margin-bottom:40px;
+  color:var(--muted);
 }
 
 /* BENEFICIOS */
 .cta-benefits{
   display:flex;
   flex-direction:column;
-  gap:14px;
-  margin-bottom:35px;
+  gap:16px;
+  margin-bottom:40px;
 }
 
 .benefit{
   display:flex;
   align-items:center;
-  gap:12px;
+  gap:14px;
   color:var(--muted);
+  font-weight:500;
+  transition:.3s;
+}
+
+.benefit:hover{
+  transform:translateX(6px);
 }
 
 .benefit i{
   color:var(--primary);
+  font-size:18px;
 }
 
 /* BOTÓN PRINCIPAL */
@@ -147,72 +174,72 @@
   display:inline-flex;
   align-items:center;
   gap:12px;
-  padding:18px 38px;
-  border-radius:50px;
+  padding:20px 42px;
+  border-radius:60px;
   font-weight:700;
   text-decoration:none;
   color:white;
   background:linear-gradient(90deg,#00B3C9,#1ED6E6);
-  box-shadow:0 15px 45px #00b3c950;
+  box-shadow:0 20px 55px #00b3c960;
   transition:.35s;
+  letter-spacing:.4px;
 }
 
 .cta-button:hover{
-  transform:translateY(-4px) scale(1.05);
-  box-shadow:0 25px 60px #00b3c980;
+  transform:translateY(-5px) scale(1.06);
+  box-shadow:0 30px 70px #00b3c990;
 }
 
 .cta-trust{
-  margin-top:18px;
-  font-size:.9rem;
+  margin-top:22px;
+  font-size:.95rem;
   color:var(--muted);
 }
 
 /* ===== TARJETA DERECHA ===== */
-.cta-card{
-  position:relative;
-}
+.cta-card{ position:relative; }
 
 .cta-card-glow{
   position:absolute;
-  inset:-40px;
+  inset:-50px;
   background:linear-gradient(120deg,#00B3C9,#1ED6E6);
-  filter:blur(90px);
-  opacity:.35;
+  filter:blur(100px);
+  opacity:.25;
 }
 
 .cta-card-content{
   position:relative;
-  padding:45px;
-  border-radius:28px;
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(16px);
+  padding:50px;
+  border-radius:30px;
+  background:rgba(255,255,255,0.06);
+  backdrop-filter:blur(18px);
   border:1px solid rgba(255,255,255,0.08);
-  box-shadow:0 25px 60px rgba(0,0,0,.4);
+  box-shadow:0 30px 70px rgba(0,0,0,.45);
+  transition:.4s;
 }
 
-.cta-card-content h3{
-  margin-bottom:25px;
+.cta-card-content:hover{
+  transform:translateY(-10px);
 }
 
 /* PAGOS */
 .banks{
   display:flex;
   flex-direction:column;
-  gap:12px;
-  margin-bottom:25px;
+  gap:14px;
+  margin:25px 0;
 }
 
 .bank{
   display:flex;
-  gap:10px;
+  gap:12px;
   align-items:center;
   color:var(--muted);
 }
 
 .cards{
   display:flex;
-  gap:20px;
+  gap:18px;
   margin-bottom:20px;
 }
 
@@ -220,14 +247,14 @@
   display:flex;
   gap:10px;
   align-items:center;
-  padding:10px 16px;
+  padding:12px 18px;
   border-radius:14px;
   background:rgba(255,255,255,0.05);
+  transition:.3s;
 }
 
-.secure{
-  font-size:.85rem;
-  color:var(--muted);
+.card-pay:hover{
+  transform:scale(1.08);
 }
 
 /* ===== MOBILE ===== */
@@ -235,12 +262,9 @@
   .cta-wrapper{
     grid-template-columns:1fr;
     text-align:center;
-    gap:60px;
+    gap:70px;
   }
-
-  .cta-benefits{
-    align-items:center;
-  }
+  .cta-benefits{ align-items:center; }
 }
 
 </style>

@@ -7,10 +7,10 @@ import { Icon } from "astro-icon/components";
 
     <div class="header">
       <span class="badge">CENTRO DE AYUDA</span>
-      <h2>Videos demostrativos, descargas y soluciones</h2>
+      <h2>Videos, descargas y soluciones paso a paso</h2>
       <p>
-        Descarga nuestros software, resuelve problemas comunes
-        y conectar tu equipo con nuestro soporte remoto paso a paso.
+        Accede a demostraciones, guías y recursos para instalar,
+        solucionar errores y conectar tu equipo con soporte remoto.
       </p>
     </div>
 
@@ -26,10 +26,10 @@ import { Icon } from "astro-icon/components";
 
         <span class="pill">Demo Online</span>
         <h3>Probar ViperPOS</h3>
-        <p>Accede al sistema en línea y prueba todas sus funciones sin instalar nada.</p>
+        <p>Explora el sistema completo sin instalar nada. Acceso inmediato desde el navegador.</p>
 
         <a href="https://www.viperpos.net/login/" target="_blank" class="video-btn">
-          Abrir demo <Icon name="mdi:open-in-new"/>
+          Acceder a la demo <Icon name="mdi:open-in-new"/>
         </a>
 
         <div class="demo-cred">
@@ -40,78 +40,73 @@ import { Icon } from "astro-icon/components";
 
       <!-- FACTURACION -->
       <div class="card">
-        <div class="featured-badge">+34 VIDEOS</div>
         <div class="icon-box facturacion">
           <Icon name="mdi:cash-register" />
         </div>
 
-        <span class="pill">Tutorial</span>
+        <span class="pill">+34 videos</span>
         <h3>Sistema de Facturación</h3>
-        <p>Guía completa del funcionamiento del software y sus módulos.</p>
+        <p>Capacitación completa del software, módulos y flujo de trabajo real.</p>
 
         <a href="https://drive.google.com/drive/folders/1184xu1s4eirYN83QzL4Wfpsu_K3-Hqqs?usp=sharing" target="_blank" class="video-btn">
-          Ver video <Icon name="mdi:play-circle"/>
+          Ver tutoriales <Icon name="mdi:play-circle"/>
         </a>
       </div>
 
       <!-- SERVIDOR AUTOCAD -->
       <div class="card">
-        <div class="featured-badge">TODOS LOS DE AUTODESK</div>
         <div class="icon-box autocad">
           <Icon name="mdi:server-network" />
         </div>
 
-        <span class="pill">Solución</span>
+        <span class="pill">Solución oficial</span>
         <h3>Servidor AutoCAD en Red</h3>
-        <p>Cómo resolver el error del servidor de licencias paso a paso.</p>
+        <p>Guía paso a paso para corregir el error del servidor de licencias.</p>
 
         <a href="https://drive.google.com/file/d/1jmlTTqccF4oUPupTYNCwNW_qZrrK8CwA/view?usp=sharing" target="_blank" class="video-btn">
-          Ver video <Icon name="mdi:play-circle"/>
+          Ver solución <Icon name="mdi:play-circle"/>
         </a>
       </div>
 
       <!-- SOPORTE REMOTO -->
       <div class="card">
-        <div class="featured-badge">DESCARGA ANYDESK</div>
         <div class="icon-box soporte">
           <Icon name="mdi:headset" />
         </div>
 
-        <span class="pill">Soporte</span>
-        <h3>Conexión Remota</h3>
-        <p>Aprende a descargar AnyDesk para recibir soporte inmediato.</p>
+        <span class="pill">Soporte remoto</span>
+        <h3>Conexión con AnyDesk</h3>
+        <p>Aprende a instalar AnyDesk y recibir soporte inmediato.</p>
 
         <a href="https://drive.google.com/file/d/17cp_besLdN9NnNC1BpB9ox5oZVscdHLS/view?usp=sharing" target="_blank" class="video-btn">
-          Ver video <Icon name="mdi:play-circle"/>
+          Ver guía <Icon name="mdi:play-circle"/>
         </a>
       </div>
 
       <!-- DEMO SOFTWARE -->
       <div class="card">
-        <div class="featured-badge">PARA WINDOWS</div>
         <div class="icon-box demo">
           <Icon name="mdi:laptop" />
         </div>
 
-        <span class="pill">Demo</span>
-        <h3>Demo del Software de Facturación</h3>
-        <p>Mira el sistema funcionando en un caso real con clientes.</p>
+        <span class="pill">Caso real</span>
+        <h3>Demo del sistema</h3>
+        <p>Mira el software funcionando con clientes reales.</p>
 
         <a href="https://drive.google.com/file/d/1KjQ6-bD081vYcvX9h4eXr96nqyow17jM/view?usp=sharing" target="_blank" class="video-btn">
-          Ver video <Icon name="mdi:play-circle"/>
+          Ver demostración <Icon name="mdi:play-circle"/>
         </a>
       </div>
 
       <!-- DESCARGA FACTULITE -->
       <div class="card">
-        <div class="featured-badge">MÁS DESCARGADO</div>
         <div class="icon-box descarga">
           <Icon name="mdi:cellphone-arrow-down" />
         </div>
 
-        <span class="pill">Descarga</span>
+        <span class="pill">Android</span>
         <h3>Descargar FactuLite</h3>
-        <p>Instala el demo de FactuLite en tu dispositivo Android y pruébalo gratis.</p>
+        <p>Instala el demo en tu celular y prueba el sistema gratis.</p>
 
         <a href="https://factulite.net/downloads/factulite-v1.5.0.apk" target="_blank" class="video-btn">
           Descargar demo <Icon name="mdi:download"/>
@@ -124,80 +119,90 @@ import { Icon } from "astro-icon/components";
 
 <style>
 .soluciones{
-  padding:120px 0;
-  background:linear-gradient(180deg,#070707,#0a0f14);
+  padding:130px 0;
+  background:radial-gradient(circle at top,#0b141a,#050607 70%);
 }
 
+/* HEADER */
 .header{
   text-align:center;
-  max-width:650px;
+  max-width:720px;
   margin:auto;
-  margin-bottom:70px;
+  margin-bottom:80px;
+}
+.header h2{
+  font-size:38px;
+  margin:18px 0;
+}
+.header p{
+  color:#9aa4ad;
+  font-size:17px;
+  line-height:1.6;
 }
 
 .badge{
-  display:inline-block;
-  padding:7px 18px;
+  padding:8px 18px;
   border-radius:30px;
   background:linear-gradient(90deg,#00ffa620,#00b3c920);
   color:#00ffa6;
   font-size:.75rem;
-  letter-spacing:.6px;
-  margin-bottom:18px;
+  letter-spacing:.7px;
 }
 
+/* GRID */
 .grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:35px;
+  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+  gap:38px;
 }
 
+/* CARDS */
 .card{
   background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,.08);
-  padding:35px;
-  border-radius:22px;
+  border:1px solid rgba(255,255,255,.07);
+  padding:40px 32px;
+  border-radius:26px;
   text-align:center;
-  transition:.4s;
+  transition:.45s;
   position:relative;
+  backdrop-filter:blur(6px);
 }
-
 .card:hover{
-  transform:translateY(-12px);
+  transform:translateY(-14px);
   border-color:#00ffa6;
-  box-shadow:0 0 35px rgba(0,255,166,.15);
+  box-shadow:0 15px 50px rgba(0,255,166,.15);
 }
 
-/* ⭐ CARD DESTACADA */
+/* FEATURED */
 .featured{
   border:1px solid #00ffa6;
-  box-shadow:0 0 40px rgba(0,255,166,.35);
-  transform:scale(1.05);
+  box-shadow:0 0 45px rgba(0,255,166,.35);
+  transform:scale(1.06);
 }
-
 .featured:hover{
-  transform:scale(1.08) translateY(-10px);
-  box-shadow:0 0 60px rgba(0,255,166,.6);
+  transform:scale(1.09) translateY(-10px);
+  box-shadow:0 0 70px rgba(0,255,166,.55);
 }
 
 .featured-badge{
   position:absolute;
-  top:15px;
-  right:15px;
+  top:16px;
+  right:16px;
   background:linear-gradient(90deg,#00ffa6,#00b3c9);
   color:#000;
   font-weight:700;
-  font-size:12px;
-  padding:6px 12px;
+  font-size:11px;
+  padding:7px 13px;
   border-radius:20px;
 }
 
+/* ICON */
 .icon-box{
-  width:75px;
-  height:75px;
+  width:78px;
+  height:78px;
   margin:auto;
-  margin-bottom:18px;
-  border-radius:18px;
+  margin-bottom:20px;
+  border-radius:20px;
   display:flex;
   align-items:center;
   justify-content:center;
@@ -213,37 +218,39 @@ import { Icon } from "astro-icon/components";
 .viper{ background:#ff4d6d; }
 
 .pill{
-  font-size:.7rem;
-  background:#ffffff10;
-  padding:5px 14px;
+  font-size:.72rem;
+  background:#ffffff12;
+  padding:6px 15px;
   border-radius:20px;
   color:#00ffa6;
 }
 
+/* CTA BUTTON */
 .video-btn{
   display:inline-flex;
   align-items:center;
   gap:8px;
-  padding:11px 20px;
-  border-radius:10px;
+  margin-top:15px;
+  padding:13px 24px;
+  border-radius:12px;
   background:linear-gradient(90deg,#00ffa6,#00b3c9);
   color:#000;
-  font-weight:700;
+  font-weight:800;
   text-decoration:none;
+  letter-spacing:.3px;
   transition:.3s;
 }
-
 .video-btn:hover{
-  transform:scale(1.07);
-  box-shadow:0 0 20px rgba(0,255,166,.4);
+  transform:scale(1.08);
+  box-shadow:0 0 25px rgba(0,255,166,.45);
 }
 
 .demo-cred{
-  margin-top:15px;
+  margin-top:16px;
   font-size:13px;
-  color:#bbb;
+  color:#9aa4ad;
   background:#00000040;
-  padding:10px;
-  border-radius:10px;
+  padding:12px;
+  border-radius:12px;
 }
 </style>

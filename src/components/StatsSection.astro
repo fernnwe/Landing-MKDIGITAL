@@ -1,0 +1,194 @@
+<section class="stats">
+  <div class="container">
+
+    <div class="stats-header">
+      <span class="badge pulse">RESULTADOS REALES</span>
+      <h2>Nuestro impacto en números</h2>
+      <p>Más empresas y profesionales confían cada día en nuestro soporte remoto.</p>
+    </div>
+
+    <div class="stats-grid">
+
+      <div class="stat-card">
+        <div class="number" data-target="500">0</div>
+        <div class="label">Instalaciones realizadas</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="number" data-target="300">0</div>
+        <div class="label">Clientes atendidos</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="number rating">4.9 ⭐</div>
+        <div class="label">Calificación promedio</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="number">🇳🇮</div>
+        <div class="label">Atención en todo el país</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script is:inline>
+const counters = document.querySelectorAll('.number[data-target]');
+const speed = 200;
+
+const animateCounters = () => {
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText;
+      const inc = target / speed;
+
+      if(count < target){
+        counter.innerText = Math.ceil(count + inc);
+        setTimeout(updateCount, 15);
+      } else {
+        counter.innerText = "+" + target;
+      }
+    }
+    updateCount();
+  });
+}
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      animateCounters();
+      observer.disconnect();
+    }
+  });
+});
+
+observer.observe(document.querySelector('.stats'));
+</script>
+
+<style>
+.stats{
+  padding:160px 0;
+  background:linear-gradient(180deg,#070b10,#0b1118);
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+
+/* glow fondo mejorado */
+.stats::before{
+  content:"";
+  position:absolute;
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle,#00e0ff25,transparent 70%);
+  top:-250px;
+  left:50%;
+  transform:translateX(-50%);
+  filter:blur(140px);
+}
+
+/* HEADER */
+.stats-header{
+  margin-bottom:80px;
+  position:relative;
+}
+
+.badge{
+  display:inline-block;
+  padding:7px 18px;
+  border-radius:30px;
+  background:rgba(0,224,255,.12);
+  color:#00e0ff;
+  font-size:.75rem;
+  letter-spacing:.7px;
+  margin-bottom:18px;
+  font-weight:700;
+}
+
+/* animación badge */
+.pulse{
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(0,224,255,.4)}
+  70%{box-shadow:0 0 0 12px rgba(0,224,255,0)}
+  100%{box-shadow:0 0 0 0 rgba(0,224,255,0)}
+}
+
+.stats-header h2{
+  font-size:46px;
+  margin-bottom:12px;
+  letter-spacing:-.5px;
+}
+
+.stats-header p{
+  color:#9aa4af;
+  max-width:520px;
+  margin:auto;
+}
+
+/* GRID */
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:40px;
+  position:relative;
+}
+
+/* CARD */
+.stat-card{
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:26px;
+  padding:50px 25px;
+  backdrop-filter:blur(16px);
+  transition:.4s;
+  position:relative;
+}
+
+.stat-card::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:26px;
+  background:linear-gradient(120deg,transparent,#00e0ff20,transparent);
+  opacity:0;
+  transition:.4s;
+}
+
+.stat-card:hover{
+  transform:translateY(-14px) scale(1.02);
+  border-color:#00e0ff;
+  box-shadow:0 0 45px rgba(0,224,255,.18);
+}
+
+.stat-card:hover::after{
+  opacity:1;
+}
+
+/* NUMERO */
+.number{
+  font-size:58px;
+  font-weight:900;
+  background:linear-gradient(90deg,#00ffa6,#00e0ff);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  margin-bottom:12px;
+  letter-spacing:-1px;
+}
+
+/* TEXTO */
+.label{
+  color:#9aa4af;
+  font-size:15px;
+  font-weight:500;
+}
+
+@media(max-width:768px){
+  .stats{ padding:120px 0; }
+  .stats-header h2{ font-size:34px; }
+}
+</style>
