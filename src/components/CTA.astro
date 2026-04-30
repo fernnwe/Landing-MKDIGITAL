@@ -14,36 +14,41 @@
         </h2>
 
         <p class="cta-desc">
-          Soporte remoto profesional en minutos. Instalación de software,
-          optimización y eliminación de virus sin salir de casa.
+          Instalamos programas, optimizamos tu PC y resolvemos errores en minutos.
+          Atención inmediata en toda Nicaragua sin salir de casa.
         </p>
 
         <!-- BENEFICIOS -->
         <div class="cta-benefits">
           <div class="benefit">
             <i class="fa-solid fa-bolt"></i>
-            <span>Respuesta en 15 minutos</span>
+            <span>Respuesta promedio: 15 min</span>
           </div>
 
           <div class="benefit">
             <i class="fa-solid fa-shield-halved"></i>
-            <span>Proceso 100% seguro</span>
+            <span>Conexión segura y supervisada</span>
           </div>
 
           <div class="benefit">
-            <i class="fa-solid fa-desktop"></i>
-            <span>Soporte remoto real</span>
+            <i class="fa-solid fa-star"></i>
+            <span>Calificación 4.9 ⭐ de clientes</span>
           </div>
         </div>
 
-        <!-- BOTÓN -->
+        <!-- BOTÓN MEJORADO -->
         <a href="https://wa.me/50581088124" target="_blank" class="cta-button">
           <i class="fa-brands fa-whatsapp"></i>
-          Solicitar soporte por WhatsApp
+          Solicitar soporte ahora
+          <span class="cta-arrow">→</span>
         </a>
 
+        <div class="cta-urgency">
+          ⏰ Agenda tu instalación con nosotros
+        </div>
+
         <p class="cta-trust">
-          Más de <strong>500 clientes</strong> atendidos en Nicaragua
+          Más de <strong>500 instalaciones remotas</strong> realizadas con éxito
         </p>
 
       </div>
@@ -53,7 +58,8 @@
         <div class="cta-card-glow"></div>
 
         <div class="cta-card-content">
-          <h3>Métodos de pago</h3>
+
+          <h3>Métodos de pago disponibles</h3>
 
           <div class="banks">
             <div class="bank"><i class="fa-solid fa-building-columns"></i> BANPRO</div>
@@ -62,18 +68,15 @@
           </div>
 
           <div class="cards">
-            <div class="card-pay">
-              <i class="fa-brands fa-cc-visa"></i> Visa
-            </div>
-            <div class="card-pay">
-              <i class="fa-brands fa-cc-mastercard"></i> Mastercard
-            </div>
+            <div class="card-pay"><i class="fa-brands fa-cc-visa"></i> Visa</div>
+            <div class="card-pay"><i class="fa-brands fa-cc-mastercard"></i> Mastercard</div>
           </div>
 
           <div class="secure">
             <i class="fa-solid fa-lock"></i>
             Pagos seguros por transferencia o depósito
           </div>
+
         </div>
       </div>
 
@@ -85,7 +88,7 @@
 
 /* ===== CTA BASE ===== */
 .cta-section{
-  padding:160px 0;
+  padding:170px 0;
   position:relative;
   overflow:hidden;
   background:
@@ -97,7 +100,7 @@
 .cta-wrapper{
   display:grid;
   grid-template-columns:1.1fr .9fr;
-  gap:100px;
+  gap:110px;
   align-items:center;
 }
 
@@ -114,9 +117,7 @@
   font-weight:700;
 }
 
-.pulse{
-  animation:pulse 2s infinite;
-}
+.pulse{ animation:pulse 2s infinite; }
 @keyframes pulse{
   0%{box-shadow:0 0 0 0 rgba(0,179,201,.4)}
   70%{box-shadow:0 0 0 12px rgba(0,179,201,0)}
@@ -125,7 +126,7 @@
 
 /* TITULO */
 .cta-content h2{
-  font-size:56px;
+  font-size:58px;
   line-height:1.05;
   margin-bottom:22px;
   letter-spacing:-1px;
@@ -148,7 +149,7 @@
   display:flex;
   flex-direction:column;
   gap:16px;
-  margin-bottom:40px;
+  margin-bottom:35px;
 }
 
 .benefit{
@@ -156,60 +157,59 @@
   align-items:center;
   gap:14px;
   color:var(--muted);
-  font-weight:500;
   transition:.3s;
 }
 
-.benefit:hover{
-  transform:translateX(6px);
-}
+.benefit:hover{ transform:translateX(8px); }
 
-.benefit i{
-  color:var(--primary);
-  font-size:18px;
-}
+.benefit i{ color:var(--primary); }
 
-/* BOTÓN PRINCIPAL */
+/* BOTÓN */
 .cta-button{
   display:inline-flex;
   align-items:center;
-  gap:12px;
-  padding:20px 42px;
+  gap:14px;
+  padding:22px 46px;
   border-radius:60px;
-  font-weight:700;
+  font-weight:800;
   text-decoration:none;
   color:white;
   background:linear-gradient(90deg,#00B3C9,#1ED6E6);
   box-shadow:0 20px 55px #00b3c960;
   transition:.35s;
-  letter-spacing:.4px;
+  font-size:18px;
 }
+
+.cta-arrow{ transition:.3s; }
+.cta-button:hover .cta-arrow{ transform:translateX(6px); }
 
 .cta-button:hover{
-  transform:translateY(-5px) scale(1.06);
-  box-shadow:0 30px 70px #00b3c990;
+  transform:translateY(-6px) scale(1.07);
+  box-shadow:0 35px 80px #00b3c990;
 }
 
-.cta-trust{
-  margin-top:22px;
-  font-size:.95rem;
+/* URGENCIA */
+.cta-urgency{
+  margin-top:16px;
+  font-size:.9rem;
   color:var(--muted);
+  opacity:.85;
 }
 
-/* ===== TARJETA DERECHA ===== */
+/* TARJETA DERECHA */
 .cta-card{ position:relative; }
 
 .cta-card-glow{
   position:absolute;
-  inset:-50px;
+  inset:-60px;
   background:linear-gradient(120deg,#00B3C9,#1ED6E6);
-  filter:blur(100px);
-  opacity:.25;
+  filter:blur(110px);
+  opacity:.3;
 }
 
 .cta-card-content{
   position:relative;
-  padding:50px;
+  padding:55px;
   border-radius:30px;
   background:rgba(255,255,255,0.06);
   backdrop-filter:blur(18px);
@@ -218,46 +218,16 @@
   transition:.4s;
 }
 
-.cta-card-content:hover{
-  transform:translateY(-10px);
+.cta-card-content:hover{ transform:translateY(-12px); }
+
+/* MINI REVIEW */
+.mini-review{
+  margin-top:25px;
+  font-size:.9rem;
+  opacity:.8;
+  font-style:italic;
 }
 
-/* PAGOS */
-.banks{
-  display:flex;
-  flex-direction:column;
-  gap:14px;
-  margin:25px 0;
-}
-
-.bank{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  color:var(--muted);
-}
-
-.cards{
-  display:flex;
-  gap:18px;
-  margin-bottom:20px;
-}
-
-.card-pay{
-  display:flex;
-  gap:10px;
-  align-items:center;
-  padding:12px 18px;
-  border-radius:14px;
-  background:rgba(255,255,255,0.05);
-  transition:.3s;
-}
-
-.card-pay:hover{
-  transform:scale(1.08);
-}
-
-/* ===== MOBILE ===== */
 @media(max-width:900px){
   .cta-wrapper{
     grid-template-columns:1fr;
