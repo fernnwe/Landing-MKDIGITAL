@@ -1,0 +1,301 @@
+<section class="growth" id="crecimiento">
+  <div class="container">
+
+    <div class="growth-header">
+      <span class="badge">NUESTROS RESULTADOS</span>
+      <h2>Crecimiento constante desde 2023</h2>
+      <p>
+        Cada mes ayudamos a más clientes en toda Nicaragua con instalaciones
+        remotas rápidas y seguras.
+      </p>
+    </div>
+
+    <!-- MÉTRICAS -->
+    <div class="stats-grid">
+      <div class="stat">
+        <h3 data-target="520">0</h3>
+        <span>Instalaciones realizadas</span>
+      </div>
+
+      <div class="stat">
+        <h3 data-target="340">0</h3>
+        <span>Clientes atendidos</span>
+      </div>
+
+      <div class="stat">
+        <h3 data-target="4.9">0</h3>
+        <span>Calificación promedio</span>
+      </div>
+
+      <div class="stat">
+        <h3 data-target="18">0</h3>
+        <span>Meses creciendo</span>
+      </div>
+    </div>
+
+    <!-- CHART -->
+    <div class="chart-box">
+      <h3>Crecimiento mensual de servicios</h3>
+
+      <div class="chart">
+
+        <div class="bar-group">
+          <div class="bar" data-value="15"></div>
+          <span>2023</span>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar" data-value="25"></div>
+          <span>Mar 23</span>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar" data-value="40"></div>
+          <span>Jun 23</span>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar" data-value="60"></div>
+          <span>Sep 23</span>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar" data-value="80"></div>
+          <span>Dic 23</span>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar" data-value="100"></div>
+          <span>Mar 24</span>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar" data-value="120"></div>
+          <span>Jun 24</span>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar" data-value="140"></div>
+          <span>Sep 24</span>
+        </div>
+
+        <div class="bar-group">
+          <div class="bar highlight" data-value="165"></div>
+          <span>Hoy</span>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script is:inline>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const counters = document.querySelectorAll(".stat h3");
+  const bars = document.querySelectorAll(".bar");
+  const section = document.querySelector(".growth");
+
+  if(!section) return;
+
+  function animateCounter(el){
+    const target = parseFloat(el.dataset.target);
+    let current = 0;
+    const increment = target / 100;
+
+    function update(){
+      current += increment;
+      if(current < target){
+        el.textContent = current.toFixed(target % 1 ? 1 : 0);
+        requestAnimationFrame(update);
+      }else{
+        el.textContent = target;
+      }
+    }
+    update();
+  }
+
+  function animateBars(){
+    bars.forEach(bar=>{
+      const value = parseInt(bar.dataset.value);
+      bar.style.height = (value * 1.6) + "px";
+      bar.setAttribute("data-label", value);
+    });
+  }
+
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        counters.forEach(animateCounter);
+        animateBars();
+        observer.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(section);
+
+});
+</script>
+
+<style>
+.growth{
+  padding:130px 0;
+  background:#0c0c0c;
+  border-top:1px solid rgba(255,255,255,.05);
+}
+
+.badge{
+  background:rgba(0,224,255,.1);
+  color:#1ED6E6;
+  padding:6px 16px;
+  border-radius:20px;
+  font-size:13px;
+  display:inline-block;
+  margin-bottom:15px;
+}
+
+.growth-header{
+  text-align:center;
+  max-width:720px;
+  margin:auto;
+  margin-bottom:80px;
+}
+
+.growth-header h2{ font-size:44px; }
+
+.growth-header p{
+  color:var(--muted);
+  margin-top:10px;
+}
+
+/* STATS */
+.stats-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:30px;
+  margin-bottom:90px;
+}
+
+.stat{
+  padding:40px;
+  border-radius:24px;
+  text-align:center;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  backdrop-filter:blur(12px);
+  transition:.3s;
+}
+
+.stat:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 30px rgba(0,224,255,.2);
+}
+
+.stat h3{
+  font-size:52px;
+  color:#1ED6E6;
+  margin-bottom:8px;
+}
+
+/* ===== CHART BOX ===== */
+.chart-box{
+  background:rgba(255,255,255,.04);
+  padding:40px 30px 60px;
+  border-radius:25px;
+  border:1px solid rgba(255,255,255,.08);
+  overflow-x:auto;
+}
+
+.chart-box h3{
+  text-align:center;
+  margin-bottom:40px;
+}
+
+/* ===== CONTENEDOR DEL GRÁFICO ===== */
+.chart{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:22px;
+  height:300px;
+  min-width:750px; /* 👈 clave para que en móvil haga scroll horizontal */
+  padding:0 10px;
+}
+
+/* ===== BARRAS ===== */
+.bar{
+  flex:1;
+  min-width:55px;
+  max-width:70px;
+  background:linear-gradient(180deg,#00B3C9,#1ED6E6);
+  height:0;
+  border-radius:14px 14px 0 0;
+  position:relative;
+  transition:height 1.2s cubic-bezier(.2,.8,.2,1);
+}
+
+/* número arriba de la barra */
+.bar::before{
+  content:attr(data-label);
+  position:absolute;
+  top:-28px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:13px;
+  font-weight:600;
+  color:#fff;
+}
+
+/* texto debajo */
+.bar::after{
+  content:attr(data-month);
+  position:absolute;
+  bottom:-32px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:12px;
+  color:var(--muted);
+  text-align:center;
+  width:90px;
+}
+
+/* ===== SCROLL BONITO EN MOBILE ===== */
+.chart-box::-webkit-scrollbar{
+  height:8px;
+}
+.chart-box::-webkit-scrollbar-thumb{
+  background:#00B3C9;
+  border-radius:10px;
+}
+
+/* ===== MOBILE ===== */
+@media(max-width:900px){
+
+  .chart-box{
+    padding:30px 20px 55px;
+  }
+
+  .chart{
+    height:240px;
+    gap:18px;
+    min-width:680px;
+  }
+
+  .bar{
+    min-width:45px;
+  }
+
+  .bar::before{
+    font-size:12px;
+    top:-24px;
+  }
+
+  .bar::after{
+    font-size:11px;
+    bottom:-28px;
+  }
+
+}
+</style>
