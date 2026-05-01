@@ -1,77 +1,76 @@
 <section class="section software-section">
   <div class="container">
 
-    <!-- HEADER -->
     <div class="section-header">
       <span class="badge">SOFTWARE DE FACTURACIÓN</span>
-      <h2>También implementamos sistemas de venta listos para usar</h2>
+      <h2>Sistemas de venta listos para implementar</h2>
       <p>
         Instalamos, configuramos y dejamos funcionando sistemas de facturación
-        profesional desarrollados por nuestros aliados tecnológicos.
+        profesional desarrollados por aliados tecnológicos.
       </p>
     </div>
 
-    <div class="grid grid-2">
+    <div class="software-grid">
 
       <!-- FACTULITE -->
       <div class="software-card">
 
         <div class="software-top">
-          <div class="icon-wrap">📱</div>
+          <div class="icon-wrap">
+            <i class="fa-solid fa-mobile-screen-button"></i>
+          </div>
           <span class="software-badge">APP ANDROID</span>
         </div>
 
         <h3>FactuLite</h3>
 
         <p class="software-desc">
-          App de facturación rápida diseñada para emprendimientos y pequeños negocios.
-          Ideal para vender desde el celular sin complicaciones.
+          Facturación rápida para emprendedores y pequeños negocios.
+          Vende directamente desde tu teléfono de forma simple.
         </p>
 
         <ul class="features">
-          <li>Facturación inmediata desde el teléfono</li>
-          <li>Control básico de ventas</li>
-          <li>Emisión de vouchers</li>
-          <li>Instalación remota incluida</li>
+          <li><i class="fa-solid fa-bolt"></i> Facturación inmediata</li>
+          <li><i class="fa-solid fa-chart-line"></i> Control de ventas</li>
+          <li><i class="fa-solid fa-receipt"></i> Emisión de vouchers</li>
+          <li><i class="fa-solid fa-headset"></i> Actualizaciones</li>
         </ul>
 
-        <div class="software-footer">
-          <a href="https://factulite.net" target="_blank" class="btn-primary">
-            Conocer FactuLite →
-          </a>
-        </div>
+        <a href="https://factulite.net" target="_blank" class="software-btn">
+          Conocer FactuLite
+        </a>
 
       </div>
 
       <!-- VIPERPOS -->
       <div class="software-card featured">
 
-        <div class="popular">MÁS COMPLETO</div>
+        <div class="popular">RECOMENDADO</div>
 
         <div class="software-top">
-          <div class="icon-wrap">💻</div>
-          <span class="software-badge">SISTEMA WEB POS</span>
+          <div class="icon-wrap">
+            <i class="fa-solid fa-desktop"></i>
+          </div>
+          <span class="software-badge">Punto de venta web</span>
         </div>
 
         <h3>ViperPOS</h3>
 
         <p class="software-desc">
-          Sistema profesional de facturación e inventario accesible desde cualquier
-          computadora o navegador. Perfecto para negocios en crecimiento.
+          Sistema profesional de facturación e inventario accesible desde
+          cualquier computadora o navegador.
         </p>
 
         <ul class="features">
-          <li>Inventario completo en tiempo real</li>
-          <li>Reportes y estadísticas</li>
-          <li>Multiusuarios</li>
-          <li>Configuración remota incluida</li>
+          <li><i class="fa-solid fa-boxes-stacked"></i> Inventario en tiempo real</li>
+          <li><i class="fa-solid fa-chart-pie"></i> Reportes y estadísticas</li>
+          <li><i class="fa-solid fa-users"></i> Multiusuario y Multisucursal</li>
+          <li><i class="fa-solid fa-screwdriver-wrench"></i>Soporte técnico incluido</li>
         </ul>
 
-        <div class="software-footer">
-          <a href="https://www.viperpos.net/" target="_blank" class="btn-primary">
-            Conocer ViperPOS →
-          </a>
-        </div>
+        <a href="https://www.viperpos.net/login" target="_blank" class="software-btn">
+          Conocer ViperPOS
+        </a>
 
       </div>
 
@@ -80,24 +79,23 @@
 </section>
 
 <style>
-
-/* BACKGROUND */
+/* SECTION BG */
 .software-section{
-  position:relative;
+  padding:140px 0;
   background:
-    radial-gradient(circle at 10% 10%, rgba(0,179,201,.08), transparent 40%),
-    radial-gradient(circle at 90% 90%, rgba(0,179,201,.08), transparent 40%);
+    radial-gradient(circle at 20% 20%,#00b3c920,transparent 40%),
+    radial-gradient(circle at 80% 80%,#1ed6e620,transparent 40%);
 }
 
 /* HEADER */
 .section-header{
   text-align:center;
   max-width:720px;
-  margin:0 auto 70px;
+  margin:0 auto 80px;
 }
 
 .section-header h2{
-  font-size:42px;
+  font-size:44px;
   margin:15px 0;
 }
 
@@ -107,7 +105,7 @@
 }
 
 .badge{
-  background:rgba(0,179,201,.12);
+  background:linear-gradient(90deg,#00B3C920,#1ED6E620);
   color:var(--primary);
   padding:7px 18px;
   border-radius:30px;
@@ -116,40 +114,42 @@
 }
 
 /* GRID */
-.grid-2{
+.software-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
-  gap:40px;
+  gap:45px;
 }
 
 /* CARD */
 .software-card{
   position:relative;
-  padding:40px;
-  border-radius:22px;
-  background:var(--glass);
-  border:1px solid var(--border);
-  transition:.35s;
+  padding:45px;
+  border-radius:28px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
+  backdrop-filter:blur(18px);
+  transition:.4s;
 }
 
 .software-card:hover{
-  transform:translateY(-12px);
+  transform:translateY(-14px);
   border-color:var(--primary);
-  box-shadow:0 25px 60px rgba(0,0,0,.35);
+  box-shadow:0 25px 60px #00b3c930;
 }
 
-/* FEATURED CARD */
+/* FEATURED */
 .featured{
   border:1px solid var(--primary);
+  box-shadow:0 0 40px #00b3c920;
 }
 
 .popular{
   position:absolute;
   top:-12px;
   right:20px;
-  background:var(--primary);
+  background:linear-gradient(90deg,#00B3C9,#1ED6E6);
   color:#fff;
-  padding:6px 14px;
+  padding:6px 16px;
   border-radius:20px;
   font-size:.7rem;
   font-weight:700;
@@ -159,19 +159,20 @@
 .software-top{
   display:flex;
   align-items:center;
-  gap:15px;
-  margin-bottom:20px;
+  gap:18px;
+  margin-bottom:25px;
 }
 
 .icon-wrap{
-  width:60px;
-  height:60px;
-  border-radius:16px;
-  background:rgba(0,179,201,.12);
+  width:64px;
+  height:64px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#00B3C920,#1ED6E620);
   display:flex;
   align-items:center;
   justify-content:center;
   font-size:26px;
+  color:var(--primary);
 }
 
 .software-badge{
@@ -182,8 +183,8 @@
 
 /* TEXT */
 .software-card h3{
-  font-size:1.6rem;
-  margin-bottom:12px;
+  font-size:1.7rem;
+  margin-bottom:14px;
 }
 
 .software-desc{
@@ -200,35 +201,32 @@
 }
 
 .features li{
-  margin-bottom:10px;
-  padding-left:18px;
-  position:relative;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:14px;
   color:var(--muted);
+  font-size:15px;
 }
 
-.features li::before{
-  content:"✓";
-  position:absolute;
-  left:0;
+.features i{
   color:var(--primary);
-  font-weight:700;
 }
 
 /* BUTTON */
-.btn-primary{
+.software-btn{
   display:inline-block;
-  padding:14px 26px;
+  padding:14px 28px;
   border-radius:30px;
   text-decoration:none;
   font-weight:700;
-  background:var(--primary);
   color:white;
+  background:linear-gradient(90deg,#00B3C9,#1ED6E6);
   transition:.3s;
 }
 
-.btn-primary:hover{
+.software-btn:hover{
   transform:scale(1.05);
-  box-shadow:0 10px 25px rgba(0,179,201,.35);
+  box-shadow:0 10px 30px #00b3c955;
 }
-
 </style>

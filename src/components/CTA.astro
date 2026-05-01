@@ -85,10 +85,9 @@
 </section>
 
 <style>
-
 /* ===== CTA BASE ===== */
 .cta-section{
-  padding:170px 0;
+  padding:120px 0;
   position:relative;
   overflow:hidden;
   background:
@@ -100,7 +99,7 @@
 .cta-wrapper{
   display:grid;
   grid-template-columns:1.1fr .9fr;
-  gap:110px;
+  gap:90px;
   align-items:center;
 }
 
@@ -124,9 +123,9 @@
   100%{box-shadow:0 0 0 0 rgba(0,179,201,0)}
 }
 
-/* TITULO */
+/* TITULO DESKTOP */
 .cta-content h2{
-  font-size:58px;
+  font-size:56px;
   line-height:1.05;
   margin-bottom:22px;
   letter-spacing:-1px;
@@ -161,15 +160,15 @@
 }
 
 .benefit:hover{ transform:translateX(8px); }
-
 .benefit i{ color:var(--primary); }
 
 /* BOTÓN */
 .cta-button{
   display:inline-flex;
   align-items:center;
+  justify-content:center;
   gap:14px;
-  padding:22px 46px;
+  padding:20px 42px;
   border-radius:60px;
   font-weight:800;
   text-decoration:none;
@@ -178,22 +177,15 @@
   box-shadow:0 20px 55px #00b3c960;
   transition:.35s;
   font-size:18px;
+  width:max-content;
 }
 
 .cta-arrow{ transition:.3s; }
 .cta-button:hover .cta-arrow{ transform:translateX(6px); }
 
 .cta-button:hover{
-  transform:translateY(-6px) scale(1.07);
+  transform:translateY(-6px);
   box-shadow:0 35px 80px #00b3c990;
-}
-
-/* URGENCIA */
-.cta-urgency{
-  margin-top:16px;
-  font-size:.9rem;
-  color:var(--muted);
-  opacity:.85;
 }
 
 /* TARJETA DERECHA */
@@ -209,7 +201,7 @@
 
 .cta-card-content{
   position:relative;
-  padding:55px;
+  padding:50px;
   border-radius:30px;
   background:rgba(255,255,255,0.06);
   backdrop-filter:blur(18px);
@@ -218,23 +210,72 @@
   transition:.4s;
 }
 
-.cta-card-content:hover{ transform:translateY(-12px); }
-
-/* MINI REVIEW */
-.mini-review{
-  margin-top:25px;
-  font-size:.9rem;
-  opacity:.8;
-  font-style:italic;
+/* BANKS Y CARDS */
+.banks, .cards{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+  margin-top:18px;
 }
 
-@media(max-width:900px){
+.bank, .card-pay{
+  background:rgba(255,255,255,.08);
+  padding:10px 18px;
+  border-radius:14px;
+  font-size:.9rem;
+}
+
+/* ========================= */
+/* 📱 MOBILE OPTIMIZATION */
+/* ========================= */
+
+@media (max-width: 900px){
+
+  .cta-section{
+    padding:90px 0;
+  }
+
   .cta-wrapper{
     grid-template-columns:1fr;
+    gap:60px;
     text-align:center;
-    gap:70px;
   }
-  .cta-benefits{ align-items:center; }
-}
 
+  /* TITULO MOBILE */
+  .cta-content h2{
+    font-size:34px;
+    line-height:1.2;
+  }
+
+  .cta-desc{
+    font-size:1rem;
+    margin:auto;
+    margin-bottom:30px;
+  }
+
+  .cta-benefits{
+    align-items:center;
+  }
+
+  .benefit{
+    justify-content:center;
+  }
+
+  /* BOTÓN MOBILE PERFECTO */
+  .cta-button{
+    width:100%;
+    padding:18px;
+    font-size:16px;
+    border-radius:18px;
+  }
+
+  .cta-card-content{
+    padding:35px 25px;
+  }
+
+  .banks, .cards{
+    justify-content:center;
+  }
+
+}
 </style>

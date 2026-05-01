@@ -8,50 +8,93 @@ import { Icon } from "astro-icon/components";
     <!-- TEXTO -->
     <div class="anydesk-text">
       <span class="badge">CONEXIÓN REMOTA SEGURA</span>
-      <h2>¿Cómo descargar AnyDesk en tu computadora?</h2>
+      <h2>Descarga el programa para soporte remoto</h2>
 
       <p class="desc">
-        Para comenzar el soporte remoto solo necesitas descargar
-        AnyDesk. No requiere instalación y tarda menos de 1 minuto.
+        Para comenzar el soporte remoto solo necesitas descargar uno de estos
+        programas. No requieren instalación y tardan menos de 1 minuto.
       </p>
 
-      <div class="steps">
-
-        <div class="step">
-          <div class="num">1</div>
-          <div>
-            <h4>Descargar</h4>
-            <p>Haz clic en el botón y descarga AnyDesk desde la web oficial.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="num">2</div>
-          <div>
-            <h4>Abrir el archivo</h4>
-            <p>Abre el programa descargado. No necesitas instalar nada.</p>
-          </div>
-        </div>
-
-        <div class="step">
-          <div class="num">3</div>
-          <div>
-            <h4>Enviar tu ID</h4>
-            <p>Envíanos el número que aparece y comenzamos el soporte.</p>
-          </div>
-        </div>
-
+      <!-- SELECTOR -->
+      <div class="remote-tabs">
+        <button class="tab active" data-target="anydeskSteps">
+          <Icon name="simple-icons:anydesk"/> AnyDesk
+        </button>
+        <button class="tab" data-target="teamviewerSteps">
+          <Icon name="simple-icons:teamviewer"/> TeamViewer
+        </button>
       </div>
 
-      <a href="https://anydesk.com/es/downloads/thank-you?dv=win_exe" target="_blank" class="download-btn">
-        <Icon name="mdi:download" />
-        Descargar AnyDesk
-      </a>
+      <!-- PASOS ANYDESK -->
+      <div class="steps-wrapper active" id="anydeskSteps">
+        <div class="steps">
+          <div class="step">
+            <div class="num">1</div>
+            <div>
+              <h4>Descargar</h4>
+              <p>Haz clic en el botón y descarga AnyDesk desde la web oficial.</p>
+            </div>
+          </div>
 
-      <!-- NUEVO BLOQUE VIDEO -->
+          <div class="step">
+            <div class="num">2</div>
+            <div>
+              <h4>Abrir el archivo</h4>
+              <p>Abre el programa descargado. No necesitas instalar nada.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">3</div>
+            <div>
+              <h4>Enviar tu ID</h4>
+              <p>Envíanos el número que aparece y comenzamos el soporte.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://anydesk.com/es/downloads/thank-you?dv=win_exe" target="_blank" class="download-btn">
+          <Icon name="mdi:download"/> Descargar AnyDesk
+        </a>
+      </div>
+
+      <!-- PASOS TEAMVIEWER -->
+      <div class="steps-wrapper" id="teamviewerSteps">
+        <div class="steps">
+          <div class="step">
+            <div class="num">1</div>
+            <div>
+              <h4>Descargar TeamViewer</h4>
+              <p>Descarga TeamViewer QuickSupport desde el sitio oficial.</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">2</div>
+            <div>
+              <h4>Abrir el programa</h4>
+              <p>Ejecuta el archivo descargado (no requiere instalación).</p>
+            </div>
+          </div>
+
+          <div class="step">
+            <div class="num">3</div>
+            <div>
+              <h4>Compartir ID y contraseña</h4>
+              <p>Envíanos los datos que aparecen para iniciar el soporte.</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" target="_blank" class="download-btn">
+          <Icon name="mdi:download"/> Descargar TeamViewer
+        </a>
+      </div>
+
+      <!-- VIDEO -->
       <div class="video-help">
         <Icon name="mdi:play-circle-outline" />
-        <p>¿Tienes problemas descargando o abriendo AnyDesk?</p>
+        <p>¿Tienes problemas descargando el programa?</p>
         <a href="https://drive.google.com/file/d/17cp_besLdN9NnNC1BpB9ox5oZVscdHLS/view?usp=sharing" target="_blank">
           Ver video tutorial paso a paso
         </a>
@@ -64,20 +107,44 @@ import { Icon } from "astro-icon/components";
       <div class="card-glow"></div>
 
       <div class="card">
-        <Icon name="simple-icons:anydesk" class="anydesk-icon" />
-        <h3>Soporte remoto seguro</h3>
+        <Icon name="mdi:shield-lock-outline" class="anydesk-icon" />
+        <h3>Conexión 100% segura</h3>
         <p>Conexión cifrada y control total del proceso en tiempo real.</p>
 
         <div class="features">
           <span>✔ No requiere instalación</span>
-          <span>✔ Conexión segura</span>
-          <span>✔ Rápido y ligero</span>
+          <span>✔ Conexión cifrada</span>
+          <span>✔ Soporte inmediato</span>
         </div>
       </div>
     </div>
 
   </div>
 </section>
+
+<script is:inline>
+document.addEventListener("DOMContentLoaded", () => {
+
+  const tabs = document.querySelectorAll(".tab");
+  const wrappers = document.querySelectorAll(".steps-wrapper");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+
+      // quitar activos
+      tabs.forEach(t => t.classList.remove("active"));
+      wrappers.forEach(w => w.classList.remove("active"));
+
+      // activar el seleccionado
+      tab.classList.add("active");
+      const target = document.getElementById(tab.dataset.target);
+      if(target) target.classList.add("active");
+
+    });
+  });
+
+});
+</script>
 
 <style>
 .anydesk-grid{
@@ -201,4 +268,32 @@ import { Icon } from "astro-icon/components";
   }
   .step{ justify-content:center; }
 }
+
+/* TABS */
+.remote-tabs{
+  display:flex;
+  gap:15px;
+  margin:25px 0 30px;
+}
+
+.tab{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 18px;
+  border-radius:25px;
+  background:rgba(255,255,255,0.05);
+  border:1px solid rgba(255,255,255,0.1);
+  color:var(--muted);
+  cursor:pointer;
+  transition:.3s;
+}
+
+.tab.active{
+  background:linear-gradient(90deg,#00B3C9,#1ED6E6);
+  color:#fff;
+}
+
+.steps-wrapper{ display:none; }
+.steps-wrapper.active{ display:block; }
 </style>

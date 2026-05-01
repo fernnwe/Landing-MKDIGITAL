@@ -4,7 +4,7 @@
     <div class="stats-header">
       <span class="badge pulse">RESULTADOS REALES</span>
       <h2>Nuestro impacto en números</h2>
-      <p>Más empresas y profesionales confían cada día en nuestro soporte remoto.</p>
+      <p>Empresas y profesionales confían cada día en nuestro soporte remoto.</p>
     </div>
 
     <div class="stats-grid">
@@ -20,13 +20,13 @@
       </div>
 
       <div class="stat-card">
-        <div class="number rating">4.9 ⭐</div>
+        <div class="number rating">4.9</div>
         <div class="label">Calificación promedio</div>
       </div>
 
       <div class="stat-card">
-        <div class="number">🇳🇮</div>
-        <div class="label">Atención en todo el país</div>
+        <div class="number">100%</div>
+        <div class="label">Cobertura nacional</div>
       </div>
 
     </div>
@@ -36,33 +36,33 @@
 
 <script is:inline>
 const counters = document.querySelectorAll('.number[data-target]');
-const speed = 200;
+let started = false;
 
 const animateCounters = () => {
-  counters.forEach(counter => {
-    const updateCount = () => {
-      const target = +counter.getAttribute('data-target');
-      const count = +counter.innerText;
-      const inc = target / speed;
+  if(started) return;
+  started = true;
 
-      if(count < target){
-        counter.innerText = Math.ceil(count + inc);
-        setTimeout(updateCount, 15);
+  counters.forEach(counter => {
+    const target = +counter.dataset.target;
+    const duration = 1500;
+    let start = 0;
+    const increment = target / (duration / 16);
+
+    const updateCount = () => {
+      start += increment;
+      if(start < target){
+        counter.innerText = Math.floor(start);
+        requestAnimationFrame(updateCount);
       } else {
         counter.innerText = "+" + target;
       }
-    }
+    };
     updateCount();
   });
-}
+};
 
 const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      animateCounters();
-      observer.disconnect();
-    }
-  });
+  if(entries[0].isIntersecting) animateCounters();
 });
 
 observer.observe(document.querySelector('.stats'));
@@ -70,20 +70,23 @@ observer.observe(document.querySelector('.stats'));
 
 <style>
 .stats{
-  padding:160px 0;
-  background:linear-gradient(180deg,#070b10,#0b1118);
+  padding:150px 0;
+  background:
+    radial-gradient(circle at 20% 20%,#00b3c920,transparent 40%),
+    radial-gradient(circle at 80% 80%,#1ed6e620,transparent 40%),
+    #070b10;
   text-align:center;
   position:relative;
   overflow:hidden;
 }
 
-/* glow fondo mejorado */
+/* glow hero */
 .stats::before{
   content:"";
   position:absolute;
   width:700px;
   height:700px;
-  background:radial-gradient(circle,#00e0ff25,transparent 70%);
+  background:radial-gradient(circle,#00B3C925,transparent 70%);
   top:-250px;
   left:50%;
   transform:translateX(-50%);
@@ -100,32 +103,31 @@ observer.observe(document.querySelector('.stats'));
   display:inline-block;
   padding:7px 18px;
   border-radius:30px;
-  background:rgba(0,224,255,.12);
-  color:#00e0ff;
+  background:linear-gradient(90deg,#00B3C920,#1ED6E620);
+  color:var(--primary);
   font-size:.75rem;
   letter-spacing:.7px;
   margin-bottom:18px;
   font-weight:700;
 }
 
-/* animación badge */
+/* pulse hero color */
 .pulse{
   animation:pulse 2s infinite;
 }
 @keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(0,224,255,.4)}
-  70%{box-shadow:0 0 0 12px rgba(0,224,255,0)}
-  100%{box-shadow:0 0 0 0 rgba(0,224,255,0)}
+  0%{box-shadow:0 0 0 0 #00b3c955}
+  70%{box-shadow:0 0 0 12px transparent}
+  100%{box-shadow:0 0 0 0 transparent}
 }
 
 .stats-header h2{
   font-size:46px;
   margin-bottom:12px;
-  letter-spacing:-.5px;
 }
 
 .stats-header p{
-  color:#9aa4af;
+  color:var(--muted);
   max-width:520px;
   margin:auto;
 }
@@ -135,7 +137,6 @@ observer.observe(document.querySelector('.stats'));
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:40px;
-  position:relative;
 }
 
 /* CARD */
@@ -149,31 +150,17 @@ observer.observe(document.querySelector('.stats'));
   position:relative;
 }
 
-.stat-card::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  border-radius:26px;
-  background:linear-gradient(120deg,transparent,#00e0ff20,transparent);
-  opacity:0;
-  transition:.4s;
-}
-
 .stat-card:hover{
-  transform:translateY(-14px) scale(1.02);
-  border-color:#00e0ff;
-  box-shadow:0 0 45px rgba(0,224,255,.18);
+  transform:translateY(-14px);
+  border-color:var(--primary);
+  box-shadow:0 0 45px #00b3c930;
 }
 
-.stat-card:hover::after{
-  opacity:1;
-}
-
-/* NUMERO */
+/* NUMERO HERO GRADIENT */
 .number{
   font-size:58px;
   font-weight:900;
-  background:linear-gradient(90deg,#00ffa6,#00e0ff);
+  background:linear-gradient(90deg,#00B3C9,#1ED6E6);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
   margin-bottom:12px;
@@ -182,9 +169,8 @@ observer.observe(document.querySelector('.stats'));
 
 /* TEXTO */
 .label{
-  color:#9aa4af;
+  color:var(--muted);
   font-size:15px;
-  font-weight:500;
 }
 
 @media(max-width:768px){
