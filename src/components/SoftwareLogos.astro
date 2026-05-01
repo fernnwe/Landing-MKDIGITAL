@@ -12,48 +12,83 @@ import { Icon } from "astro-icon/components";
 
     <div class="logos">
 
-      <div class="logo-card">
+      <!-- WINDOWS -->
+      <div class="logo-card windows">
         <Icon name="mdi:microsoft-windows" />
         <span>Windows</span>
       </div>
 
-      <div class="logo-card">
+      <!-- OFFICE -->
+      <div class="logo-card office">
         <Icon name="mdi:microsoft-office" />
         <span>Microsoft Office</span>
       </div>
 
-      <div class="logo-card">
+      <!-- ADOBE -->
+      <div class="logo-card adobe">
         <Icon name="simple-icons:adobe" />
         <span>Adobe</span>
       </div>
 
-      <div class="logo-card">
+      <!-- AUTODESK -->
+      <div class="logo-card autocad">
         <Icon name="simple-icons:autodesk" />
         <span>AutoCAD</span>
       </div>
 
-      <div class="logo-card">
+      <div class="logo-card sketchup">
         <Icon name="simple-icons:sketchup" />
         <span>SketchUp</span>
       </div>
 
-      <div class="logo-card">
+      <div class="logo-card revit">
         <Icon name="simple-icons:autodesk" />
         <span>Revit</span>
       </div>
 
-      <div class="logo-card">
+      <!-- ANTIVIRUS -->
+      <div class="logo-card avg">
+        <Icon name="mdi:shield-plus" />
+        <span>AVG Antivirus</span>
+      </div>
+
+      <div class="logo-card eset">
+        <Icon name="mdi:shield-star" />
+        <span>ESET NOD32</span>
+      </div>
+
+      <div class="logo-card avast">
+        <Icon name="simple-icons:avast" />
+        <span>Avast</span>
+      </div>
+
+      <div class="logo-card kaspersky">
+        <Icon name="mdi:shield-lock" />
+        <span>Kaspersky</span>
+      </div>
+
+      <!-- SOFTWARE PROFESIONAL -->
+      <div class="logo-card solidworks">
+        <Icon name="simple-icons:dassaultsystemes" />
+        <span>SolidWorks</span>
+      </div>
+
+      <div class="logo-card visio">
+        <Icon name="simple-icons:microsoft" />
+        <span>Microsoft Visio</span>
+      </div>
+
+      <div class="logo-card project">
+        <Icon name="simple-icons:microsoft" />
+        <span>Microsoft Project</span>
+      </div>
+
+      <div class="logo-card drivers">
         <Icon name="mdi:cpu-64-bit" />
         <span>Drivers</span>
       </div>
 
-      <div class="logo-card">
-        <Icon name="mdi:shield-check" />
-        <span>Antivirus</span>
-      </div>
-
     </div>
-
   </div>
 </section>
 
@@ -78,7 +113,7 @@ import { Icon } from "astro-icon/components";
 
 .logos{
   display:grid;
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
   gap:30px;
 }
 
@@ -86,7 +121,7 @@ import { Icon } from "astro-icon/components";
   background:rgba(255,255,255,0.04);
   border:1px solid rgba(255,255,255,0.08);
   border-radius:20px;
-  padding:35px;
+  padding:35px 20px;
   text-align:center;
   transition:.3s;
 }
@@ -94,12 +129,12 @@ import { Icon } from "astro-icon/components";
 .logo-card:hover{
   transform:translateY(-6px);
   border-color:var(--primary);
+  box-shadow:0 0 25px rgba(0,224,255,.2);
 }
 
 .logo-card svg{
   width:50px;
   height:50px;
-  color:var(--primary);
   margin-bottom:15px;
 }
 
@@ -108,7 +143,23 @@ import { Icon } from "astro-icon/components";
   font-weight:600;
 }
 
-/* MOBILE */
+/* 🎨 COLORES */
+.windows svg{color:#00A4EF;}
+.office svg{color:#D83B01;}
+.adobe svg{color:#FF0000;}
+.autocad svg{color:#E51050;}
+.sketchup svg{color:#FF6F00;}
+.revit svg{color:#009999;}
+
+.avg svg{color:#00C853;}
+.eset svg{color:#00ADEF;}
+.avast svg{color:#FF7800;}
+.kaspersky svg{color:#00A88E;}
+
+.solidworks svg{color:#FF0000;}
+.visio svg{color:#5E5E5E;}
+.project svg{color:#217346;}
+
 @media(max-width:900px){
   .logos{grid-template-columns:repeat(2,1fr);}
 }
