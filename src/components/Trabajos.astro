@@ -1,169 +1,175 @@
 ---
 import { Icon } from "astro-icon/components";
+
+const trabajos = [
+  {
+    img: "/trabajos/trabajo1.jpg",
+    titulo: "Instalación AutoCAD 2026",
+    ciudad: "Jinotega",
+    tiempo: "30 min",
+    badge: "Autodesk instalado correctamente"
+  },
+  {
+    img: "/trabajos/trabajo2.jpg",
+    titulo: "Instalación Office 2024",
+    ciudad: "Managua",
+    tiempo: "20 min",
+    badge: "Office listo para usar"
+  },
+  {
+    img: "/trabajos/trabajo3.jpg",
+    titulo: "Instalación Adobe Illustrator",
+    ciudad: "Managua",
+    tiempo: "25 min",
+    badge: "Adobe activado"
+  },
+  {
+    img: "/trabajos/antivirus.jpeg",
+    titulo: "Instalación Antivirus McAfee",
+    ciudad: "Managua",
+    tiempo: "15 min",
+    badge: "Equipo protegido"
+  }
+];
 ---
 
 <section class="works">
   <div class="container">
 
-    <h2 class="section-title">Trabajos realizados recientemente</h2>
-    <p class="section-subtitle">
-      Instalaciones reales hechas a clientes en toda Nicaragua
+    <h2 class="title">Instalaciones reales realizadas</h2>
+    <p class="subtitle">
+      Clientes satisfechos en toda Nicaragua • Resultados verificados
     </p>
 
-    <div class="works-grid">
+    <div class="grid">
+      {trabajos.map(t => (
+        <article class="card">
 
-      <!-- TRABAJO 1 -->
-      <div class="work-card">
-        <div class="image-wrapper">
-          <img src="/trabajos/trabajo1.jpg" alt="Office instalado">
-          <div class="overlay">
-            <Icon name="mdi:check-decagram" />
-            <span>Instalación completada</span>
+          <div class="imgBox">
+            <img src={t.img} alt={t.titulo} loading="lazy">
+
+            <div class="status">
+              <Icon name="mdi:check-decagram" />
+              Instalación completada
+            </div>
+
+            <div class="overlay">
+              <Icon name="mdi:shield-check" />
+              <span>{t.badge}</span>
+            </div>
           </div>
-        </div>
 
-        <div class="work-info">
-          <h3>Instalación de Autocad 2026</h3>
-          <div class="meta">
-            <span><Icon name="mdi:map-marker" /> Jinotega</span>
-            <span><Icon name="mdi:clock-outline" /> 30 min</span>
+          <div class="content">
+            <h3>{t.titulo}</h3>
+
+            <div class="meta">
+              <span>
+                <Icon name="mdi:map-marker" /> {t.ciudad}
+              </span>
+
+              <span>
+                <Icon name="mdi:clock-outline" /> {t.tiempo}
+              </span>
+            </div>
+
           </div>
-        </div>
-      </div>
 
-      <!-- TRABAJO 2 -->
-      <div class="work-card">
-        <div class="image-wrapper">
-          <img src="/trabajos/trabajo2.jpg" alt="AutoCAD instalado">
-          <div class="overlay">
-            <Icon name="mdi:check-decagram" />
-            <span>Office funcionando</span>
-          </div>
-        </div>
-
-        <div class="work-info">
-          <h3>Instalación de Office 2024</h3>
-          <div class="meta">
-            <span><Icon name="mdi:map-marker" /> Managua</span>
-            <span><Icon name="mdi:clock-outline" /> 20 min</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- TRABAJO 3 -->
-      <div class="work-card">
-        <div class="image-wrapper">
-          <img src="/trabajos/trabajo3.jpg" alt="Photoshop instalado">
-          <div class="overlay">
-            <Icon name="mdi:check-decagram" />
-            <span>Adobe listo para usar</span>
-          </div>
-        </div>
-
-        <div class="work-info">
-          <h3>Adobe Ilustrator 2025</h3>
-          <div class="meta">
-            <span><Icon name="mdi:map-marker" /> Managua</span>
-            <span><Icon name="mdi:clock-outline" /> 25 min</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- TRABAJO 4 -->
-      <div class="work-card">
-        <div class="image-wrapper">
-          <img src="/trabajos/antivirus.jpeg" alt="McAfee instalado">
-          <div class="overlay">
-            <Icon name="mdi:check-decagram" />
-            <span>Antivirus instalado correctamente</span>
-          </div>
-        </div>
-
-        <div class="work-info">
-          <h3>Instalación Antivirus McAfee</h3>
-          <div class="meta">
-            <span><Icon name="mdi:map-marker" /> Managua</span>
-            <span><Icon name="mdi:clock-outline" /> 15 min</span>
-          </div>
-        </div>
-      </div>
-
+        </article>
+      ))}
     </div>
+
   </div>
 </section>
 
 <style>
 .works{
-  padding:80px 0;
-  background:#0f172a;
+  padding:120px 0;
+  background:linear-gradient(180deg,#0b1220,#020617);
 }
 
 /* TITULOS */
-.section-title{
+.title{
   text-align:center;
-  font-size:34px;
+  font-size:42px;
   font-weight:800;
-  color:#ffffff;
+  color:#fff;
 }
 
-.section-subtitle{
+.subtitle{
   text-align:center;
   color:#94a3b8;
   margin-top:10px;
-  margin-bottom:50px;
+  margin-bottom:70px;
 }
 
 /* GRID */
-.works-grid{
+.grid{
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:35px;
 }
 
 /* CARD */
-.work-card{
-  background:#111827;
-  border-radius:18px;
+.card{
+  background:#0f172a;
+  border-radius:20px;
   overflow:hidden;
   border:1px solid rgba(255,255,255,.05);
-  transition:all .35s ease;
-  position:relative;
+  transition:.35s;
+  box-shadow:0 10px 35px rgba(0,0,0,.35);
 }
 
-.work-card:hover{
-  transform:translateY(-10px);
-  box-shadow:0 25px 50px rgba(0,0,0,.45);
-  border:1px solid rgba(0,255,166,.2);
+.card:hover{
+  transform:translateY(-12px);
+  box-shadow:0 35px 80px rgba(0,0,0,.6);
+  border:1px solid rgba(0,255,166,.25);
 }
 
 /* IMAGEN */
-.image-wrapper{
+.imgBox{
   position:relative;
-  height:180px;
+  height:200px;
   overflow:hidden;
 }
 
-.image-wrapper img{
+.imgBox img{
   width:100%;
   height:100%;
   object-fit:cover;
-  transition:transform .5s ease;
+  transition:transform .6s ease;
 }
 
-.work-card:hover img{
-  transform:scale(1.08);
+.card:hover img{
+  transform:scale(1.1);
 }
 
-/* OVERLAY HOVER */
+/* BADGE SUPERIOR */
+.status{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:#00ffa6;
+  color:#022c22;
+  padding:6px 12px;
+  font-size:12px;
+  font-weight:700;
+  border-radius:30px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+/* OVERLAY */
 .overlay{
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,.70);
-  backdrop-filter:blur(2px);
+  background:rgba(2,6,23,.85);
+  backdrop-filter:blur(3px);
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+  gap:10px;
   color:#00ffa6;
   font-weight:700;
   opacity:0;
@@ -171,36 +177,41 @@ import { Icon } from "astro-icon/components";
 }
 
 .overlay svg{
-  font-size:42px;
-  margin-bottom:8px;
+  font-size:40px;
 }
 
-.image-wrapper:hover .overlay{
+.imgBox:hover .overlay{
   opacity:1;
 }
 
-/* INFO */
-.work-info{
-  padding:20px;
+/* CONTENIDO */
+.content{
+  padding:22px;
 }
 
-.work-info h3{
-  color:#ffffff;
-  margin-bottom:12px;
-  font-size:18px;
+.content h3{
+  color:#fff;
+  font-size:19px;
+  margin-bottom:14px;
 }
 
 /* META */
 .meta{
   display:flex;
   justify-content:space-between;
-  font-size:14px;
   color:#94a3b8;
+  font-size:14px;
 }
 
 .meta span{
   display:flex;
   align-items:center;
   gap:6px;
+}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .title{font-size:30px}
+  .works{padding:90px 0}
 }
 </style>
