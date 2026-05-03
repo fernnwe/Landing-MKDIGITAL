@@ -26,102 +26,135 @@
 
 <script is:inline>
 
-// =============================
-// BASE DE CONOCIMIENTO
-// =============================
+// ======================================================
+// 🧠 BASE DE CONOCIMIENTO REAL DEL SITIO MKDIGITAL
+// ======================================================
 const knowledge = [
+
 {
-  intent:"precio",
-  keywords:["precio","cuesta","costo","vale","valor","cuánto","pagar","tarifa"],
-  answer:"Nuestros servicios inician desde C$400 por instalación básica."
+title:"Servicios principales",
+text:`MK Digital ofrece instalación de software, licencias originales, soporte técnico remoto,
+optimización de computadoras y sistemas de facturación para negocios en Nicaragua.`,
+keywords:["servicios","que hacen","a que se dedican","mk digital","empresa"]
 },
+
 {
-  intent:"office",
-  keywords:["office","word","excel","powerpoint","microsoft"],
-  answer:"Instalamos Microsoft Office 2024 y 2021 con activación permanente."
+title:"Instalación de Windows",
+text:`Instalamos Windows 10 y Windows 11 optimizados, activados y listos para trabajar.
+Incluye drivers, programas esenciales y optimización para mejorar el rendimiento.`,
+keywords:["windows","formateo","formatear","pc lenta","computadora lenta","sistema operativo"]
 },
+
 {
-  intent:"windows",
-  keywords:["windows","formateo","formatear","pc lenta","computadora lenta","sistema operativo"],
-  answer:"Instalamos Windows 10 y 11 optimizados, activados y listos para trabajar."
+title:"Instalación de Office",
+text:`Instalamos Microsoft Office 2024 y 2021 con activación permanente.
+Incluye Word, Excel, PowerPoint y todas las herramientas necesarias para estudiar o trabajar.`,
+keywords:["office","word","excel","powerpoint","microsoft","ofimatica"]
 },
+
 {
-  intent:"facturacion",
-  keywords:["factura","facturacion","inventario","sistema","negocio","pos","factulite"],
-  answer:"Ofrecemos sistemas de facturación para PC y también FactuLite para negocios móviles."
+title:"Sistemas de facturación",
+text:`Ofrecemos sistemas de facturación con control de inventario para negocios.
+También contamos con FactuLite, sistema de facturación móvil para emprendedores.`,
+keywords:["factura","facturacion","inventario","sistema","pos","factulite","negocio"]
 },
+
 {
-  intent:"soporte",
-  keywords:["soporte","ayuda","remoto","arreglar","reparar","problema"],
-  answer:"Brindamos soporte remoto en toda Nicaragua sin que tengas que salir de casa."
+title:"Soporte remoto",
+text:`Brindamos soporte técnico remoto en toda Nicaragua.
+Podemos reparar, optimizar o instalar programas sin que salgas de casa.`,
+keywords:["soporte","ayuda","remoto","reparar","problema","tecnico"]
 },
+
 {
-  intent:"tiempo",
-  keywords:["tiempo","tardan","demora","cuánto tardan","duración"],
-  answer:"El proceso normalmente tarda entre 30 minutos y 2 horas."
+title:"Precios",
+text:`Nuestros servicios inician desde C$400 dependiendo del tipo de instalación o soporte requerido.`,
+keywords:["precio","costo","cuanto cuesta","valor","tarifa","pagar"]
 },
+
 {
-  intent:"garantia",
-  keywords:["garantia","seguridad","seguro"],
-  answer:"Todas nuestras instalaciones incluyen garantía."
+title:"Tiempo de servicio",
+text:`La mayoría de servicios se completan entre 30 minutos y 2 horas.`,
+keywords:["tiempo","tardan","demora","duracion"]
 },
+
 {
-  intent:"pago",
-  keywords:["pago","transferencia","efectivo","deposito","cancelar"],
-  answer:"Aceptamos transferencias y pagos en efectivo."
+title:"Garantía",
+text:`Todas nuestras instalaciones incluyen garantía y soporte post-servicio.`,
+keywords:["garantia","seguridad"]
 },
+
 {
-  intent:"contacto",
-  keywords:["contacto","whatsapp","numero","teléfono","hablar"],
-  answer:"Puedes escribirnos por WhatsApp: https://wa.me/50581088124"
+title:"Pagos",
+text:`Aceptamos transferencias bancarias y pagos en efectivo.`,
+keywords:["pago","transferencia","efectivo","deposito"]
+},
+
+{
+title:"Contacto",
+text:`Puedes escribirnos directamente por WhatsApp:
+https://wa.me/50581088124`,
+keywords:["contacto","telefono","numero","whatsapp","hablar"]
 }
+
 ];
 
-
-// =============================
-// SISTEMA INTELIGENTE
-// =============================
+// ======================================================
+// 🔎 MOTOR INTELIGENTE (SIMILITUD)
+// ======================================================
 function normalize(text){
-  return text
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"");
+  return text.toLowerCase()
+  .normalize("NFD")
+  .replace(/[\u0300-\u036f]/g,"");
 }
 
-function detectarIntencion(msg){
+function similarity(msg, item){
+  let score = 0;
+  item.keywords.forEach(k=>{
+    if(msg.includes(k)) score+=2;
+  });
 
+  const words = item.text.toLowerCase().split(" ");
+  words.forEach(w=>{
+    if(msg.includes(w)) score+=0.2;
+  });
+
+  return score;
+}
+
+function buscarRespuesta(msg){
   msg = normalize(msg);
-  let mejorIntento = null;
-  let mejorScore = 0;
+  let best=null;
+  let bestScore=0;
 
   knowledge.forEach(item=>{
-    let score = 0;
-
-    item.keywords.forEach(keyword=>{
-      if(msg.includes(keyword)) score++;
-    });
-
-    if(score > mejorScore){
-      mejorScore = score;
-      mejorIntento = item;
+    const score = similarity(msg,item);
+    if(score>bestScore){
+      bestScore=score;
+      best=item;
     }
   });
 
-  if(mejorScore === 0) return null;
-  return mejorIntento.answer;
+  if(bestScore<1) return null;
+  return best.text;
 }
 
 function responder(msg){
-  const intento = detectarIntencion(msg);
-  if(intento) return intento;
+  const r = buscarRespuesta(msg);
+  if(r) return r;
 
-  return "Puedo ayudarte con instalaciones, licencias, facturación, soporte técnico y precios.";
+  return `Puedo ayudarte con:
+• Instalación de Windows y Office
+• Sistemas de facturación
+• Soporte técnico remoto
+• Precios y contacto
+
+¿En qué te gustaría recibir ayuda?`;
 }
 
-
-// =============================
-// UI CHAT (OPTIMIZADO)
-// =============================
+// ======================================================
+// 💬 UI CHAT
+// ======================================================
 const chat = document.querySelector("#aiChat");
 const float = document.querySelector("#aiFloat");
 const closeBtn = document.querySelector("#closeAI");
@@ -140,13 +173,7 @@ function hora(){
 function addMsg(text,tipo="bot"){
   const msg=document.createElement("div");
   msg.className="msg "+tipo;
-
-  msg.innerHTML=`
-  <div class="bubble">
-    ${text}
-    <span class="time">${hora()}</span>
-  </div>`;
-  
+  msg.innerHTML=`<div class="bubble">${text}<span class="time">${hora()}</span></div>`;
   messages.appendChild(msg);
   messages.scrollTop = messages.scrollHeight;
 }
@@ -154,19 +181,15 @@ function addMsg(text,tipo="bot"){
 function enviar(){
   const texto=input.value.trim();
   if(!texto) return;
-
   addMsg(texto,"user");
   input.value="";
-
-  setTimeout(()=>{
-    addMsg(responder(texto),"bot");
-  },600);
+  setTimeout(()=> addMsg(responder(texto),"bot"),600);
 }
 
 sendBtn.onclick=enviar;
 input.addEventListener("keypress",e=>{ if(e.key==="Enter") enviar(); });
 
-addMsg("Bienvenido. ¿Cómo puedo ayudarte?");
+addMsg("Hola 👋 Soy el asistente virtual de MK Digital. ¿En qué puedo ayudarte?");
 
 </script>
 
