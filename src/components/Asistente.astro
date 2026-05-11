@@ -1,27 +1,43 @@
 <div id="aiFloat" class="fab" aria-label="Abrir chat">
-  <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
+  <span class="fab-badge"></span>
 </div>
 
 <div id="aiChat" class="chat-sheet">
   <div class="chat-header">
     <div class="chat-header-info">
-      <div class="chat-avatar"></div>
+      <div class="chat-avatar">M</div>
       <div>
-        <strong>MKDIGITAL</strong>
-        <span>Asistente virtual</span>
+        <strong>MK Digital</strong>
+        <span class="chat-status">
+          <span class="status-dot"></span>
+          En línea
+        </span>
       </div>
     </div>
-    <button id="closeAI" aria-label="Cerrar chat">
-      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-    </button>
+    <div class="chat-header-actions">
+      <button id="clearChat" aria-label="Limpiar chat" title="Limpiar conversación">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"/></svg>
+      </button>
+      <button id="closeAI" aria-label="Cerrar chat">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+      </button>
+    </div>
   </div>
 
-  <div id="chatMessages" class="chat-messages"></div>
+  <div class="chat-body">
+    <div id="chatMessages" class="chat-messages"></div>
+    <div id="typingIndicator" class="typing-indicator" style="display:none">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+
+  <div class="chat-suggestions" id="suggestions"></div>
 
   <div class="chat-input-bar">
-    <input id="userMsg" placeholder="Escribe tu mensaje..." />
+    <input id="userMsg" placeholder="Escribe tu mensaje..." autocomplete="off" />
     <button id="sendMsg" aria-label="Enviar">
-      <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
     </button>
   </div>
 </div>
@@ -29,172 +45,229 @@
 <script is:inline>
 
 const knowledge = [
-
 {
-title:"Servicios principales",
-text:`MK Digital ofrece instalación de software, licencias originales, soporte técnico remoto,
-optimización de computadoras y sistemas de facturación para negocios en Nicaragua.`,
-keywords:["servicios","que hacen","a que se dedican","mk digital","empresa"]
+  title: "Servicios principales",
+  text: `En MK Digital ofrecemos soluciones completas de software para hogares y empresas en Nicaragua. Nos especializamos en instalación de programas licenciados, soporte técnico remoto, optimización de equipos y sistemas de facturación para negocios. Todo con atención personalizada y resultados garantizados.`,
+  keywords: ["servicios", "que hacen", "a que se dedican", "mk digital", "empresa", "ofrecen"]
 },
-
 {
-title:"Instalación de Windows",
-text:`Instalamos Windows 10 y Windows 11 optimizados, activados y listos para trabajar.
-Incluye drivers, programas esenciales y optimización para mejorar el rendimiento.`,
-keywords:["windows","formateo","formatear","pc lenta","computadora lenta","sistema operativo"]
+  title: "Instalación de Windows",
+  text: `Realizamos instalación limpia de Windows 10 y Windows 11 Pro, incluyendo activación permanente, drivers actualizados y configuración completa del sistema. Entregamos el equipo optimizado, sin bloatware y listo para trabajar desde el primer momento.`,
+  keywords: ["windows", "formateo", "formatear", "pc lenta", "computadora lenta", "sistema operativo", "instalar windows"]
 },
-
 {
-title:"Instalación de Office",
-text:`Instalamos Microsoft Office 2024 y 2021 con activación permanente.
-Incluye Word, Excel, PowerPoint y todas las herramientas necesarias para estudiar o trabajar.`,
-keywords:["office","word","excel","powerpoint","microsoft","ofimatica"]
+  title: "Instalación de Office",
+  text: `Instalamos Microsoft Office 2021 y 2024 Professional Plus con activación permanente. Incluye Word, Excel, PowerPoint, Outlook y todas las herramientas necesarias para el entorno profesional y académico. Dejamos todo configurado y funcionando.`,
+  keywords: ["office", "word", "excel", "powerpoint", "microsoft", "ofimatica", "instalar office"]
 },
-
 {
-title:"Sistemas de facturación",
-text:`Ofrecemos sistemas de facturación con control de inventario para negocios.
-También contamos con FactuLite, sistema de facturación móvil para emprendedores.`,
-keywords:["factura","facturacion","inventario","sistema","pos","factulite","negocio"]
+  title: "Sistemas de facturación",
+  text: `Ponemos a tu disposición sistemas de facturación modernos con control de inventario, ideal para pequeños y medianos negocios. Destacamos FactuLite (app móvil para emprendedores) y ViperPOS (sistema web profesional multisucursal). Ambos incluyen soporte técnico y actualizaciones.`,
+  keywords: ["factura", "facturacion", "inventario", "sistema", "pos", "factulite", "negocio", "viperpos"]
 },
-
 {
-title:"Soporte remoto",
-text:`Brindamos soporte técnico remoto en toda Nicaragua.
-Podemos reparar, optimizar o instalar programas sin que salgas de casa.`,
-keywords:["soporte","ayuda","remoto","reparar","problema","tecnico"]
+  title: "Soporte remoto",
+  text: `Brindamos soporte técnico remoto en toda Nicaragua con conexión cifrada y supervisada en tiempo real. Puedes ver cada movimiento que hacemos en tu PC y cerrar la sesión cuando lo desees. La mayoría de problemas se resuelven en menos de 30 minutos.`,
+  keywords: ["soporte", "ayuda", "remoto", "reparar", "problema", "tecnico", "asistencia"]
 },
-
 {
-title:"Precios",
-text:`Nuestros servicios inician desde C$400 dependiendo del tipo de instalación o soporte requerido.`,
-keywords:["precio","costo","cuanto cuesta","valor","tarifa","pagar"]
+  title: "Precios",
+  text: `Nuestros servicios tienen precios accesibles desde C$400, dependiendo del tipo de instalación o soporte requerido. Aceptamos transferencias bancarias (BANPRO, BAC, LAFISE) y depósitos en efectivo. El pago se realiza al finalizar el servicio.`,
+  keywords: ["precio", "costo", "cuanto cuesta", "valor", "tarifa", "pagar", "cuesta"]
 },
-
 {
-title:"Tiempo de servicio",
-text:`La mayoría de servicios se completan entre 30 minutos y 2 horas.`,
-keywords:["tiempo","tardan","demora","duracion"]
+  title: "Tiempo de servicio",
+  text: `La mayoría de nuestras instalaciones y soportes se completan en un rango de 20 a 40 minutos. Los tiempos pueden variar según la complejidad del servicio, pero nos caracterizamos por ser rápidos y eficientes en cada atención.`,
+  keywords: ["tiempo", "tardan", "demora", "duracion", "rapido", "minutos"]
 },
-
 {
-title:"Garantía",
-text:`Todas nuestras instalaciones incluyen garantía y soporte post-servicio.`,
-keywords:["garantia","seguridad"]
+  title: "Garantía",
+  text: `Todas nuestras instalaciones incluyen una semana de garantía con soporte post-servicio incluido. Si presentas cualquier inconveniente durante ese período, te asistimos sin costo adicional. Respalda cada trabajo que realizamos.`,
+  keywords: ["garantia", "seguridad", "respaldo", "postventa"]
 },
-
 {
-title:"Pagos",
-text:`Aceptamos transferencias bancarias y pagos en efectivo.`,
-keywords:["pago","transferencia","efectivo","deposito"]
+  title: "Pagos",
+  text: `Aceptamos transferencias bancarias a cuentas en BANPRO, BAC y LAFISE, tanto en córdobas como en dólares. También recibimos depósitos en efectivo. El pago se realiza únicamente cuando el trabajo esté terminado y verificado.`,
+  keywords: ["pago", "transferencia", "efectivo", "deposito", "banco", "bancaria"]
 },
-
 {
-title:"Contacto",
-text:`Puedes escribirnos directamente por WhatsApp:
-https://wa.me/50581088124`,
-keywords:["contacto","telefono","numero","whatsapp","hablar"]
+  title: "Contacto",
+  text: `Puedes comunicarte con nosotros directamente por WhatsApp al +505 8108 8124. Estamos disponibles de 6:00 AM a 9:00 PM, incluyendo fines de semana. Te responderemos en menos de 15 minutos.`,
+  keywords: ["contacto", "telefono", "numero", "whatsapp", "hablar", "escribir"]
+},
+{
+  title: "MKSOFT Restaurantes",
+  text: `MKSOFT es nuestro sistema de gestión para restaurantes, bares y cafeterías. Permite controlar mesas, registrar pedidos al instante, administrar inventario y generar reportes de ventas. Funciona en cualquier dispositivo con acceso a internet. Más información en https://app.mkdigitalnic.com/`,
+  keywords: ["mksoft", "restaurante", "restaurant", "bar", "cafeteria", "mesas", "pedidos", "comida"]
+},
+{
+  title: "Software disponible",
+  text: `Trabajamos diariamente con más de 15 categorías de software: Microsoft Windows y Office, Adobe Creative Cloud, AutoCAD, Revit, SolidWorks, CorelDRAW, SketchUp, antivirus (AVG, ESET, Avast, Kaspersky), Microsoft Visio, Project y más. Consulta nuestro catálogo completo para ver precios y promociones.`,
+  keywords: ["software", "programas", "catalogo", "lista", "disponible", "instalar", "aplicaciones"]
 }
-
 ];
 
-function normalize(text){
-  return text.toLowerCase()
-  .normalize("NFD")
-  .replace(/[\u0300-\u036f]/g,"");
+function normalize(text) {
+  return text.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
-function similarity(msg, item){
+function similarity(msg, item) {
   let score = 0;
-  item.keywords.forEach(k=>{
-    if(msg.includes(k)) score+=2;
+  item.keywords.forEach(k => {
+    const regex = new RegExp("\\b" + k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i");
+    if (regex.test(msg)) score += 3;
+    else if (msg.includes(k)) score += 2;
   });
-
-  const words = item.text.toLowerCase().split(" ");
-  words.forEach(w=>{
-    if(msg.includes(w)) score+=0.2;
+  const words = msg.split(/\s+/);
+  words.forEach(w => {
+    if (w.length > 3 && item.text.toLowerCase().includes(w)) score += 0.3;
   });
-
   return score;
 }
 
-function buscarRespuesta(msg){
+function buscarRespuesta(msg) {
   msg = normalize(msg);
-  let best=null;
-  let bestScore=0;
+  let best = null;
+  let bestScore = 0;
 
-  knowledge.forEach(item=>{
-    const score = similarity(msg,item);
-    if(score>bestScore){
-      bestScore=score;
-      best=item;
+  knowledge.forEach(item => {
+    const score = similarity(msg, item);
+    if (score > bestScore) {
+      bestScore = score;
+      best = item;
     }
   });
 
-  if(bestScore<1) return null;
+  if (bestScore < 1.5) return null;
   return best.text;
 }
 
-function responder(msg){
+function responder(msg) {
   const r = buscarRespuesta(msg);
-  if(r) return r;
+  if (r) return r;
 
-  return `Puedo ayudarte con:
+  return `Gracias por tu consulta. Estos son los temas en los que puedo ayudarte:
+
 • Instalación de Windows y Office
-• Sistemas de facturación
+• Programas Adobe y Autodesk
+• Sistemas de facturación (FactuLite, ViperPOS)
+• MKSOFT para restaurantes
+• Antivirus y seguridad
+• Optimización de PC
+• Precios y formas de pago
 • Soporte técnico remoto
-• Precios y contacto
 
-¿En qué te gustaría recibir ayuda?`;
+¿Sobre cuál de estos temas te gustaría recibir información?`;
 }
 
+const suggestions = [
+  "¿Qué servicios ofrecen?",
+  "Precios de instalación",
+  "Windows y Office",
+  "Soporte remoto",
+  "Formas de pago",
+  "MKSOFT restaurantes"
+];
+
+let chatOpen = false;
 const chat = document.querySelector("#aiChat");
 const float = document.querySelector("#aiFloat");
 const closeBtn = document.querySelector("#closeAI");
+const clearBtn = document.querySelector("#clearChat");
 const sendBtn = document.querySelector("#sendMsg");
 const input = document.querySelector("#userMsg");
 const messages = document.querySelector("#chatMessages");
+const typingEl = document.querySelector("#typingIndicator");
+const suggestionsEl = document.querySelector("#suggestions");
 
-float.onclick = () => chat.classList.toggle("open");
-closeBtn.onclick = () => chat.classList.remove("open");
+float.onclick = () => {
+  chat.classList.toggle("open");
+  chatOpen = chat.classList.contains("open");
+  if (chatOpen) {
+    input.focus();
+    setTimeout(() => messages.scrollTop = messages.scrollHeight, 100);
+  }
+};
 
-function hora(){
-  const d=new Date();
-  return d.getHours()+":"+String(d.getMinutes()).padStart(2,"0");
+closeBtn.onclick = () => {
+  chat.classList.remove("open");
+  chatOpen = false;
+};
+
+clearBtn.onclick = () => {
+  messages.innerHTML = "";
+  addMsg("Hola, soy el asistente virtual de MK Digital. Estoy aquí para ayudarte con información sobre nuestros servicios, precios, soporte técnico y más. ¿En qué puedo asistirte el día de hoy?", "bot");
+};
+
+function hora() {
+  const d = new Date();
+  return d.getHours() + ":" + String(d.getMinutes()).padStart(2, "0");
 }
 
-function addMsg(text,tipo="bot"){
-  const msg=document.createElement("div");
-  msg.className="msg "+tipo;
-  msg.innerHTML=`<div class="bubble">${text}<span class="time">${hora()}</span></div>`;
+function showTyping() {
+  typingEl.style.display = "flex";
+  messages.scrollTop = messages.scrollHeight;
+}
+
+function hideTyping() {
+  typingEl.style.display = "none";
+}
+
+function addMsg(text, tipo = "bot") {
+  hideTyping();
+  const msg = document.createElement("div");
+  msg.className = "msg " + tipo;
+  msg.innerHTML = `<div class="bubble">${text.replace(/\n/g, "<br>")}<span class="time">${hora()}</span></div>`;
   messages.appendChild(msg);
   messages.scrollTop = messages.scrollHeight;
 }
 
-function enviar(){
-  const texto=input.value.trim();
-  if(!texto) return;
-  addMsg(texto,"user");
-  input.value="";
-  setTimeout(()=> addMsg(responder(texto),"bot"),600);
+function showSuggestions() {
+  suggestionsEl.innerHTML = "";
+  const chips = suggestions.slice(0, chatOpen ? 6 : 0);
+  chips.forEach(s => {
+    const chip = document.createElement("button");
+    chip.className = "suggestion-chip";
+    chip.textContent = s;
+    chip.onclick = () => {
+      input.value = s;
+      enviar();
+      suggestionsEl.innerHTML = "";
+    };
+    suggestionsEl.appendChild(chip);
+  });
 }
 
-sendBtn.onclick=enviar;
-input.addEventListener("keypress",e=>{ if(e.key==="Enter") enviar(); });
+function enviar() {
+  const texto = input.value.trim();
+  if (!texto) return;
+  suggestionsEl.innerHTML = "";
+  addMsg(texto, "user");
+  input.value = "";
+  showTyping();
+  setTimeout(() => {
+    addMsg(responder(texto), "bot");
+    showSuggestions();
+  }, 800 + Math.random() * 400);
+}
 
-addMsg("Hola 👋 Soy el asistente virtual de MK Digital. ¿En qué puedo ayudarte?");
+sendBtn.onclick = enviar;
+input.addEventListener("keypress", e => { if (e.key === "Enter") enviar(); });
+
+addMsg("Hola, soy el asistente virtual de MK Digital. Estoy aquí para ayudarte con información sobre nuestros servicios, precios, soporte técnico y más. ¿En qué puedo asistirte el día de hoy?", "bot");
+setTimeout(showSuggestions, 600);
 
 </script>
 
 <style>
-/* MD3 FAB (Floating Action Button) */
+/* FAB */
 .fab {
   position: fixed;
   bottom: 24px;
   left: 24px;
-  width: 56px;
-  height: 56px;
-  border-radius: 16px;
+  width: 60px;
+  height: 60px;
+  border-radius: 20px;
   background: var(--primary);
   color: var(--on-primary);
   display: flex;
@@ -203,55 +276,75 @@ addMsg("Hola 👋 Soy el asistente virtual de MK Digital. ¿En qué puedo ayudar
   cursor: pointer;
   z-index: 9999;
   box-shadow: var(--elevation-3);
-  transition: box-shadow 0.2s, transform 0.1s;
+  transition: box-shadow 0.2s, transform 0.15s, border-radius 0.3s;
 }
 .fab:hover {
   box-shadow: var(--elevation-4);
+  transform: scale(1.05);
+  border-radius: 16px;
 }
 .fab:active {
-  transform: scale(0.95);
+  transform: scale(0.93);
 }
 .fab svg {
-  width: 24px;
-  height: 24px;
-  fill: currentColor;
+  width: 26px;
+  height: 26px;
 }
 
-/* MD3 Bottom Sheet Chat */
+.fab-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #4ADE80;
+  border: 2px solid var(--surface);
+  animation: fabPulse 2s infinite;
+}
+
+@keyframes fabPulse {
+  0% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.6); }
+  70% { box-shadow: 0 0 0 8px rgba(74, 222, 128, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(74, 222, 128, 0); }
+}
+
+/* Chat sheet */
 .chat-sheet {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   width: 100%;
-  max-width: 400px;
+  max-width: 420px;
   margin: 0 auto;
-  height: 560px;
+  height: 580px;
   border-radius: var(--shape-xl) var(--shape-xl) 0 0;
   display: flex;
   flex-direction: column;
   overflow: hidden;
   opacity: 0;
-  transform: translateY(40px);
+  transform: translateY(20px) scale(0.97);
   pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.2, 0, 0, 1);
-  background: var(--surface-container-high, #1C1D22);
+  transition: opacity 0.25s ease, transform 0.3s cubic-bezier(0.2, 0, 0, 1);
+  background: var(--surface-container, #17191E);
   box-shadow: var(--elevation-5);
   z-index: 10000;
 }
 .chat-sheet.open {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
   pointer-events: auto;
 }
 
 /* Header */
 .chat-header {
-  padding: 16px 20px;
+  padding: 18px 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid color-mix(in srgb, var(--outline-variant) 30%, transparent);
+  background: var(--surface-container-high, #1C1D22);
 }
 
 .chat-header-info {
@@ -263,30 +356,67 @@ addMsg("Hola 👋 Soy el asistente virtual de MK Digital. ¿En qué puedo ayudar
 .chat-avatar {
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  background: var(--primary-container);
+  border-radius: 12px;
+  background: var(--primary);
+  color: var(--on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 700;
 }
 
 .chat-header-info strong {
   font-size: 14px;
+  font-weight: 600;
   display: block;
+  color: var(--on-surface);
 }
-.chat-header-info span {
-  font-size: 12px;
+
+.chat-status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
   color: var(--on-surface-variant);
 }
 
-.chat-header button {
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ADE80;
+}
+
+.chat-header-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.chat-header-actions button {
   background: none;
   border: none;
   color: var(--on-surface-variant);
   cursor: pointer;
-  padding: 4px;
+  padding: 6px;
   border-radius: var(--shape-full);
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.chat-header button:hover {
-  background: rgba(255,255,255,0.06);
+.chat-header-actions button:hover {
+  background: color-mix(in srgb, var(--on-surface) 8%, transparent);
+  color: var(--on-surface);
+}
+
+/* Body */
+.chat-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
 }
 
 /* Messages */
@@ -296,7 +426,7 @@ addMsg("Hola 👋 Soy el asistente virtual de MK Digital. ¿En qué puedo ayudar
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
   background: var(--surface-container, #17191E);
 }
 
@@ -306,9 +436,12 @@ addMsg("Hola 👋 Soy el asistente virtual de MK Digital. ¿En qué puedo ayudar
   border-radius: 4px;
 }
 
-.msg { display: flex; animation: msgSlide 0.25s ease; }
-@keyframes msgSlide {
-  from { opacity: 0; transform: translateY(8px); }
+.msg {
+  display: flex;
+  animation: msgIn 0.3s ease;
+}
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(12px); }
   to { opacity: 1; transform: none; }
 }
 
@@ -317,17 +450,18 @@ addMsg("Hola 👋 Soy el asistente virtual de MK Digital. ¿En qué puedo ayudar
 
 .bubble {
   position: relative;
-  padding: 10px 14px 18px;
+  padding: 12px 16px 20px;
   border-radius: var(--shape-md);
-  max-width: 80%;
-  font-size: 13px;
-  line-height: 1.45;
+  max-width: 85%;
+  font-size: 13.5px;
+  line-height: 1.55;
 }
 
 .bot .bubble {
-  background: var(--surface-container-high);
+  background: var(--surface-container-high, #1C1D22);
   border-bottom-left-radius: 4px;
   color: var(--on-surface);
+  box-shadow: var(--elevation-0);
 }
 
 .user .bubble {
@@ -338,10 +472,62 @@ addMsg("Hola 👋 Soy el asistente virtual de MK Digital. ¿En qué puedo ayudar
 
 .time {
   position: absolute;
-  bottom: 3px;
-  right: 10px;
+  bottom: 4px;
+  right: 12px;
   font-size: 9px;
-  opacity: 0.5;
+  opacity: 0.45;
+}
+
+/* Typing indicator */
+.typing-indicator {
+  display: flex;
+  gap: 4px;
+  padding: 12px 16px;
+  align-items: center;
+}
+.typing-indicator span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--on-surface-variant);
+  opacity: 0.4;
+  animation: typingDot 1.4s infinite;
+}
+.typing-indicator span:nth-child(2) { animation-delay: 0.2s; }
+.typing-indicator span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typingDot {
+  0%, 60%, 100% { opacity: 0.4; transform: translateY(0); }
+  30% { opacity: 0.8; transform: translateY(-4px); }
+}
+
+/* Suggestions */
+.chat-suggestions {
+  display: flex;
+  gap: 6px;
+  padding: 8px 16px 4px;
+  overflow-x: auto;
+  flex-wrap: wrap;
+  background: var(--surface-container, #17191E);
+}
+.chat-suggestions::-webkit-scrollbar { display: none; }
+
+.suggestion-chip {
+  padding: 6px 14px;
+  border-radius: var(--shape-full);
+  border: 1px solid var(--outline-variant);
+  background: var(--surface-container-high, #1C1D22);
+  color: var(--on-surface-variant);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  font-family: var(--font-family);
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+.suggestion-chip:hover {
+  background: var(--primary-container);
+  border-color: var(--primary);
+  color: var(--on-primary-container);
 }
 
 /* Input */
@@ -349,19 +535,20 @@ addMsg("Hola 👋 Soy el asistente virtual de MK Digital. ¿En qué puedo ayudar
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 12px 16px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  background: var(--surface-container-high);
+  padding: 12px 16px 16px;
+  border-top: 1px solid color-mix(in srgb, var(--outline-variant) 30%, transparent);
+  background: var(--surface-container-high, #1C1D22);
 }
 
 .chat-input-bar input {
   flex: 1;
-  padding: 10px 14px;
+  padding: 11px 18px;
   border-radius: var(--shape-full);
   border: 1px solid var(--outline-variant);
   background: var(--surface-container, #17191E);
   color: var(--on-surface);
-  font-size: 13px;
+  font-size: 13.5px;
+  font-family: var(--font-family);
   outline: none;
   transition: border-color 0.2s;
 }
@@ -383,31 +570,28 @@ addMsg("Hola 👋 Soy el asistente virtual de MK Digital. ¿En qué puedo ayudar
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: box-shadow 0.2s;
   box-shadow: var(--elevation-1);
+  transition: box-shadow 0.2s, transform 0.1s;
+  flex-shrink: 0;
 }
 .chat-input-bar button:hover {
   box-shadow: var(--elevation-2);
 }
+.chat-input-bar button:active {
+  transform: scale(0.93);
+}
 .chat-input-bar svg {
   width: 18px;
   height: 18px;
-  fill: currentColor;
 }
 
 @media (min-width: 768px) {
   .chat-sheet {
-    bottom: 96px;
+    bottom: 100px;
     left: 24px;
     right: auto;
     border-radius: var(--shape-xl);
-    max-height: 560px;
-    height: 560px;
-  }
-  .chat-sheet.open {
-    opacity: 1;
-    transform: translateY(0);
-    pointer-events: auto;
+    height: 580px;
   }
 }
 </style>
