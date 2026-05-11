@@ -169,7 +169,7 @@ import { Icon } from "astro-icon/components";
   transition: background 0.2s, color 0.2s;
 }
 .nav-links a:hover {
-  background: rgba(255,255,255,0.06);
+  background: color-mix(in srgb, var(--on-surface) 8%, transparent);
   color: var(--on-surface);
 }
 
@@ -202,7 +202,7 @@ import { Icon } from "astro-icon/components";
   position: relative;
 }
 .theme-btn:hover {
-  background: rgba(255,255,255,0.06);
+  background: color-mix(in srgb, var(--on-surface) 8%, transparent);
   color: var(--on-surface);
 }
 
@@ -228,7 +228,7 @@ body:not(.light) .icon-moon { opacity: 0; transform: rotate(-90deg) scale(0); }
   font-family: var(--font-family);
   margin-top: 4px;
 }
-.mobile-theme-btn:hover { background: rgba(255,255,255,0.06); }
+.mobile-theme-btn:hover { background: color-mix(in srgb, var(--on-surface) 8%, transparent); }
 .theme-label {
   font-size: 16px;
   font-weight: 500;
@@ -247,7 +247,7 @@ body:not(.light) .icon-moon { opacity: 0; transform: rotate(-90deg) scale(0); }
   border-radius: var(--shape-full);
   transition: background 0.2s;
 }
-.menu-btn:hover { background: rgba(255,255,255,0.06); }
+.menu-btn:hover { background: color-mix(in srgb, var(--on-surface) 8%, transparent); }
 
 /* Mobile overlay */
 .mobile-overlay {
@@ -312,7 +312,7 @@ body:not(.light) .icon-moon { opacity: 0; transform: rotate(-90deg) scale(0); }
   transition: background 0.2s;
 }
 .mobile-menu-content a:hover {
-  background: rgba(255,255,255,0.06);
+  background: color-mix(in srgb, var(--on-surface) 8%, transparent);
 }
 
 .mobile-menu-content .btn-primary {
