@@ -1,24 +1,26 @@
-<div id="aiFloat">
+<div id="aiFloat" class="fab" aria-label="Abrir chat">
   <svg viewBox="0 0 24 24"><path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/></svg>
 </div>
 
-<div id="aiChat" class="chat">
+<div id="aiChat" class="chat-sheet">
   <div class="chat-header">
-    <div class="title">
-      <div class="avatar"></div>
+    <div class="chat-header-info">
+      <div class="chat-avatar"></div>
       <div>
         <strong>MKDIGITAL</strong>
         <span>Asistente virtual</span>
       </div>
     </div>
-    <button id="closeAI">✕</button>
+    <button id="closeAI" aria-label="Cerrar chat">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+    </button>
   </div>
 
-  <div id="chatMessages" class="messages"></div>
+  <div id="chatMessages" class="chat-messages"></div>
 
-  <div class="chat-input">
+  <div class="chat-input-bar">
     <input id="userMsg" placeholder="Escribe tu mensaje..." />
-    <button id="sendMsg">
+    <button id="sendMsg" aria-label="Enviar">
       <svg viewBox="0 0 24 24"><path d="M2 21l21-9L2 3v7l15 2-15 2z"/></svg>
     </button>
   </div>
@@ -26,9 +28,6 @@
 
 <script is:inline>
 
-// ======================================================
-// 🧠 BASE DE CONOCIMIENTO REAL DEL SITIO MKDIGITAL
-// ======================================================
 const knowledge = [
 
 {
@@ -99,9 +98,6 @@ keywords:["contacto","telefono","numero","whatsapp","hablar"]
 
 ];
 
-// ======================================================
-// 🔎 MOTOR INTELIGENTE (SIMILITUD)
-// ======================================================
 function normalize(text){
   return text.toLowerCase()
   .normalize("NFD")
@@ -152,9 +148,6 @@ function responder(msg){
 ¿En qué te gustaría recibir ayuda?`;
 }
 
-// ======================================================
-// 💬 UI CHAT
-// ======================================================
 const chat = document.querySelector("#aiChat");
 const float = document.querySelector("#aiFloat");
 const closeBtn = document.querySelector("#closeAI");
@@ -194,213 +187,227 @@ addMsg("Hola 👋 Soy el asistente virtual de MK Digital. ¿En qué puedo ayudar
 </script>
 
 <style>
-/* ===== VARIABLES PROFESIONALES ===== */
-:root{
-  --bg-main:#070b12;
-  --bg-chat:#0c121c;
-  --bg-input:#0e1623;
-  --bot-msg:#1a2433;
-  --user-msg:linear-gradient(135deg,#00e0ff,#00ffa6);
-  --accent:#00e0ff;
-  --shadow-big:0 40px 80px rgba(0,0,0,.65);
-  --shadow-soft:0 15px 35px rgba(0,0,0,.35);
-  --border:rgba(255,255,255,.06);
-  --text-soft:#a9b4c6;
+/* MD3 FAB (Floating Action Button) */
+.fab {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: var(--primary);
+  color: var(--on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9999;
+  box-shadow: var(--elevation-3);
+  transition: box-shadow 0.2s, transform 0.1s;
+}
+.fab:hover {
+  box-shadow: var(--elevation-4);
+}
+.fab:active {
+  transform: scale(0.95);
+}
+.fab svg {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
 }
 
-/* ===== BOTON FLOTANTE ===== */
-#aiFloat{
- position:fixed;
- bottom:25px; left:25px;
- width:68px;height:68px;
- border-radius:50%;
- background:var(--user-msg);
- display:flex;align-items:center;justify-content:center;
- cursor:pointer; z-index:9999;
- box-shadow:var(--shadow-soft);
- transition:.35s cubic-bezier(.2,.8,.2,1);
+/* MD3 Bottom Sheet Chat */
+.chat-sheet {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  height: 560px;
+  border-radius: var(--shape-xl) var(--shape-xl) 0 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(40px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.2, 0, 0, 1);
+  background: var(--surface-container-high, #1C1D22);
+  box-shadow: var(--elevation-5);
+  z-index: 10000;
 }
-#aiFloat:hover{
- transform:scale(1.08);
- box-shadow:0 20px 45px rgba(0,255,200,.35);
-}
-#aiFloat svg{width:28px;fill:#000}
-
-/* ===== CONTENEDOR CHAT ===== */
-.chat{
- position:fixed;
- bottom:105px; left:25px;
- width:360px; height:560px;
- border-radius:26px;
- display:flex; flex-direction:column;
- overflow:hidden;
- opacity:0; transform:translateY(40px) scale(.95);
- pointer-events:none;
- transition:.45s cubic-bezier(.2,.8,.2,1);
-
- backdrop-filter:blur(18px);
- background:rgba(10,15,25,.75);
- border:1px solid var(--border);
- box-shadow:var(--shadow-big);
-}
-.chat.open{
- opacity:1;
- transform:translateY(0) scale(1);
- pointer-events:auto;
+.chat-sheet.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
-/* ===== HEADER ===== */
-.chat-header{
- padding:16px;
- display:flex;
- justify-content:space-between;
- align-items:center;
- background:linear-gradient(135deg,#0e1623,#111b2b);
- border-bottom:1px solid var(--border);
+/* Header */
+.chat-header {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 
-.title{display:flex;gap:12px;align-items:center}
-.avatar{
- width:42px;height:42px;
- border-radius:50%;
- background:var(--user-msg);
- box-shadow:0 0 0 3px rgba(0,255,200,.15);
-}
-.title strong{font-size:15px}
-.title span{
- display:block;
- font-size:12px;
- color:var(--text-soft);
+.chat-header-info {
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
-.chat-header button{
- background:none;border:none;
- color:#8fa3c3;
- font-size:18px;
- cursor:pointer;
- transition:.2s;
-}
-.chat-header button:hover{color:#fff}
-
-/* ===== AREA MENSAJES ===== */
-.messages{
- flex:1;
- padding:18px;
- overflow-y:auto;
- display:flex;
- flex-direction:column;
- gap:14px;
- background:linear-gradient(#080d16,#070b12);
+.chat-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--primary-container);
 }
 
-/* Scroll elegante */
-.messages::-webkit-scrollbar{width:6px}
-.messages::-webkit-scrollbar-thumb{
- background:rgba(255,255,255,.08);
- border-radius:10px;
+.chat-header-info strong {
+  font-size: 14px;
+  display: block;
+}
+.chat-header-info span {
+  font-size: 12px;
+  color: var(--on-surface-variant);
 }
 
-/* ===== MENSAJES ===== */
-.msg{display:flex; animation:msgIn .35s ease}
-@keyframes msgIn{
- from{opacity:0; transform:translateY(10px)}
- to{opacity:1; transform:none}
+.chat-header button {
+  background: none;
+  border: none;
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--shape-full);
+  transition: background 0.2s;
+}
+.chat-header button:hover {
+  background: rgba(255,255,255,0.06);
 }
 
-.msg.bot{justify-content:flex-start}
-.msg.user{justify-content:flex-end}
-
-/* ===== BURBUJAS PRO ===== */
-.bubble{
- position:relative;
- padding:12px 16px 20px;
- border-radius:18px;
- max-width:78%;
- font-size:14px;
- line-height:1.45;
- letter-spacing:.2px;
+/* Messages */
+.chat-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: var(--surface-container, #17191E);
 }
 
-/* BOT */
-.bot .bubble{
- background:var(--bot-msg);
- border-bottom-left-radius:6px;
- box-shadow:0 8px 20px rgba(0,0,0,.35);
- color:#d7e2f2;
+.chat-messages::-webkit-scrollbar { width: 4px; }
+.chat-messages::-webkit-scrollbar-thumb {
+  background: var(--outline-variant);
+  border-radius: 4px;
 }
 
-/* USER */
-.user .bubble{
- background:var(--user-msg);
- color:#001014;
- border-bottom-right-radius:6px;
- box-shadow:0 8px 25px rgba(0,255,200,.25);
+.msg { display: flex; animation: msgSlide 0.25s ease; }
+@keyframes msgSlide {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
 }
 
-/* Colita de burbuja */
-.bot .bubble:before,
-.user .bubble:before{
- content:"";
- position:absolute;
- bottom:0;
- width:12px;height:12px;
-}
-.bot .bubble:before{
- left:-5px;
- background:var(--bot-msg);
- clip-path:polygon(0 0,100% 100%,0 100%);
-}
-.user .bubble:before{
- right:-5px;
- background:#00ffa6;
- clip-path:polygon(100% 0,100% 100%,0 100%);
+.msg.bot { justify-content: flex-start; }
+.msg.user { justify-content: flex-end; }
+
+.bubble {
+  position: relative;
+  padding: 10px 14px 18px;
+  border-radius: var(--shape-md);
+  max-width: 80%;
+  font-size: 13px;
+  line-height: 1.45;
 }
 
-/* Hora */
-.time{
- position:absolute;
- bottom:4px; right:10px;
- font-size:10px;
- opacity:.55;
+.bot .bubble {
+  background: var(--surface-container-high);
+  border-bottom-left-radius: 4px;
+  color: var(--on-surface);
 }
 
-/* ===== INPUT AREA ===== */
-.chat-input{
- display:flex;
- align-items:center;
- padding:10px;
- gap:10px;
- background:var(--bg-input);
- border-top:1px solid var(--border);
+.user .bubble {
+  background: var(--primary);
+  color: var(--on-primary);
+  border-bottom-right-radius: 4px;
 }
 
-.chat-input input{
- flex:1;
- padding:12px 16px;
- border-radius:14px;
- border:1px solid var(--border);
- background:#0b1320;
- color:#fff;
- outline:none;
- transition:.2s;
-}
-.chat-input input:focus{
- border-color:var(--accent);
- box-shadow:0 0 0 2px rgba(0,224,255,.15);
+.time {
+  position: absolute;
+  bottom: 3px;
+  right: 10px;
+  font-size: 9px;
+  opacity: 0.5;
 }
 
-.chat-input button{
- width:48px;height:48px;
- border-radius:14px;
- border:none;
- background:var(--user-msg);
- display:flex;align-items:center;justify-content:center;
- cursor:pointer;
- transition:.25s;
+/* Input */
+.chat-input-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  background: var(--surface-container-high);
 }
-.chat-input button:hover{
- transform:scale(1.05);
- box-shadow:0 10px 25px rgba(0,255,200,.35);
+
+.chat-input-bar input {
+  flex: 1;
+  padding: 10px 14px;
+  border-radius: var(--shape-full);
+  border: 1px solid var(--outline-variant);
+  background: var(--surface-container, #17191E);
+  color: var(--on-surface);
+  font-size: 13px;
+  outline: none;
+  transition: border-color 0.2s;
 }
-.chat-input svg{width:22px;fill:#001014}
+.chat-input-bar input:focus {
+  border-color: var(--primary);
+}
+.chat-input-bar input::placeholder {
+  color: var(--on-surface-variant);
+}
+
+.chat-input-bar button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: var(--primary);
+  color: var(--on-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  box-shadow: var(--elevation-1);
+}
+.chat-input-bar button:hover {
+  box-shadow: var(--elevation-2);
+}
+.chat-input-bar svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+@media (min-width: 768px) {
+  .chat-sheet {
+    bottom: 96px;
+    left: 24px;
+    right: auto;
+    border-radius: var(--shape-xl);
+    max-height: 560px;
+    height: 560px;
+  }
+  .chat-sheet.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+}
 </style>

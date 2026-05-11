@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<section id="equipo" class="section team">
+<section id="equipo" class="section team-section">
   <div class="container">
 
     <div class="section-header">
@@ -18,36 +18,37 @@ import { Icon } from "astro-icon/components";
 
       <!-- CEO -->
       <div class="team-card ceo">
-        <span class="ceo-badge">CEO</span>
+        <span class="team-badge">CEO</span>
 
-        <div class="avatar">
+        <div class="team-avatar">
           <Icon name="mdi:crown"/>
         </div>
 
         <h3>Ing. Fernando Aguirre</h3>
-        <span class="role">Asesor en software y soporte técnico</span>
+        <span class="team-role">Asesor en software y soporte técnico</span>
 
-        <div class="skills">
-          <span>Asesor en software</span>
-          <span>Atención al cliente</span>
-          <span>Soporte técnico</span>
+        <div class="team-skills">
+          <span class="skill-chip">Asesor en software</span>
+          <span class="skill-chip">Atención al cliente</span>
+          <span class="skill-chip">Soporte técnico</span>
         </div>
       </div>
 
       <!-- ERNESTO -->
       <div class="team-card">
-        <span class="ceo-badge">SOPORTE TÉCNICO</span>
-        <div class="avatar">
+        <span class="team-badge">SOPORTE TÉCNICO</span>
+
+        <div class="team-avatar">
           <Icon name="mdi:account-cog"/>
         </div>
 
         <h3>Ing. Ernesto Schwartz</h3>
-        <span class="role">Especialista en soporte técnico</span>
+        <span class="team-role">Especialista en soporte técnico</span>
 
-        <div class="skills">
-          <span>Instalación de programas</span>
-          <span>Configuración</span>
-          <span>Optimización</span>
+        <div class="team-skills">
+          <span class="skill-chip">Instalación de programas</span>
+          <span class="skill-chip">Configuración</span>
+          <span class="skill-chip">Optimización</span>
         </div>
       </div>
 
@@ -56,161 +57,119 @@ import { Icon } from "astro-icon/components";
 </section>
 
 <script is:inline>
-/* Animación solo cuando entra en pantalla */
 const teamObserver = new IntersectionObserver(entries=>{
   entries.forEach(entry=>{
     if(entry.isIntersecting){
-      entry.target.classList.add("show-team");
+      entry.target.classList.add("team-visible");
     }
   });
-},{threshold:.2});
+}, {threshold: 0.2});
 
-teamObserver.observe(document.querySelector(".team"));
+const teamSection = document.querySelector(".team-section");
+if (teamSection) teamObserver.observe(teamSection);
 </script>
 
 <style>
-
-/* ===== ANIMACIÓN DE ENTRADA ===== */
-.team{
-  opacity:0;
-  transform:translateY(70px);
-  transition:all .9s ease;
-  padding:120px 0;
+/* MD3 Team Section */
+.team-section {
+  padding: 96px 0;
+  background: var(--background, #0F1115);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
-.show-team{
-  opacity:1;
-  transform:translateY(0);
+.team-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* HEADER */
-.section-header{
-  text-align:center;
-  max-width:650px;
-  margin:0 auto 70px;
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  align-items: stretch;
 }
 
-.badge{
-  display:inline-block;
-  padding:7px 18px;
-  border-radius:30px;
-  background:linear-gradient(90deg,#00B3C920,#1ED6E620);
-  color:var(--primary);
-  font-size:.75rem;
-  letter-spacing:.6px;
-  margin-bottom:18px;
+.team-card {
+  position: relative;
+  background: var(--surface-container-high, #1C1D22);
+  border-radius: var(--shape-xl);
+  padding: 40px 32px;
+  text-align: center;
+  box-shadow: var(--elevation-1);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.team-card:hover {
+  box-shadow: var(--elevation-3);
+  transform: translateY(-2px);
 }
 
-/* GRID RESPONSIVE PERFECTO */
-.team-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:45px;
-  align-items:stretch;
+.ceo {
+  border: 1px solid var(--primary);
 }
 
-/* CARD BASE */
-.team-card{
-  background:var(--glass);
-  padding:45px 35px;
-  border-radius:26px;
-  text-align:center;
-  border:1px solid var(--border);
-  transition:.35s;
-  position:relative;
-  backdrop-filter:blur(10px);
-  will-change:transform;
+.team-badge {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 4px 10px;
+  border-radius: var(--shape-full);
+  background: var(--primary-container);
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
-.team-card:hover{
-  transform:translateY(-14px);
-  border-color:var(--primary);
-  box-shadow:0 20px 50px rgba(0,0,0,.2);
+.team-avatar {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--primary-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.team-avatar svg {
+  width: 32px;
+  height: 32px;
+  color: var(--primary);
 }
 
-/* CEO DESTACADO */
-.ceo{
-  transform:scale(1.06);
-  border:1px solid transparent;
-  background:
-    linear-gradient(#0a0a0a,#0a0a0a) padding-box,
-    linear-gradient(120deg,#00B3C9,#1ED6E6) border-box;
-  box-shadow:0 25px 70px rgba(0,179,201,.25);
+.team-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
 }
 
-.ceo:hover{
-  transform:scale(1.09) translateY(-12px);
+.team-role {
+  display: block;
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  margin-bottom: 20px;
 }
 
-/* BADGE CEO */
-.ceo-badge{
-  position:absolute;
-  top:18px;
-  right:18px;
-  font-size:.7rem;
-  padding:6px 14px;
-  border-radius:20px;
-  background:linear-gradient(90deg,#00B3C9,#1ED6E6);
-  color:black;
-  font-weight:700;
+.team-skills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-/* AVATAR OPTIMIZADO */
-.avatar{
-  width:90px;
-  height:90px;
-  margin:auto auto 22px;
-  border-radius:50%;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(120deg,#00B3C9,#1ED6E6);
-  box-shadow:0 10px 25px rgba(0,0,0,.25);
+.skill-chip {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: var(--shape-full);
+  background: var(--surface-container, #17191E);
+  border: 1px solid var(--outline-variant);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--on-surface-variant);
 }
 
-.avatar svg{
-  width:42px;
-  height:42px;
-  color:white;
+@media (max-width: 600px) {
+  .ceo { border-width: 1px; }
 }
-
-/* TEXTOS */
-.team-card h3{
-  margin-bottom:6px;
-  font-size:22px;
-}
-
-.role{
-  display:block;
-  color:var(--muted);
-  font-size:.9rem;
-  margin-bottom:22px;
-}
-
-/* SKILLS */
-.skills{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  justify-content:center;
-}
-
-.skills span{
-  background:rgba(255,255,255,0.05);
-  border:1px solid rgba(255,255,255,0.08);
-  padding:6px 13px;
-  border-radius:20px;
-  font-size:.75rem;
-  transition:.3s;
-}
-
-.skills span:hover{
-  border-color:var(--primary);
-}
-
-/* MOBILE */
-@media(max-width:600px){
-  .ceo{ transform:none; }
-}
-
 </style>

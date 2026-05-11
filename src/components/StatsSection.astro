@@ -1,8 +1,8 @@
-<section class="stats">
+<section class="stats-section">
   <div class="container">
 
-    <div class="stats-header">
-      <span class="badge pulse">RESULTADOS REALES</span>
+    <div class="section-header">
+      <span class="badge">RESULTADOS REALES</span>
       <h2>Nuestro impacto en números</h2>
       <p>Empresas y profesionales confían cada día en nuestro soporte remoto.</p>
     </div>
@@ -10,23 +10,23 @@
     <div class="stats-grid">
 
       <div class="stat-card">
-        <div class="number" data-target="500">0</div>
-        <div class="label">Instalaciones realizadas</div>
+        <div class="stat-number" data-target="500">0</div>
+        <div class="stat-label">Instalaciones realizadas</div>
       </div>
 
       <div class="stat-card">
-        <div class="number" data-target="300">0</div>
-        <div class="label">Clientes atendidos</div>
+        <div class="stat-number" data-target="300">0</div>
+        <div class="stat-label">Clientes atendidos</div>
       </div>
 
       <div class="stat-card">
-        <div class="number rating">4.9</div>
-        <div class="label">Calificación promedio</div>
+        <div class="stat-number rating">4.9</div>
+        <div class="stat-label">Calificación promedio</div>
       </div>
 
       <div class="stat-card">
-        <div class="number">100%</div>
-        <div class="label">Cobertura nacional</div>
+        <div class="stat-number">100%</div>
+        <div class="stat-label">Cobertura nacional</div>
       </div>
 
     </div>
@@ -35,7 +35,7 @@
 </section>
 
 <script is:inline>
-const counters = document.querySelectorAll('.number[data-target]');
+const counters = document.querySelectorAll('.stat-number[data-target]');
 let started = false;
 
 const animateCounters = () => {
@@ -65,116 +65,51 @@ const observer = new IntersectionObserver(entries => {
   if(entries[0].isIntersecting) animateCounters();
 });
 
-observer.observe(document.querySelector('.stats'));
+observer.observe(document.querySelector('.stats-section'));
 </script>
 
 <style>
-.stats{
-  padding:150px 0;
-  background:
-    radial-gradient(circle at 20% 20%,#00b3c920,transparent 40%),
-    radial-gradient(circle at 80% 80%,#1ed6e620,transparent 40%),
-    #070b10;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
+/* MD3 Stats Section */
+.stats-section {
+  padding: 96px 0;
+  background: var(--surface-container, #17191E);
+  text-align: center;
 }
 
-/* glow hero */
-.stats::before{
-  content:"";
-  position:absolute;
-  width:700px;
-  height:700px;
-  background:radial-gradient(circle,#00B3C925,transparent 70%);
-  top:-250px;
-  left:50%;
-  transform:translateX(-50%);
-  filter:blur(140px);
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 24px;
 }
 
-/* HEADER */
-.stats-header{
-  margin-bottom:80px;
-  position:relative;
+.stat-card {
+  background: var(--surface-container-high, #1C1D22);
+  border-radius: var(--shape-lg);
+  padding: 40px 24px;
+  box-shadow: var(--elevation-1);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.stat-card:hover {
+  box-shadow: var(--elevation-2);
+  transform: translateY(-2px);
 }
 
-.badge{
-  display:inline-block;
-  padding:7px 18px;
-  border-radius:30px;
-  background:linear-gradient(90deg,#00B3C920,#1ED6E620);
-  color:var(--primary);
-  font-size:.75rem;
-  letter-spacing:.7px;
-  margin-bottom:18px;
-  font-weight:700;
+.stat-number {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.1;
+  margin-bottom: 8px;
 }
 
-/* pulse hero color */
-.pulse{
-  animation:pulse 2s infinite;
-}
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 #00b3c955}
-  70%{box-shadow:0 0 0 12px transparent}
-  100%{box-shadow:0 0 0 0 transparent}
+.stat-label {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  font-weight: 500;
 }
 
-.stats-header h2{
-  font-size:46px;
-  margin-bottom:12px;
-}
-
-.stats-header p{
-  color:var(--muted);
-  max-width:520px;
-  margin:auto;
-}
-
-/* GRID */
-.stats-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:40px;
-}
-
-/* CARD */
-.stat-card{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:26px;
-  padding:50px 25px;
-  backdrop-filter:blur(16px);
-  transition:.4s;
-  position:relative;
-}
-
-.stat-card:hover{
-  transform:translateY(-14px);
-  border-color:var(--primary);
-  box-shadow:0 0 45px #00b3c930;
-}
-
-/* NUMERO HERO GRADIENT */
-.number{
-  font-size:58px;
-  font-weight:900;
-  background:linear-gradient(90deg,#00B3C9,#1ED6E6);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  margin-bottom:12px;
-  letter-spacing:-1px;
-}
-
-/* TEXTO */
-.label{
-  color:var(--muted);
-  font-size:15px;
-}
-
-@media(max-width:768px){
-  .stats{ padding:120px 0; }
-  .stats-header h2{ font-size:34px; }
+@media (max-width: 600px) {
+  .stats-section { padding: 72px 0; }
+  .stat-number { font-size: 36px; }
 }
 </style>

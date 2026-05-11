@@ -1,9 +1,9 @@
 <section id="contacto" class="cta-section">
   <div class="container">
 
-    <div class="cta-wrapper">
+    <div class="cta-grid">
 
-      <!-- IZQUIERDA -->
+      <!-- LEFT -->
       <div class="cta-content">
 
         <div class="badge pulse">
@@ -21,27 +21,26 @@
           Atención remota inmediata en toda Nicaragua.
         </p>
 
-        <!-- BENEFICIOS -->
         <div class="cta-benefits">
 
-          <div class="benefit">
-            <div class="icon-box"><i class="fa-solid fa-bolt"></i></div>
+          <div class="cta-benefit">
+            <div class="benefit-icon"><i class="fa-solid fa-bolt"></i></div>
             <div>
               <strong>Respuesta rápida</strong>
               <span>Promedio de 15 minutos</span>
             </div>
           </div>
 
-          <div class="benefit">
-            <div class="icon-box"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="cta-benefit">
+            <div class="benefit-icon"><i class="fa-solid fa-shield-halved"></i></div>
             <div>
               <strong>Conexión segura</strong>
               <span>Sesión supervisada en todo momento</span>
             </div>
           </div>
 
-          <div class="benefit">
-            <div class="icon-box"><i class="fa-solid fa-star"></i></div>
+          <div class="cta-benefit">
+            <div class="benefit-icon"><i class="fa-solid fa-star"></i></div>
             <div>
               <strong>Clientes satisfechos</strong>
               <span>Calificación promedio 4.9</span>
@@ -50,7 +49,7 @@
 
         </div>
 
-        <a href="https://wa.me/50581088124" target="_blank" class="cta-button">
+        <a href="https://wa.me/50581088124" target="_blank" class="cta-btn">
           <i class="fa-brands fa-whatsapp"></i>
           Solicitar soporte ahora
           <span class="cta-arrow"><i class="fa-solid fa-arrow-right"></i></span>
@@ -63,21 +62,19 @@
 
       </div>
 
-      <!-- DERECHA -->
-      <div class="cta-card">
-        <div class="cta-card-glow"></div>
-
-        <div class="cta-card-content">
+      <!-- RIGHT -->
+      <div class="cta-card-wrapper">
+        <div class="cta-card">
 
           <h3><i class="fa-solid fa-credit-card"></i> Métodos de pago</h3>
 
           <div class="banks">
-            <div class="bank"><i class="fa-solid fa-building-columns"></i> BANPRO</div>
-            <div class="bank"><i class="fa-solid fa-building-columns"></i> BAC</div>
-            <div class="bank"><i class="fa-solid fa-building-columns"></i> LAFISE</div>
+            <span class="bank-chip"><i class="fa-solid fa-building-columns"></i> BANPRO</span>
+            <span class="bank-chip"><i class="fa-solid fa-building-columns"></i> BAC</span>
+            <span class="bank-chip"><i class="fa-solid fa-building-columns"></i> LAFISE</span>
           </div>
 
-          <div class="secure">
+          <div class="secure-note">
             <i class="fa-solid fa-lock"></i>
             Transferencias y depósitos verificados
           </div>
@@ -90,197 +87,172 @@
 </section>
 
 <style>
-/* ===== CTA BASE ===== */
-.cta-section{
-  padding:120px 0;
-  position:relative;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 20% 20%,#00b3c930,transparent 40%),
-    radial-gradient(circle at 80% 80%,#1ed6e630,transparent 40%);
+/* MD3 CTA Section */
+.cta-section {
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--background) 0%, var(--surface-container-low) 100%);
 }
 
-/* GRID */
-.cta-wrapper{
-  display:grid;
-  grid-template-columns:1.1fr .9fr;
-  gap:90px;
-  align-items:center;
+.cta-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
 }
 
-/* BADGE */
-.badge{
-  display:inline-block;
-  padding:7px 18px;
-  border-radius:30px;
-  background:#00b3c920;
-  color:#00B3C9;
-  font-size:.75rem;
-  letter-spacing:.6px;
-  margin-bottom:20px;
-  font-weight:700;
+.cta-content .badge { margin-bottom: 16px; }
+
+.pulse { animation: pulse 2s infinite ease; }
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 179, 201, 0.3); }
+  70% { box-shadow: 0 0 0 12px rgba(0, 179, 201, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 179, 201, 0); }
 }
 
-.pulse{ animation:pulse 2s infinite; }
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(0,179,201,.4)}
-  70%{box-shadow:0 0 0 12px rgba(0,179,201,0)}
-  100%{box-shadow:0 0 0 0 rgba(0,179,201,0)}
+.cta-content h2 {
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.cta-content h2 span { color: var(--primary); }
+
+.cta-desc {
+  font-size: 15px;
+  max-width: 480px;
+  margin-bottom: 32px;
+  line-height: 1.6;
 }
 
-/* TITULO DESKTOP */
-.cta-content h2{
-  font-size:56px;
-  line-height:1.05;
-  margin-bottom:22px;
-  letter-spacing:-1px;
+.cta-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
 }
 
-.cta-content h2 span{
-  color:var(--primary);
-  text-shadow:0 0 25px #00b3c980;
+.cta-benefit {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
 
-.cta-desc{
-  font-size:1.2rem;
-  max-width:520px;
-  margin-bottom:40px;
-  color:var(--muted);
+.benefit-icon {
+  width: 36px;
+  height: 36px;
+  min-width: 36px;
+  border-radius: var(--shape-sm);
+  background: var(--primary-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  font-size: 14px;
 }
 
-/* BENEFICIOS */
-.cta-benefits{
-  display:flex;
-  flex-direction:column;
-  gap:16px;
-  margin-bottom:35px;
+.cta-benefit strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--on-surface);
+}
+.cta-benefit span {
+  font-size: 12px;
+  color: var(--on-surface-variant);
 }
 
-.benefit{
-  display:flex;
-  align-items:center;
-  gap:14px;
-  color:var(--muted);
-  transition:.3s;
+.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 32px;
+  border-radius: var(--shape-full);
+  background: var(--primary);
+  color: var(--on-primary);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--elevation-2);
+  transition: box-shadow 0.2s ease, transform 0.1s ease;
+}
+.cta-btn:hover {
+  box-shadow: var(--elevation-4);
+}
+.cta-btn:active { transform: scale(0.97); }
+.cta-arrow { transition: transform 0.2s ease; }
+.cta-btn:hover .cta-arrow { transform: translateX(4px); }
+
+.cta-trust {
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--on-surface-variant);
+}
+.cta-trust i { color: var(--primary); margin-right: 6px; }
+.cta-trust strong { color: var(--on-surface); }
+
+/* Right card */
+.cta-card-wrapper { position: relative; }
+
+.cta-card {
+  background: var(--surface-container-high, #1C1D22);
+  border-radius: var(--shape-xl);
+  padding: 32px;
+  box-shadow: var(--elevation-3);
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
-.benefit:hover{ transform:translateX(8px); }
-.benefit i{ color:var(--primary); }
+.cta-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.cta-card h3 i { color: var(--primary); }
 
-/* BOTÓN */
-.cta-button{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:14px;
-  padding:20px 42px;
-  border-radius:60px;
-  font-weight:800;
-  text-decoration:none;
-  color:white;
-  background:linear-gradient(90deg,#00B3C9,#1ED6E6);
-  box-shadow:0 20px 55px #00b3c960;
-  transition:.35s;
-  font-size:18px;
-  width:max-content;
+.banks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
 }
 
-.cta-arrow{ transition:.3s; }
-.cta-button:hover .cta-arrow{ transform:translateX(6px); }
-
-.cta-button:hover{
-  transform:translateY(-6px);
-  box-shadow:0 35px 80px #00b3c990;
+.bank-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--shape-full);
+  background: var(--surface-container, #17191E);
+  border: 1px solid var(--outline-variant);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--on-surface);
 }
+.bank-chip i { color: var(--primary); }
 
-/* TARJETA DERECHA */
-.cta-card{ position:relative; }
-
-.cta-card-glow{
-  position:absolute;
-  inset:-60px;
-  background:linear-gradient(120deg,#00B3C9,#1ED6E6);
-  filter:blur(110px);
-  opacity:.3;
+.secure-note {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
+.secure-note i { color: var(--primary); }
 
-.cta-card-content{
-  position:relative;
-  padding:50px;
-  border-radius:30px;
-  background:rgba(255,255,255,0.06);
-  backdrop-filter:blur(18px);
-  border:1px solid rgba(255,255,255,0.08);
-  box-shadow:0 30px 70px rgba(0,0,0,.45);
-  transition:.4s;
-}
-
-/* BANKS Y CARDS */
-.banks, .cards{
-  display:flex;
-  flex-wrap:wrap;
-  gap:14px;
-  margin-top:18px;
-}
-
-.bank, .card-pay{
-  background:rgba(255,255,255,.08);
-  padding:10px 18px;
-  border-radius:14px;
-  font-size:.9rem;
-}
-
-/* ========================= */
-/* 📱 MOBILE OPTIMIZATION */
-/* ========================= */
-
-@media (max-width: 900px){
-
-  .cta-section{
-    padding:90px 0;
+@media (max-width: 900px) {
+  .cta-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
   }
-
-  .cta-wrapper{
-    grid-template-columns:1fr;
-    gap:60px;
-    text-align:center;
-  }
-
-  /* TITULO MOBILE */
-  .cta-content h2{
-    font-size:34px;
-    line-height:1.2;
-  }
-
-  .cta-desc{
-    font-size:1rem;
-    margin:auto;
-    margin-bottom:30px;
-  }
-
-  .cta-benefits{
-    align-items:center;
-  }
-
-  .benefit{
-    justify-content:center;
-  }
-
-  /* BOTÓN MOBILE PERFECTO */
-  .cta-button{
-    width:100%;
-    padding:18px;
-    font-size:16px;
-    border-radius:18px;
-  }
-
-  .cta-card-content{
-    padding:35px 25px;
-  }
-
-  .banks, .cards{
-    justify-content:center;
-  }
-
+  .cta-desc { margin: 0 auto 32px; }
+  .cta-benefits { align-items: center; }
+  .cta-btn { width: 100%; justify-content: center; }
+  .banks { justify-content: center; }
+  .secure-note { justify-content: center; }
 }
 </style>

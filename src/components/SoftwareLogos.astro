@@ -2,41 +2,38 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<section class="software" id="software">
+<section class="software-logos" id="software">
   <div class="container">
 
-    <h2>Software que instalamos diariamente</h2>
-    <p class="subtitle">
-      Trabajamos con los programas más utilizados por estudiantes, empresas y profesionales.
-    </p>
+    <div class="section-header">
+      <h2>Software que instalamos diariamente</h2>
+      <p>
+        Trabajamos con los programas más utilizados por estudiantes, empresas y profesionales.
+      </p>
+    </div>
 
-    <div class="logos">
+    <div class="logos-grid">
 
-      <!-- WINDOWS -->
       <div class="logo-card windows">
         <Icon name="mdi:microsoft-windows" />
         <span>Windows</span>
       </div>
 
-      <!-- OFFICE -->
       <div class="logo-card office">
         <Icon name="mdi:microsoft-office" />
         <span>Microsoft Office</span>
       </div>
 
-      <!-- ADOBE -->
       <div class="logo-card adobe">
         <Icon name="simple-icons:adobe" />
         <span>Adobe</span>
       </div>
 
-      <!-- COREL -->
       <div class="logo-card corel">
          <Icon name="simple-icons:coreldraw" />
          <span>CorelDRAW</span>
       </div>
 
-      <!-- AUTODESK -->
       <div class="logo-card autocad">
         <Icon name="simple-icons:autodesk" />
         <span>AutoCAD</span>
@@ -52,7 +49,6 @@ import { Icon } from "astro-icon/components";
         <span>Revit</span>
       </div>
 
-      <!-- ANTIVIRUS -->
       <div class="logo-card avg">
         <Icon name="mdi:shield-plus" />
         <span>AVG Antivirus</span>
@@ -73,7 +69,6 @@ import { Icon } from "astro-icon/components";
         <span>Kaspersky</span>
       </div>
 
-      <!-- SOFTWARE PROFESIONAL -->
       <div class="logo-card solidworks">
         <Icon name="simple-icons:dassaultsystemes" />
         <span>SolidWorks</span>
@@ -99,75 +94,83 @@ import { Icon } from "astro-icon/components";
 </section>
 
 <style>
-.software{
-  padding:120px 0;
-  background:#0b0b0b;
-  border-top:1px solid rgba(255,255,255,0.05);
+/* MD3 Logo Cards */
+.software-logos {
+  padding: 96px 0;
+  background: var(--background, #0F1115);
 }
 
-.software h2{
-  text-align:center;
-  font-size:42px;
-  margin-bottom:10px;
+.logos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
 }
 
-.subtitle{
-  text-align:center;
-  color:var(--muted);
-  margin-bottom:70px;
+.logo-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 28px 16px;
+  border-radius: var(--shape-md);
+  background: var(--surface-container, #17191E);
+  box-shadow: var(--elevation-0);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  cursor: default;
+}
+.logo-card:hover {
+  box-shadow: var(--elevation-2);
+  transform: translateY(-2px);
 }
 
-.logos{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:30px;
+.logo-card svg {
+  width: 36px;
+  height: 36px;
 }
 
-.logo-card{
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:20px;
-  padding:35px 20px;
-  text-align:center;
-  transition:.3s;
+.logo-card span {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--on-surface-variant);
+  text-align: center;
 }
 
-.logo-card:hover{
-  transform:translateY(-6px);
-  border-color:var(--primary);
-  box-shadow:0 0 25px rgba(0,224,255,.2);
+.brand-colors .windows svg { color: #00A4EF; }
+.brand-colors .office svg { color: #D83B01; }
+.brand-colors .adobe svg { color: #FF0000; }
+.brand-colors .corel svg { color: #00B388; }
+.brand-colors .autocad svg { color: #E51050; }
+.brand-colors .sketchup svg { color: #FF6F00; }
+.brand-colors .revit svg { color: #009999; }
+.brand-colors .avg svg { color: #00C853; }
+.brand-colors .eset svg { color: #00ADEF; }
+.brand-colors .avast svg { color: #FF7800; }
+.brand-colors .kaspersky svg { color: #00A88E; }
+.brand-colors .solidworks svg { color: #FF0000; }
+.brand-colors .visio svg { color: #5E5E5E; }
+.brand-colors .project svg { color: #217346; }
+
+.windows svg { color: #00A4EF; }
+.office svg { color: #D83B01; }
+.adobe svg { color: #FF0000; }
+.corel svg { color: #00B388; }
+.autocad svg { color: #E51050; }
+.sketchup svg { color: #FF6F00; }
+.revit svg { color: #009999; }
+.avg svg { color: #00C853; }
+.eset svg { color: #00ADEF; }
+.avast svg { color: #FF7800; }
+.kaspersky svg { color: #00A88E; }
+.solidworks svg { color: #FF0000; }
+.visio svg { color: #5E5E5E; }
+.project svg { color: #217346; }
+.drivers svg { color: var(--primary); }
+
+@media (max-width: 900px) {
+  .logos-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
-.logo-card svg{
-  width:50px;
-  height:50px;
-  margin-bottom:15px;
-}
-
-.logo-card span{
-  display:block;
-  font-weight:600;
-}
-
-/* 🎨 COLORES */
-.windows svg{color:#00A4EF;}
-.office svg{color:#D83B01;}
-.adobe svg{color:#FF0000;}
-.corel svg{color:#00B388;}
-.autocad svg{color:#E51050;}
-.sketchup svg{color:#FF6F00;}
-.revit svg{color:#009999;}
-
-.avg svg{color:#00C853;}
-.eset svg{color:#00ADEF;}
-.avast svg{color:#FF7800;}
-.kaspersky svg{color:#00A88E;}
-
-.solidworks svg{color:#FF0000;}
-.visio svg{color:#5E5E5E;}
-.project svg{color:#217346;}
-
-@media(max-width:900px){
-  .logos{grid-template-columns:repeat(2,1fr);}
+@media (max-width: 600px) {
+  .logos-grid { grid-template-columns: repeat(2, 1fr); }
 }
 </style>

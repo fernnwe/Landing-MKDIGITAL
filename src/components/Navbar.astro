@@ -2,206 +2,245 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<nav class="nav">
-  <div class="container nav-content">
+<nav class="top-app-bar">
+  <div class="container top-app-bar-content">
     
     <div class="logo">
       MK<span>DIGITAL</span>
     </div>
 
-    <!-- BOTON HAMBURGUESA -->
-    <button class="menu-btn" onclick="toggleMenu()">
-      <Icon name="mdi:menu" />
+    <div class="spacer"></div>
+
+    <div class="nav-links" id="menu">
+      <a href="/#inicio">Inicio</a>
+      <a href="/#servicios">Servicios</a>
+      <a href="/beneficios">Beneficios</a>
+      <a href="/catalogo">Catalogo</a>
+      <a href="/comentarios">Comentarios</a>
+      <a href="/#equipo">Equipo</a>
+      <a href="/faq">FAQ</a>
+      <a href="/soluciones">Soluciones</a>
+      <a href="/anydesk">AnyDesk</a>
+      <a href="https://wa.me/50581088124" target="_blank" class="btn-primary">
+        <Icon name="mdi:whatsapp" /> WhatsApp
+      </a>
+    </div>
+
+    <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+        <path d="M3 6h18v2H3V6zm0 5h18v2H3v-2zm0 5h18v2H3v-2z"/>
+      </svg>
     </button>
-
-    <div class="links" id="menu">
-  <a href="/#inicio">Inicio</a>
-  <a href="/#servicios">Servicios</a>
-  <a href="/beneficios">Beneficios</a>
-  <a href="/catalogo">Catalogo</a>
-  <a href="/comentarios">Comentarios</a>
-  <a href="/#equipo">Equipo</a>
-  <a href="/faq">FAQ</a>
-  <a href="/soluciones">Soluciones</a>
-  <a href="/anydesk">AnyDesk</a>
-
-  <a href="https://wa.me/50581088124" target="_blank" class="btn-primary">
-    <Icon name="mdi:whatsapp" /> WhatsApp
-  </a>
-</div>
+  </div>
 </nav>
 
-<script is:inline>
-  const menu = document.getElementById("menu");
+<div id="mobile-overlay" class="mobile-overlay"></div>
 
-  function toggleMenu(){
-    menu.classList.toggle("active");
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mobile-close" onclick="closeMenu()" aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24">
+      <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+    </svg>
+  </button>
+  <div class="mobile-menu-content">
+    <a href="/#inicio">Inicio</a>
+    <a href="/#servicios">Servicios</a>
+    <a href="/beneficios">Beneficios</a>
+    <a href="/catalogo">Catalogo</a>
+    <a href="/comentarios">Comentarios</a>
+    <a href="/#equipo">Equipo</a>
+    <a href="/faq">FAQ</a>
+    <a href="/soluciones">Soluciones</a>
+    <a href="/anydesk">AnyDesk</a>
+    <a href="https://wa.me/50581088124" target="_blank" class="btn-primary">
+      <Icon name="mdi:whatsapp" /> WhatsApp
+    </a>
+  </div>
+</div>
+
+<script is:inline>
+  const mobileMenu = document.getElementById("mobile-menu");
+  const overlay = document.getElementById("mobile-overlay");
+  const menuBtns = document.querySelectorAll(".menu-btn");
+
+  function toggleMenu() {
+    mobileMenu.classList.toggle("open");
+    overlay.classList.toggle("visible");
+    document.body.classList.toggle("no-scroll");
   }
 
-  document.querySelectorAll("#menu a").forEach(link=>{
-    link.addEventListener("click", () => {
-      menu.classList.remove("active");
-    });
+  function closeMenu() {
+    mobileMenu.classList.remove("open");
+    overlay.classList.remove("visible");
+    document.body.classList.remove("no-scroll");
+  }
+
+  overlay.onclick = closeMenu;
+
+  document.querySelectorAll(".mobile-menu-content a").forEach(link => {
+    link.addEventListener("click", closeMenu);
   });
 
   window.toggleMenu = toggleMenu;
+  window.closeMenu = closeMenu;
 </script>
 
 <style>
-/* NAVBAR */
-.nav{
-  position:fixed;
-  top:0;
-  width:100%;
-  background:#000000cc;
-  backdrop-filter:blur(12px);
-  padding:18px 0;
-  z-index:999;
-  border-bottom:1px solid rgba(255,255,255,0.08);
+/* MD3 Top App Bar */
+.top-app-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--surface-container, #17191E);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  z-index: 999;
+  padding: 0;
+  height: 64px;
+  display: flex;
+  align-items: center;
 }
 
-.nav-content{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+.top-app-bar-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
 }
 
-/* LOGO */
-.logo{
-  font-family:Poppins;
-  font-size:26px;
-  font-weight:700;
-  color:white;
+.logo {
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--on-surface, #E2E2E6);
+  white-space: nowrap;
 }
-.logo span{ color:var(--primary); }
+.logo span { color: var(--primary); }
 
-/* LINKS DESKTOP */
-.links{
-  display:flex;
-  gap:28px;
-  align-items:center;
-}
+.spacer { flex: 1; }
 
-.links a{
-  text-decoration:none;
-  color:white;
-  font-weight:500;
-  font-size:15px;
-  opacity:.85;
-  transition:.3s;
+/* Desktop nav links */
+.nav-links {
+  display: flex;
+  gap: 4px;
+  align-items: center;
 }
 
-.links a:hover{
-  opacity:1;
-  color:var(--primary);
+.nav-links a {
+  text-decoration: none;
+  color: var(--on-surface-variant, #C3C7CF);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 12px;
+  border-radius: var(--shape-full);
+  transition: background 0.2s, color 0.2s;
+}
+.nav-links a:hover {
+  background: rgba(255,255,255,0.06);
+  color: var(--on-surface);
 }
 
-/* BOTON WHATSAPP */
-.btn-primary{
-  background:var(--primary);
-  padding:10px 18px;
-  border-radius:8px;
-  display:flex;
-  gap:8px;
-  align-items:center;
-  color:white !important;
-  font-weight:600;
+.nav-links .btn-primary {
+  padding: 8px 20px;
+  font-size: 13px;
+  border-radius: var(--shape-full);
+  background: var(--primary);
+  color: var(--on-primary);
+  margin-left: 8px;
+}
+.nav-links .btn-primary:hover {
+  background: color-mix(in srgb, var(--primary) 90%, white);
+  box-shadow: var(--elevation-2);
 }
 
-.btn-primary:hover{
-  transform:translateY(-2px);
-  box-shadow:0 6px 20px rgba(0,0,0,.3);
+/* Menu button (hidden on desktop) */
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--on-surface);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--shape-full);
+  transition: background 0.2s;
+}
+.menu-btn:hover { background: rgba(255,255,255,0.06); }
+
+/* Mobile overlay */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+.mobile-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 
-/* BOTON MENU (OCULTO EN PC) */
-.menu-btn{
-  display:none;
-  background:none;
-  border:none;
-  color:white;
-  font-size:30px;
-  cursor:pointer;
+/* MD3 Bottom sheet mobile menu */
+.mobile-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--surface-container-high, #1C1D22);
+  border-radius: var(--shape-xl) var(--shape-xl) 0 0;
+  z-index: 1000;
+  transform: translateY(100%);
+  transition: transform 0.3s cubic-bezier(0.2, 0, 0, 1);
+  max-height: 85vh;
+  overflow-y: auto;
+}
+.mobile-menu.open {
+  transform: translateY(0);
 }
 
-/* ===== MOBILE ===== */
-@media(max-width:900px){
-
-  .menu-btn{
-    display:block;
-  }
-
-  .links{
-    position:absolute;
-    top:80px;
-    right:20px;
-    flex-direction:column;
-    background:#0b0b0b;
-    padding:25px;
-    border-radius:18px;
-    gap:18px;
-    display:none;
-    box-shadow:0 10px 40px rgba(0,0,0,.5);
-    animation:fade .3s ease;
-  }
-
-  .links.active{
-    display:flex;
-  }
-
+.mobile-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: var(--on-surface-variant);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--shape-full);
 }
 
-/* animacion */
-@keyframes fade{
-  from{opacity:0; transform:translateY(-10px);}
-  to{opacity:1; transform:translateY(0);}
+.mobile-menu-content {
+  display: flex;
+  flex-direction: column;
+  padding: 24px;
+  gap: 4px;
+  padding-top: 48px;
 }
 
-/* ===== BOTON HAMBURGUESA ===== */
-.menu-btn{
-  display:none;
-  font-size:28px;
-  cursor:pointer;
+.mobile-menu-content a {
+  text-decoration: none;
+  color: var(--on-surface);
+  font-size: 16px;
+  font-weight: 500;
+  padding: 14px 16px;
+  border-radius: var(--shape-md);
+  transition: background 0.2s;
+}
+.mobile-menu-content a:hover {
+  background: rgba(255,255,255,0.06);
 }
 
-/* ===== MOBILE MENU ===== */
-@media(max-width:900px){
+.mobile-menu-content .btn-primary {
+  margin-top: 8px;
+  justify-content: center;
+  padding: 14px 24px;
+  font-size: 15px;
+}
 
-  .menu-btn{
-    display:block;
-  }
+body.no-scroll { overflow: hidden; }
 
-  /* contenedor links */
-  .links{
-    position:fixed;
-    top:0;
-    right:-100%;
-    width:100%;
-    height:100vh;
-    background:#050505f2;
-    backdrop-filter:blur(20px);
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    gap:35px;
-    transition:.4s;
-  }
-
-  /* cuando se abre */
-  .links.active{
-    right:0;
-  }
-
-  /* links grandes estilo app */
-  .links a{
-    font-size:22px;
-    font-weight:600;
-  }
-
-  /* botón whatsapp más grande */
-  .btn-primary{
-    padding:16px 28px;
-    border-radius:40px;
-    font-size:18px;
-  }
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .menu-btn { display: flex; }
 }
 </style>
