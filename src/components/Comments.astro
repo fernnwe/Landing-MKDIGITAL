@@ -4,14 +4,16 @@ const pageIdentifier = Astro.url.pathname;
 const pageUrl = Astro.url.href;
 ---
 
-<section class="comments">
+<section class="comments-section">
   <div class="container">
-    <h2>Comentarios de clientes</h2>
-    <p class="subtitle">
-      Escribe tu comentario en base a la experiencia con nosotros.
-    </p>
+    <div class="section-header">
+      <h2>Comentarios de clientes</h2>
+      <p>
+        Escribe tu comentario en base a la experiencia con nosotros.
+      </p>
+    </div>
 
-    <div id="disqus_thread"></div>
+    <div id="disqus_thread" class="disqus-container"></div>
   </div>
 </section>
 
@@ -31,24 +33,30 @@ const pageUrl = Astro.url.href;
 </script>
 
 <style>
-.comments{
-  padding:120px 0;
-  background:#0b0b0b;
-  border-top:1px solid rgba(255,255,255,0.05);
+.comments-section {
+  padding: 96px 0;
+  background: var(--background, #0F1115);
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 
-.comments h2{
-  text-align:center;
-  font-size:40px;
-  margin-bottom:10px;
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+.section-header h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.section-header p {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  max-width: 480px;
+  margin: 0 auto;
 }
 
-.subtitle{
-  text-align:center;
-  color:var(--muted);
-  margin-bottom:50px;
-  max-width:600px;
-  margin-left:auto;
-  margin-right:auto;
+.disqus-container {
+  max-width: 720px;
+  margin: 0 auto;
 }
 </style>

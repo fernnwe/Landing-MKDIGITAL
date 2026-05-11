@@ -2,10 +2,10 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<section class="soluciones">
+<section class="soluciones-section">
   <div class="container">
 
-    <div class="header">
+    <div class="section-header">
       <span class="badge">CENTRO DE AYUDA</span>
       <h2>Videos, descargas y soluciones paso a paso</h2>
       <p>
@@ -14,101 +14,95 @@ import { Icon } from "astro-icon/components";
       </p>
     </div>
 
-    <div class="grid">
+    <div class="soluciones-grid">
 
-      <!-- ⭐ VIPER POS DESTACADO -->
-      <div class="card featured">
-        <div class="featured-badge">⭐ DEMO DESTACADA</div>
+      <div class="solution-card featured">
+        <div class="featured-chip">⭐ DEMO DESTACADA</div>
 
-        <div class="icon-box viper">
+        <div class="solution-icon viper">
           <Icon name="mdi:monitor-dashboard" />
         </div>
 
-        <span class="pill">Demo Online</span>
+        <span class="solution-tag">Demo Online</span>
         <h3>Probar ViperPOS</h3>
         <p>Explora el sistema completo sin instalar nada. Acceso inmediato desde el navegador.</p>
 
-        <a href="https://www.viperpos.net/login/" target="_blank" class="video-btn">
+        <a href="https://www.viperpos.net/login/" target="_blank" class="solution-btn">
           Acceder a la demo <Icon name="mdi:open-in-new"/>
         </a>
 
-        <div class="demo-cred">
+        <div class="solution-creds">
           Usuario: <b>demo</b><br/>
           Contraseña: <b>demo1234</b>
         </div>
       </div>
 
-      <!-- FACTURACION -->
-      <div class="card">
-        <div class="icon-box facturacion">
+      <div class="solution-card">
+        <div class="solution-icon facturacion">
           <Icon name="mdi:cash-register" />
         </div>
 
-        <span class="pill">+34 videos</span>
+        <span class="solution-tag">+34 videos</span>
         <h3>Sistema de Facturación</h3>
         <p>Capacitación completa del software, módulos y flujo de trabajo real.</p>
 
-        <a href="https://drive.google.com/drive/folders/1184xu1s4eirYN83QzL4Wfpsu_K3-Hqqs?usp=sharing" target="_blank" class="video-btn">
+        <a href="https://drive.google.com/drive/folders/1184xu1s4eirYN83QzL4Wfpsu_K3-Hqqs?usp=sharing" target="_blank" class="solution-btn">
           Ver tutoriales <Icon name="mdi:play-circle"/>
         </a>
       </div>
 
-      <!-- SERVIDOR AUTOCAD -->
-      <div class="card">
-        <div class="icon-box autocad">
+      <div class="solution-card">
+        <div class="solution-icon autocad">
           <Icon name="mdi:server-network" />
         </div>
 
-        <span class="pill">Solución oficial</span>
+        <span class="solution-tag">Solución oficial</span>
         <h3>Servidor AutoCAD en Red</h3>
         <p>Guía paso a paso para corregir el error del servidor de licencias.</p>
 
-        <a href="https://drive.google.com/file/d/1jmlTTqccF4oUPupTYNCwNW_qZrrK8CwA/view?usp=sharing" target="_blank" class="video-btn">
+        <a href="https://drive.google.com/file/d/1jmlTTqccF4oUPupTYNCwNW_qZrrK8CwA/view?usp=sharing" target="_blank" class="solution-btn">
           Ver solución <Icon name="mdi:play-circle"/>
         </a>
       </div>
 
-      <!-- SOPORTE REMOTO -->
-      <div class="card">
-        <div class="icon-box soporte">
+      <div class="solution-card">
+        <div class="solution-icon soporte">
           <Icon name="mdi:headset" />
         </div>
 
-        <span class="pill">Soporte remoto</span>
+        <span class="solution-tag">Soporte remoto</span>
         <h3>Conexión con AnyDesk</h3>
         <p>Aprende a instalar AnyDesk y recibir soporte inmediato.</p>
 
-        <a href="https://drive.google.com/file/d/17cp_besLdN9NnNC1BpB9ox5oZVscdHLS/view?usp=sharing" target="_blank" class="video-btn">
+        <a href="https://drive.google.com/file/d/17cp_besLdN9NnNC1BpB9ox5oZVscdHLS/view?usp=sharing" target="_blank" class="solution-btn">
           Ver guía <Icon name="mdi:play-circle"/>
         </a>
       </div>
 
-      <!-- DEMO SOFTWARE -->
-      <div class="card">
-        <div class="icon-box demo">
+      <div class="solution-card">
+        <div class="solution-icon demo-icon">
           <Icon name="mdi:laptop" />
         </div>
 
-        <span class="pill">Caso real</span>
+        <span class="solution-tag">Caso real</span>
         <h3>Demo del sistema</h3>
         <p>Mira el software funcionando con clientes reales.</p>
 
-        <a href="https://drive.google.com/file/d/1KjQ6-bD081vYcvX9h4eXr96nqyow17jM/view?usp=sharing" target="_blank" class="video-btn">
+        <a href="https://drive.google.com/file/d/1KjQ6-bD081vYcvX9h4eXr96nqyow17jM/view?usp=sharing" target="_blank" class="solution-btn">
           Ver demostración <Icon name="mdi:play-circle"/>
         </a>
       </div>
 
-      <!-- DESCARGA FACTULITE -->
-      <div class="card">
-        <div class="icon-box descarga">
+      <div class="solution-card">
+        <div class="solution-icon descarga">
           <Icon name="mdi:cellphone-arrow-down" />
         </div>
 
-        <span class="pill">Android</span>
+        <span class="solution-tag">Android</span>
         <h3>Descargar FactuLite</h3>
         <p>Instala el demo en tu celular y prueba el sistema gratis.</p>
 
-        <a href="https://factulite.net/downloads/factulite-v1.5.0.apk" target="_blank" class="video-btn">
+        <a href="https://factulite.net/downloads/factulite-v1.5.0.apk" target="_blank" class="solution-btn">
           Descargar demo <Icon name="mdi:download"/>
         </a>
       </div>
@@ -118,139 +112,125 @@ import { Icon } from "astro-icon/components";
 </section>
 
 <style>
-.soluciones{
-  padding:130px 0;
-  background:radial-gradient(circle at top,#0b141a,#050607 70%);
+.soluciones-section {
+  padding: 96px 0;
+  background: linear-gradient(180deg, var(--surface-container-low) 0%, var(--background) 100%);
 }
 
-/* HEADER */
-.header{
-  text-align:center;
-  max-width:720px;
-  margin:auto;
-  margin-bottom:80px;
+.section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 56px;
 }
-.header h2{
-  font-size:38px;
-  margin:18px 0;
-}
-.header p{
-  color:#9aa4ad;
-  font-size:17px;
-  line-height:1.6;
+.section-header .badge { margin-bottom: 12px; }
+.section-header h2 { font-size: 28px; font-weight: 600; margin-bottom: 8px; }
+.section-header p { color: var(--on-surface-variant); font-size: 14px; }
+
+.soluciones-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
 }
 
-.badge{
-  padding:8px 18px;
-  border-radius:30px;
-  background:linear-gradient(90deg,#00ffa620,#00b3c920);
-  color:#00ffa6;
-  font-size:.75rem;
-  letter-spacing:.7px;
+.solution-card {
+  position: relative;
+  background: var(--surface-container, #17191E);
+  border-radius: var(--shape-xl);
+  padding: 32px 28px;
+  text-align: center;
+  box-shadow: var(--elevation-1);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.solution-card:hover {
+  box-shadow: var(--elevation-3);
+  transform: translateY(-2px);
 }
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
-  gap:38px;
+.featured {
+  border: 1px solid var(--primary);
+  box-shadow: var(--elevation-2);
 }
 
-/* CARDS */
-.card{
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,.07);
-  padding:40px 32px;
-  border-radius:26px;
-  text-align:center;
-  transition:.45s;
-  position:relative;
-  backdrop-filter:blur(6px);
-}
-.card:hover{
-  transform:translateY(-14px);
-  border-color:#00ffa6;
-  box-shadow:0 15px 50px rgba(0,255,166,.15);
+.featured-chip {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  padding: 4px 10px;
+  border-radius: var(--shape-full);
+  background: var(--primary);
+  color: var(--on-primary);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
 }
 
-/* FEATURED */
-.featured{
-  border:1px solid #00ffa6;
-  box-shadow:0 0 45px rgba(0,255,166,.35);
-  transform:scale(1.06);
-}
-.featured:hover{
-  transform:scale(1.09) translateY(-10px);
-  box-shadow:0 0 70px rgba(0,255,166,.55);
-}
-
-.featured-badge{
-  position:absolute;
-  top:16px;
-  right:16px;
-  background:linear-gradient(90deg,#00ffa6,#00b3c9);
-  color:#000;
-  font-weight:700;
-  font-size:11px;
-  padding:7px 13px;
-  border-radius:20px;
+.solution-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: var(--shape-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: #fff;
 }
 
-/* ICON */
-.icon-box{
-  width:78px;
-  height:78px;
-  margin:auto;
-  margin-bottom:20px;
-  border-radius:20px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:36px;
-  color:#fff;
+.facturacion { background: #00A8E8; }
+.autocad { background: #2ECC71; }
+.soporte { background: #9B5CFF; }
+.demo-icon { background: #FF7A00; }
+.descarga { background: #00BFA6; }
+.viper { background: #FF4D6D; }
+
+.solution-tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: var(--shape-full);
+  background: var(--surface-container-high, #1C1D22);
+  border: 1px solid var(--outline-variant);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--primary);
+  margin-bottom: 12px;
 }
 
-.facturacion{ background:#00c3ff; }
-.autocad{ background:#2ecc71; }
-.soporte{ background:#9b5cff; }
-.demo{ background:#ff7a00; }
-.descarga{ background:#00ffa6; }
-.viper{ background:#ff4d6d; }
-
-.pill{
-  font-size:.72rem;
-  background:#ffffff12;
-  padding:6px 15px;
-  border-radius:20px;
-  color:#00ffa6;
+.solution-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.solution-card p {
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-/* CTA BUTTON */
-.video-btn{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  margin-top:15px;
-  padding:13px 24px;
-  border-radius:12px;
-  background:linear-gradient(90deg,#00ffa6,#00b3c9);
-  color:#000;
-  font-weight:800;
-  text-decoration:none;
-  letter-spacing:.3px;
-  transition:.3s;
+.solution-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 22px;
+  border-radius: var(--shape-full);
+  background: var(--primary);
+  color: var(--on-primary);
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  box-shadow: var(--elevation-1);
+  transition: box-shadow 0.2s ease;
 }
-.video-btn:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 25px rgba(0,255,166,.45);
-}
+.solution-btn:hover { box-shadow: var(--elevation-2); }
+.solution-btn svg { width: 16px; height: 16px; }
 
-.demo-cred{
-  margin-top:16px;
-  font-size:13px;
-  color:#9aa4ad;
-  background:#00000040;
-  padding:12px;
-  border-radius:12px;
+.solution-creds {
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: var(--shape-sm);
+  background: var(--surface-container-high, #1C1D22);
+  font-size: 12px;
+  color: var(--on-surface-variant);
+  line-height: 1.6;
 }
+.solution-creds b { color: var(--on-surface); }
 </style>

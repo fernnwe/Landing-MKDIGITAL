@@ -33,45 +33,43 @@ const trabajos = [
 ];
 ---
 
-<section class="works">
+<section class="works-section">
   <div class="container">
 
-    <h2 class="title">Instalaciones reales realizadas</h2>
-    <p class="subtitle">
-      Clientes satisfechos en toda Nicaragua • Resultados verificados
-    </p>
+    <div class="section-header">
+      <h2>Instalaciones reales realizadas</h2>
+      <p>Clientes satisfechos en toda Nicaragua • Resultados verificados</p>
+    </div>
 
-    <div class="grid">
+    <div class="works-grid">
       {trabajos.map((t) => (
-        <article class="card">
+        <article class="work-card">
 
-          <div class="imgBox">
+          <div class="work-image">
             <img src={t.img} alt={t.titulo} loading="lazy" />
 
-            <div class="status">
+            <div class="work-status">
               <Icon name="mdi:check-decagram" />
               Instalación completada
             </div>
 
-            <div class="overlay">
+            <div class="work-overlay">
               <Icon name="mdi:shield-check" />
               <span>{t.badge}</span>
             </div>
           </div>
 
-          <div class="content">
+          <div class="work-content">
             <h3>{t.titulo}</h3>
 
-            <div class="meta">
+            <div class="work-meta">
               <span>
                 <Icon name="mdi:map-marker" /> {t.ciudad}
               </span>
-
               <span>
                 <Icon name="mdi:clock-outline" /> {t.tiempo}
               </span>
             </div>
-
           </div>
 
         </article>
@@ -82,136 +80,114 @@ const trabajos = [
 </section>
 
 <style>
-.works{
-  padding:120px 0;
-  background:linear-gradient(180deg,#0b1220,#020617);
+.works-section {
+  padding: 96px 0;
+  background: var(--surface-container, #17191E);
 }
 
-/* TITULOS */
-.title{
-  text-align:center;
-  font-size:42px;
-  font-weight:800;
-  color:#fff;
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.section-header h2 {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.section-header p {
+  font-size: 14px;
+  color: var(--on-surface-variant);
 }
 
-.subtitle{
-  text-align:center;
-  color:#94a3b8;
-  margin-top:10px;
-  margin-bottom:70px;
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
 }
 
-/* GRID */
-.grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:35px;
+.work-card {
+  background: var(--surface-container-high, #1C1D22);
+  border-radius: var(--shape-lg);
+  overflow: hidden;
+  box-shadow: var(--elevation-1);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.work-card:hover {
+  box-shadow: var(--elevation-3);
+  transform: translateY(-2px);
 }
 
-/* CARD */
-.card{
-  background:#0f172a;
-  border-radius:20px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.05);
-  transition:.35s;
-  box-shadow:0 10px 35px rgba(0,0,0,.35);
+.work-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+.work-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.work-card:hover .work-image img { transform: scale(1.05); }
+
+.work-status {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 4px 12px;
+  border-radius: var(--shape-full);
+  background: var(--primary);
+  color: var(--on-primary);
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.work-status svg { width: 14px; height: 14px; }
+
+.work-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 17, 21, 0.85);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--primary);
+  font-weight: 600;
+  font-size: 13px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.work-overlay svg { width: 36px; height: 36px; }
+.work-image:hover .work-overlay { opacity: 1; }
+
+.work-content {
+  padding: 20px;
 }
 
-.card:hover{
-  transform:translateY(-12px);
-  box-shadow:0 35px 80px rgba(0,0,0,.6);
-  border:1px solid rgba(0,255,166,.25);
+.work-content h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
-/* IMAGEN */
-.imgBox{
-  position:relative;
-  height:200px;
-  overflow:hidden;
+.work-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: var(--on-surface-variant);
 }
-
-.imgBox img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:transform .6s ease;
+.work-meta span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
+.work-meta svg { width: 14px; height: 14px; }
 
-.card:hover img{
-  transform:scale(1.1);
-}
-
-/* BADGE SUPERIOR */
-.status{
-  position:absolute;
-  top:12px;
-  left:12px;
-  background:#00ffa6;
-  color:#022c22;
-  padding:6px 12px;
-  font-size:12px;
-  font-weight:700;
-  border-radius:30px;
-  display:flex;
-  align-items:center;
-  gap:6px;
-}
-
-/* OVERLAY */
-.overlay{
-  position:absolute;
-  inset:0;
-  background:rgba(2,6,23,.85);
-  backdrop-filter:blur(3px);
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:10px;
-  color:#00ffa6;
-  font-weight:700;
-  opacity:0;
-  transition:.35s;
-}
-
-.overlay svg{
-  font-size:40px;
-}
-
-.imgBox:hover .overlay{
-  opacity:1;
-}
-
-/* CONTENIDO */
-.content{
-  padding:22px;
-}
-
-.content h3{
-  color:#fff;
-  font-size:19px;
-  margin-bottom:14px;
-}
-
-/* META */
-.meta{
-  display:flex;
-  justify-content:space-between;
-  color:#94a3b8;
-  font-size:14px;
-}
-
-.meta span{
-  display:flex;
-  align-items:center;
-  gap:6px;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  .title{font-size:30px}
-  .works{padding:90px 0}
+@media (max-width: 768px) {
+  .works-section { padding: 72px 0; }
 }
 </style>

@@ -2,32 +2,22 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<section id="beneficios" class="section benefits">
+<section id="beneficios" class="section benefits-section">
   <div class="container benefits-grid">
 
-    <!-- IMAGEN OPTIMIZADA -->
     <div class="benefits-image">
-      <div class="image-glow"></div>
-
       <img
         src="/soporte.jpg"
-        srcset="
-          /soporte.jpg 600w,
-          /soporte.jpg 900w,
-          /soporte.jpg 1200w
-        "
         sizes="(max-width:900px) 100vw, 50vw"
         width="900"
         height="700"
         alt="Soporte remoto MKDigital"
         loading="lazy"
         decoding="async"
-        fetchpriority="low"
         class="benefits-img"
       >
     </div>
 
-    <!-- TEXTO -->
     <div class="benefits-content">
 
       <span class="badge">POR QUÉ ELEGIRNOS</span>
@@ -39,11 +29,10 @@ import { Icon } from "astro-icon/components";
         que necesitan soluciones inmediatas sin salir de casa.
       </p>
 
-      <!-- LISTA -->
       <div class="benefits-list">
 
-        <div class="benefit-item">
-          <div class="icon">
+        <div class="benefit-row">
+          <div class="benefit-icon">
             <Icon name="mdi:clock-fast"/>
           </div>
           <div>
@@ -52,8 +41,8 @@ import { Icon } from "astro-icon/components";
           </div>
         </div>
 
-        <div class="benefit-item">
-          <div class="icon">
+        <div class="benefit-row">
+          <div class="benefit-icon">
             <Icon name="mdi:laptop"/>
           </div>
           <div>
@@ -62,8 +51,8 @@ import { Icon } from "astro-icon/components";
           </div>
         </div>
 
-        <div class="benefit-item">
-          <div class="icon">
+        <div class="benefit-row">
+          <div class="benefit-icon">
             <Icon name="mdi:cash-multiple"/>
           </div>
           <div>
@@ -72,8 +61,8 @@ import { Icon } from "astro-icon/components";
           </div>
         </div>
 
-        <div class="benefit-item">
-          <div class="icon">
+        <div class="benefit-row">
+          <div class="benefit-icon">
             <Icon name="mdi:account-star"/>
           </div>
           <div>
@@ -84,7 +73,6 @@ import { Icon } from "astro-icon/components";
 
       </div>
 
-      <!-- STATS -->
       <div class="benefits-stats">
         <div><strong>+500</strong><span>Clientes felices</span></div>
         <div><strong>15 min</strong><span>Tiempo de respuesta</span></div>
@@ -96,160 +84,133 @@ import { Icon } from "astro-icon/components";
 </section>
 
 <script is:inline>
-/* animación solo cuando entra al viewport (mejora performance) */
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if(entry.isIntersecting){
-      entry.target.classList.add("show-benefits");
+      entry.target.classList.add("benefits-visible");
     }
   });
-},{threshold:.2});
+}, {threshold: 0.15});
 
-observer.observe(document.querySelector(".benefits"));
+observer.observe(document.querySelector(".benefits-section"));
 </script>
 
 <style>
-
-/* ===== ANIMACIÓN DE ENTRADA ===== */
-.benefits{
-  opacity:0;
-  transform:translateY(60px);
-  transition:all .9s ease;
+.benefits-section {
+  padding: 96px 0;
+  background: var(--surface-container, #17191E);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.benefits-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
-.show-benefits{
-  opacity:1;
-  transform:translateY(0);
+.benefits-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
 }
 
-/* ===== FONDO SUAVE ===== */
-.benefits{
-  background:
-    radial-gradient(circle at 80% 20%, #00B3C920 0%, transparent 40%),
-    radial-gradient(circle at 10% 80%, #1ED6E620 0%, transparent 40%);
-  padding:120px 0;
+.benefits-image {
+  position: relative;
+  border-radius: var(--shape-xl);
+  overflow: hidden;
+  box-shadow: var(--elevation-3);
 }
 
-/* GRID */
-.benefits-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
-  align-items:center;
+.benefits-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--shape-xl);
 }
 
-/* ===== IMAGEN OPTIMIZADA ===== */
-.benefits-image{
-  position:relative;
-  aspect-ratio:4/3; /* evita layout shift */
+.benefits-content .badge { margin-bottom: 16px; }
+
+.benefits-content h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  margin-bottom: 12px;
 }
 
-.image-glow{
-  position:absolute;
-  inset:-30px;
-  background:linear-gradient(120deg,#00B3C9,#1ED6E6);
-  filter:blur(80px);
-  opacity:.25;
+.benefits-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+  color: var(--on-surface-variant);
+  max-width: 480px;
 }
 
-.benefits-img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  border-radius:30px;
-  position:relative;
-  box-shadow:0 30px 60px rgba(0,0,0,.35);
-  will-change:transform;
-  transform:translateZ(0);
+.benefits-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-/* ===== TEXTO ===== */
-.badge{
-  display:inline-block;
-  padding:7px 18px;
-  border-radius:30px;
-  background:linear-gradient(90deg,#00B3C920,#1ED6E620);
-  color:var(--primary);
-  font-size:.75rem;
-  letter-spacing:.6px;
-  margin-bottom:18px;
+.benefit-row {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 16px;
+  border-radius: var(--shape-md);
+  background: var(--surface-container-high, #1C1D22);
+  transition: background 0.2s;
+}
+.benefit-row:hover {
+  background: var(--surface-container-highest, #212227);
 }
 
-.benefits-content h2{
-  font-size:42px;
-  margin-bottom:15px;
+.benefit-icon {
+  width: 40px;
+  height: 40px;
+  min-width: 40px;
+  border-radius: var(--shape-sm);
+  background: var(--primary-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.benefit-icon svg {
+  width: 20px;
+  height: 20px;
+  color: var(--primary);
 }
 
-.benefits-desc{
-  color:var(--muted);
-  margin-bottom:35px;
-  max-width:500px;
+.benefit-row h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.benefit-row p {
+  font-size: 13px;
+  color: var(--on-surface-variant);
 }
 
-/* LISTA */
-.benefits-list{
-  display:flex;
-  flex-direction:column;
-  gap:18px;
+.benefits-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 28px;
+}
+.benefits-stats strong {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--primary);
+}
+.benefits-stats span {
+  font-size: 12px;
+  color: var(--on-surface-variant);
 }
 
-.benefit-item{
-  display:flex;
-  gap:18px;
-  background:var(--glass);
-  padding:18px;
-  border-radius:18px;
-  border:1px solid var(--border);
-  transition:.3s;
+@media (max-width: 900px) {
+  .benefits-grid { grid-template-columns: 1fr; gap: 40px; }
+  .benefits-content { text-align: center; }
+  .benefits-desc { margin: 0 auto 32px; }
+  .benefit-row { text-align: left; }
+  .benefits-stats { justify-content: center; }
 }
-
-.benefit-item:hover{
-  transform:translateX(10px);
-  border-color:var(--primary);
-  box-shadow:0 10px 30px rgba(0,0,0,.15);
-}
-
-.icon{
-  background:linear-gradient(120deg,#00B3C9,#1ED6E6);
-  padding:12px;
-  border-radius:14px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-.icon svg{
-  width:22px;
-  height:22px;
-  color:white;
-}
-
-.benefit-item h4{ margin:0 0 4px 0; }
-.benefit-item p{ margin:0; color:var(--muted); font-size:.9rem; }
-
-/* STATS */
-.benefits-stats{
-  display:flex;
-  gap:40px;
-  margin-top:35px;
-}
-
-.benefits-stats strong{
-  font-size:28px;
-  display:block;
-  color:var(--primary);
-}
-
-.benefits-stats span{
-  font-size:.8rem;
-  color:var(--muted);
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-  .benefits-grid{ grid-template-columns:1fr; }
-  .benefits-content{ text-align:center; }
-  .benefits-stats{ justify-content:center; }
-}
-
 </style>
