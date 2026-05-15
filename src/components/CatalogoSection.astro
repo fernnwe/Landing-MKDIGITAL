@@ -1,140 +1,238 @@
 ---
-const productos = [
-
-{nombre:"Office 2024 Professional Plus", precio:"C$400", old:"C$500", off:"20%", cat:"microsoft", img:"/productos/office2024.png", badge:"top"},
-{nombre:"Office 2021 Professional Plus", precio:"C$350", old:"C$450", off:"22%", cat:"microsoft", img:"/productos/office2021.png"},
-{nombre:"Windows 10 Pro", precio:"C$470", old:"C$650", off:"20%", cat:"microsoft", img:"/productos/windows10.png"},
-{nombre:"Windows 11 Pro", precio:"C$700", old:"C$920", off:"20%",  cat:"microsoft", img:"/productos/windows11.png"},
-
-{nombre:"Pack Adobe (3 Apps)", precio:"C$1,000", old:"C$1,300", off:"23%", cat:"adobe", img:"/productos/adobe.jpg", badge:"top"},
-{nombre:"Pack Adobe (7 Apps)", precio:"C$2,000", old:"C$2,500", off:"20%", cat:"adobe", img:"/productos/adobe.jpg"},
-{nombre:"Adobe Acrobat", precio:"C$400", old:"C$550", off:"27%", cat:"adobe", img:"/productos/acrobat.png"},
-
-{nombre:"AutoCAD 2026", precio:"C$500", old:"C$650", off:"23%", cat:"autodesk", img:"/productos/autocad.png", badge:"top"},
-{nombre:"Revit 2026", precio:"C$500", old:"C$650", off:"23%", cat:"autodesk", img:"/productos/revit.png"},
-
-{nombre:"Avast Premium", precio:"C$800", old:"C$1,000", off:"20%", cat:"seguridad", img:"/productos/avast.png"},
-
-{nombre:"FactuLite Android", precio:"C$3,700", old:"C$4,500", off:"18%", cat:"servicios", img:"/productos/factulite.png", badge:"own"},
-{nombre:"ViperPOS Sistema Web", precio:"C$3,000", cat:"servicios", off:"al mes", img:"/productos/viperpos.png", badge:"own"},
-{nombre:"Sistema Facturación Windows", precio:"C$2,000", old:"C$2,500", off:"20%", cat:"servicios", img:"/productos/facturacion.png", badge:"top"},
-];
+import { Icon } from "astro-icon/components";
+import { productos, categorias } from "../data/productos";
+import ProductCard from "./ProductCard.astro";
 ---
 
-<section class="catalogo-section">
-<div class="container">
-
-<div class="section-header">
-  <h2>Configuración e instalación remota</h2>
-  <p>Instalación • Soporte inmediato • Garantía incluida</p>
-</div>
-
-<div class="search-bar">
-  <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
-  <input id="search" placeholder="Buscar producto..." />
-</div>
-
-<div class="filter-chips" id="filterChips">
-  <button class="chip active" onclick="filtrar('all', this)">Todos</button>
-  <button class="chip" onclick="filtrar('microsoft', this)">Microsoft</button>
-  <button class="chip" onclick="filtrar('adobe', this)">Adobe</button>
-  <button class="chip" onclick="filtrar('autodesk', this)">Autodesk</button>
-  <button class="chip" onclick="filtrar('seguridad', this)">Seguridad</button>
-  <button class="chip" onclick="filtrar('servicios', this)">Facturación</button>
-</div>
-
-<div class="product-grid" id="grid">
-{productos.map(p => (
-  <div class="product-card ${p.cat}" data-name={p.nombre.toLowerCase()}>
-
-    {p.off && <span class="discount-chip">-{p.off}</span>}
-    {p.badge === "own" && <span class="own-chip">MK</span>}
-
-    <div class="product-img">
-      <img src={p.img} alt={p.nombre} loading="lazy"/>
+<section class="catalogo" id="catalogo">
+  <div class="catalogo-hero">
+    <div class="catalogo-hero-bg">
+      <div class="hero-orb orb-1"></div>
+      <div class="hero-orb orb-2"></div>
     </div>
-
-    <h3>{p.nombre}</h3>
-
-    <div class="product-price">
-      {p.old && <span class="old-price">{p.old}</span>}
-      <span class="current-price">{p.precio}</span>
+    <div class="container hero-content">
+      <div class="badge reveal reveal-down">
+        <i class="fa-solid fa-layer-group"></i>
+        CATÁLOGO DE SOFTWARE
+      </div>
+      <h1 class="reveal reveal-up stagger-2">
+        Encuentra el software que <span>necesitas</span>
+      </h1>
+      <p class="reveal reveal-up stagger-3">
+        Todos los programas que instalamos a precio justo, con soporte remoto incluido
+      </p>
     </div>
-
-    <a href="https://wa.me/50581088124" target="_blank" class="product-btn">
-      Comprar ahora
-    </a>
-
   </div>
-))}
-</div>
 
-</div>
+  <div class="catalogo-body">
+    <div class="container">
+      <div class="search-filters">
+        <div class="search-bar">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+          <input id="searchInput" type="text" placeholder="Buscar producto..." autocomplete="off" />
+        </div>
+
+        <div class="filter-tabs" id="filterTabs">
+          <button class="filter-tab active" data-filter="all">
+            <i class="fa-solid fa-grid-2"></i>
+            Todos
+          </button>
+          {categorias.map(cat => (
+            <button class="filter-tab" data-filter={cat.id}>
+              <Icon name={cat.icono} />
+              {cat.nombre}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="productos-grid" id="productGrid">
+        {productos.map((p, i) => (
+          <div class="product-wrapper reveal reveal-up stagger-{Math.min(i % 4 + 1, 4)}" data-index={i}>
+            <ProductCard producto={p} index={i} />
+          </div>
+        ))}
+      </div>
+
+      <div class="empty-state" id="emptyState" style="display:none">
+        <i class="fa-solid fa-search"></i>
+        <h3>Sin resultados</h3>
+        <p>No encontramos productos que coincidan con tu búsqueda</p>
+        <button class="btn-outline" onclick="resetFilters()">Limpiar filtros</button>
+      </div>
+    </div>
+  </div>
 </section>
 
 <script is:inline>
 document.addEventListener("DOMContentLoaded", () => {
-const cards = document.querySelectorAll(".product-card");
-const searchInput = document.getElementById("search");
-const chips = document.querySelectorAll(".filter-chips .chip");
-let categoriaActual = "all";
+  const searchInput = document.getElementById("searchInput") as HTMLInputElement;
+  const tabs = document.querySelectorAll<HTMLButtonElement>(".filter-tab");
+  const cards = document.querySelectorAll<HTMLElement>(".product-card");
+  const emptyState = document.getElementById("emptyState");
+  const grid = document.getElementById("productGrid");
+  let currentFilter = "all";
+  let searchTimer: number | null = null;
 
-window.filtrar = (cat, btn) => {
-  categoriaActual = cat;
-  chips.forEach(b => b.classList.remove("active"));
-  btn.classList.add("active");
-  aplicarFiltros();
-}
+  function applyFilters() {
+    const query = searchInput.value.toLowerCase().trim();
+    let visibleCount = 0;
 
-searchInput.addEventListener("keyup", aplicarFiltros);
+    cards.forEach((card, i) => {
+      const categoria = card.dataset.categoria;
+      const nombre = card.dataset.nombre || "";
+      const wrapper = card.closest<HTMLElement>(".product-wrapper");
 
-function aplicarFiltros(){
-  const texto = searchInput.value.toLowerCase();
-  cards.forEach(card => {
-    const coincideBusqueda = card.dataset.name.includes(texto);
-    const coincideCategoria =
-      categoriaActual === "all" || card.classList.contains(categoriaActual);
-    card.style.display = (coincideBusqueda && coincideCategoria) ? "flex" : "none";
+      const matchCategory = currentFilter === "all" || categoria === currentFilter;
+      const matchSearch = nombre.includes(query);
+
+      const show = matchCategory && matchSearch;
+
+      if (wrapper) {
+        wrapper.style.display = show ? "block" : "none";
+        wrapper.style.opacity = show ? "1" : "0";
+        if (show) {
+          wrapper.style.transform = "scale(1)";
+          visibleCount++;
+        }
+      }
+    });
+
+    if (emptyState) {
+      emptyState.style.display = visibleCount === 0 ? "flex" : "none";
+    }
+  }
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+      tabs.forEach(t => t.classList.remove("active"));
+      tab.classList.add("active");
+      currentFilter = tab.dataset.filter || "all";
+      applyFilters();
+    });
   });
-}
+
+  searchInput.addEventListener("input", () => {
+    if (searchTimer) clearTimeout(searchTimer);
+    searchTimer = window.setTimeout(applyFilters, 150);
+  });
+
+  (window as any).resetFilters = () => {
+    searchInput.value = "";
+    currentFilter = "all";
+    tabs.forEach(t => t.classList.remove("active"));
+    document.querySelector<HTMLButtonElement>('[data-filter="all"]')?.classList.add("active");
+    applyFilters();
+  };
 });
 </script>
 
 <style>
-.catalogo-section {
-  padding: 96px 0;
-  background: var(--background, #0F1115);
+.catalogo {
+  padding-top: 64px;
 }
 
-.section-header {
+/* Hero */
+.catalogo-hero {
+  position: relative;
+  padding: 80px 0 64px;
+  overflow: hidden;
+  background: var(--background);
+}
+
+.catalogo-hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+}
+
+.orb-1 {
+  width: 600px; height: 600px;
+  top: -300px; left: -100px;
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.2) 0%, transparent 70%);
+  animation: orb-float 20s ease-in-out infinite;
+}
+
+.orb-2 {
+  width: 500px; height: 500px;
+  bottom: -250px; right: -100px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.12) 0%, transparent 70%);
+  animation: orb-float 20s ease-in-out infinite;
+  animation-delay: -10s;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
   text-align: center;
-  margin-bottom: 40px;
-}
-.section-header h2 {
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-.section-header p {
-  font-size: 14px;
-  color: var(--on-surface-variant);
+  max-width: 700px;
 }
 
-/* MD3 Search field */
+.hero-content .badge { margin-bottom: 16px; }
+
+.hero-content h1 {
+  font-size: clamp(32px, 4.5vw, 48px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+.hero-content h1 span {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-content p {
+  font-size: 16px;
+  color: var(--on-surface-variant);
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* Body */
+.catalogo-body {
+  padding: 0 0 96px;
+  background: var(--surface-container);
+}
+
+/* Search & Filters */
+.search-filters {
+  position: relative;
+  z-index: 5;
+  margin-bottom: 48px;
+  padding: 24px 32px;
+  background: var(--surface-container-high);
+  border-radius: var(--shape-xl);
+  border: 1px solid rgba(129, 140, 248, 0.06);
+  box-shadow: var(--elevation-1);
+}
+
+/* MD3 Search */
 .search-bar {
   display: flex;
   align-items: center;
   gap: 12px;
   max-width: 480px;
-  margin: 0 auto 24px;
-  padding: 8px 16px;
+  margin: 0 auto 20px;
+  padding: 10px 18px;
   border-radius: var(--shape-full);
-  background: var(--surface-container-high, #1C1D22);
-  border: 1px solid var(--outline-variant, #42474E);
-  transition: border-color 0.2s;
+  background: var(--surface-container);
+  border: 1.5px solid var(--outline-variant);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .search-bar:focus-within {
   border-color: var(--primary);
+  box-shadow: 0 0 20px rgba(129, 140, 248, 0.1);
 }
 .search-bar svg {
   color: var(--on-surface-variant);
@@ -149,155 +247,91 @@ function aplicarFiltros(){
   outline: none;
   font-family: var(--font-family);
 }
-.search-bar input::placeholder {
-  color: var(--on-surface-variant);
-}
+.search-bar input::placeholder { color: var(--on-surface-variant); }
 
-/* MD3 Filter chips */
-.filter-chips {
+/* Filter tabs */
+.filter-tabs {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: 6px;
   justify-content: center;
-  margin-bottom: 40px;
 }
 
-.chip {
+.filter-tab {
   display: inline-flex;
   align-items: center;
-  padding: 6px 16px;
+  gap: 6px;
+  padding: 8px 18px;
   border-radius: var(--shape-full);
-  background: var(--surface-container-high, #1C1D22);
-  border: 1px solid var(--outline-variant, #42474E);
+  background: transparent;
+  border: 1.5px solid var(--outline-variant);
   color: var(--on-surface-variant);
   font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  transition: all 0.25s ease;
   font-family: var(--font-family);
+  white-space: nowrap;
 }
-.chip:hover {
-  background: var(--surface-container-highest);
-}
-.chip.active {
-  background: var(--primary);
+.filter-tab:hover {
   border-color: var(--primary);
-  color: var(--on-primary);
+  color: var(--on-surface);
+  background: rgba(129, 140, 248, 0.06);
 }
+.filter-tab.active {
+  background: linear-gradient(135deg, var(--primary), #6366F1);
+  border-color: transparent;
+  color: #FFFFFF;
+  box-shadow: 0 2px 12px rgba(129, 140, 248, 0.25);
+}
+.filter-tab svg { width: 16px; height: 16px; }
+.filter-tab i { font-size: 14px; }
 
-/* MD3 Product grid */
-.product-grid {
+/* Product grid */
+.productos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
 }
 
-/* MD3 Elevated Card */
-.product-card {
-  position: relative;
-  display: flex;
+.product-wrapper {
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Empty state */
+.empty-state {
   flex-direction: column;
-  align-items: center;
-  background: var(--surface-container, #17191E);
-  border-radius: var(--shape-lg);
-  padding: 24px 20px;
-  box-shadow: var(--elevation-1);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-.product-card:hover {
-  box-shadow: var(--elevation-3);
-  transform: translateY(-2px);
-}
-
-.discount-chip {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  padding: 4px 10px;
-  border-radius: var(--shape-full);
-  background: var(--primary);
-  color: var(--on-primary);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-}
-
-.own-chip {
-  position: absolute;
-  top: 12px;
-  left: 12px;
-  padding: 4px 10px;
-  border-radius: var(--shape-full);
-  background: var(--tertiary-container, #1F4E5C);
-  color: var(--on-tertiary-container, #C5E7F9);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-.product-img {
-  height: 140px;
-  display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
-}
-.product-img img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-
-.product-card h3 {
-  font-size: 15px;
-  font-weight: 600;
+  padding: 80px 24px;
   text-align: center;
-  margin-bottom: 16px;
-  line-height: 1.3;
+  gap: 12px;
 }
-
-.product-price {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.old-price {
-  font-size: 13px;
+.empty-state i {
+  font-size: 48px;
   color: var(--on-surface-variant);
-  text-decoration: line-through;
-  opacity: 0.6;
+  opacity: 0.3;
 }
-
-.current-price {
-  font-size: 30px;
-  font-weight: 700;
-  color: var(--primary);
-  line-height: 1.1;
+.empty-state h3 {
+  font-size: 20px;
+  color: var(--on-surface);
 }
-
-.product-btn {
-  width: 100%;
-  text-align: center;
-  padding: 12px 24px;
-  border-radius: var(--shape-full);
-  background: var(--primary);
-  color: var(--on-primary);
+.empty-state p {
   font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  transition: box-shadow 0.2s ease;
-  box-shadow: var(--elevation-1);
-}
-.product-btn:hover {
-  box-shadow: var(--elevation-2);
+  color: var(--on-surface-variant);
+  margin-bottom: 8px;
 }
 
-@media (max-width: 600px) {
-  .product-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
-  .product-card { padding: 16px; }
-  .current-price { font-size: 24px; }
-  .product-img { height: 100px; }
+@media (max-width: 768px) {
+  .catalogo-hero { padding: 60px 0 48px; }
+  .catalogo-body { padding: 0 0 72px; }
+  .search-filters { padding: 16px; margin-bottom: 32px; }
+  .productos-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+}
+
+@media (max-width: 480px) {
+  .productos-grid { grid-template-columns: 1fr; }
+  .filter-tabs { gap: 4px; }
+  .filter-tab { padding: 6px 14px; font-size: 12px; }
 }
 </style>

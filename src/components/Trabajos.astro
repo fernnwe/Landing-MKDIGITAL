@@ -36,15 +36,18 @@ const trabajos = [
 <section class="works-section">
   <div class="container">
 
-    <div class="section-header">
+    <div class="section-header reveal reveal-up">
+      <span class="badge">
+        <i class="fa-solid fa-check-circle"></i>
+        INSTALACIONES RECIENTES
+      </span>
       <h2>Instalaciones reales realizadas</h2>
-      <p>Clientes satisfechos en toda Nicaragua • Resultados verificados</p>
+      <p>Clientes satisfechos en toda Nicaragua — Resultados verificados</p>
     </div>
 
     <div class="works-grid">
-      {trabajos.map((t) => (
-        <article class="work-card">
-
+      {trabajos.map((t, i) => (
+        <article class="work-card reveal reveal-up stagger-{i + 1}">
           <div class="work-image">
             <img src={t.img} alt={t.titulo} loading="lazy" />
 
@@ -82,53 +85,42 @@ const trabajos = [
 <style>
 .works-section {
   padding: 96px 0;
-  background: var(--surface-container, #17191E);
-}
-
-.section-header {
-  text-align: center;
-  margin-bottom: 48px;
-}
-.section-header h2 {
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-.section-header p {
-  font-size: 14px;
-  color: var(--on-surface-variant);
+  background: var(--surface-container);
 }
 
 .works-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 24px;
 }
 
 .work-card {
-  background: var(--surface-container-high, #1C1D22);
+  background: var(--surface-container-high);
   border-radius: var(--shape-lg);
   overflow: hidden;
-  box-shadow: var(--elevation-1);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  border: 1px solid rgba(129, 140, 248, 0.06);
+  transition: transform 0.4s cubic-bezier(0.2, 0, 0, 1),
+              box-shadow 0.4s cubic-bezier(0.2, 0, 0, 1),
+              border-color 0.3s ease;
 }
 .work-card:hover {
-  box-shadow: var(--elevation-3);
-  transform: translateY(-2px);
+  transform: translateY(-6px);
+  box-shadow: 0 12px 40px rgba(129, 140, 248, 0.12);
+  border-color: rgba(129, 140, 248, 0.2);
 }
 
 .work-image {
   position: relative;
-  height: 200px;
+  height: 220px;
   overflow: hidden;
 }
 .work-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
+  transition: transform 0.5s cubic-bezier(0.2, 0, 0, 1);
 }
-.work-card:hover .work-image img { transform: scale(1.05); }
+.work-card:hover .work-image img { transform: scale(1.08); }
 
 .work-status {
   position: absolute;
@@ -136,20 +128,21 @@ const trabajos = [
   left: 12px;
   padding: 4px 12px;
   border-radius: var(--shape-full);
-  background: var(--primary);
-  color: var(--on-primary);
+  background: linear-gradient(135deg, var(--primary), #6366F1);
+  color: #FFFFFF;
   font-size: 11px;
   font-weight: 600;
   display: flex;
   align-items: center;
   gap: 4px;
+  box-shadow: 0 2px 8px rgba(129, 140, 248, 0.3);
 }
 .work-status svg { width: 14px; height: 14px; }
 
 .work-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(15, 17, 21, 0.85);
+  background: rgba(7, 8, 20, 0.85);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -159,7 +152,8 @@ const trabajos = [
   font-weight: 600;
   font-size: 13px;
   opacity: 0;
-  transition: opacity 0.25s ease;
+  transition: opacity 0.3s ease;
+  backdrop-filter: blur(4px);
 }
 .work-overlay svg { width: 36px; height: 36px; }
 .work-image:hover .work-overlay { opacity: 1; }
@@ -172,6 +166,7 @@ const trabajos = [
   font-size: 16px;
   font-weight: 600;
   margin-bottom: 12px;
+  color: var(--on-surface);
 }
 
 .work-meta {
