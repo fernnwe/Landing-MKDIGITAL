@@ -121,13 +121,14 @@ import { Icon } from "astro-icon/components";
 </script>
 
 <style>
-/* MD3 Top App Bar */
 .top-app-bar {
   position: fixed;
   top: 0;
   width: 100%;
-  background: var(--surface-container, #17191E);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  background: rgba(12, 14, 26, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(129, 140, 248, 0.08);
   z-index: 999;
   padding: 0;
   height: 64px;
@@ -144,15 +145,15 @@ import { Icon } from "astro-icon/components";
 
 .logo {
   font-size: 22px;
-  font-weight: 600;
-  color: var(--on-surface, #E2E2E6);
+  font-weight: 700;
+  color: var(--on-surface);
   white-space: nowrap;
+  letter-spacing: -0.02em;
 }
 .logo span { color: var(--primary); }
 
 .spacer { flex: 1; }
 
-/* Desktop nav links */
 .nav-links {
   display: flex;
   gap: 4px;
@@ -161,7 +162,7 @@ import { Icon } from "astro-icon/components";
 
 .nav-links a {
   text-decoration: none;
-  color: var(--on-surface-variant, #C3C7CF);
+  color: var(--on-surface-variant);
   font-size: 14px;
   font-weight: 500;
   padding: 8px 12px;
@@ -169,24 +170,16 @@ import { Icon } from "astro-icon/components";
   transition: background 0.2s, color 0.2s;
 }
 .nav-links a:hover {
-  background: color-mix(in srgb, var(--on-surface) 8%, transparent);
+  background: rgba(129, 140, 248, 0.08);
   color: var(--on-surface);
 }
 
 .nav-links .btn-primary {
   padding: 8px 20px;
   font-size: 13px;
-  border-radius: var(--shape-full);
-  background: var(--primary);
-  color: var(--on-primary);
   margin-left: 8px;
 }
-.nav-links .btn-primary:hover {
-  background: color-mix(in srgb, var(--primary) 90%, white);
-  box-shadow: var(--elevation-2);
-}
 
-/* Theme toggle button */
 .theme-btn {
   background: none;
   border: none;
@@ -202,7 +195,7 @@ import { Icon } from "astro-icon/components";
   position: relative;
 }
 .theme-btn:hover {
-  background: color-mix(in srgb, var(--on-surface) 8%, transparent);
+  background: rgba(129, 140, 248, 0.08);
   color: var(--on-surface);
 }
 
@@ -228,15 +221,11 @@ body:not(.light) .icon-moon { opacity: 0; transform: rotate(-90deg) scale(0); }
   font-family: var(--font-family);
   margin-top: 4px;
 }
-.mobile-theme-btn:hover { background: color-mix(in srgb, var(--on-surface) 8%, transparent); }
-.theme-label {
-  font-size: 16px;
-  font-weight: 500;
-}
+.mobile-theme-btn:hover { background: rgba(129, 140, 248, 0.08); }
+.theme-label { font-size: 16px; font-weight: 500; }
 .mobile-theme-btn .icon-sun,
 .mobile-theme-btn .icon-moon { position: static; }
 
-/* Menu button (hidden on desktop) */
 .menu-btn {
   display: none;
   background: none;
@@ -247,13 +236,12 @@ body:not(.light) .icon-moon { opacity: 0; transform: rotate(-90deg) scale(0); }
   border-radius: var(--shape-full);
   transition: background 0.2s;
 }
-.menu-btn:hover { background: color-mix(in srgb, var(--on-surface) 8%, transparent); }
+.menu-btn:hover { background: rgba(129, 140, 248, 0.08); }
 
-/* Mobile overlay */
 .mobile-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.6);
   z-index: 998;
   opacity: 0;
   pointer-events: none;
@@ -264,13 +252,12 @@ body:not(.light) .icon-moon { opacity: 0; transform: rotate(-90deg) scale(0); }
   pointer-events: auto;
 }
 
-/* MD3 Bottom sheet mobile menu */
 .mobile-menu {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  background: var(--surface-container-high, #1C1D22);
+  background: var(--surface-container-high);
   border-radius: var(--shape-xl) var(--shape-xl) 0 0;
   z-index: 1000;
   transform: translateY(100%);
@@ -278,9 +265,7 @@ body:not(.light) .icon-moon { opacity: 0; transform: rotate(-90deg) scale(0); }
   max-height: 85vh;
   overflow-y: auto;
 }
-.mobile-menu.open {
-  transform: translateY(0);
-}
+.mobile-menu.open { transform: translateY(0); }
 
 .mobile-close {
   position: absolute;
@@ -312,7 +297,7 @@ body:not(.light) .icon-moon { opacity: 0; transform: rotate(-90deg) scale(0); }
   transition: background 0.2s;
 }
 .mobile-menu-content a:hover {
-  background: color-mix(in srgb, var(--on-surface) 8%, transparent);
+  background: rgba(129, 140, 248, 0.08);
 }
 
 .mobile-menu-content .btn-primary {
@@ -323,6 +308,11 @@ body:not(.light) .icon-moon { opacity: 0; transform: rotate(-90deg) scale(0); }
 }
 
 body.no-scroll { overflow: hidden; }
+
+.light .top-app-bar {
+  background: rgba(255, 255, 255, 0.85);
+  border-bottom-color: rgba(79, 70, 229, 0.08);
+}
 
 @media (max-width: 900px) {
   .nav-links { display: none; }

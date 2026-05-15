@@ -5,7 +5,7 @@ import { Icon } from "astro-icon/components";
 <section id="servicios" class="section services-section">
   <div class="container">
 
-    <div class="section-header">
+    <div class="section-header reveal reveal-up">
       <span class="badge">SERVICIOS TECNOLÓGICOS</span>
       <h2>Soluciones completas para tu computadora y negocio</h2>
       <p>
@@ -14,7 +14,7 @@ import { Icon } from "astro-icon/components";
       </p>
     </div>
 
-    <div class="os-bar">
+    <div class="os-bar reveal reveal-up stagger-2">
       <div class="os-chip">
         <Icon name="mdi:microsoft-windows" />
         <span>Windows</span>
@@ -28,49 +28,49 @@ import { Icon } from "astro-icon/components";
 
     <div class="services-grid">
 
-      <div class="service-card">
+      <div class="service-card reveal reveal-up stagger-1">
         <div class="service-icon"><Icon name="mdi:microsoft-windows" /></div>
         <h3>Licencias Windows</h3>
         <p>Windows 10 y 11 Home & Pro. Licencias originales y genericas</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card reveal reveal-up stagger-2">
         <div class="service-icon"><Icon name="mdi:microsoft-office" /></div>
         <h3>Microsoft Office</h3>
         <p>Office 2019, 2021 y 2024. Licencias originales y genericas</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card reveal reveal-up stagger-3">
         <div class="service-icon"><Icon name="mdi:adobe" /></div>
         <h3>Programas de Adobe</h3>
         <p>Photoshop, Illustrator, Premiere, After Effects y más.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card reveal reveal-up stagger-4">
         <div class="service-icon"><Icon name="mdi:cube-scan" /></div>
         <h3>Software Autodesk</h3>
         <p>AutoCAD, Revit y Civil 3D instalados.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card reveal reveal-up stagger-5">
         <div class="service-icon"><Icon name="mdi:shield-check" /></div>
         <h3>Antivirus Premium</h3>
         <p>Protección completa contra virus y malware.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card reveal reveal-up stagger-6">
         <div class="service-icon"><Icon name="mdi:web" /></div>
         <h3>Desarrollo Web</h3>
         <p>Páginas modernas, rápidas y optimizadas para tu negocio.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card reveal reveal-up stagger-7">
         <div class="service-icon"><Icon name="mdi:cash-register" /></div>
         <h3>Software de Facturación</h3>
         <p>FactuLite & ViperPOS desarrollados por AlphaTech.</p>
       </div>
 
-      <div class="service-card">
+      <div class="service-card reveal reveal-up stagger-8">
         <div class="service-icon"><Icon name="mdi:rocket-launch" /></div>
         <h3>Optimización de PC</h3>
         <p>Limpieza, drivers y mejora de rendimiento.</p>
@@ -82,10 +82,9 @@ import { Icon } from "astro-icon/components";
 </section>
 
 <style>
-/* MD3 Services */
 .services-section {
   position: relative;
-  background: var(--surface-container, #17191E);
+  background: var(--surface-container);
 }
 
 .os-bar {
@@ -109,13 +108,12 @@ import { Icon } from "astro-icon/components";
   color: var(--on-surface);
 }
 .os-chip svg { width: 18px; height: 18px; color: var(--primary); }
-
 .os-chip.soon { opacity: 0.5; }
 
 .os-divider {
   width: 1px;
   height: 24px;
-  background: var(--outline-variant);
+  background: linear-gradient(180deg, transparent, var(--outline-variant), transparent);
 }
 
 .services-grid {
@@ -125,49 +123,40 @@ import { Icon } from "astro-icon/components";
 }
 
 .service-card {
-  background: var(--surface-container-high, #1C1D22);
+  background: var(--surface-container-high);
   border-radius: var(--shape-lg);
-  padding: 28px 24px;
+  padding: 32px 24px;
   box-shadow: var(--elevation-0);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  border: 1px solid transparent;
+  transition: box-shadow 0.3s cubic-bezier(0.2, 0, 0, 1),
+              transform 0.3s cubic-bezier(0.2, 0, 0, 1),
+              border-color 0.3s ease;
   text-align: center;
 }
 .service-card:hover {
-  box-shadow: var(--elevation-2);
-  transform: translateY(-2px);
+  box-shadow: var(--elevation-3);
+  transform: translateY(-4px);
+  border-color: rgba(129, 140, 248, 0.15);
 }
 
 .service-icon {
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   border-radius: var(--shape-md);
-  background: var(--primary-container);
+  background: rgba(129, 140, 248, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 16px;
 }
-.service-icon svg {
-  width: 24px;
-  height: 24px;
-  color: var(--primary);
-}
+.service-icon svg { width: 26px; height: 26px; color: var(--primary); }
 
-.service-card h3 {
-  font-size: 16px;
-  font-weight: 600;
-  margin-bottom: 8px;
-}
-
-.service-card p {
-  font-size: 13px;
-  line-height: 1.5;
-}
+.service-card h3 { font-size: 16px; font-weight: 600; margin-bottom: 8px; }
+.service-card p { font-size: 13px; line-height: 1.6; }
 
 @media (max-width: 768px) {
   .services-grid { grid-template-columns: 1fr 1fr; }
 }
-
 @media (max-width: 600px) {
   .services-grid { grid-template-columns: 1fr; }
 }

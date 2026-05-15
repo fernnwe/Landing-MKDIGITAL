@@ -1,24 +1,29 @@
 <section class="hero" id="inicio">
-  <div class="container hero-grid">
+  <div class="hero-bg">
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+    <div class="hero-grid-overlay"></div>
+  </div>
 
-    <!-- LEFT -->
+  <div class="container hero-grid">
     <div class="hero-content">
-      <span class="badge">
+      <span class="badge reveal reveal-down stagger-1">
         <i class="fa-solid fa-wifi"></i>
         SOPORTE REMOTO EN TODA NICARAGUA
       </span>
 
-      <h1>
-        Soporte informático remoto  
+      <h1 class="reveal reveal-up stagger-2">
+        Soporte informático remoto
         <span>rápido y profesional</span>
       </h1>
 
-      <p class="hero-desc">
-        Instalamos programas, configuramos, eliminamos virus y optimizamos tu PC 
+      <p class="hero-desc reveal reveal-up stagger-3">
+        Instalamos programas, configuramos, eliminamos virus y optimizamos tu PC
         sin que salgas de casa. Atención inmediata y segura.
       </p>
 
-      <div class="hero-buttons">
+      <div class="hero-buttons reveal reveal-up stagger-4">
         <a href="https://wa.me/50581088124" target="_blank" class="btn-primary btn-lg">
           <i class="fa-brands fa-whatsapp"></i>
           Solicitar soporte
@@ -29,14 +34,14 @@
         </a>
       </div>
 
-      <div class="hero-features">
+      <div class="hero-features reveal reveal-up stagger-5">
         <span class="chip"><i class="fa-solid fa-bolt"></i> Atención inmediata</span>
         <span class="chip"><i class="fa-solid fa-lock"></i> Instalación segura</span>
         <span class="chip"><i class="fa-solid fa-credit-card"></i> Pago por transferencia</span>
         <span class="chip"><i class="fa-solid fa-desktop"></i> Soporte remoto real</span>
       </div>
 
-      <div class="hero-stats">
+      <div class="hero-stats reveal reveal-up stagger-6">
         <div class="stat-item">
           <i class="fa-solid fa-users"></i>
           <strong>+500</strong>
@@ -55,9 +60,8 @@
       </div>
     </div>
 
-    <!-- RIGHT -->
-    <div class="hero-card-wrapper">
-      <div class="hero-card">
+    <div class="hero-card-wrapper reveal reveal-right stagger-3">
+      <div class="hero-card glass">
         <div class="hero-card-header">
           <h3>Servicios más solicitados</h3>
           <span class="status-chip">En linea</span>
@@ -106,12 +110,10 @@
         </div>
       </div>
     </div>
-
   </div>
 </section>
 
 <style>
-/* MD3 Hero Section */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -119,7 +121,60 @@
   align-items: center;
   padding-top: 64px;
   overflow: hidden;
-  background: linear-gradient(180deg, var(--surface-container-low) 0%, var(--background) 100%);
+  background: var(--background);
+}
+
+/* Animated tech background */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: orb-float 20s ease-in-out infinite;
+}
+
+.hero-orb-1 {
+  width: 600px;
+  height: 600px;
+  top: -200px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.15) 0%, transparent 70%);
+  animation-delay: 0s;
+}
+
+.hero-orb-2 {
+  width: 500px;
+  height: 500px;
+  bottom: -150px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, transparent 70%);
+  animation-delay: -7s;
+}
+
+.hero-orb-3 {
+  width: 400px;
+  height: 400px;
+  top: 40%;
+  right: 30%;
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.08) 0%, transparent 70%);
+  animation-delay: -14s;
+}
+
+.hero-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(129, 140, 248, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(129, 140, 248, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.5;
 }
 
 .hero-grid {
@@ -129,25 +184,33 @@
   align-items: center;
   padding-top: 48px;
   padding-bottom: 48px;
+  position: relative;
+  z-index: 1;
 }
 
-/* Left content */
 .hero-content .badge { margin-bottom: 16px; }
 
 .hero h1 {
-  font-size: clamp(32px, 4vw, 48px);
-  font-weight: 700;
+  font-size: clamp(36px, 4.5vw, 52px);
+  font-weight: 800;
   line-height: 1.1;
   margin-bottom: 20px;
+  letter-spacing: -0.02em;
 }
-.hero h1 span { color: var(--primary); }
+
+.hero h1 span {
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
 
 .hero-desc {
-  font-size: 16px;
+  font-size: 17px;
   color: var(--on-surface-variant);
   margin-bottom: 32px;
   max-width: 480px;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .hero-buttons {
@@ -157,19 +220,18 @@
 }
 
 .btn-lg {
-  padding: 12px 28px;
+  padding: 14px 32px;
   font-size: 15px;
 }
 
-/* MD3 Chips */
 .chip {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   padding: 6px 14px;
   border-radius: var(--shape-full);
-  background: var(--surface-container-high);
-  border: 1px solid var(--outline-variant);
+  background: rgba(129, 140, 248, 0.08);
+  border: 1px solid rgba(129, 140, 248, 0.15);
   color: var(--on-surface-variant);
   font-size: 12px;
   font-weight: 500;
@@ -180,13 +242,12 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
 }
 
-/* Stats row */
 .hero-stats {
   display: flex;
-  gap: 32px;
+  gap: 40px;
 }
 
 .stat-item {
@@ -194,21 +255,18 @@
   flex-direction: column;
   gap: 2px;
 }
-.stat-item i { color: var(--primary); font-size: 14px; margin-bottom: 2px; }
-.stat-item strong { font-size: 24px; font-weight: 700; color: var(--on-surface); }
+.stat-item i { color: var(--primary); font-size: 16px; margin-bottom: 4px; }
+.stat-item strong { font-size: 28px; font-weight: 700; color: var(--on-surface); letter-spacing: -0.02em; }
 .stat-item span { font-size: 12px; color: var(--on-surface-variant); }
 
-/* Right card - MD3 Elevated Card */
-.hero-card-wrapper {
-  position: relative;
-}
+.hero-card-wrapper { position: relative; }
 
 .hero-card {
   background: var(--surface-container-high);
   border-radius: var(--shape-xl);
   box-shadow: var(--elevation-3);
   padding: 32px;
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid rgba(129, 140, 248, 0.1);
 }
 
 .hero-card-header {
@@ -217,14 +275,13 @@
   align-items: center;
   margin-bottom: 24px;
 }
-
 .hero-card-header h3 { font-size: 20px; font-weight: 600; }
 
 .status-chip {
   padding: 4px 12px;
   border-radius: var(--shape-full);
-  background: rgba(0, 200, 83, 0.15);
-  color: #4ADE80;
+  background: rgba(34, 211, 238, 0.1);
+  color: var(--secondary);
   font-size: 11px;
   font-weight: 600;
   display: flex;
@@ -236,10 +293,10 @@
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: #4ADE80;
+  background: var(--secondary);
+  box-shadow: 0 0 6px var(--secondary);
 }
 
-/* Service items */
 .hero-services {
   display: flex;
   flex-direction: column;
@@ -250,13 +307,13 @@
   display: flex;
   gap: 14px;
   align-items: center;
-  padding: 12px;
+  padding: 14px;
   border-radius: var(--shape-md);
   transition: background 0.2s;
   cursor: default;
 }
 .hero-service-item:hover {
-  background: rgba(255,255,255,0.04);
+  background: rgba(129, 140, 248, 0.06);
 }
 
 .service-icon {
@@ -267,21 +324,13 @@
   align-items: center;
   justify-content: center;
   border-radius: var(--shape-sm);
-  background: var(--primary-container);
+  background: rgba(129, 140, 248, 0.12);
   color: var(--primary);
   font-size: 16px;
 }
 
-.service-text strong {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--on-surface);
-}
-.service-text span {
-  font-size: 12px;
-  color: var(--on-surface-variant);
-}
+.service-text strong { display: block; font-size: 14px; font-weight: 600; color: var(--on-surface); }
+.service-text span { font-size: 12px; color: var(--on-surface-variant); }
 
 @media (max-width: 900px) {
   .hero-grid {
@@ -289,7 +338,6 @@
     gap: 48px;
     text-align: center;
   }
-
   .hero-desc { margin: 0 auto 32px; }
   .hero-buttons { justify-content: center; flex-direction: column; align-items: center; }
   .hero-features { justify-content: center; }

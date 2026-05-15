@@ -5,7 +5,7 @@ import { Icon } from "astro-icon/components";
 <section class="software-logos" id="software">
   <div class="container">
 
-    <div class="section-header">
+    <div class="section-header reveal reveal-up">
       <h2>Software que instalamos diariamente</h2>
       <p>
         Trabajamos con los programas más utilizados por estudiantes, empresas y profesionales.
@@ -14,77 +14,77 @@ import { Icon } from "astro-icon/components";
 
     <div class="logos-grid">
 
-      <div class="logo-card windows">
+      <div class="logo-card reveal reveal-up stagger-1 windows">
         <Icon name="mdi:microsoft-windows" />
         <span>Windows</span>
       </div>
 
-      <div class="logo-card office">
+      <div class="logo-card reveal reveal-up stagger-2 office">
         <Icon name="mdi:microsoft-office" />
         <span>Microsoft Office</span>
       </div>
 
-      <div class="logo-card adobe">
+      <div class="logo-card reveal reveal-up stagger-3 adobe">
         <Icon name="simple-icons:adobe" />
         <span>Adobe</span>
       </div>
 
-      <div class="logo-card corel">
+      <div class="logo-card reveal reveal-up stagger-4 corel">
          <Icon name="simple-icons:coreldraw" />
          <span>CorelDRAW</span>
       </div>
 
-      <div class="logo-card autocad">
+      <div class="logo-card reveal reveal-up stagger-5 autocad">
         <Icon name="simple-icons:autodesk" />
         <span>AutoCAD</span>
       </div>
 
-      <div class="logo-card sketchup">
+      <div class="logo-card reveal reveal-up stagger-6 sketchup">
         <Icon name="simple-icons:sketchup" />
         <span>SketchUp</span>
       </div>
 
-      <div class="logo-card revit">
+      <div class="logo-card reveal reveal-up stagger-7 revit">
         <Icon name="simple-icons:autodesk" />
         <span>Revit</span>
       </div>
 
-      <div class="logo-card avg">
+      <div class="logo-card reveal reveal-up stagger-8 avg">
         <Icon name="mdi:shield-plus" />
         <span>AVG Antivirus</span>
       </div>
 
-      <div class="logo-card eset">
+      <div class="logo-card reveal reveal-up stagger-9 eset">
         <Icon name="mdi:shield-star" />
         <span>ESET NOD32</span>
       </div>
 
-      <div class="logo-card avast">
+      <div class="logo-card reveal reveal-up stagger-10 avast">
         <Icon name="simple-icons:avast" />
         <span>Avast</span>
       </div>
 
-      <div class="logo-card kaspersky">
+      <div class="logo-card reveal reveal-up stagger-1 kaspersky">
         <Icon name="mdi:shield-lock" />
         <span>Kaspersky</span>
       </div>
 
-      <div class="logo-card solidworks">
+      <div class="logo-card reveal reveal-up stagger-2 solidworks">
         <Icon name="simple-icons:dassaultsystemes" />
         <span>SolidWorks</span>
       </div>
 
-      <div class="logo-card visio">
+      <div class="logo-card reveal reveal-up stagger-3 visio">
         <Icon name="simple-icons:microsoft" />
         <span>Microsoft Visio</span>
       </div>
 
-      <div class="logo-card project">
+      <div class="logo-card reveal reveal-up stagger-4 project">
         <Icon name="simple-icons:microsoft" />
         <span>Microsoft Project</span>
       </div>
 
-      <div class="logo-card drivers">
+      <div class="logo-card reveal reveal-up stagger-5 drivers">
         <Icon name="mdi:cpu-64-bit" />
         <span>Drivers</span>
       </div>
@@ -94,10 +94,9 @@ import { Icon } from "astro-icon/components";
 </section>
 
 <style>
-/* MD3 Logo Cards */
 .software-logos {
   padding: 96px 0;
-  background: var(--background, #0F1115);
+  background: var(--surface-container);
 }
 
 .logos-grid {
@@ -113,42 +112,22 @@ import { Icon } from "astro-icon/components";
   gap: 12px;
   padding: 28px 16px;
   border-radius: var(--shape-md);
-  background: var(--surface-container, #17191E);
+  background: var(--surface-container-high);
   box-shadow: var(--elevation-0);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  border: 1px solid transparent;
+  transition: box-shadow 0.3s cubic-bezier(0.2, 0, 0, 1),
+              transform 0.3s cubic-bezier(0.2, 0, 0, 1),
+              border-color 0.3s ease;
   cursor: default;
 }
 .logo-card:hover {
-  box-shadow: var(--elevation-2);
-  transform: translateY(-2px);
+  box-shadow: var(--elevation-3);
+  transform: translateY(-4px);
+  border-color: rgba(129, 140, 248, 0.15);
 }
 
-.logo-card svg {
-  width: 36px;
-  height: 36px;
-}
-
-.logo-card span {
-  font-size: 12px;
-  font-weight: 500;
-  color: var(--on-surface-variant);
-  text-align: center;
-}
-
-.brand-colors .windows svg { color: #00A4EF; }
-.brand-colors .office svg { color: #D83B01; }
-.brand-colors .adobe svg { color: #FF0000; }
-.brand-colors .corel svg { color: #00B388; }
-.brand-colors .autocad svg { color: #E51050; }
-.brand-colors .sketchup svg { color: #FF6F00; }
-.brand-colors .revit svg { color: #009999; }
-.brand-colors .avg svg { color: #00C853; }
-.brand-colors .eset svg { color: #00ADEF; }
-.brand-colors .avast svg { color: #FF7800; }
-.brand-colors .kaspersky svg { color: #00A88E; }
-.brand-colors .solidworks svg { color: #FF0000; }
-.brand-colors .visio svg { color: #5E5E5E; }
-.brand-colors .project svg { color: #217346; }
+.logo-card svg { width: 36px; height: 36px; }
+.logo-card span { font-size: 12px; font-weight: 500; color: var(--on-surface-variant); text-align: center; }
 
 .windows svg { color: #00A4EF; }
 .office svg { color: #D83B01; }
@@ -169,7 +148,6 @@ import { Icon } from "astro-icon/components";
 @media (max-width: 900px) {
   .logos-grid { grid-template-columns: repeat(3, 1fr); }
 }
-
 @media (max-width: 600px) {
   .logos-grid { grid-template-columns: repeat(2, 1fr); }
 }

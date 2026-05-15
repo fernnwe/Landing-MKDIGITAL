@@ -2,11 +2,10 @@
 import "../styles/global.css";
 ---
 
-<html lang="es">
+<html lang="es" data-astro-transition-scope>
   <head>
-    <!-- BASIC SEO -->
     <meta charset="UTF-8" />
-    <title>Soporte técnico remoto en Nicaragua | MKDIGITAL</title>
+    <title>MKDIGITAL - Soporte técnico remoto en Nicaragua</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
@@ -14,35 +13,57 @@ import "../styles/global.css";
       name="description" 
       content="Soporte técnico remoto en toda Nicaragua. Instalación de programas, Office, Adobe, eliminación de virus y optimización de PC sin salir de casa. Atención inmediata por WhatsApp." 
     />
-
-    <!-- PALABRAS CLAVE -->
     <meta 
       name="keywords" 
       content="soporte técnico Nicaragua, soporte remoto Nicaragua, instalar office Nicaragua, instalar programas, eliminar virus PC, optimizar computadora Nicaragua"
     />
-
-    <!-- AUTOR -->
     <meta name="author" content="MKdigital Nicaragua" />
-
-    <!-- GOOGLE INDEX -->
     <meta name="robots" content="index, follow" />
-
-    <!-- URL CANÓNICA -->
     <link rel="canonical" href="https://mkdigitalnic.com/" />
 
-    <!-- OPEN GRAPH (para WhatsApp / Facebook) -->
     <meta property="og:title" content="MKDIGITAL - Soporte técnico remoto en Nicaragua">
     <meta property="og:description" content="Instalamos el programa que necesitas sin que salgas de tu hogar">
     <meta property="og:url" content="https://mkdigitalnic.com/">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://mkdigitalnic.com/favicon.ico">
 
-    <!-- FAVICON -->
     <link rel="icon" href="/favicon.ico" />
-
+    <link rel="prefetch" href="/catalogo" />
+    <link rel="prefetch" href="/beneficios" />
+    <link rel="prefetch" href="/comentarios" />
+    <link rel="prefetch" href="/faq" />
+    <link rel="prefetch" href="/soluciones" />
+    <link rel="prefetch" href="/anydesk" />
   </head>
 
   <body>
     <slot />
+
+    <script is:inline>
+    function initReveal() {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    }
+
+    function initRevealAfterNav() {
+      setTimeout(initReveal, 100);
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initReveal);
+    } else {
+      initReveal();
+    }
+
+    document.addEventListener('astro:after-swap', initRevealAfterNav);
+    </script>
   </body>
 </html>

@@ -1,7 +1,7 @@
 <section class="section software-section">
   <div class="container">
 
-    <div class="section-header">
+    <div class="section-header reveal reveal-up">
       <span class="badge">SOFTWARE DE FACTURACIÓN</span>
       <h2>Sistemas de venta listos para implementar</h2>
       <p>
@@ -12,9 +12,7 @@
 
     <div class="software-grid">
 
-      <!-- FACTULITE -->
-      <div class="software-card">
-
+      <div class="software-card reveal reveal-left stagger-1">
         <div class="software-top">
           <div class="sw-icon">
             <i class="fa-solid fa-mobile-screen-button"></i>
@@ -39,12 +37,9 @@
         <a href="https://factulite.net" target="_blank" class="software-btn">
           Conocer FactuLite
         </a>
-
       </div>
 
-      <!-- VIPERPOS -->
-      <div class="software-card featured">
-
+      <div class="software-card featured reveal reveal-up stagger-2">
         <div class="popular-badge">RECOMENDADO</div>
 
         <div class="software-top">
@@ -71,12 +66,9 @@
         <a href="https://www.viperpos.net/login" target="_blank" class="software-btn">
           Conocer ViperPOS
         </a>
-
       </div>
 
-      <!-- MKSOFT -->
-      <div class="software-card featured">
-
+      <div class="software-card featured reveal reveal-right stagger-3">
         <div class="popular-badge">NUEVO</div>
 
         <div class="software-top">
@@ -103,7 +95,6 @@
         <a href="https://app.mkdigitalnic.com/" target="_blank" class="software-btn">
           Conocer MKSOFT
         </a>
-
       </div>
 
     </div>
@@ -111,10 +102,9 @@
 </section>
 
 <style>
-/* MD3 Software Section */
 .software-section {
   padding: 96px 0;
-  background: var(--surface-container, #17191E);
+  background: var(--background);
 }
 
 .software-grid {
@@ -125,32 +115,38 @@
 
 .software-card {
   position: relative;
-  background: var(--surface-container-high, #1C1D22);
+  background: var(--surface-container-high);
   border-radius: var(--shape-xl);
   padding: 32px;
   box-shadow: var(--elevation-1);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  border: 1px solid transparent;
+  transition: box-shadow 0.3s cubic-bezier(0.2, 0, 0, 1),
+              transform 0.3s cubic-bezier(0.2, 0, 0, 1),
+              border-color 0.3s ease;
 }
 .software-card:hover {
-  box-shadow: var(--elevation-3);
-  transform: translateY(-2px);
+  box-shadow: var(--elevation-4);
+  transform: translateY(-4px);
+  border-color: rgba(129, 140, 248, 0.15);
 }
 
 .featured {
-  border: 1px solid var(--primary);
+  border: 1px solid rgba(129, 140, 248, 0.2);
+  box-shadow: 0 0 30px rgba(129, 140, 248, 0.05);
 }
 
 .popular-badge {
   position: absolute;
   top: -10px;
   right: 24px;
-  background: var(--primary);
-  color: var(--on-primary);
+  background: linear-gradient(135deg, var(--primary), #6366F1);
+  color: #FFFFFF;
   padding: 4px 14px;
   border-radius: var(--shape-full);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.5px;
+  box-shadow: 0 0 20px rgba(129, 140, 248, 0.3);
 }
 
 .software-top {
@@ -164,7 +160,7 @@
   width: 48px;
   height: 48px;
   border-radius: var(--shape-md);
-  background: var(--primary-container);
+  background: rgba(129, 140, 248, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -175,17 +171,14 @@
 .software-badge {
   font-size: 12px;
   font-weight: 500;
-  color: var(--primary);
+  color: var(--secondary);
   padding: 4px 10px;
   border-radius: var(--shape-full);
-  background: var(--primary-container);
+  background: rgba(34, 211, 238, 0.1);
+  border: 1px solid rgba(34, 211, 238, 0.15);
 }
 
-.software-card h3 {
-  font-size: 24px;
-  font-weight: 600;
-  margin-bottom: 12px;
-}
+.software-card h3 { font-size: 24px; font-weight: 600; margin-bottom: 12px; }
 
 .software-desc {
   font-size: 14px;
@@ -199,7 +192,6 @@
   padding: 0;
   margin-bottom: 28px;
 }
-
 .feature-list li {
   display: flex;
   align-items: center;
@@ -216,16 +208,17 @@
   gap: 8px;
   padding: 12px 24px;
   border-radius: var(--shape-full);
-  background: var(--primary);
-  color: var(--on-primary);
+  color: #FFFFFF;
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
-  transition: box-shadow 0.2s ease;
-  box-shadow: var(--elevation-1);
+  background: linear-gradient(135deg, var(--primary), #6366F1);
+  box-shadow: 0 0 20px rgba(129, 140, 248, 0.2);
+  transition: box-shadow 0.2s ease, transform 0.15s ease;
 }
 .software-btn:hover {
-  box-shadow: var(--elevation-2);
+  box-shadow: 0 0 30px rgba(129, 140, 248, 0.35);
+  transform: scale(1.03);
 }
 
 @media (max-width: 600px) {
