@@ -1,11 +1,41 @@
 ---
 import { Icon } from "astro-icon/components";
+
+interface SoftwareItem {
+  id: string;
+  nombre: string;
+  icono: string;
+  clase: string;
+  descripcion: string;
+}
+
+const software: SoftwareItem[] = [
+  { id: "windows", nombre: "Windows", icono: "mdi:microsoft-windows", clase: "windows", descripcion: "Sistema operativo para PCs de escritorio y portátiles" },
+  { id: "office", nombre: "Microsoft Office", icono: "mdi:microsoft-office", clase: "office", descripcion: "Suite ofimática con Word, Excel, PowerPoint y Outlook" },
+  { id: "adobe", nombre: "Adobe", icono: "simple-icons:adobe", clase: "adobe", descripcion: "Suite creativa: Photoshop, Illustrator, Premiere y más" },
+  { id: "corel", nombre: "CorelDRAW", icono: "simple-icons:coreldraw", clase: "corel", descripcion: "Diseño vectorial para ilustración y diagramación" },
+  { id: "autocad", nombre: "AutoCAD", icono: "simple-icons:autodesk", clase: "autocad", descripcion: "Diseño y dibujo asistido por computadora en 2D y 3D" },
+  { id: "sketchup", nombre: "SketchUp", icono: "simple-icons:sketchup", clase: "sketchup", descripcion: "Modelado 3D para arquitectura, diseño e ingeniería" },
+  { id: "revit", nombre: "Revit", icono: "simple-icons:autodesk", clase: "revit", descripcion: "Modelado BIM para diseño arquitectónico y construcción" },
+  { id: "avg", nombre: "AVG Antivirus", icono: "mdi:shield-plus", clase: "avg", descripcion: "Protección contra virus, malware y amenazas en línea" },
+  { id: "eset", nombre: "ESET NOD32", icono: "mdi:shield-star", clase: "eset", descripcion: "Antivirus ligero con protección proactiva avanzada" },
+  { id: "avast", nombre: "Avast", icono: "simple-icons:avast", clase: "avast", descripcion: "Solución de seguridad con antivirus y firewall" },
+  { id: "kaspersky", nombre: "Kaspersky", icono: "mdi:shield-lock", clase: "kaspersky", descripcion: "Protección integral contra ciberamenazas y ransomware" },
+  { id: "solidworks", nombre: "SolidWorks", icono: "simple-icons:dassaultsystemes", clase: "solidworks", descripcion: "Diseño mecánico 3D para ingeniería y manufactura" },
+  { id: "visio", nombre: "Microsoft Visio", icono: "simple-icons:microsoft", clase: "visio", descripcion: "Diagramación profesional: diagramas de flujo y organigramas" },
+  { id: "project", nombre: "Microsoft Project", icono: "simple-icons:microsoft", clase: "project", descripcion: "Gestión de proyectos, planificación y seguimiento" },
+  { id: "drivers", nombre: "Drivers", icono: "mdi:cpu-64-bit", clase: "drivers", descripcion: "Controladores y actualizaciones para máximo rendimiento" },
+];
 ---
 
 <section class="software-logos" id="software">
   <div class="container">
 
     <div class="section-header reveal reveal-up">
+      <span class="badge">
+        <i class="fa-solid fa-cube"></i>
+        SOFTWARE DISPONIBLE
+      </span>
       <h2>Software que instalamos diariamente</h2>
       <p>
         Trabajamos con los programas más utilizados por estudiantes, empresas y profesionales.
@@ -13,82 +43,22 @@ import { Icon } from "astro-icon/components";
     </div>
 
     <div class="logos-grid">
-
-      <div class="logo-card reveal reveal-up stagger-1 windows">
-        <Icon name="mdi:microsoft-windows" />
-        <span>Windows</span>
-      </div>
-
-      <div class="logo-card reveal reveal-up stagger-2 office">
-        <Icon name="mdi:microsoft-office" />
-        <span>Microsoft Office</span>
-      </div>
-
-      <div class="logo-card reveal reveal-up stagger-3 adobe">
-        <Icon name="simple-icons:adobe" />
-        <span>Adobe</span>
-      </div>
-
-      <div class="logo-card reveal reveal-up stagger-4 corel">
-         <Icon name="simple-icons:coreldraw" />
-         <span>CorelDRAW</span>
-      </div>
-
-      <div class="logo-card reveal reveal-up stagger-5 autocad">
-        <Icon name="simple-icons:autodesk" />
-        <span>AutoCAD</span>
-      </div>
-
-      <div class="logo-card reveal reveal-up stagger-6 sketchup">
-        <Icon name="simple-icons:sketchup" />
-        <span>SketchUp</span>
-      </div>
-
-      <div class="logo-card reveal reveal-up stagger-7 revit">
-        <Icon name="simple-icons:autodesk" />
-        <span>Revit</span>
-      </div>
-
-      <div class="logo-card reveal reveal-up stagger-8 avg">
-        <Icon name="mdi:shield-plus" />
-        <span>AVG Antivirus</span>
-      </div>
-
-      <div class="logo-card reveal reveal-up stagger-9 eset">
-        <Icon name="mdi:shield-star" />
-        <span>ESET NOD32</span>
-      </div>
-
-      <div class="logo-card reveal reveal-up stagger-10 avast">
-        <Icon name="simple-icons:avast" />
-        <span>Avast</span>
-      </div>
-
-      <div class="logo-card reveal reveal-up stagger-1 kaspersky">
-        <Icon name="mdi:shield-lock" />
-        <span>Kaspersky</span>
-      </div>
-
-      <div class="logo-card reveal reveal-up stagger-2 solidworks">
-        <Icon name="simple-icons:dassaultsystemes" />
-        <span>SolidWorks</span>
-      </div>
-
-      <div class="logo-card reveal reveal-up stagger-3 visio">
-        <Icon name="simple-icons:microsoft" />
-        <span>Microsoft Visio</span>
-      </div>
-
-      <div class="logo-card reveal reveal-up stagger-4 project">
-        <Icon name="simple-icons:microsoft" />
-        <span>Microsoft Project</span>
-      </div>
-
-      <div class="logo-card reveal reveal-up stagger-5 drivers">
-        <Icon name="mdi:cpu-64-bit" />
-        <span>Drivers</span>
-      </div>
-
+      {software.map((s, i) => (
+        <div class="flip-card reveal reveal-up stagger-{Math.min(i + 1, 10)}">
+          <div class="flip-card-inner">
+            <div class="flip-card-front {s.clase}">
+              <Icon name={s.icono} />
+              <span>{s.nombre}</span>
+            </div>
+            <div class="flip-card-back {s.clase}">
+              <div class="back-content">
+                <Icon name={s.icono} />
+                <p>{s.descripcion}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 </section>
@@ -105,29 +75,83 @@ import { Icon } from "astro-icon/components";
   gap: 16px;
 }
 
-.logo-card {
+.flip-card {
+  perspective: 800px;
+  height: 130px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.2, 0, 0, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 12px;
-  padding: 28px 16px;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 12px;
   border-radius: var(--shape-md);
   background: var(--surface-container-high);
-  box-shadow: var(--elevation-0);
   border: 1px solid transparent;
-  transition: box-shadow 0.3s cubic-bezier(0.2, 0, 0, 1),
-              transform 0.3s cubic-bezier(0.2, 0, 0, 1),
-              border-color 0.3s ease;
-  cursor: default;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
 }
-.logo-card:hover {
-  box-shadow: var(--elevation-3);
-  transform: translateY(-4px);
+
+.flip-card-front {
+  transition: border-color 0.3s ease;
+}
+.flip-card:hover .flip-card-front {
   border-color: rgba(129, 140, 248, 0.15);
 }
 
-.logo-card svg { width: 36px; height: 36px; }
-.logo-card span { font-size: 12px; font-weight: 500; color: var(--on-surface-variant); text-align: center; }
+.flip-card-back {
+  transform: rotateY(180deg);
+  background: var(--surface-container);
+  border-color: rgba(129, 140, 248, 0.12);
+}
+
+.back-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.back-content svg {
+  width: 22px;
+  height: 22px;
+  opacity: 0.8;
+}
+
+.back-content p {
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--on-surface-variant);
+}
+
+.flip-card-front span {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--on-surface-variant);
+  text-align: center;
+}
+
+.flip-card-front svg { width: 32px; height: 32px; }
+.flip-card-back svg { width: 22px; height: 22px; }
 
 .windows svg { color: #00A4EF; }
 .office svg { color: #D83B01; }
@@ -150,5 +174,6 @@ import { Icon } from "astro-icon/components";
 }
 @media (max-width: 600px) {
   .logos-grid { grid-template-columns: repeat(2, 1fr); }
+  .flip-card { height: 120px; }
 }
 </style>
