@@ -47,12 +47,16 @@ const software: SoftwareItem[] = [
         <div class="flip-card reveal reveal-up stagger-{Math.min(i + 1, 10)}">
           <div class="flip-card-inner">
             <div class="flip-card-front {s.clase}">
-              <Icon name={s.icono} />
-              <span>{s.nombre}</span>
+              <span class="icon-wrap">
+                <Icon name={s.icono} />
+              </span>
+              <span class="name">{s.nombre}</span>
             </div>
             <div class="flip-card-back {s.clase}">
               <div class="back-content">
-                <Icon name={s.icono} />
+                <span class="icon-wrap">
+                  <Icon name={s.icono} />
+                </span>
                 <p>{s.descripcion}</p>
               </div>
             </div>
@@ -103,14 +107,14 @@ const software: SoftwareItem[] = [
   gap: 10px;
   padding: 20px 12px;
   border-radius: var(--shape-md);
-  background: var(--surface-container-high);
-  border: 1px solid transparent;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   overflow: hidden;
 }
 
 .flip-card-front {
+  background: var(--surface-container-high);
+  border: 1px solid transparent;
   transition: border-color 0.3s ease;
 }
 .flip-card:hover .flip-card-front {
@@ -120,7 +124,7 @@ const software: SoftwareItem[] = [
 .flip-card-back {
   transform: rotateY(180deg);
   background: var(--surface-container);
-  border-color: rgba(129, 140, 248, 0.12);
+  border: 1px solid rgba(129, 140, 248, 0.12);
 }
 
 .back-content {
@@ -131,43 +135,49 @@ const software: SoftwareItem[] = [
   text-align: center;
 }
 
-.back-content svg {
-  width: 22px;
-  height: 22px;
-  opacity: 0.8;
-}
-
 .back-content p {
   font-size: 11px;
   line-height: 1.4;
   color: var(--on-surface-variant);
 }
 
-.flip-card-front span {
+.flip-card-front .name {
   font-size: 12px;
   font-weight: 500;
   color: var(--on-surface-variant);
   text-align: center;
 }
 
-.flip-card-front svg { width: 32px; height: 32px; }
-.flip-card-back svg { width: 22px; height: 22px; }
+/* Icon wrapper - size via font-size, color inherits to SVG */
+.flip-card-front .icon-wrap {
+  display: flex;
+  font-size: 32px;
+  line-height: 1;
+}
 
-.windows svg { color: #00A4EF; }
-.office svg { color: #D83B01; }
-.adobe svg { color: #FF0000; }
-.corel svg { color: #00B388; }
-.autocad svg { color: #E51050; }
-.sketchup svg { color: #FF6F00; }
-.revit svg { color: #009999; }
-.avg svg { color: #00C853; }
-.eset svg { color: #00ADEF; }
-.avast svg { color: #FF7800; }
-.kaspersky svg { color: #00A88E; }
-.solidworks svg { color: #FF0000; }
-.visio svg { color: #5E5E5E; }
-.project svg { color: #217346; }
-.drivers svg { color: var(--primary); }
+.flip-card-back .icon-wrap {
+  display: flex;
+  font-size: 22px;
+  line-height: 1;
+  opacity: 0.8;
+}
+
+/* Brand colors on the wrapper (works across Astro scoped boundaries) */
+.windows .icon-wrap { color: #00A4EF; }
+.office .icon-wrap { color: #D83B01; }
+.adobe .icon-wrap { color: #FF0000; }
+.corel .icon-wrap { color: #00B388; }
+.autocad .icon-wrap { color: #E51050; }
+.sketchup .icon-wrap { color: #FF6F00; }
+.revit .icon-wrap { color: #009999; }
+.avg .icon-wrap { color: #00C853; }
+.eset .icon-wrap { color: #00ADEF; }
+.avast .icon-wrap { color: #FF7800; }
+.kaspersky .icon-wrap { color: #00A88E; }
+.solidworks .icon-wrap { color: #FF0000; }
+.visio .icon-wrap { color: #5E5E5E; }
+.project .icon-wrap { color: #217346; }
+.drivers .icon-wrap { color: var(--primary); }
 
 @media (max-width: 900px) {
   .logos-grid { grid-template-columns: repeat(3, 1fr); }
