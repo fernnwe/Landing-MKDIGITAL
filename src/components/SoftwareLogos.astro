@@ -162,22 +162,30 @@ const software: SoftwareItem[] = [
   opacity: 0.8;
 }
 
-/* Brand colors on the wrapper (works across Astro scoped boundaries) */
-.windows .icon-wrap { color: #00A4EF; }
-.office .icon-wrap { color: #D83B01; }
-.adobe .icon-wrap { color: #FF0000; }
-.corel .icon-wrap { color: #00B388; }
-.autocad .icon-wrap { color: #E51050; }
-.sketchup .icon-wrap { color: #FF6F00; }
-.revit .icon-wrap { color: #009999; }
-.avg .icon-wrap { color: #00C853; }
-.eset .icon-wrap { color: #00ADEF; }
-.avast .icon-wrap { color: #FF7800; }
-.kaspersky .icon-wrap { color: #00A88E; }
-.solidworks .icon-wrap { color: #FF0000; }
-.visio .icon-wrap { color: #5E5E5E; }
-.project .icon-wrap { color: #217346; }
-.drivers .icon-wrap { color: var(--primary); }
+/* Brand colors via CSS custom properties (inherits to children, no scoping issues) */
+.windows { --brand: #00A4EF; }
+.office { --brand: #D83B01; }
+.adobe { --brand: #FF0000; }
+.corel { --brand: #00B388; }
+.autocad { --brand: #E51050; }
+.sketchup { --brand: #FF6F00; }
+.revit { --brand: #009999; }
+.avg { --brand: #00C853; }
+.eset { --brand: #00ADEF; }
+.avast { --brand: #FF7800; }
+.kaspersky { --brand: #00A88E; }
+.solidworks { --brand: #FF0000; }
+.visio { --brand: #5E5E5E; }
+.project { --brand: #217346; }
+.drivers { --brand: var(--primary); }
+
+.icon-wrap { color: var(--brand); }
+
+/* Force SVG to use currentColor — :global() bypasses Astro scoping so it matches the SVG from <Icon /> sub-component */
+.flip-card-front .icon-wrap :global(svg),
+.flip-card-back .icon-wrap :global(svg) {
+  fill: currentColor;
+}
 
 @media (max-width: 900px) {
   .logos-grid { grid-template-columns: repeat(3, 1fr); }
