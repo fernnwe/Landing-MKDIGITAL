@@ -67,6 +67,14 @@ const software: SoftwareItem[] = [
   </div>
 </section>
 
+<style is:global>
+.software-logos .icon-wrap svg,
+.software-logos .icon-wrap svg * {
+  fill: currentColor !important;
+  stroke: currentColor !important;
+}
+</style>
+
 <style>
 .software-logos {
   padding: 96px 0;
@@ -159,13 +167,5 @@ const software: SoftwareItem[] = [
   font-size: 22px;
   line-height: 1;
   opacity: 0.8;
-}
-
-/* Force SVG descendants to inherit wrapper color, overriding any hardcoded fills in icon data */
-.flip-card-front .icon-wrap :global(svg),
-.flip-card-back .icon-wrap :global(svg),
-.flip-card-front .icon-wrap :global(svg *),
-.flip-card-back .icon-wrap :global(svg *) {
-  fill: currentColor !important;
 }
 </style>
