@@ -5,26 +5,26 @@ interface SoftwareItem {
   id: string;
   nombre: string;
   icono: string;
-  clase: string;
   descripcion: string;
+  color: string;
 }
 
 const software: SoftwareItem[] = [
-  { id: "windows", nombre: "Windows", icono: "mdi:microsoft-windows", clase: "windows", descripcion: "Sistema operativo para PCs de escritorio y portátiles" },
-  { id: "office", nombre: "Microsoft Office", icono: "mdi:microsoft-office", clase: "office", descripcion: "Suite ofimática con Word, Excel, PowerPoint y Outlook" },
-  { id: "adobe", nombre: "Adobe", icono: "simple-icons:adobe", clase: "adobe", descripcion: "Suite creativa: Photoshop, Illustrator, Premiere y más" },
-  { id: "corel", nombre: "CorelDRAW", icono: "simple-icons:coreldraw", clase: "corel", descripcion: "Diseño vectorial para ilustración y diagramación" },
-  { id: "autocad", nombre: "AutoCAD", icono: "simple-icons:autodesk", clase: "autocad", descripcion: "Diseño y dibujo asistido por computadora en 2D y 3D" },
-  { id: "sketchup", nombre: "SketchUp", icono: "simple-icons:sketchup", clase: "sketchup", descripcion: "Modelado 3D para arquitectura, diseño e ingeniería" },
-  { id: "revit", nombre: "Revit", icono: "simple-icons:autodesk", clase: "revit", descripcion: "Modelado BIM para diseño arquitectónico y construcción" },
-  { id: "avg", nombre: "AVG Antivirus", icono: "mdi:shield-plus", clase: "avg", descripcion: "Protección contra virus, malware y amenazas en línea" },
-  { id: "eset", nombre: "ESET NOD32", icono: "mdi:shield-star", clase: "eset", descripcion: "Antivirus ligero con protección proactiva avanzada" },
-  { id: "avast", nombre: "Avast", icono: "simple-icons:avast", clase: "avast", descripcion: "Solución de seguridad con antivirus y firewall" },
-  { id: "kaspersky", nombre: "Kaspersky", icono: "mdi:shield-lock", clase: "kaspersky", descripcion: "Protección integral contra ciberamenazas y ransomware" },
-  { id: "solidworks", nombre: "SolidWorks", icono: "simple-icons:dassaultsystemes", clase: "solidworks", descripcion: "Diseño mecánico 3D para ingeniería y manufactura" },
-  { id: "visio", nombre: "Microsoft Visio", icono: "simple-icons:microsoft", clase: "visio", descripcion: "Diagramación profesional: diagramas de flujo y organigramas" },
-  { id: "project", nombre: "Microsoft Project", icono: "simple-icons:microsoft", clase: "project", descripcion: "Gestión de proyectos, planificación y seguimiento" },
-  { id: "drivers", nombre: "Drivers", icono: "mdi:cpu-64-bit", clase: "drivers", descripcion: "Controladores y actualizaciones para máximo rendimiento" },
+  { id: "windows", nombre: "Windows", icono: "mdi:microsoft-windows", color: "#00A4EF", descripcion: "Sistema operativo para PCs de escritorio y portátiles" },
+  { id: "office", nombre: "Microsoft Office", icono: "mdi:microsoft-office", color: "#D83B01", descripcion: "Suite ofimática con Word, Excel, PowerPoint y Outlook" },
+  { id: "adobe", nombre: "Adobe", icono: "simple-icons:adobe", color: "#FF0000", descripcion: "Suite creativa: Photoshop, Illustrator, Premiere y más" },
+  { id: "corel", nombre: "CorelDRAW", icono: "simple-icons:coreldraw", color: "#00B388", descripcion: "Diseño vectorial para ilustración y diagramación" },
+  { id: "autocad", nombre: "AutoCAD", icono: "simple-icons:autodesk", color: "#E51050", descripcion: "Diseño y dibujo asistido por computadora en 2D y 3D" },
+  { id: "sketchup", nombre: "SketchUp", icono: "simple-icons:sketchup", color: "#FF6F00", descripcion: "Modelado 3D para arquitectura, diseño e ingeniería" },
+  { id: "revit", nombre: "Revit", icono: "simple-icons:autodesk", color: "#009999", descripcion: "Modelado BIM para diseño arquitectónico y construcción" },
+  { id: "avg", nombre: "AVG Antivirus", icono: "mdi:shield-plus", color: "#00C853", descripcion: "Protección contra virus, malware y amenazas en línea" },
+  { id: "eset", nombre: "ESET NOD32", icono: "mdi:shield-star", color: "#00ADEF", descripcion: "Antivirus ligero con protección proactiva avanzada" },
+  { id: "avast", nombre: "Avast", icono: "simple-icons:avast", color: "#FF7800", descripcion: "Solución de seguridad con antivirus y firewall" },
+  { id: "kaspersky", nombre: "Kaspersky", icono: "mdi:shield-lock", color: "#00A88E", descripcion: "Protección integral contra ciberamenazas y ransomware" },
+  { id: "solidworks", nombre: "SolidWorks", icono: "simple-icons:dassaultsystemes", color: "#FF0000", descripcion: "Diseño mecánico 3D para ingeniería y manufactura" },
+  { id: "visio", nombre: "Microsoft Visio", icono: "simple-icons:microsoft", color: "#5E5E5E", descripcion: "Diagramación profesional: diagramas de flujo y organigramas" },
+  { id: "project", nombre: "Microsoft Project", icono: "simple-icons:microsoft", color: "#217346", descripcion: "Gestión de proyectos, planificación y seguimiento" },
+  { id: "drivers", nombre: "Drivers", icono: "mdi:cpu-64-bit", color: "#818CF8", descripcion: "Controladores y actualizaciones para máximo rendimiento" },
 ];
 ---
 
@@ -46,15 +46,15 @@ const software: SoftwareItem[] = [
       {software.map((s, i) => (
         <div class="flip-card reveal reveal-up stagger-{Math.min(i + 1, 10)}">
           <div class="flip-card-inner">
-            <div class="flip-card-front {s.clase}">
-              <span class="icon-wrap">
+            <div class="flip-card-front">
+              <span class="icon-wrap" style="color: {s.color}">
                 <Icon name={s.icono} />
               </span>
               <span class="name">{s.nombre}</span>
             </div>
-            <div class="flip-card-back {s.clase}">
+            <div class="flip-card-back">
               <div class="back-content">
-                <span class="icon-wrap">
+                <span class="icon-wrap" style="color: {s.color}">
                   <Icon name={s.icono} />
                 </span>
                 <p>{s.descripcion}</p>
@@ -148,7 +148,6 @@ const software: SoftwareItem[] = [
   text-align: center;
 }
 
-/* Icon wrapper - size via font-size, color inherits to SVG */
 .flip-card-front .icon-wrap {
   display: flex;
   font-size: 32px;
@@ -162,36 +161,11 @@ const software: SoftwareItem[] = [
   opacity: 0.8;
 }
 
-/* Brand colors via CSS custom properties (inherits to children, no scoping issues) */
-.windows { --brand: #00A4EF; }
-.office { --brand: #D83B01; }
-.adobe { --brand: #FF0000; }
-.corel { --brand: #00B388; }
-.autocad { --brand: #E51050; }
-.sketchup { --brand: #FF6F00; }
-.revit { --brand: #009999; }
-.avg { --brand: #00C853; }
-.eset { --brand: #00ADEF; }
-.avast { --brand: #FF7800; }
-.kaspersky { --brand: #00A88E; }
-.solidworks { --brand: #FF0000; }
-.visio { --brand: #5E5E5E; }
-.project { --brand: #217346; }
-.drivers { --brand: var(--primary); }
-
-.icon-wrap { color: var(--brand); }
-
-/* Force SVG to use currentColor — :global() bypasses Astro scoping so it matches the SVG from <Icon /> sub-component */
+/* Force SVG descendants to inherit wrapper color, overriding any hardcoded fills in icon data */
 .flip-card-front .icon-wrap :global(svg),
-.flip-card-back .icon-wrap :global(svg) {
-  fill: currentColor;
-}
-
-@media (max-width: 900px) {
-  .logos-grid { grid-template-columns: repeat(3, 1fr); }
-}
-@media (max-width: 600px) {
-  .logos-grid { grid-template-columns: repeat(2, 1fr); }
-  .flip-card { height: 120px; }
+.flip-card-back .icon-wrap :global(svg),
+.flip-card-front .icon-wrap :global(svg *),
+.flip-card-back .icon-wrap :global(svg *) {
+  fill: currentColor !important;
 }
 </style>
