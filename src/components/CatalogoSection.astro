@@ -65,28 +65,27 @@ import ProductCard from "./ProductCard.astro";
 </section>
 
 <script is:inline>
-document.addEventListener("DOMContentLoaded", () => {
-  const searchInput = document.getElementById("searchInput") as HTMLInputElement;
-  const tabs = document.querySelectorAll<HTMLButtonElement>(".filter-tab");
-  const cards = document.querySelectorAll<HTMLElement>(".product-card");
-  const emptyState = document.getElementById("emptyState");
-  const grid = document.getElementById("productGrid");
-  let currentFilter = "all";
-  let searchTimer: number | null = null;
+document.addEventListener("DOMContentLoaded", function() {
+  var searchInput = document.getElementById("searchInput");
+  var tabs = document.querySelectorAll(".filter-tab");
+  var cards = document.querySelectorAll(".product-card");
+  var emptyState = document.getElementById("emptyState");
+  var currentFilter = "all";
+  var searchTimer = null;
 
   function applyFilters() {
-    const query = searchInput.value.toLowerCase().trim();
-    let visibleCount = 0;
+    var query = searchInput.value.toLowerCase().trim();
+    var visibleCount = 0;
 
-    cards.forEach((card, i) => {
-      const categoria = card.dataset.categoria;
-      const nombre = card.dataset.nombre || "";
-      const wrapper = card.closest<HTMLElement>(".product-wrapper");
+    cards.forEach(function(card) {
+      var categoria = card.dataset.categoria;
+      var nombre = card.dataset.nombre || "";
+      var wrapper = card.closest(".product-wrapper");
 
-      const matchCategory = currentFilter === "all" || categoria === currentFilter;
-      const matchSearch = nombre.includes(query);
+      var matchCategory = currentFilter === "all" || categoria === currentFilter;
+      var matchSearch = nombre.indexOf(query) !== -1;
 
-      const show = matchCategory && matchSearch;
+      var show = matchCategory && matchSearch;
 
       if (wrapper) {
         wrapper.style.display = show ? "block" : "none";
@@ -103,25 +102,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  tabs.forEach(tab => {
-    tab.addEventListener("click", () => {
-      tabs.forEach(t => t.classList.remove("active"));
+  tabs.forEach(function(tab) {
+    tab.addEventListener("click", function() {
+      tabs.forEach(function(t) { t.classList.remove("active"); });
       tab.classList.add("active");
       currentFilter = tab.dataset.filter || "all";
       applyFilters();
     });
   });
 
-  searchInput.addEventListener("input", () => {
+  searchInput.addEventListener("input", function() {
     if (searchTimer) clearTimeout(searchTimer);
-    searchTimer = window.setTimeout(applyFilters, 150);
+    searchTimer = setTimeout(applyFilters, 150);
   });
 
-  (window as any).resetFilters = () => {
+  window.resetFilters = function() {
     searchInput.value = "";
     currentFilter = "all";
-    tabs.forEach(t => t.classList.remove("active"));
-    document.querySelector<HTMLButtonElement>('[data-filter="all"]')?.classList.add("active");
+    tabs.forEach(function(t) { t.classList.remove("active"); });
+    document.querySelector('[data-filter="all"]').classList.add("active");
     applyFilters();
   };
 });
