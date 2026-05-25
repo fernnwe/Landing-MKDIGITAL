@@ -133,6 +133,15 @@ export const productos: Producto[] = [
     descripcion: "Licencia permanente · Editor PDF profesional"
   },
   {
+    id: "coreldraw",
+    nombre: "CorelDRAW 2025",
+    precio: "C$500",
+    categoria: "adobe",
+    iconoId: "simple-icons:coreldraw",
+    iconoColor: "#47A84B",
+    descripcion: "Diseño gráfico profesional · Vector, ilustración y maquetación"
+  },
+  {
     id: "autocad",
     nombre: "AutoCAD 2026",
     precio: "C$500",
