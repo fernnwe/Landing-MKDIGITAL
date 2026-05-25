@@ -5,8 +5,7 @@ export interface Producto {
   old?: string;
   off?: string;
   categoria: string;
-  icono: string;
-  iconoColor: string;
+  iconoId: string;
   badge?: "top" | "own";
   descripcion: string;
 }
@@ -35,8 +34,7 @@ export const productos: Producto[] = [
     old: "C$500",
     off: "20%",
     categoria: "microsoft",
-    icono: "fa-regular fa-file-lines",
-    iconoColor: "#D83B01",
+    iconoId: "mdi:microsoft-office",
     badge: "top",
     descripcion: "Word, Excel, PowerPoint, Outlook y más"
   },
@@ -47,8 +45,7 @@ export const productos: Producto[] = [
     old: "C$450",
     off: "22%",
     categoria: "microsoft",
-    icono: "fa-regular fa-file-lines",
-    iconoColor: "#D83B01",
+    iconoId: "mdi:microsoft-office",
     descripcion: "Word, Excel, PowerPoint, Outlook y más"
   },
   {
@@ -58,8 +55,7 @@ export const productos: Producto[] = [
     old: "C$650",
     off: "20%",
     categoria: "microsoft",
-    icono: "fa-brands fa-windows",
-    iconoColor: "#00A4EF",
+    iconoId: "mdi:microsoft-windows",
     descripcion: "Licencia digital con activación permanente"
   },
   {
@@ -69,8 +65,7 @@ export const productos: Producto[] = [
     old: "C$920",
     off: "20%",
     categoria: "microsoft",
-    icono: "fa-brands fa-windows",
-    iconoColor: "#00A4EF",
+    iconoId: "mdi:microsoft-windows",
     descripcion: "Licencia digital con activación permanente"
   },
   {
@@ -80,8 +75,7 @@ export const productos: Producto[] = [
     old: "C$1,300",
     off: "23%",
     categoria: "adobe",
-    icono: "fa-brands fa-adobe",
-    iconoColor: "#FF0000",
+    iconoId: "simple-icons:adobe",
     badge: "top",
     descripcion: "Photoshop, Illustrator, Premiere"
   },
@@ -92,8 +86,7 @@ export const productos: Producto[] = [
     old: "C$2,500",
     off: "20%",
     categoria: "adobe",
-    icono: "fa-brands fa-adobe",
-    iconoColor: "#FF0000",
+    iconoId: "simple-icons:adobe",
     descripcion: "Suite completa de Adobe Creative Cloud"
   },
   {
@@ -103,8 +96,7 @@ export const productos: Producto[] = [
     old: "C$550",
     off: "27%",
     categoria: "adobe",
-    icono: "fa-regular fa-file-pdf",
-    iconoColor: "#D50000",
+    iconoId: "simple-icons:adobe",
     descripcion: "Editor y creador de PDF profesional"
   },
   {
@@ -114,8 +106,7 @@ export const productos: Producto[] = [
     old: "C$650",
     off: "23%",
     categoria: "autodesk",
-    icono: "fa-solid fa-drafting-compass",
-    iconoColor: "#E51050",
+    iconoId: "simple-icons:autodesk",
     badge: "top",
     descripcion: "Diseño y dibujo asistido por computadora"
   },
@@ -126,8 +117,7 @@ export const productos: Producto[] = [
     old: "C$650",
     off: "23%",
     categoria: "autodesk",
-    icono: "fa-solid fa-building",
-    iconoColor: "#009999",
+    iconoId: "simple-icons:autodesk",
     descripcion: "Modelado de información para construcción"
   },
   {
@@ -137,8 +127,7 @@ export const productos: Producto[] = [
     old: "C$1,000",
     off: "20%",
     categoria: "seguridad",
-    icono: "fa-solid fa-shield-halved",
-    iconoColor: "#FF7800",
+    iconoId: "simple-icons:avast",
     descripcion: "Protección completa contra malware y ransomware"
   },
   {
@@ -148,8 +137,7 @@ export const productos: Producto[] = [
     old: "C$4,500",
     off: "18%",
     categoria: "facturacion",
-    icono: "fa-solid fa-mobile-screen-button",
-    iconoColor: "#818CF8",
+    iconoId: "mdi:cellphone",
     badge: "own",
     descripcion: "App de facturación para emprendedores"
   },
@@ -159,8 +147,7 @@ export const productos: Producto[] = [
     precio: "C$3,000",
     off: "al mes",
     categoria: "facturacion",
-    icono: "fa-solid fa-display",
-    iconoColor: "#818CF8",
+    iconoId: "mdi:web",
     badge: "own",
     descripcion: "Sistema profesional de facturación e inventario"
   },
@@ -171,8 +158,7 @@ export const productos: Producto[] = [
     old: "C$2,500",
     off: "20%",
     categoria: "facturacion",
-    icono: "fa-solid fa-desktop",
-    iconoColor: "#818CF8",
+    iconoId: "mdi:monitor-dashboard",
     badge: "top",
     descripcion: "Software de facturación para escritorio"
   },
