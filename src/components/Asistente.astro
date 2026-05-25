@@ -483,7 +483,7 @@ setTimeout(showSuggestions, 600);
 
 .bubble {
   position: relative;
-  padding: 13px 16px 22px;
+  padding: 13px 16px 28px;
   max-width: 85%;
   font-size: 13.5px;
   line-height: 1.6;
@@ -506,10 +506,11 @@ setTimeout(showSuggestions, 600);
 
 .time {
   position: absolute;
-  bottom: 5px;
-  right: 12px;
+  bottom: 6px;
+  right: 14px;
   font-size: 9px;
-  opacity: 0.4;
+  opacity: 0.35;
+  letter-spacing: 0.02em;
 }
 
 /* ── Typing ── */
@@ -547,8 +548,8 @@ setTimeout(showSuggestions, 600);
 /* ── Suggestions ── */
 .chat-suggestions {
   display: flex;
-  gap: 6px;
-  padding: 6px 16px 2px;
+  gap: 8px;
+  padding: 8px 16px 6px;
   overflow-x: auto;
   flex-wrap: wrap;
   background: var(--surface-container, #0F111F);
@@ -556,22 +557,29 @@ setTimeout(showSuggestions, 600);
 .chat-suggestions::-webkit-scrollbar { display: none; }
 
 .suggestion-chip {
-  padding: 6px 14px;
+  padding: 8px 18px;
   border-radius: 20px;
   border: 1px solid rgba(129, 140, 248, 0.1);
   background: linear-gradient(135deg, rgba(129, 140, 248, 0.06), rgba(99, 102, 241, 0.03));
   color: var(--on-surface-variant);
-  font-size: 12px;
+  font-size: 12.5px;
   font-weight: 500;
   cursor: pointer;
   white-space: nowrap;
   font-family: var(--font-family);
-  transition: all 0.2s;
+  transition: all 0.2s ease;
+  position: relative;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 .suggestion-chip:hover {
-  background: linear-gradient(135deg, rgba(129, 140, 248, 0.12), rgba(99, 102, 241, 0.08));
-  border-color: rgba(129, 140, 248, 0.2);
+  background: linear-gradient(135deg, rgba(129, 140, 248, 0.15), rgba(99, 102, 241, 0.1));
+  border-color: rgba(129, 140, 248, 0.3);
   color: var(--on-surface);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(129, 140, 248, 0.12);
+}
+.suggestion-chip:active {
+  transform: translateY(0) scale(0.97);
 }
 
 /* ── Input bar ── */
