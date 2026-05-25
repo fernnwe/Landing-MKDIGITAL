@@ -168,7 +168,7 @@ export const productos: Producto[] = [
   {
     id: "mksoft",
     nombre: "MKSOFT — Sistema para Restaurantes",
-    precio: "C$2,500",
+    precio: "C$900",
     off: "al mes",
     categoria: "restaurantes",
     iconoId: "mdi:silverware-variant",

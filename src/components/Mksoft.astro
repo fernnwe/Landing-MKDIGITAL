@@ -1,0 +1,738 @@
+---
+import { Icon } from "astro-icon/components";
+
+const features = [
+  { icon: "mdi:table-furniture", title: "Gestión de Mesas", desc: "Plano interactivo del restaurante. Cada mesa muestra su estado en tiempo real: libre, ocupada o reservada." },
+  { icon: "mdi:clipboard-text-outline", title: "Comandas Digitales", desc: "Los meseros crean órdenes desde el móvil y las envían a cocina al instante. Prioridades normal, urgente y VIP." },
+  { icon: "mdi:package-variant-closed", title: "Inventario Inteligente", desc: "Recetas con auto-deducción al facturar. Alertas de stock bajo, compras a proveedores y cuentas por pagar." },
+  { icon: "mdi:file-document", title: "Facturación Completa", desc: "Impuestos y servicio configurables. Cálculo de cambio automático. Soporte para moneda extranjera (USD, EUR)." },
+  { icon: "mdi:cash-register", title: "Control de Caja", desc: "Apertura y cierre de caja con gastos y retiros. Cálculo del efectivo esperado y detección de diferencias." },
+  { icon: "mdi:printer", title: "Impresión Térmica", desc: "Imprime tickets, comandas y cierres directo a tu impresora térmica. Soporta USB y red TCP/IP." },
+  { icon: "mdi:monitor-dashboard", title: "Dashboard en Vivo", desc: "Ventas del día, comandas activas, productos más vendidos y alertas de inventario en una sola vista." },
+  { icon: "mdi:devices", title: "Multiplataforma", desc: "Funciona en computadoras, tablets y celulares. Los meseros toman órdenes desde su móvil." },
+  { icon: "mdi:account-group", title: "Roles y Permisos", desc: "Define qué ve y hace cada usuario: administrador, mesero, cajero, cocina. Acceso granular." },
+];
+
+const steps = [
+  { num: "01", title: "Crea tu cuenta", desc: "Registra tu restaurante y recibe acceso inmediato con datos de ejemplo para explorar." },
+  { num: "02", title: "Personaliza", desc: "Configura tu menú, mesas, ingredientes, recetas y equipo. Todo adaptado a tu negocio." },
+  { num: "03", title: "Opera", desc: "Recibe comandas, gestiona inventario, factura e imprime tickets de forma profesional." },
+];
+---
+
+<section class="mksoft" id="mksoft">
+  <div class="mksoft-bg">
+    <div class="mksoft-orb orb-1"></div>
+    <div class="mksoft-orb orb-2"></div>
+    <div class="mksoft-orb orb-3"></div>
+  </div>
+
+  <!-- Hero -->
+  <div class="mksoft-hero">
+    <div class="container">
+      <div class="hero-badge reveal reveal-down">
+        <Icon name="mdi:silverware-variant" color="#F59E0B" />
+        <span>MKSOFT</span>
+      </div>
+      <h1 class="reveal reveal-up stagger-2">
+        Tu negocio merece un <span>sistema inteligente</span>
+      </h1>
+      <p class="hero-sub reveal reveal-up stagger-3">
+        Gestiona mesas, comandas, inventario, caja e impresión térmica desde un solo lugar.
+        Diseñado para restaurantes, comedores, cafeterías y kioscos de comida rápida.
+      </p>
+      <div class="hero-actions reveal reveal-up stagger-4">
+        <a href="https://app.mkdigitalnic.com/" target="_blank" class="btn-primary">
+          Comenzar Ahora
+          <Icon name="mdi:arrow-right" color="#FFFFFF" />
+        </a>
+        <a href="#mksoft-features" class="btn-outline">
+          Explorar
+          <Icon name="mdi:chevron-down" color="currentColor" />
+        </a>
+      </div>
+      <div class="hero-stats reveal reveal-up stagger-5">
+        <div class="hero-stat">
+          <Icon name="mdi:cloud-outline" color="#F59E0B" />
+          <div>
+            <strong>100% Nube</strong>
+            <span>Sin instalaciones</span>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <Icon name="mdi:clock-outline" color="#F59E0B" />
+          <div>
+            <strong>24/7</strong>
+            <span>Siempre disponible</span>
+          </div>
+        </div>
+        <div class="hero-stat">
+          <Icon name="mdi:timer-outline" color="#F59E0B" />
+          <div>
+            <strong>5 min</strong>
+            <span>Configuración</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="mksoft-features" id="mksoft-features">
+    <div class="container">
+      <div class="section-label reveal reveal-up">Funcionalidades</div>
+      <h2 class="section-title reveal reveal-up stagger-2">
+        Todo lo que necesitas para <span>operar</span>
+      </h2>
+      <p class="section-desc reveal reveal-up stagger-3">
+        Un sistema completo que cubre cada aspecto de tu restaurante, desde la mesa hasta la factura.
+      </p>
+      <div class="features-grid">
+        {features.map((f, i) => (
+          <div class="feature-card reveal reveal-up stagger-{Math.min(i % 3 + 1, 3)}">
+            <div class="feature-icon">
+              <Icon name={f.icon} color="#F59E0B" />
+            </div>
+            <h3>{f.title}</h3>
+            <p>{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <div class="mksoft-steps">
+    <div class="container">
+      <div class="section-label reveal reveal-up">Cómo Funciona</div>
+      <h2 class="section-title reveal reveal-up stagger-2">
+        Operando en <span>3 pasos</span>
+      </h2>
+      <p class="section-desc reveal reveal-up stagger-3">
+        Configuración rápida para que puedas enfocarte en lo que importa: tu restaurante.
+      </p>
+      <div class="steps-grid">
+        {steps.map((s, i) => (
+          <div class="step-card reveal reveal-up stagger-{Math.min(i + 1, 3)}">
+            <span class="step-num">{s.num}</span>
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Pricing -->
+  <div class="mksoft-pricing">
+    <div class="container">
+      <div class="section-label reveal reveal-up">Precios</div>
+      <h2 class="section-title reveal reveal-up stagger-2">
+        Un plan simple, <span>todo incluido</span>
+      </h2>
+      <p class="section-desc reveal reveal-up stagger-3">
+        Sin contratos de permanencia. Sin límites ocultos. Cancela cuando quieras.
+      </p>
+      <div class="pricing-card reveal reveal-up stagger-4">
+        <div class="pricing-badge">Plan Único</div>
+        <p class="pricing-sub">Todo lo que tu restaurante necesita, sin restricciones</p>
+        <div class="pricing-amount">
+          <span class="pricing-currency">C$</span>
+          <span class="pricing-value">900</span>
+          <span class="pricing-period">/mes</span>
+        </div>
+        <ul class="pricing-features">
+          <li><Icon name="mdi:check-circle" color="#22C55E" /> Mesas y usuarios ilimitados</li>
+          <li><Icon name="mdi:check-circle" color="#22C55E" /> Comandas digitales con envío a cocina</li>
+          <li><Icon name="mdi:check-circle" color="#22C55E" /> Inventario con recetas y auto-deducción</li>
+          <li><Icon name="mdi:check-circle" color="#22C55E" /> Facturación con cambio y moneda extranjera</li>
+          <li><Icon name="mdi:check-circle" color="#22C55E" /> Control de caja con gastos y retiros</li>
+          <li><Icon name="mdi:check-circle" color="#22C55E" /> Impresión térmica USB y red</li>
+          <li><Icon name="mdi:check-circle" color="#22C55E" /> Dashboard y reportes en tiempo real</li>
+          <li><Icon name="mdi:check-circle" color="#22C55E" /> Soporte dedicado 24/7</li>
+        </ul>
+        <a href="https://app.mkdigitalnic.com/" target="_blank" class="btn-primary pricing-btn">
+          Comenzar Ahora
+          <Icon name="mdi:arrow-right" color="#FFFFFF" />
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="mksoft-faq">
+    <div class="container">
+      <div class="section-label reveal reveal-up">FAQ</div>
+      <h2 class="section-title reveal reveal-up stagger-2">
+        Preguntas <span>frecuentes</span>
+      </h2>
+      <p class="section-desc reveal reveal-up stagger-3">
+        Resolvemos tus dudas para que puedas empezar con confianza.
+      </p>
+      <div class="faq-list">
+        <details class="faq-item reveal reveal-up stagger-1" open>
+          <summary>¿Qué incluye el plan?</summary>
+          <p>Todas las funcionalidades del sistema: gestión de mesas, comandas digitales, inventario con recetas, facturación, control de caja, impresión térmica, dashboard en vivo, usuarios y roles ilimitados, y soporte técnico 24/7. Sin límites ocultos ni costos adicionales.</p>
+        </details>
+        <details class="faq-item reveal reveal-up stagger-2">
+          <summary>¿Necesito instalar algo?</summary>
+          <p>No. MKSOFT es 100% en la nube. Solo necesitas un navegador web (Chrome, Edge, Firefox) y conexión a internet. Funciona en computadoras, tablets y celulares sin instalar nada.</p>
+        </details>
+        <details class="faq-item reveal reveal-up stagger-3">
+          <summary>¿Cómo funciona la impresión térmica?</summary>
+          <p>Conectamos tu impresora térmica al sistema vía USB o red TCP/IP. Puedes imprimir tickets de factura, comandas para cocina y cierres de caja directamente desde el navegador.</p>
+        </details>
+        <details class="faq-item reveal reveal-up stagger-1">
+          <summary>¿Mis datos están seguros?</summary>
+          <p>Sí. Todos tus datos viajan encriptados (SSL) y se almacenan en servidores seguros con respaldos automáticos diarios. Solo tú y tu equipo tienen acceso a la información de tu restaurante.</p>
+        </details>
+        <details class="faq-item reveal reveal-up stagger-2">
+          <summary>¿Puedo usarlo en mi celular o tablet?</summary>
+          <p>Sí. MKSOFT está diseñado para funcionar en cualquier dispositivo con acceso a internet. Los meseros pueden tomar órdenes directamente desde su celular sin instalar nada.</p>
+        </details>
+        <details class="faq-item reveal reveal-up stagger-3">
+          <summary>¿Qué soporte ofrecen?</summary>
+          <p>Soporte técnico 24/7 vía WhatsApp. Te ayudamos con la configuración inicial, capacitación de tu equipo y cualquier duda que surja durante la operación de tu restaurante.</p>
+        </details>
+        <details class="faq-item reveal reveal-up stagger-1">
+          <summary>¿Por qué se paga mensualidad?</summary>
+          <p>La mensualidad cubre el uso del sistema, almacenamiento en la nube, respaldos automáticos, actualizaciones continuas y soporte técnico. Pagas solo por lo que usas, sin contratos de permanencia.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <!-- Final CTA -->
+  <div class="mksoft-cta">
+    <div class="container">
+      <div class="cta-box reveal reveal-up">
+        <div class="cta-content">
+          <h2>¿Listo para transformar tu restaurante?</h2>
+          <p>Comienza ahora y descubre cómo MKSOFT puede simplificar la gestión de tu negocio.</p>
+          <a href="https://app.mkdigitalnic.com/" target="_blank" class="btn-primary">
+            Comenzar Ahora
+            <Icon name="mdi:arrow-right" color="#FFFFFF" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.mksoft {
+  position: relative;
+  overflow: hidden;
+  background: var(--surface-container);
+}
+
+.mksoft-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.mksoft-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.3;
+}
+.orb-1 {
+  width: 700px; height: 700px;
+  top: -350px; left: -200px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.15) 0%, transparent 70%);
+  animation: orb-float 25s ease-in-out infinite;
+}
+.orb-2 {
+  width: 500px; height: 500px;
+  top: 50%; right: -250px;
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.08) 0%, transparent 70%);
+  animation: orb-float 25s ease-in-out infinite;
+  animation-delay: -8s;
+}
+.orb-3 {
+  width: 400px; height: 400px;
+  bottom: -200px; left: 30%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.08) 0%, transparent 70%);
+  animation: orb-float 30s ease-in-out infinite;
+  animation-delay: -16s;
+}
+
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0); }
+  33% { transform: translate(30px, -30px); }
+  66% { transform: translate(-20px, 20px); }
+}
+
+/* Hero */
+.mksoft-hero {
+  position: relative;
+  z-index: 1;
+  padding: 120px 0 80px;
+  text-align: center;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px 6px 14px;
+  border-radius: var(--shape-full);
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  color: #F59E0B;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+}
+.hero-badge :global(svg) { width: 18px; height: 18px; }
+
+.mksoft-hero h1 {
+  font-size: clamp(36px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 700px;
+  margin: 0 auto 20px;
+  color: var(--on-surface);
+}
+.mksoft-hero h1 span {
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: 17px;
+  color: var(--on-surface-variant);
+  max-width: 600px;
+  margin: 0 auto 32px;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.hero-actions .btn-primary :global(svg),
+.hero-actions .btn-outline :global(svg) {
+  width: 18px; height: 18px;
+}
+
+/* Stats row */
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 48px;
+  flex-wrap: wrap;
+}
+
+.hero-stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.hero-stat :global(svg) { width: 28px; height: 28px; }
+.hero-stat strong {
+  display: block;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--on-surface);
+}
+.hero-stat span {
+  font-size: 12px;
+  color: var(--on-surface-variant);
+}
+
+@media (max-width: 640px) {
+  .mksoft-hero { padding: 80px 0 60px; }
+  .hero-stats { gap: 24px; }
+}
+
+/* Section headers */
+.section-label {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #F59E0B;
+  margin-bottom: 12px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: clamp(28px, 3.5vw, 40px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--on-surface);
+  margin-bottom: 12px;
+}
+.section-title span {
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-desc {
+  text-align: center;
+  font-size: 15px;
+  color: var(--on-surface-variant);
+  max-width: 520px;
+  margin: 0 auto 48px;
+  line-height: 1.6;
+}
+
+/* Features */
+.mksoft-features {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  padding: 28px 24px;
+  background: var(--surface-container-high);
+  border-radius: var(--shape-lg);
+  border: 1px solid rgba(245, 158, 11, 0.06);
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.3s ease;
+}
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.15);
+}
+
+.feature-icon {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--shape-md);
+  background: rgba(245, 158, 11, 0.1);
+  margin-bottom: 16px;
+}
+.feature-icon :global(svg) { width: 26px; height: 26px; }
+
+.feature-card h3 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin-bottom: 8px;
+}
+
+.feature-card p {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  line-height: 1.5;
+}
+
+@media (max-width: 900px) {
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 600px) {
+  .features-grid { grid-template-columns: 1fr; }
+}
+
+/* Steps */
+.mksoft-steps {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0;
+}
+
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.step-card {
+  text-align: center;
+  padding: 40px 28px;
+  background: var(--surface-container-high);
+  border-radius: var(--shape-lg);
+  border: 1px solid rgba(245, 158, 11, 0.06);
+  position: relative;
+}
+
+.step-num {
+  display: inline-flex;
+  font-size: 48px;
+  font-weight: 800;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(217, 119, 6, 0.1));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.step-card h3 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin-bottom: 8px;
+}
+
+.step-card p {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  line-height: 1.5;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+@media (max-width: 700px) {
+  .steps-grid { grid-template-columns: 1fr; }
+}
+
+/* Pricing */
+.mksoft-pricing {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0;
+}
+
+.pricing-card {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 40px 36px;
+  background: var(--surface-container-high);
+  border-radius: var(--shape-xl);
+  border: 1px solid rgba(245, 158, 11, 0.1);
+  text-align: center;
+  position: relative;
+  box-shadow: 0 8px 40px rgba(245, 158, 11, 0.06);
+}
+
+.pricing-badge {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: var(--shape-full);
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  color: #FFFFFF;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.pricing-sub {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  margin-bottom: 24px;
+}
+
+.pricing-amount {
+  margin-bottom: 28px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+}
+
+.pricing-currency {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--on-surface);
+  align-self: flex-start;
+  margin-top: 4px;
+}
+
+.pricing-value {
+  font-size: 56px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.pricing-period {
+  font-size: 16px;
+  color: var(--on-surface-variant);
+  align-self: flex-end;
+  margin-bottom: 6px;
+}
+
+.pricing-features {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 32px;
+  text-align: left;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: var(--on-surface);
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(129, 140, 248, 0.04);
+}
+.pricing-features li:last-child { border-bottom: none; }
+.pricing-features :global(svg) { width: 18px; height: 18px; min-width: 18px; }
+
+.pricing-btn {
+  width: 100%;
+  justify-content: center;
+}
+
+/* FAQ */
+.mksoft-faq {
+  position: relative;
+  z-index: 1;
+  padding: 80px 0;
+}
+
+.faq-list {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 12px;
+  border-radius: var(--shape-lg);
+  background: var(--surface-container-high);
+  border: 1px solid rgba(245, 158, 11, 0.06);
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+.faq-item[open] {
+  border-color: rgba(245, 158, 11, 0.15);
+}
+
+.faq-item summary {
+  padding: 18px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--on-surface);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: "+";
+  font-size: 20px;
+  color: #F59E0B;
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+.faq-item[open] summary::after {
+  transform: rotate(45deg);
+}
+
+.faq-item p {
+  padding: 0 24px 18px;
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  line-height: 1.6;
+}
+
+/* Final CTA */
+.mksoft-cta {
+  position: relative;
+  z-index: 1;
+  padding: 0 0 80px;
+}
+
+.cta-box {
+  padding: 60px 40px;
+  border-radius: var(--shape-xl);
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(217, 119, 6, 0.04));
+  border: 1px solid rgba(245, 158, 11, 0.1);
+  text-align: center;
+}
+
+.cta-content h2 {
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 800;
+  color: var(--on-surface);
+  margin-bottom: 12px;
+}
+
+.cta-content p {
+  font-size: 15px;
+  color: var(--on-surface-variant);
+  margin-bottom: 28px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--shape-full);
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.25);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(245, 158, 11, 0.35);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--shape-full);
+  background: transparent;
+  border: 1.5px solid var(--outline-variant);
+  color: var(--on-surface);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+.btn-outline:hover {
+  border-color: #F59E0B;
+  color: #F59E0B;
+  background: rgba(245, 158, 11, 0.06);
+}
+
+@media (max-width: 640px) {
+  .mksoft-features { padding: 60px 0; }
+  .mksoft-steps { padding: 60px 0; }
+  .mksoft-pricing { padding: 60px 0; }
+  .mksoft-faq { padding: 60px 0; }
+  .mksoft-cta { padding: 0 0 60px; }
+  .cta-box { padding: 40px 24px; }
+  .pricing-card { padding: 32px 24px; }
+}
+</style>
