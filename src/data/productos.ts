@@ -8,6 +8,7 @@ export interface Producto {
   iconoId: string;
   badge?: "top" | "own";
   descripcion: string;
+  url?: string;
 }
 
 export interface Categoria {
@@ -25,6 +26,7 @@ export const categorias: Categoria[] = [
   { id: "autodesk", nombre: "Autodesk", icono: "fa-solid fa-cubes", iconoId: "simple-icons:autodesk", color: "#E51050", bgGradient: "linear-gradient(135deg, #E51050 0%, #b8003e 100%)" },
   { id: "seguridad", nombre: "Seguridad", icono: "fa-solid fa-shield-halved", iconoId: "mdi:shield-check", color: "#00C853", bgGradient: "linear-gradient(135deg, #00C853 0%, #009624 100%)" },
   { id: "facturacion", nombre: "Facturación", icono: "fa-solid fa-calculator", iconoId: "mdi:receipt-text", color: "#818CF8", bgGradient: "linear-gradient(135deg, #818CF8 0%, #6366F1 100%)" },
+  { id: "restaurantes", nombre: "Restaurantes", icono: "fa-solid fa-utensils", iconoId: "mdi:silverware-variant", color: "#F59E0B", bgGradient: "linear-gradient(135deg, #F59E0B 0%, #D97706 100%)" },
 ];
 
 export const productos: Producto[] = [
@@ -162,5 +164,16 @@ export const productos: Producto[] = [
     iconoId: "mdi:monitor-dashboard",
     badge: "top",
     descripcion: "Software de facturación para escritorio"
+  },
+  {
+    id: "mksoft",
+    nombre: "MKSOFT — Sistema para Restaurantes",
+    precio: "C$2,500",
+    off: "al mes",
+    categoria: "restaurantes",
+    iconoId: "mdi:silverware-variant",
+    badge: "own",
+    descripcion: "Administración completa de restaurantes: pedidos, facturación, inventario y reportes",
+    url: "https://app.mkdigitalnic.com/"
   },
 ];

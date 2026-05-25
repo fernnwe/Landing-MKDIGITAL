@@ -38,9 +38,16 @@ const cat = categorias.find(c => c.id === p.categoria)!;
         <span class="price-current">{p.precio}</span>
       </div>
 
-      <a href="https://wa.me/50581088124?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20${encodeURIComponent(p.nombre)}" target="_blank" class="card-btn">
-        <i class="fa-brands fa-whatsapp"></i>
-      </a>
+      <div class="card-actions">
+        {p.url && (
+          <a href={p.url} target="_blank" class="card-btn card-btn-demo">
+            <Icon name="mdi:eye-outline" color="#FFFFFF" />
+          </a>
+        )}
+        <a href="https://wa.me/50581088124?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20${encodeURIComponent(p.nombre)}" target="_blank" class="card-btn card-btn-wa">
+          <i class="fa-brands fa-whatsapp"></i>
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -193,6 +200,12 @@ const cat = categorias.find(c => c.id === p.categoria)!;
   line-height: 1.1;
 }
 
+.card-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .card-btn {
   display: flex;
   align-items: center;
@@ -201,16 +214,33 @@ const cat = categorias.find(c => c.id === p.categoria)!;
   height: 44px;
   min-width: 44px;
   border-radius: 50%;
+  text-decoration: none;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+.card-btn :global(svg) { width: 20px; height: 20px; }
+
+.card-btn-wa {
   background: linear-gradient(135deg, #25D366, #128C7E);
   color: #FFFFFF;
   font-size: 20px;
-  text-decoration: none;
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
   box-shadow: 0 2px 12px rgba(37, 211, 102, 0.2);
 }
-.card-btn:hover {
+.card-btn-wa:hover {
   box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
   transform: scale(1.1);
+}
+
+.card-btn-demo {
+  background: var(--surface-container);
+  color: var(--on-surface-variant);
+  border: 1.5px solid var(--outline-variant);
+  box-shadow: none;
+}
+.card-btn-demo:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  box-shadow: 0 0 16px rgba(129, 140, 248, 0.15);
+  transform: scale(1.08);
 }
 
 @media (max-width: 768px) {
