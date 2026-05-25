@@ -39,7 +39,7 @@ import ProductCard from "./ProductCard.astro";
           </button>
           {categorias.map(cat => (
             <button class="filter-tab" data-filter={cat.id}>
-              <i class="{cat.icono}"></i>
+              <Icon name={cat.iconoId} color="#FFFFFF" />
               {cat.nombre}
             </button>
           ))}
@@ -52,7 +52,7 @@ import ProductCard from "./ProductCard.astro";
           <div class="cat-section" data-categoria={cat.id}>
             <div class="cat-header reveal reveal-up">
               <span class="cat-icon" style="background: {cat.bgGradient}">
-                <i class="{cat.icono}"></i>
+                <Icon name={cat.iconoId} color="#FFFFFF" />
               </span>
               <div>
                 <h2 class="cat-title">{cat.nombre}</h2>
@@ -298,7 +298,7 @@ document.addEventListener("DOMContentLoaded", function() {
   color: #FFFFFF;
   box-shadow: 0 2px 12px rgba(129, 140, 248, 0.25);
 }
-.filter-tab i { font-size: 14px; }
+.filter-tab :global(svg) { width: 16px; height: 16px; }
 
 /* Category sections */
 .cat-section {
@@ -328,10 +328,9 @@ document.addEventListener("DOMContentLoaded", function() {
   align-items: center;
   justify-content: center;
   border-radius: var(--shape-md);
-  font-size: 22px;
-  color: #FFFFFF;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
+.cat-icon :global(svg) { width: 26px; height: 26px; }
 
 .cat-title {
   font-size: 18px;

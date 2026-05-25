@@ -14,16 +14,17 @@ export interface Categoria {
   id: string;
   nombre: string;
   icono: string;
+  iconoId: string;
   color: string;
   bgGradient: string;
 }
 
 export const categorias: Categoria[] = [
-  { id: "microsoft", nombre: "Microsoft", icono: "fa-brands fa-microsoft", color: "#00A4EF", bgGradient: "linear-gradient(135deg, #00A4EF 0%, #0078D4 100%)" },
-  { id: "adobe", nombre: "Adobe", icono: "fa-brands fa-adobe", color: "#FF0000", bgGradient: "linear-gradient(135deg, #FF0000 0%, #cc0000 100%)" },
-  { id: "autodesk", nombre: "Autodesk", icono: "fa-solid fa-cubes", color: "#E51050", bgGradient: "linear-gradient(135deg, #E51050 0%, #b8003e 100%)" },
-  { id: "seguridad", nombre: "Seguridad", icono: "fa-solid fa-shield-halved", color: "#00C853", bgGradient: "linear-gradient(135deg, #00C853 0%, #009624 100%)" },
-  { id: "facturacion", nombre: "Facturación", icono: "fa-solid fa-calculator", color: "#818CF8", bgGradient: "linear-gradient(135deg, #818CF8 0%, #6366F1 100%)" },
+  { id: "microsoft", nombre: "Microsoft", icono: "fa-brands fa-microsoft", iconoId: "simple-icons:microsoft", color: "#00A4EF", bgGradient: "linear-gradient(135deg, #00A4EF 0%, #0078D4 100%)" },
+  { id: "adobe", nombre: "Adobe", icono: "fa-brands fa-adobe", iconoId: "simple-icons:adobe", color: "#FF0000", bgGradient: "linear-gradient(135deg, #FF0000 0%, #cc0000 100%)" },
+  { id: "autodesk", nombre: "Autodesk", icono: "fa-solid fa-cubes", iconoId: "simple-icons:autodesk", color: "#E51050", bgGradient: "linear-gradient(135deg, #E51050 0%, #b8003e 100%)" },
+  { id: "seguridad", nombre: "Seguridad", icono: "fa-solid fa-shield-halved", iconoId: "mdi:shield-check", color: "#00C853", bgGradient: "linear-gradient(135deg, #00C853 0%, #009624 100%)" },
+  { id: "facturacion", nombre: "Facturación", icono: "fa-solid fa-calculator", iconoId: "mdi:receipt-text", color: "#818CF8", bgGradient: "linear-gradient(135deg, #818CF8 0%, #6366F1 100%)" },
 ];
 
 export const productos: Producto[] = [
