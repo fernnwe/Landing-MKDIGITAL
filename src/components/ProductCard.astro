@@ -44,7 +44,7 @@ const cat = categorias.find(c => c.id === p.categoria)!;
             <Icon name="mdi:eye-outline" color="#FFFFFF" />
           </a>
         )}
-        <a href="https://wa.me/50581088124?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20${encodeURIComponent(p.nombre)}" target="_blank" class="card-btn card-btn-wa">
+        <a href={`https://wa.me/50581088124?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20${encodeURIComponent(p.nombre)}`} target="_blank" class="card-btn card-btn-wa">
           <i class="fa-brands fa-whatsapp"></i>
         </a>
       </div>
