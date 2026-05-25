@@ -170,6 +170,15 @@ export const productos: Producto[] = [
     descripcion: "1 dispositivo · 1 año · Antivirus ligero y eficaz"
   },
   {
+    id: "kaspersky",
+    nombre: "Kaspersky AntiVirus",
+    precio: "C$1,295",
+    categoria: "seguridad",
+    iconoId: "simple-icons:kaspersky",
+    badge: "top",
+    descripcion: "1 dispositivo · 1 año · Protección avanzada contra malware"
+  },
+  {
     id: "factulite",
     nombre: "FactuLite Android",
     precio: "C$3,700",
