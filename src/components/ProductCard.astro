@@ -24,10 +24,7 @@ const cat = categorias.find(c => c.id === p.categoria)!;
 
   <div class="card-icon" style="background: {cat.color}15">
     <div class="card-icon-bg" style="background: {cat.bgGradient}"></div>
-    {p.iconoId.startsWith("simple-icons:")
-      ? <Icon name={p.iconoId} />
-      : <Icon name={p.iconoId} color={cat.color} />
-    }
+    <Icon name={p.iconoId} color={p.iconoColor} />
     <div class="card-icon-ring"></div>
   </div>
 

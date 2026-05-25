@@ -6,6 +6,7 @@ export interface Producto {
   off?: string;
   categoria: string;
   iconoId: string;
+  iconoColor: string;
   badge?: "top" | "own";
   descripcion: string;
   url?: string;
@@ -38,6 +39,7 @@ export const productos: Producto[] = [
     off: "20%",
     categoria: "microsoft",
     iconoId: "mdi:microsoft-office",
+    iconoColor: "#D83B01",
     badge: "top",
     descripcion: "Word, Excel, PowerPoint, Outlook y más"
   },
@@ -49,6 +51,7 @@ export const productos: Producto[] = [
     off: "22%",
     categoria: "microsoft",
     iconoId: "mdi:microsoft-office",
+    iconoColor: "#D83B01",
     descripcion: "Word, Excel, PowerPoint, Outlook y más"
   },
   {
@@ -59,6 +62,7 @@ export const productos: Producto[] = [
     off: "20%",
     categoria: "microsoft",
     iconoId: "mdi:microsoft-windows",
+    iconoColor: "#00A4EF",
     descripcion: "Licencia digital con activación permanente"
   },
   {
@@ -69,6 +73,7 @@ export const productos: Producto[] = [
     off: "20%",
     categoria: "microsoft",
     iconoId: "mdi:microsoft-windows",
+    iconoColor: "#00A4EF",
     descripcion: "Licencia digital con activación permanente"
   },
   {
@@ -79,6 +84,7 @@ export const productos: Producto[] = [
     off: "23%",
     categoria: "adobe",
     iconoId: "simple-icons:adobe",
+    iconoColor: "#FF0000",
     badge: "top",
     descripcion: "Photoshop, Illustrator, Premiere"
   },
@@ -90,6 +96,7 @@ export const productos: Producto[] = [
     off: "20%",
     categoria: "adobe",
     iconoId: "simple-icons:adobe",
+    iconoColor: "#FF0000",
     descripcion: "Suite completa de Adobe Creative Cloud"
   },
   {
@@ -98,6 +105,7 @@ export const productos: Producto[] = [
     precio: "C$1,295",
     categoria: "adobe",
     iconoId: "simple-icons:adobecreativecloud",
+    iconoColor: "#FF0000",
     badge: "top",
     descripcion: "1 mes C$1,295 · 3 meses C$1,850 · 6 meses C$3,330 · 12 meses C$7,030"
   },
@@ -109,6 +117,7 @@ export const productos: Producto[] = [
     off: "30%",
     categoria: "adobe",
     iconoId: "simple-icons:adobe",
+    iconoColor: "#FF0000",
     descripcion: "Suscripción anual · Editor PDF profesional"
   },
   {
@@ -119,6 +128,7 @@ export const productos: Producto[] = [
     off: "25%",
     categoria: "adobe",
     iconoId: "simple-icons:adobe",
+    iconoColor: "#FF0000",
     badge: "top",
     descripcion: "Licencia permanente · Editor PDF profesional"
   },
@@ -130,6 +140,7 @@ export const productos: Producto[] = [
     off: "23%",
     categoria: "autodesk",
     iconoId: "simple-icons:autodesk",
+    iconoColor: "#E51050",
     badge: "top",
     descripcion: "Diseño y dibujo asistido por computadora"
   },
@@ -141,6 +152,7 @@ export const productos: Producto[] = [
     off: "23%",
     categoria: "autodesk",
     iconoId: "simple-icons:autodesk",
+    iconoColor: "#E51050",
     descripcion: "Modelado de información para construcción"
   },
   {
@@ -149,6 +161,7 @@ export const productos: Producto[] = [
     precio: "C$925",
     categoria: "seguridad",
     iconoId: "simple-icons:avast",
+    iconoColor: "#FF7800",
     badge: "top",
     descripcion: "12 meses · Protección completa contra malware y ransomware"
   },
@@ -158,6 +171,7 @@ export const productos: Producto[] = [
     precio: "C$740",
     categoria: "seguridad",
     iconoId: "simple-icons:mcafee",
+    iconoColor: "#C01818",
     descripcion: "Protección completa contra amenazas y virus"
   },
   {
@@ -166,6 +180,7 @@ export const productos: Producto[] = [
     precio: "C$1,480",
     categoria: "seguridad",
     iconoId: "mdi:shield-check",
+    iconoColor: "#00A64E",
     badge: "top",
     descripcion: "1 dispositivo · 1 año · Antivirus ligero y eficaz"
   },
@@ -175,6 +190,7 @@ export const productos: Producto[] = [
     precio: "C$1,295",
     categoria: "seguridad",
     iconoId: "simple-icons:kaspersky",
+    iconoColor: "#00A65E",
     badge: "top",
     descripcion: "1 dispositivo · 1 año · Protección avanzada contra malware"
   },
@@ -186,6 +202,7 @@ export const productos: Producto[] = [
     off: "18%",
     categoria: "facturacion",
     iconoId: "mdi:cellphone",
+    iconoColor: "#818CF8",
     badge: "own",
     descripcion: "App de facturación para emprendedores"
   },
@@ -196,6 +213,7 @@ export const productos: Producto[] = [
     off: "al mes",
     categoria: "facturacion",
     iconoId: "mdi:web",
+    iconoColor: "#818CF8",
     badge: "own",
     descripcion: "Sistema profesional de facturación e inventario"
   },
@@ -207,6 +225,7 @@ export const productos: Producto[] = [
     off: "20%",
     categoria: "facturacion",
     iconoId: "mdi:monitor-dashboard",
+    iconoColor: "#818CF8",
     badge: "top",
     descripcion: "Software de facturación para escritorio"
   },
@@ -217,6 +236,7 @@ export const productos: Producto[] = [
     off: "al mes",
     categoria: "restaurantes",
     iconoId: "mdi:silverware-variant",
+    iconoColor: "#F59E0B",
     badge: "own",
     descripcion: "Administración completa de restaurantes: pedidos, facturación, inventario y reportes",
     url: "https://app.mkdigitalnic.com/"
