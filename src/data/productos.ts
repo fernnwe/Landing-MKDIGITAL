@@ -93,14 +93,34 @@ export const productos: Producto[] = [
     descripcion: "Suite completa de Adobe Creative Cloud"
   },
   {
+    id: "creativecloud",
+    nombre: "Adobe Creative Cloud",
+    precio: "C$1,295",
+    categoria: "adobe",
+    iconoId: "simple-icons:adobecreativecloud",
+    badge: "top",
+    descripcion: "1 mes C$1,295 · 3 meses C$1,850 · 6 meses C$3,330 · 12 meses C$7,030"
+  },
+  {
     id: "acrobat",
-    nombre: "Adobe Acrobat Pro",
-    precio: "C$400",
-    old: "C$550",
-    off: "27%",
+    nombre: "Adobe Acrobat Pro 2020 DC",
+    precio: "C$1,036",
+    old: "C$1,480",
+    off: "30%",
     categoria: "adobe",
     iconoId: "simple-icons:adobe",
-    descripcion: "Editor y creador de PDF profesional"
+    descripcion: "Suscripción anual · Editor PDF profesional"
+  },
+  {
+    id: "acrobat2020perm",
+    nombre: "Adobe Acrobat Pro 2020",
+    precio: "C$1,110",
+    old: "C$1,480",
+    off: "25%",
+    categoria: "adobe",
+    iconoId: "simple-icons:adobe",
+    badge: "top",
+    descripcion: "Licencia permanente · Editor PDF profesional"
   },
   {
     id: "autocad",
@@ -126,12 +146,28 @@ export const productos: Producto[] = [
   {
     id: "avast",
     nombre: "Avast Premium Security",
-    precio: "C$800",
-    old: "C$1,000",
-    off: "20%",
+    precio: "C$925",
     categoria: "seguridad",
     iconoId: "simple-icons:avast",
-    descripcion: "Protección completa contra malware y ransomware"
+    badge: "top",
+    descripcion: "12 meses · Protección completa contra malware y ransomware"
+  },
+  {
+    id: "mcafee",
+    nombre: "McAfee AntiVirus",
+    precio: "C$740",
+    categoria: "seguridad",
+    iconoId: "simple-icons:mcafee",
+    descripcion: "Protección completa contra amenazas y virus"
+  },
+  {
+    id: "eset",
+    nombre: "ESET NOD32",
+    precio: "C$1,480",
+    categoria: "seguridad",
+    iconoId: "mdi:shield-check",
+    badge: "top",
+    descripcion: "1 dispositivo · 1 año · Antivirus ligero y eficaz"
   },
   {
     id: "factulite",
