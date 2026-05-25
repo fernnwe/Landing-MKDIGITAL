@@ -2,13 +2,13 @@ export interface Producto {
   id: string;
   nombre: string;
   precio: string;
-  precioUSD?: string;
   old?: string;
   off?: string;
   categoria: string;
-  img: string;
+  icono: string;
+  iconoColor: string;
   badge?: "top" | "own";
-  descripcion?: string;
+  descripcion: string;
 }
 
 export interface Categoria {
@@ -16,14 +16,15 @@ export interface Categoria {
   nombre: string;
   icono: string;
   color: string;
+  bgGradient: string;
 }
 
 export const categorias: Categoria[] = [
-  { id: "microsoft", nombre: "Microsoft", icono: "mdi:microsoft-windows", color: "rgba(0, 164, 239, 0.15)" },
-  { id: "adobe", nombre: "Adobe", icono: "simple-icons:adobe", color: "rgba(255, 0, 0, 0.12)" },
-  { id: "autodesk", nombre: "Autodesk", icono: "simple-icons:autodesk", color: "rgba(229, 16, 80, 0.12)" },
-  { id: "seguridad", nombre: "Seguridad", icono: "mdi:shield-check", color: "rgba(0, 200, 83, 0.12)" },
-  { id: "facturacion", nombre: "Facturación", icono: "mdi:calculator", color: "rgba(129, 140, 248, 0.12)" },
+  { id: "microsoft", nombre: "Microsoft", icono: "fa-brands fa-microsoft", color: "#00A4EF", bgGradient: "linear-gradient(135deg, #00A4EF 0%, #0078D4 100%)" },
+  { id: "adobe", nombre: "Adobe", icono: "fa-brands fa-adobe", color: "#FF0000", bgGradient: "linear-gradient(135deg, #FF0000 0%, #cc0000 100%)" },
+  { id: "autodesk", nombre: "Autodesk", icono: "fa-solid fa-cubes", color: "#E51050", bgGradient: "linear-gradient(135deg, #E51050 0%, #b8003e 100%)" },
+  { id: "seguridad", nombre: "Seguridad", icono: "fa-solid fa-shield-halved", color: "#00C853", bgGradient: "linear-gradient(135deg, #00C853 0%, #009624 100%)" },
+  { id: "facturacion", nombre: "Facturación", icono: "fa-solid fa-calculator", color: "#818CF8", bgGradient: "linear-gradient(135deg, #818CF8 0%, #6366F1 100%)" },
 ];
 
 export const productos: Producto[] = [
@@ -34,7 +35,8 @@ export const productos: Producto[] = [
     old: "C$500",
     off: "20%",
     categoria: "microsoft",
-    img: "/productos/office2024.png",
+    icono: "fa-regular fa-file-lines",
+    iconoColor: "#D83B01",
     badge: "top",
     descripcion: "Word, Excel, PowerPoint, Outlook y más"
   },
@@ -45,7 +47,8 @@ export const productos: Producto[] = [
     old: "C$450",
     off: "22%",
     categoria: "microsoft",
-    img: "/productos/office2021.png",
+    icono: "fa-regular fa-file-lines",
+    iconoColor: "#D83B01",
     descripcion: "Word, Excel, PowerPoint, Outlook y más"
   },
   {
@@ -55,7 +58,8 @@ export const productos: Producto[] = [
     old: "C$650",
     off: "20%",
     categoria: "microsoft",
-    img: "/productos/windows10.png",
+    icono: "fa-brands fa-windows",
+    iconoColor: "#00A4EF",
     descripcion: "Licencia digital con activación permanente"
   },
   {
@@ -65,7 +69,8 @@ export const productos: Producto[] = [
     old: "C$920",
     off: "20%",
     categoria: "microsoft",
-    img: "/productos/windows11.png",
+    icono: "fa-brands fa-windows",
+    iconoColor: "#00A4EF",
     descripcion: "Licencia digital con activación permanente"
   },
   {
@@ -75,7 +80,8 @@ export const productos: Producto[] = [
     old: "C$1,300",
     off: "23%",
     categoria: "adobe",
-    img: "/productos/adobe.jpg",
+    icono: "fa-brands fa-adobe",
+    iconoColor: "#FF0000",
     badge: "top",
     descripcion: "Photoshop, Illustrator, Premiere"
   },
@@ -86,7 +92,8 @@ export const productos: Producto[] = [
     old: "C$2,500",
     off: "20%",
     categoria: "adobe",
-    img: "/productos/adobe.jpg",
+    icono: "fa-brands fa-adobe",
+    iconoColor: "#FF0000",
     descripcion: "Suite completa de Adobe Creative Cloud"
   },
   {
@@ -96,7 +103,8 @@ export const productos: Producto[] = [
     old: "C$550",
     off: "27%",
     categoria: "adobe",
-    img: "/productos/acrobat.png",
+    icono: "fa-regular fa-file-pdf",
+    iconoColor: "#D50000",
     descripcion: "Editor y creador de PDF profesional"
   },
   {
@@ -106,7 +114,8 @@ export const productos: Producto[] = [
     old: "C$650",
     off: "23%",
     categoria: "autodesk",
-    img: "/productos/autocad.png",
+    icono: "fa-solid fa-drafting-compass",
+    iconoColor: "#E51050",
     badge: "top",
     descripcion: "Diseño y dibujo asistido por computadora"
   },
@@ -117,7 +126,8 @@ export const productos: Producto[] = [
     old: "C$650",
     off: "23%",
     categoria: "autodesk",
-    img: "/productos/revit.png",
+    icono: "fa-solid fa-building",
+    iconoColor: "#009999",
     descripcion: "Modelado de información para construcción"
   },
   {
@@ -127,7 +137,8 @@ export const productos: Producto[] = [
     old: "C$1,000",
     off: "20%",
     categoria: "seguridad",
-    img: "/productos/avast.png",
+    icono: "fa-solid fa-shield-halved",
+    iconoColor: "#FF7800",
     descripcion: "Protección completa contra malware y ransomware"
   },
   {
@@ -137,7 +148,8 @@ export const productos: Producto[] = [
     old: "C$4,500",
     off: "18%",
     categoria: "facturacion",
-    img: "/productos/factulite.png",
+    icono: "fa-solid fa-mobile-screen-button",
+    iconoColor: "#818CF8",
     badge: "own",
     descripcion: "App de facturación para emprendedores"
   },
@@ -147,7 +159,8 @@ export const productos: Producto[] = [
     precio: "C$3,000",
     off: "al mes",
     categoria: "facturacion",
-    img: "/productos/viperpos.png",
+    icono: "fa-solid fa-display",
+    iconoColor: "#818CF8",
     badge: "own",
     descripcion: "Sistema profesional de facturación e inventario"
   },
@@ -158,7 +171,8 @@ export const productos: Producto[] = [
     old: "C$2,500",
     off: "20%",
     categoria: "facturacion",
-    img: "/productos/facturacion.png",
+    icono: "fa-solid fa-desktop",
+    iconoColor: "#818CF8",
     badge: "top",
     descripcion: "Software de facturación para escritorio"
   },

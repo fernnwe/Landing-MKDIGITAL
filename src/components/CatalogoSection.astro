@@ -39,20 +39,36 @@ import ProductCard from "./ProductCard.astro";
           </button>
           {categorias.map(cat => (
             <button class="filter-tab" data-filter={cat.id}>
-              <Icon name={cat.icono} />
+              <i class="{cat.icono}"></i>
               {cat.nombre}
             </button>
           ))}
         </div>
       </div>
 
-      <div class="productos-grid" id="productGrid">
-        {productos.map((p, i) => (
-          <div class="product-wrapper reveal reveal-up stagger-{Math.min(i % 4 + 1, 4)}" data-index={i}>
-            <ProductCard producto={p} index={i} />
+      {categorias.map(cat => {
+        const items = productos.filter(p => p.categoria === cat.id);
+        return (
+          <div class="cat-section" data-categoria={cat.id}>
+            <div class="cat-header reveal reveal-up">
+              <span class="cat-icon" style="background: {cat.bgGradient}">
+                <i class="{cat.icono}"></i>
+              </span>
+              <div>
+                <h2 class="cat-title">{cat.nombre}</h2>
+                <p class="cat-count">{items.length} producto{items.length !== 1 ? 's' : ''}</p>
+              </div>
+            </div>
+            <div class="productos-grid">
+              {items.map((p, i) => (
+                <div class="product-wrapper reveal reveal-up stagger-{Math.min(i % 3 + 1, 3)}">
+                  <ProductCard producto={p} />
+                </div>
+              ))}
+            </div>
           </div>
-        ))}
-      </div>
+        );
+      })}
 
       <div class="empty-state" id="emptyState" style="display:none">
         <i class="fa-solid fa-search"></i>
@@ -69,13 +85,14 @@ document.addEventListener("DOMContentLoaded", function() {
   var searchInput = document.getElementById("searchInput");
   var tabs = document.querySelectorAll(".filter-tab");
   var cards = document.querySelectorAll(".product-card");
+  var sections = document.querySelectorAll(".cat-section");
   var emptyState = document.getElementById("emptyState");
   var currentFilter = "all";
   var searchTimer = null;
 
   function applyFilters() {
     var query = searchInput.value.toLowerCase().trim();
-    var visibleCount = 0;
+    var anyVisible = false;
 
     cards.forEach(function(card) {
       var categoria = card.dataset.categoria;
@@ -84,21 +101,26 @@ document.addEventListener("DOMContentLoaded", function() {
 
       var matchCategory = currentFilter === "all" || categoria === currentFilter;
       var matchSearch = nombre.indexOf(query) !== -1;
-
       var show = matchCategory && matchSearch;
 
       if (wrapper) {
         wrapper.style.display = show ? "block" : "none";
-        wrapper.style.opacity = show ? "1" : "0";
-        if (show) {
-          wrapper.style.transform = "scale(1)";
-          visibleCount++;
-        }
+        if (show) anyVisible = true;
       }
     });
 
+    sections.forEach(function(section) {
+      var catId = section.dataset.categoria;
+      var showSection = currentFilter === "all" || catId === currentFilter;
+      var hasVisible = false;
+      section.querySelectorAll(".product-wrapper").forEach(function(w) {
+        if (w.style.display !== "none") hasVisible = true;
+      });
+      section.style.display = showSection && hasVisible ? "block" : "none";
+    });
+
     if (emptyState) {
-      emptyState.style.display = visibleCount === 0 ? "flex" : "none";
+      emptyState.style.display = anyVisible ? "none" : "flex";
     }
   }
 
@@ -127,9 +149,7 @@ document.addEventListener("DOMContentLoaded", function() {
 </script>
 
 <style>
-.catalogo {
-  padding-top: 64px;
-}
+.catalogo { padding-top: 64px; }
 
 /* Hero */
 .catalogo-hero {
@@ -208,7 +228,7 @@ document.addEventListener("DOMContentLoaded", function() {
 .search-filters {
   position: relative;
   z-index: 5;
-  margin-bottom: 48px;
+  margin-bottom: 56px;
   padding: 24px 32px;
   background: var(--surface-container-high);
   border-radius: var(--shape-xl);
@@ -216,7 +236,6 @@ document.addEventListener("DOMContentLoaded", function() {
   box-shadow: var(--elevation-1);
 }
 
-/* MD3 Search */
 .search-bar {
   display: flex;
   align-items: center;
@@ -233,10 +252,7 @@ document.addEventListener("DOMContentLoaded", function() {
   border-color: var(--primary);
   box-shadow: 0 0 20px rgba(129, 140, 248, 0.1);
 }
-.search-bar svg {
-  color: var(--on-surface-variant);
-  min-width: 20px;
-}
+.search-bar svg { color: var(--on-surface-variant); min-width: 20px; }
 .search-bar input {
   flex: 1;
   background: none;
@@ -248,7 +264,6 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 .search-bar input::placeholder { color: var(--on-surface-variant); }
 
-/* Filter tabs */
 .filter-tabs {
   display: flex;
   flex-wrap: wrap;
@@ -283,18 +298,63 @@ document.addEventListener("DOMContentLoaded", function() {
   color: #FFFFFF;
   box-shadow: 0 2px 12px rgba(129, 140, 248, 0.25);
 }
-.filter-tab svg { width: 16px; height: 16px; }
 .filter-tab i { font-size: 14px; }
+
+/* Category sections */
+.cat-section {
+  margin-bottom: 48px;
+}
+
+.cat-section:last-child {
+  margin-bottom: 0;
+}
+
+.cat-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding: 16px 20px;
+  background: var(--surface-container-high);
+  border-radius: var(--shape-lg);
+  border: 1px solid rgba(129, 140, 248, 0.06);
+}
+
+.cat-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--shape-md);
+  font-size: 22px;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.cat-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin: 0;
+}
+
+.cat-count {
+  font-size: 12px;
+  color: var(--on-surface-variant);
+  margin: 0;
+}
 
 /* Product grid */
 .productos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
 }
 
 .product-wrapper {
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 /* Empty state */
