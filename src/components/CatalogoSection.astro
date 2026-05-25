@@ -38,8 +38,8 @@ import ProductCard from "./ProductCard.astro";
             Todos
           </button>
           {categorias.map(cat => (
-            <button class="filter-tab" data-filter={cat.id}>
-              <Icon name={cat.iconoId} color="#FFFFFF" />
+            <button class="filter-tab" data-filter={cat.id} style="--cat-color: {cat.color}">
+              <span class="tab-icon"><Icon name={cat.iconoId} /></span>
               {cat.nombre}
             </button>
           ))}
@@ -298,7 +298,9 @@ document.addEventListener("DOMContentLoaded", function() {
   color: #FFFFFF;
   box-shadow: 0 2px 12px rgba(129, 140, 248, 0.25);
 }
-.filter-tab :global(svg) { width: 16px; height: 16px; }
+.filter-tab .tab-icon { display: inline-flex; color: var(--cat-color); }
+.filter-tab .tab-icon :global(svg) { width: 16px; height: 16px; }
+.filter-tab.active .tab-icon { color: #FFFFFF; }
 
 /* Category sections */
 .cat-section {
