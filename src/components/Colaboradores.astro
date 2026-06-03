@@ -21,7 +21,7 @@ import { Icon } from "astro-icon/components";
         <span class="team-badge">CEO</span>
 
         <div class="team-avatar">
-          <Icon name="mdi:crown"/>
+          <img src="/ceo.jpeg" alt="Ing. Fernando Aguirre" class="team-avatar-img" />
         </div>
 
         <h3>Ing. Fernando Aguirre</h3>
@@ -131,6 +131,12 @@ if (teamSection) teamObserver.observe(teamSection);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.team-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 .team-avatar svg {
   width: 32px;
