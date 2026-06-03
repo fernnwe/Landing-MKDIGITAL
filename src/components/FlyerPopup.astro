@@ -1,0 +1,292 @@
+---
+---
+
+<div id="flyer-overlay" class="flyer-overlay">
+  <div class="flyer-modal">
+    <button id="flyer-close" class="flyer-close" aria-label="Cerrar">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div class="flyer-header">
+      <span class="flyer-badge">OFERTA DEL MES</span>
+      <h2>
+        Programas para tu PC<br />
+        <span>al mejor precio</span>
+      </h2>
+      <p>
+        Office, Adobe, sistemas de facturación, sistemas web,
+        antivirus y más — todo 100% original con instalación remota incluida.
+      </p>
+    </div>
+
+    <div class="flyer-grid">
+      <div class="flyer-item">
+        <i class="fa-brands fa-microsoft" style="color: #00A4EF;"></i>
+        <span>Office 2024 / 2021</span>
+      </div>
+      <div class="flyer-item">
+        <i class="fa-brands fa-adobe" style="color: #FF0000;"></i>
+        <span>Adobe Creative Cloud</span>
+      </div>
+      <div class="flyer-item">
+        <i class="fa-solid fa-file-invoice" style="color: #818CF8;"></i>
+        <span>Facturación Windows</span>
+      </div>
+      <div class="flyer-item">
+        <i class="fa-solid fa-globe" style="color: #22D3EE;"></i>
+        <span>Sistemas Web</span>
+      </div>
+      <div class="flyer-item">
+        <i class="fa-solid fa-shield-halved" style="color: #00C853;"></i>
+        <span>Antivirus Premium</span>
+      </div>
+      <div class="flyer-item">
+        <i class="fa-brands fa-windows" style="color: #00A4EF;"></i>
+        <span>Windows Pro</span>
+      </div>
+    </div>
+
+    <div class="flyer-footer">
+      <a href="/catalogo" class="flyer-btn" id="flyer-cta">
+        Ver catálogo completo
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+      <p class="flyer-note">
+        <i class="fa-regular fa-clock"></i>
+        Promociones válidas hasta fin de mes
+      </p>
+    </div>
+  </div>
+</div>
+
+<style>
+.flyer-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(6px);
+  padding: 20px;
+  animation: flyer-fade-in 0.3s ease;
+}
+
+.flyer-overlay.flyer-hidden {
+  display: none;
+}
+
+@keyframes flyer-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.flyer-modal {
+  position: relative;
+  max-width: 520px;
+  width: 100%;
+  background: var(--surface-container-high, #141627);
+  border-radius: var(--shape-xl, 24px);
+  border: 1px solid rgba(129, 140, 248, 0.12);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  animation: flyer-scale-in 0.35s cubic-bezier(0.2, 0, 0, 1);
+}
+
+@keyframes flyer-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.flyer-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--on-surface-variant);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+
+.flyer-close:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--on-surface);
+  transform: rotate(90deg);
+}
+
+.flyer-header {
+  text-align: center;
+  padding: 40px 36px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.flyer-header::before {
+  content: '';
+  position: absolute;
+  top: -60%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.flyer-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 16px;
+  border-radius: var(--shape-full, 9999px);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.05));
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  color: var(--tertiary, #FBBF24);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.flyer-header h2 {
+  font-size: clamp(24px, 4vw, 32px);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  position: relative;
+}
+
+.flyer-header h2 span {
+  background: linear-gradient(135deg, var(--tertiary, #FBBF24), #F97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.flyer-header p {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  line-height: 1.6;
+  max-width: 400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.flyer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  padding: 0 36px 28px;
+}
+
+.flyer-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--shape-sm, 8px);
+  background: var(--surface-container, #0F111F);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--on-surface);
+  transition: all 0.2s ease;
+}
+
+.flyer-item i { font-size: 20px; min-width: 24px; text-align: center; }
+
+.flyer-footer {
+  padding: 20px 36px 32px;
+  text-align: center;
+}
+
+.flyer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  border-radius: var(--shape-full, 9999px);
+  background: linear-gradient(135deg, var(--tertiary, #FBBF24), #F97316);
+  color: #1a1a2e;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.25);
+  transition: all 0.2s ease;
+  margin-bottom: 14px;
+}
+
+.flyer-btn:hover {
+  box-shadow: 0 6px 28px rgba(251, 191, 36, 0.4);
+  transform: translateY(-2px);
+}
+
+.flyer-btn i { transition: transform 0.2s ease; }
+.flyer-btn:hover i { transform: translateX(4px); }
+
+.flyer-note {
+  font-size: 12px;
+  color: var(--on-surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.flyer-note i { color: var(--tertiary, #FBBF24); }
+
+@media (max-width: 500px) {
+  .flyer-header { padding: 32px 24px 20px; }
+  .flyer-grid { padding: 0 24px 24px; gap: 6px; }
+  .flyer-item { padding: 10px 12px; font-size: 12px; }
+  .flyer-item i { font-size: 17px; min-width: 20px; }
+  .flyer-footer { padding: 16px 24px 28px; }
+  .flyer-btn { width: 100%; justify-content: center; }
+}
+</style>
+
+<script>
+(function() {
+  const shown = sessionStorage.getItem('flyer-shown');
+  if (shown) return;
+
+  const overlay = document.getElementById('flyer-overlay');
+  const closeBtn = document.getElementById('flyer-close');
+  const ctaBtn = document.getElementById('flyer-cta');
+
+  if (!overlay) return;
+
+  function dismiss() {
+    overlay.classList.add('flyer-hidden');
+    sessionStorage.setItem('flyer-shown', '1');
+  }
+
+  closeBtn?.addEventListener('click', dismiss);
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) dismiss();
+  });
+  ctaBtn?.addEventListener('click', dismiss);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') dismiss();
+  });
+})();
+</script>
