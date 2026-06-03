@@ -265,14 +265,16 @@
 
 <script>
 (function() {
-  const shown = sessionStorage.getItem('flyer-shown');
-  if (shown) return;
-
-  const overlay = document.getElementById('flyer-overlay');
-  const closeBtn = document.getElementById('flyer-close');
-  const ctaBtn = document.getElementById('flyer-cta');
-
+  var overlay = document.getElementById('flyer-overlay');
   if (!overlay) return;
+
+  if (sessionStorage.getItem('flyer-shown')) {
+    overlay.classList.add('flyer-hidden');
+    return;
+  }
+
+  var closeBtn = document.getElementById('flyer-close');
+  var ctaBtn = document.getElementById('flyer-cta');
 
   function dismiss() {
     overlay.classList.add('flyer-hidden');
