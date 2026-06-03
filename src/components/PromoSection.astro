@@ -1,0 +1,290 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="promo-section" id="promociones">
+  <div class="promo-bg">
+    <div class="promo-orb promo-orb-1"></div>
+    <div class="promo-orb promo-orb-2"></div>
+    <div class="promo-orb promo-orb-3"></div>
+    <div class="promo-grid-overlay"></div>
+  </div>
+
+  <div class="container">
+    <div class="promo-content">
+      <span class="promo-badge reveal reveal-down stagger-1">
+        <i class="fa-solid fa-tag"></i>
+        PROMOCIÓN DEL MES
+      </span>
+
+      <h2 class="reveal reveal-up stagger-2">
+        Programas para tu PC con
+        <span>descuentos exclusivos</span>
+      </h2>
+
+      <p class="promo-desc reveal reveal-up stagger-3">
+        Promociones solo por este mes en programas para tu PC:
+        Office, antivirus, Adobe Creative Cloud y más.
+        Aprovecha los mejores precios del año.
+      </p>
+
+      <div class="promo-chips reveal reveal-up stagger-4">
+        <span class="promo-chip">
+          <i class="fa-brands fa-microsoft" style="color: #00A4EF;"></i>
+          Office 2024/2021
+        </span>
+        <span class="promo-chip">
+          <i class="fa-solid fa-shield-halved" style="color: #00C853;"></i>
+          Antivirus
+        </span>
+        <span class="promo-chip">
+          <i class="fa-brands fa-adobe" style="color: #FF0000;"></i>
+          Adobe CC
+        </span>
+        <span class="promo-chip">
+          <i class="fa-solid fa-cubes" style="color: #E51050;"></i>
+          Autodesk
+        </span>
+        <span class="promo-chip">
+          <i class="fa-brands fa-windows" style="color: #00A4EF;"></i>
+          Windows
+        </span>
+        <span class="promo-chip">
+          <i class="fa-solid fa-file-invoice" style="color: #818CF8;"></i>
+          Facturación
+        </span>
+      </div>
+
+      <div class="promo-actions reveal reveal-up stagger-5">
+        <a href="/catalogo" class="promo-btn">
+          Ver ofertas disponibles
+          <i class="fa-solid fa-arrow-right"></i>
+        </a>
+        <a href="https://wa.me/50581088124?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20promociones%20de%20este%20mes" target="_blank" class="promo-wa">
+          <i class="fa-brands fa-whatsapp"></i>
+          Consultar por WhatsApp
+        </a>
+      </div>
+
+      <div class="promo-countdown reveal reveal-up stagger-6">
+        <i class="fa-regular fa-clock"></i>
+        <span>Ofertas válidas hasta fin de mes — No dejes pasar esta oportunidad</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.promo-section {
+  position: relative;
+  padding: 80px 0;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--surface-container-low) 0%, var(--background) 100%);
+}
+
+.promo-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.promo-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.4;
+  animation: orb-float 20s ease-in-out infinite;
+}
+
+.promo-orb-1 {
+  width: 500px;
+  height: 500px;
+  top: -200px;
+  left: -150px;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.15) 0%, transparent 70%);
+  animation-delay: 0s;
+}
+
+.promo-orb-2 {
+  width: 450px;
+  height: 450px;
+  bottom: -200px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.12) 0%, transparent 70%);
+  animation-delay: -7s;
+}
+
+.promo-orb-3 {
+  width: 350px;
+  height: 350px;
+  top: 30%;
+  left: 50%;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.08) 0%, transparent 70%);
+  animation-delay: -14s;
+}
+
+.promo-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(251, 191, 36, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(251, 191, 36, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.4;
+}
+
+.promo-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.promo-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: var(--shape-full);
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.15), rgba(251, 191, 36, 0.05));
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  color: var(--tertiary);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 20px;
+  animation: promo-pulse 2s ease-in-out infinite;
+}
+
+@keyframes promo-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.2); }
+  50% { box-shadow: 0 0 0 12px rgba(251, 191, 36, 0); }
+}
+
+.promo-badge i { font-size: 13px; }
+
+.promo-content h2 {
+  font-size: clamp(28px, 3.5vw, 42px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 16px;
+}
+
+.promo-content h2 span {
+  background: linear-gradient(135deg, var(--tertiary), #F97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.promo-desc {
+  font-size: 16px;
+  color: var(--on-surface-variant);
+  margin-bottom: 32px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.promo-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.promo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--shape-full);
+  background: var(--surface-container-high);
+  border: 1px solid rgba(255,255,255,0.06);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--on-surface);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.promo-chip:hover {
+  transform: translateY(-2px);
+  border-color: rgba(251, 191, 36, 0.2);
+  box-shadow: 0 4px 12px rgba(251, 191, 36, 0.1);
+}
+
+.promo-chip i { font-size: 16px; }
+
+.promo-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.promo-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 32px;
+  border-radius: var(--shape-full);
+  background: linear-gradient(135deg, var(--tertiary), #F97316);
+  color: #1a1a2e;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.3);
+  transition: all 0.2s ease;
+}
+
+.promo-btn:hover {
+  box-shadow: 0 6px 28px rgba(251, 191, 36, 0.45);
+  transform: translateY(-2px);
+}
+
+.promo-btn i { transition: transform 0.2s ease; }
+.promo-btn:hover i { transform: translateX(4px); }
+
+.promo-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: var(--shape-full);
+  background: rgba(37, 211, 102, 0.1);
+  border: 1px solid rgba(37, 211, 102, 0.2);
+  color: #25D366;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.promo-wa:hover {
+  background: rgba(37, 211, 102, 0.15);
+  transform: translateY(-2px);
+}
+
+.promo-countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--on-surface-variant);
+}
+
+.promo-countdown i { font-size: 14px; color: var(--tertiary); }
+
+@media (max-width: 900px) {
+  .promo-section { padding: 60px 0; }
+  .promo-actions { flex-direction: column; align-items: center; }
+  .promo-btn, .promo-wa { width: 100%; justify-content: center; }
+}
+</style>
