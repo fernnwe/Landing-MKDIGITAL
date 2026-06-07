@@ -1,0 +1,230 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import Asistente from "../components/Asistente.astro";
+---
+
+<BaseLayout>
+  <Navbar />
+
+  <section class="mkfarma-hero">
+    <div class="hero-bg">
+      <div class="hero-orb hero-orb-1"></div>
+      <div class="hero-orb hero-orb-2"></div>
+      <div class="hero-grid-overlay"></div>
+    </div>
+    <div class="container" style="position:relative;z-index:1;">
+      <div class="mkfarma-content">
+        <span class="badge"><i class="fa-solid fa-prescription-bottle"></i> SISTEMA PARA FARMACIAS</span>
+        <h1>MK<span>FARMA</span></h1>
+        <p class="mkfarma-desc">
+          Sistema de gestión para farmacias: control de inventario, ventas, facturación,
+          clientes y más. Fácil de usar, rápido y seguro.
+        </p>
+
+        <div class="mkfarma-features">
+          <div class="mf-item"><i class="fa-solid fa-boxes-stacked" style="color:#22D3EE;"></i> Control de inventario</div>
+          <div class="mf-item"><i class="fa-solid fa-receipt" style="color:#22D3EE;"></i> Facturación</div>
+          <div class="mf-item"><i class="fa-solid fa-users" style="color:#22D3EE;"></i> Gestión de clientes</div>
+          <div class="mf-item"><i class="fa-solid fa-chart-line" style="color:#22D3EE;"></i> Reportes</div>
+          <div class="mf-item"><i class="fa-solid fa-truck" style="color:#22D3EE;"></i> Control de proveedores</div>
+          <div class="mf-item"><i class="fa-solid fa-calendar" style="color:#22D3EE;"></i> Fechas de vencimiento</div>
+        </div>
+
+        <div class="mkfarma-actions">
+          <a href="/MKFARMA.rar" class="mkfarma-btn" download>
+            <i class="fa-solid fa-download"></i>
+            Descargar MKFARMA
+          </a>
+          <a href="https://wa.me/50581088124?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20MKFARMA" target="_blank" class="mkfarma-wa">
+            <i class="fa-brands fa-whatsapp"></i>
+            Consultar
+          </a>
+        </div>
+
+        <p class="mkfarma-note">
+          <i class="fa-solid fa-file-zipper"></i>
+          Archivo comprimido .rar — descarga, extrae y prueba el sistema
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+  <Asistente />
+</BaseLayout>
+
+<style>
+.mkfarma-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 64px;
+  overflow: hidden;
+  background: var(--background);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.5;
+  animation: orb-float 20s ease-in-out infinite;
+}
+
+.hero-orb-1 {
+  width: 600px;
+  height: 600px;
+  top: -200px;
+  left: -100px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.12) 0%, transparent 70%);
+  animation-delay: 0s;
+}
+
+.hero-orb-2 {
+  width: 500px;
+  height: 500px;
+  bottom: -150px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 70%);
+  animation-delay: -7s;
+}
+
+.hero-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+  opacity: 0.5;
+}
+
+.mkfarma-content {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.mkfarma-content .badge {
+  margin-bottom: 16px;
+  background: rgba(34, 211, 238, 0.1);
+  border-color: rgba(34, 211, 238, 0.2);
+  color: var(--secondary);
+}
+
+.mkfarma-content h1 {
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+.mkfarma-content h1 span { color: var(--secondary); }
+
+.mkfarma-desc {
+  font-size: 17px;
+  color: var(--on-surface-variant);
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.mkfarma-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 36px;
+}
+
+.mf-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--shape-full);
+  background: var(--surface-container-high);
+  border: 1px solid rgba(255,255,255,0.06);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--on-surface);
+}
+.mf-item i { font-size: 16px; }
+
+.mkfarma-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.mkfarma-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 36px;
+  border-radius: var(--shape-full);
+  background: linear-gradient(135deg, var(--secondary), #0891B2);
+  color: var(--on-secondary);
+  font-size: 16px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(34, 211, 238, 0.25);
+  transition: all 0.2s ease;
+}
+
+.mkfarma-btn:hover {
+  box-shadow: 0 6px 28px rgba(34, 211, 238, 0.4);
+  transform: translateY(-2px);
+}
+
+.mkfarma-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 28px;
+  border-radius: var(--shape-full);
+  background: rgba(37, 211, 102, 0.1);
+  border: 1px solid rgba(37, 211, 102, 0.2);
+  color: #25D366;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.mkfarma-wa:hover {
+  background: rgba(37, 211, 102, 0.15);
+  transform: translateY(-2px);
+}
+
+.mkfarma-note {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.mkfarma-note i { color: var(--secondary); }
+
+@keyframes orb-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+@media (max-width: 600px) {
+  .mkfarma-actions { flex-direction: column; align-items: center; }
+  .mkfarma-btn, .mkfarma-wa { width: 100%; justify-content: center; }
+}
+</style>
