@@ -46,10 +46,13 @@ import Asistente from "../components/Asistente.astro";
         <div class="mf-hero-visual">
           <div class="mf-visual-card">
             <div class="mf-visual-header">
-              <span class="mf-dot mf-dot-red"></span>
-              <span class="mf-dot mf-dot-yellow"></span>
-              <span class="mf-dot mf-dot-green"></span>
-              <span class="mf-visual-title">MKFARMA</span>
+              <img src="/favicon.ico" alt="" class="mf-win-icon" onerror="this.style.display='none'" />
+              <span class="mf-visual-title">MKFARMA — Gestión de Farmacias</span>
+              <span class="mf-win-controls">
+                <span class="mf-win-btn mf-win-min"><i class="fa-solid fa-minus"></i></span>
+                <span class="mf-win-btn mf-win-max"><i class="fa-solid fa-square"></i></span>
+                <span class="mf-win-btn mf-win-close"><i class="fa-solid fa-xmark"></i></span>
+              </span>
             </div>
             <div class="mf-visual-body">
               <div class="mf-visual-row">
@@ -367,28 +370,46 @@ import Asistente from "../components/Asistente.astro";
 .mf-visual-header {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 12px 16px;
-  background: rgba(255,255,255,0.03);
+  gap: 10px;
+  padding: 8px 12px;
+  background: var(--surface-container);
   border-bottom: 1px solid rgba(255,255,255,0.04);
 }
 
-.mf-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
+.mf-win-icon {
+  width: 18px;
+  height: 18px;
 }
-.mf-dot-red { background: #FF5F56; }
-.mf-dot-yellow { background: #FFBD2E; }
-.mf-dot-green { background: #27C93F; }
 
 .mf-visual-title {
-  margin-left: auto;
   font-size: 12px;
-  color: var(--on-surface-variant);
+  color: var(--on-surface);
   font-weight: 600;
-  letter-spacing: 0.05em;
+  flex: 1;
 }
+
+.mf-win-controls {
+  display: flex;
+  gap: 6px;
+}
+
+.mf-win-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-size: 11px;
+  color: var(--on-surface-variant);
+  cursor: default;
+  transition: background 0.15s;
+}
+.mf-win-btn:hover { background: rgba(255,255,255,0.1); }
+.mf-win-close:hover { background: #E81123; color: #fff; }
+
+.mf-win-max i { font-size: 10px; }
+.mf-win-min i { font-size: 12px; }
 
 .mf-visual-body {
   padding: 28px;
