@@ -28,11 +28,18 @@ import CurrencyConverter from "./CurrencyConverter.astro";
       </div>
 
       <div class="licencias-strip reveal reveal-up stagger-5">
-        {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map(n => (
-          <div class="licencia-thumb">
-            <img src={`/licencias/${n}.jpg`} alt={`Licencia Original ${n}`} loading="lazy" />
-          </div>
-        ))}
+        <div class="licencias-track">
+          {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map(n => (
+            <div class="licencia-thumb">
+              <img src={`/licencias/${n}.jpg`} alt={`Licencia Original ${n}`} loading="lazy" />
+            </div>
+          ))}
+          {[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map(n => (
+            <div class="licencia-thumb">
+              <img src={`/licencias/${n}.jpg`} alt={`Licencia Original ${n}`} loading="lazy" />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </div>
@@ -250,15 +257,28 @@ document.addEventListener("DOMContentLoaded", function() {
 .licencias-badge i { font-size: 14px; }
 
 .licencias-strip {
-  display: flex;
-  gap: 10px;
   margin-top: 24px;
   padding-bottom: 8px;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: none;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 3%, black 97%, transparent 100%);
 }
-.licencias-strip::-webkit-scrollbar { display: none; }
+
+.licencias-track {
+  display: flex;
+  gap: 10px;
+  width: max-content;
+  animation: licencia-scroll 40s linear infinite;
+}
+
+.licencias-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes licencia-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-170px * 15)); }
+}
 
 .licencia-thumb {
   flex: 0 0 auto;
