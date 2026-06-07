@@ -9,6 +9,27 @@ interface Props {
 
 const { producto: p } = Astro.props;
 const cat = categorias.find(c => c.id === p.categoria)!;
+const TASA = 37;
+
+function parsePrecio(precio: string): number | null {
+  const soloNum = precio.replace(/[^0-9,]/g, '').replace(/,/g, '');
+  const n = parseInt(soloNum, 10);
+  return isNaN(n) ? null : n;
+}
+
+function precioUSD(precio: string): string | null {
+  const n = parsePrecio(precio);
+  if (n === null) return null;
+  return '$' + (n / TASA).toFixed(2);
+}
+
+function precioUSDSimple(n: number): string {
+  return '$' + (n / TASA).toFixed(2);
+}
+
+const pCordoba = p.precio;
+const pDolar = precioUSD(p.precio);
+const pOldNum = p.old ? parsePrecio(p.old) : null;
 ---
 
 <div class="product-card" data-categoria={p.categoria} data-nombre={p.nombre.toLowerCase()}>
@@ -34,8 +55,16 @@ const cat = categorias.find(c => c.id === p.categoria)!;
 
     <div class="card-footer">
       <div class="card-pricing">
-        {p.old && <span class="price-old">{p.old}</span>}
-        <span class="price-current">{p.precio}</span>
+        {p.old && (
+          <div class="price-old-row">
+            <span class="price-old">{p.old}</span>
+            {pOldNum !== null && <span class="price-old-usd">{precioUSDSimple(pOldNum)}</span>}
+          </div>
+        )}
+        <div class="price-current-row">
+          <span class="price-current">{pCordoba}</span>
+          {pDolar && <span class="price-usd">{pDolar}</span>}
+        </div>
       </div>
 
       <div class="card-actions">
@@ -179,25 +208,52 @@ const cat = categorias.find(c => c.id === p.categoria)!;
 
 .card-pricing {
   display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.price-old-row {
+  display: flex;
   align-items: baseline;
-  gap: 8px;
+  gap: 6px;
 }
 
 .price-old {
-  font-size: 13px;
+  font-size: 12px;
   color: var(--on-surface-variant);
   text-decoration: line-through;
   opacity: 0.5;
 }
 
+.price-old-usd {
+  font-size: 10px;
+  color: var(--on-surface-variant);
+  opacity: 0.4;
+}
+
+.price-current-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
 .price-current {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 800;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1.1;
+}
+
+.price-usd {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--on-surface-variant);
+  opacity: 0.7;
+  white-space: nowrap;
 }
 
 .card-actions {
