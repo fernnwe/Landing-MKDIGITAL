@@ -2,6 +2,7 @@
 import { Icon } from "astro-icon/components";
 import { productos, categorias } from "../data/productos";
 import ProductCard from "./ProductCard.astro";
+import CurrencyConverter from "./CurrencyConverter.astro";
 ---
 
 <section class="catalogo" id="catalogo">
@@ -21,6 +22,10 @@ import ProductCard from "./ProductCard.astro";
       <p class="reveal reveal-up stagger-3">
         Todos los programas que instalamos a precio justo, con soporte remoto incluido
       </p>
+      <div class="licencias-badge reveal reveal-up stagger-4">
+        <i class="fa-solid fa-check-circle"></i>
+        Licencias Originales
+      </div>
     </div>
   </div>
 
@@ -45,6 +50,8 @@ import ProductCard from "./ProductCard.astro";
           ))}
         </div>
       </div>
+
+      <CurrencyConverter />
 
       {categorias.map(cat => {
         const items = productos.filter(p => p.categoria === cat.id);
@@ -217,6 +224,22 @@ document.addEventListener("DOMContentLoaded", function() {
   max-width: 480px;
   margin: 0 auto;
 }
+
+.licencias-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  padding: 8px 22px;
+  border-radius: var(--shape-full);
+  background: linear-gradient(135deg, rgba(0, 200, 83, 0.12), rgba(0, 200, 83, 0.04));
+  border: 1px solid rgba(0, 200, 83, 0.2);
+  color: #00C853;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.licencias-badge i { font-size: 14px; }
 
 /* Body */
 .catalogo-body {

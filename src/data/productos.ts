@@ -28,6 +28,7 @@ export const categorias: Categoria[] = [
   { id: "seguridad", nombre: "Seguridad", icono: "fa-solid fa-shield-halved", iconoId: "mdi:shield-check", color: "#00C853", bgGradient: "linear-gradient(135deg, #00C853 0%, #009624 100%)" },
   { id: "facturacion", nombre: "Facturación", icono: "fa-solid fa-calculator", iconoId: "mdi:receipt-text", color: "#818CF8", bgGradient: "linear-gradient(135deg, #818CF8 0%, #6366F1 100%)" },
   { id: "restaurantes", nombre: "Restaurantes", icono: "fa-solid fa-utensils", iconoId: "mdi:silverware-variant", color: "#F59E0B", bgGradient: "linear-gradient(135deg, #F59E0B 0%, #D97706 100%)" },
+  { id: "farmacias", nombre: "Farmacias", icono: "fa-solid fa-prescription-bottle", iconoId: "mdi:medical-bag", color: "#22D3EE", bgGradient: "linear-gradient(135deg, #22D3EE 0%, #0891B2 100%)" },
 ];
 
 export const productos: Producto[] = [
@@ -249,5 +250,16 @@ export const productos: Producto[] = [
     badge: "own",
     descripcion: "Administración completa de restaurantes: pedidos, facturación, inventario y reportes",
     url: "https://app.mkdigitalnic.com/"
+  },
+  {
+    id: "mkfarma",
+    nombre: "MKFARMA — Sistema para Farmacias",
+    precio: "Gratis",
+    categoria: "farmacias",
+    iconoId: "mdi:medical-bag",
+    iconoColor: "#22D3EE",
+    badge: "own",
+    descripcion: "Control de inventario, ventas, facturación, clientes, proveedores y fechas de vencimiento",
+    url: "/mkfarma"
   },
 ];
