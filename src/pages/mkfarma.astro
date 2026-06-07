@@ -43,6 +43,11 @@ import Asistente from "../components/Asistente.astro";
           </a>
         </div>
 
+        <div class="mkfarma-platform">
+          <i class="fa-brands fa-windows"></i>
+          Disponible para Windows
+        </div>
+
         <p class="mkfarma-note">
           <i class="fa-solid fa-file-zipper"></i>
           Archivo comprimido .rar — descarga, extrae y prueba el sistema
@@ -206,6 +211,21 @@ import Asistente from "../components/Asistente.astro";
   background: rgba(37, 211, 102, 0.15);
   transform: translateY(-2px);
 }
+
+.mkfarma-platform {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: var(--shape-full);
+  background: rgba(0, 164, 239, 0.1);
+  border: 1px solid rgba(0, 164, 239, 0.2);
+  color: #00A4EF;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.mkfarma-platform i { font-size: 16px; }
 
 .mkfarma-note {
   font-size: 13px;

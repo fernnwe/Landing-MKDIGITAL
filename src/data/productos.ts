@@ -34,7 +34,7 @@ export const categorias: Categoria[] = [
 export const productos: Producto[] = [
   {
     id: "office2024",
-    nombre: "Office 2024 Professional Plus",
+    nombre: "Office 2024 full permanente",
     precio: "C$400",
     old: "C$500",
     off: "20%",
@@ -46,7 +46,7 @@ export const productos: Producto[] = [
   },
   {
     id: "office2021",
-    nombre: "Office 2021 Professional Plus",
+    nombre: "Office 2021 full permanente",
     precio: "C$350",
     old: "C$450",
     off: "22%",
@@ -58,8 +58,8 @@ export const productos: Producto[] = [
   {
     id: "win10",
     nombre: "Windows 10 Pro",
-    precio: "C$470",
-    old: "C$650",
+    precio: "C$925",
+    old: "C$1,090",
     off: "20%",
     categoria: "microsoft",
     iconoId: "mdi:microsoft-windows",
@@ -69,8 +69,8 @@ export const productos: Producto[] = [
   {
     id: "win11",
     nombre: "Windows 11 Pro",
-    precio: "C$700",
-    old: "C$920",
+    precio: "C$925",
+    old: "C$1,340",
     off: "20%",
     categoria: "microsoft",
     iconoId: "mdi:microsoft-windows",
@@ -113,7 +113,7 @@ export const productos: Producto[] = [
   {
     id: "acrobat",
     nombre: "Adobe Acrobat Pro 2020 DC",
-    precio: "C$1,036",
+    precio: "C$1,200",
     old: "C$1,480",
     off: "30%",
     categoria: "adobe",
@@ -135,7 +135,7 @@ export const productos: Producto[] = [
   },
   {
     id: "coreldraw",
-    nombre: "CorelDRAW 2025",
+    nombre: "CorelDRAW 2025 o full",
     precio: "C$500",
     categoria: "adobe",
     iconoId: "simple-icons:coreldraw",
@@ -144,7 +144,7 @@ export const productos: Producto[] = [
   },
   {
     id: "autocad",
-    nombre: "AutoCAD 2026",
+    nombre: "AutoCAD 2026 full",
     precio: "C$500",
     old: "C$650",
     off: "23%",
@@ -156,7 +156,7 @@ export const productos: Producto[] = [
   },
   {
     id: "revit",
-    nombre: "Revit 2026",
+    nombre: "Revit 2026 full",
     precio: "C$500",
     old: "C$650",
     off: "23%",
@@ -187,7 +187,7 @@ export const productos: Producto[] = [
   {
     id: "eset",
     nombre: "ESET NOD32",
-    precio: "C$1,480",
+    precio: "C$1,295",
     categoria: "seguridad",
     iconoId: "mdi:shield-check",
     iconoColor: "#00A64E",
@@ -197,7 +197,7 @@ export const productos: Producto[] = [
   {
     id: "kaspersky",
     nombre: "Kaspersky AntiVirus",
-    precio: "C$1,295",
+    precio: "C$1,517",
     categoria: "seguridad",
     iconoId: "simple-icons:kaspersky",
     iconoColor: "#00A65E",
