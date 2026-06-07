@@ -43,8 +43,27 @@ import Asistente from "../components/Asistente.astro";
           </div>
         </div>
 
-        <div class="mf-hero-visual">
-          <img src="/mkfarma.png" alt="Captura de MKFARMA" class="mf-screenshot" />
+        <div class="mf-hero-visual" id="mkfarma-carousel">
+          <div class="mf-carousel-track">
+            <img src="/mkfarma.png" alt="MKFARMA" class="mf-carousel-slide active" data-index="0" />
+            <img src="/mkfarma/1.png" alt="MKFARMA" class="mf-carousel-slide" data-index="1" />
+            <img src="/mkfarma/2.png" alt="MKFARMA" class="mf-carousel-slide" data-index="2" />
+            <img src="/mkfarma/3.png" alt="MKFARMA" class="mf-carousel-slide" data-index="3" />
+            <img src="/mkfarma/4.png" alt="MKFARMA" class="mf-carousel-slide" data-index="4" />
+          </div>
+          <div class="mf-carousel-dots" id="mkfarma-dots">
+            <span class="mf-dot active" data-slide="0"></span>
+            <span class="mf-dot" data-slide="1"></span>
+            <span class="mf-dot" data-slide="2"></span>
+            <span class="mf-dot" data-slide="3"></span>
+            <span class="mf-dot" data-slide="4"></span>
+          </div>
+          <button class="mf-carousel-btn mf-carousel-prev" id="mkfarma-prev" aria-label="Anterior">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="mf-carousel-btn mf-carousel-next" id="mkfarma-next" aria-label="Siguiente">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
       </div>
     </div>
@@ -175,6 +194,38 @@ import Asistente from "../components/Asistente.astro";
   <Footer />
   <Asistente />
 </BaseLayout>
+
+<script>
+(() => {
+  const slides = document.querySelectorAll("#mkfarma-carousel .mf-carousel-slide");
+  const dots = document.querySelectorAll("#mkfarma-dots .mf-dot");
+  const prev = document.getElementById("mkfarma-prev");
+  const next = document.getElementById("mkfarma-next");
+  let current = 0;
+  let interval;
+
+  const goTo = (i) => {
+    slides.forEach((s) => s.classList.remove("active"));
+    dots.forEach((d) => d.classList.remove("active"));
+    current = (i + slides.length) % slides.length;
+    slides[current].classList.add("active");
+    dots[current].classList.add("active");
+  };
+
+  const restartInterval = () => {
+    clearInterval(interval);
+    interval = setInterval(() => goTo(current + 1), 5000);
+  };
+
+  dots.forEach((d) => {
+    d.addEventListener("click", () => { goTo(parseInt(d.dataset.slide)); restartInterval(); });
+  });
+  if (prev) prev.addEventListener("click", () => { goTo(current - 1); restartInterval(); });
+  if (next) next.addEventListener("click", () => { goTo(current + 1); restartInterval(); });
+
+  restartInterval();
+})();
+</script>
 
 <style>
 /* ====== HERO ====== */
@@ -328,60 +379,88 @@ import Asistente from "../components/Asistente.astro";
 }
 .mf-platform-badge i { font-size: 16px; }
 
-/* Screenshot */
-.mf-hero-visual { position: relative; }
-
-.mf-screenshot {
-  width: 100%;
+/* ====== CAROUSEL ====== */
+.mf-hero-visual {
+  position: relative;
   border-radius: var(--shape-lg);
+  overflow: hidden;
   box-shadow: 0 20px 60px rgba(0,0,0,0.4);
   border: 1px solid rgba(34, 211, 238, 0.12);
-}
-
-.mf-visual-body {
-  padding: 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.mf-visual-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 8px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-}
-
-.mf-vlabel {
-  font-size: 13px;
-  color: var(--on-surface-variant);
-}
-
-.mf-vvalue {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--secondary);
-}
-
-.mf-visual-bar {
-  height: 8px;
-  border-radius: var(--shape-full);
   background: var(--surface-container);
+}
+
+.mf-carousel-track {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
   overflow: hidden;
 }
 
-.mf-bar-fill {
+.mf-carousel-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100%;
-  border-radius: var(--shape-full);
-  background: linear-gradient(90deg, var(--secondary), #0891B2);
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.mf-carousel-slide.active {
+  opacity: 1;
+  position: relative;
 }
 
-.mf-bar-label {
-  font-size: 11px;
-  color: var(--on-surface-variant);
-  text-align: right;
+.mf-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: var(--surface-container);
 }
+
+.mf-carousel-dots .mf-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--on-surface-variant);
+  opacity: 0.3;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.mf-carousel-dots .mf-dot.active {
+  opacity: 1;
+  background: var(--secondary);
+  width: 24px;
+  border-radius: 4px;
+}
+
+.mf-carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  z-index: 2;
+  opacity: 0;
+}
+.mf-hero-visual:hover .mf-carousel-btn { opacity: 1; }
+.mf-carousel-btn:hover {
+  background: rgba(34, 211, 238, 0.2);
+  border-color: var(--secondary);
+}
+
+.mf-carousel-prev { left: 12px; }
+.mf-carousel-next { right: 12px; }
 
 /* ====== FEATURES ====== */
 .mf-features {
