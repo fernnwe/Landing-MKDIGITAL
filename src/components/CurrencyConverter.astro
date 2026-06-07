@@ -8,7 +8,7 @@
     <i class="fa-solid fa-chevron-down" id="converter-chevron"></i>
   </div>
 
-  <div class="converter-body" id="converter-body">
+  <div class="converter-body open" id="converter-body">
     <p class="converter-rate"><i class="fa-solid fa-info-circle"></i> 1 USD = C$37</p>
 
     <div class="converter-row">
@@ -38,41 +38,45 @@
   </div>
 </div>
 
-<script>
-function toggleConverter() {
-  var body = document.getElementById('converter-body');
-  var chevron = document.getElementById('converter-chevron');
-  var isOpen = body.classList.toggle('open');
-  chevron.style.transform = isOpen ? 'rotate(180deg)' : '';
-}
+<script is:inline>
+(function() {
+  var tasa = 37;
+  var inputC = document.getElementById('input-cordoba');
+  var inputD = document.getElementById('input-dolar');
 
-var tasa = 37;
+  window.toggleConverter = function() {
+    var body = document.getElementById('converter-body');
+    var chevron = document.getElementById('converter-chevron');
+    if (!body) return;
+    var isOpen = body.classList.toggle('open');
+    if (chevron) chevron.style.transform = isOpen ? 'rotate(180deg)' : '';
+  };
 
-var inputC = document.getElementById('input-cordoba');
-var inputD = document.getElementById('input-dolar');
+  function updateFromC() {
+    var val = parseFloat(inputC.value) || 0;
+    inputD.value = (val / tasa).toFixed(2);
+  }
 
-function updateFromC() {
-  var val = parseFloat(inputC.value) || 0;
-  inputD.value = (val / tasa).toFixed(2);
-}
+  function updateFromD() {
+    var val = parseFloat(inputD.value) || 0;
+    inputC.value = Math.round(val * tasa);
+  }
 
-function updateFromD() {
-  var val = parseFloat(inputD.value) || 0;
-  inputC.value = Math.round(val * tasa);
-}
-
-inputC.addEventListener('input', updateFromC);
-inputD.addEventListener('input', updateFromD);
-
-document.querySelectorAll('.quick-btn').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    var raw = btn.dataset.cordoba;
-    var val = parseInt(raw.replace(/[^0-9]/g, ''), 10);
-    inputC.value = val;
+  if (inputC && inputD) {
+    inputC.addEventListener('input', updateFromC);
+    inputD.addEventListener('input', updateFromD);
     updateFromC();
-    inputC.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+
+  document.querySelectorAll('.quick-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var raw = btn.dataset.cordoba;
+      var val = parseInt(raw.replace(/[^0-9]/g, ''), 10);
+      inputC.value = val;
+      updateFromC();
+    });
   });
-});
+})();
 </script>
 
 <style>
