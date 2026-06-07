@@ -101,25 +101,6 @@ const steps = [
     </div>
   </div>
 
-  <!-- Video Tutorial -->
-  <div class="mksoft-tutorial">
-    <div class="container">
-      <div class="section-label reveal reveal-up">Video Tutorial</div>
-      <h2 class="section-title reveal reveal-up stagger-2">
-        Aprende a instalar <span>MKSOFT</span>
-      </h2>
-      <p class="section-desc reveal reveal-up stagger-3">
-        Mira este video guía para configurar tu restaurante paso a paso.
-      </p>
-      <div class="tutorial-video-wrapper reveal reveal-up stagger-4">
-        <video controls preload="metadata">
-          <source src="/mksoft-tutorial.mp4" type="video/mp4" />
-          Tu navegador no soporta la reproducción de video.
-        </video>
-      </div>
-    </div>
-  </div>
-
   <!-- How it works -->
   <div class="mksoft-steps">
     <div class="container">
@@ -468,29 +449,6 @@ const steps = [
 }
 @media (max-width: 600px) {
   .features-grid { grid-template-columns: 1fr; }
-}
-
-/* Tutorial */
-.mksoft-tutorial {
-  position: relative;
-  z-index: 1;
-  padding: 80px 0;
-}
-
-.tutorial-video-wrapper {
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: var(--shape-lg);
-  overflow: hidden;
-  box-shadow: 0 12px 48px rgba(0,0,0,0.3);
-  border: 1px solid rgba(245, 158, 11, 0.1);
-}
-
-.tutorial-video-wrapper video {
-  width: 100%;
-  display: block;
-  aspect-ratio: 16 / 9;
-  background: #000;
 }
 
 /* Steps */
