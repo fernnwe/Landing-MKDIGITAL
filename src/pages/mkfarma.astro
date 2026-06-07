@@ -8,49 +8,190 @@ import Asistente from "../components/Asistente.astro";
 <BaseLayout>
   <Navbar />
 
-  <section class="mkfarma-hero">
-    <div class="hero-bg">
-      <div class="hero-orb hero-orb-1"></div>
-      <div class="hero-orb hero-orb-2"></div>
-      <div class="hero-grid-overlay"></div>
+  <!-- HERO -->
+  <section class="mf-hero">
+    <div class="mf-hero-bg">
+      <div class="mf-orb mf-orb-1"></div>
+      <div class="mf-orb mf-orb-2"></div>
+      <div class="mf-orb mf-orb-3"></div>
+      <div class="mf-grid"></div>
     </div>
-    <div class="container" style="position:relative;z-index:1;">
-      <div class="mkfarma-content">
-        <span class="badge"><i class="fa-solid fa-prescription-bottle"></i> SISTEMA PARA FARMACIAS</span>
-        <h1>MK<span>FARMA</span></h1>
-        <p class="mkfarma-desc">
-          Sistema de gestión para farmacias: control de inventario, ventas, facturación,
-          clientes y más. Fácil de usar, rápido y seguro.
-        </p>
+    <div class="container">
+      <div class="mf-hero-grid">
+        <div class="mf-hero-content">
+          <span class="badge"><i class="fa-solid fa-prescription-bottle"></i> SISTEMA PARA FARMACIAS</span>
+          <h1>MK<span>FARMA</span></h1>
+          <p class="mf-hero-desc">
+            Gestión inteligente para tu farmacia. Control de inventario, ventas,
+            facturación, clientes y proveedores en un solo lugar. Rápido, seguro y fácil de usar.
+          </p>
 
-        <div class="mkfarma-features">
-          <div class="mf-item"><i class="fa-solid fa-boxes-stacked" style="color:#22D3EE;"></i> Control de inventario</div>
-          <div class="mf-item"><i class="fa-solid fa-receipt" style="color:#22D3EE;"></i> Facturación</div>
-          <div class="mf-item"><i class="fa-solid fa-users" style="color:#22D3EE;"></i> Gestión de clientes</div>
-          <div class="mf-item"><i class="fa-solid fa-chart-line" style="color:#22D3EE;"></i> Reportes</div>
-          <div class="mf-item"><i class="fa-solid fa-truck" style="color:#22D3EE;"></i> Control de proveedores</div>
-          <div class="mf-item"><i class="fa-solid fa-calendar" style="color:#22D3EE;"></i> Fechas de vencimiento</div>
+          <div class="mf-hero-actions">
+            <a href="/MKFARMA_v2.rar" class="mf-btn-primary" download>
+              <i class="fa-solid fa-download"></i>
+              Descargar gratis
+            </a>
+            <a href="https://wa.me/50581088124?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20MKFARMA" target="_blank" class="mf-btn-secondary">
+              <i class="fa-brands fa-whatsapp"></i>
+              Consultar
+            </a>
+          </div>
+
+          <div class="mf-platform-badge">
+            <i class="fa-brands fa-windows"></i>
+            Disponible para Windows
+          </div>
         </div>
 
-        <div class="mkfarma-actions">
-          <a href="/MKFARMA_v2.rar" class="mkfarma-btn" download>
-            <i class="fa-solid fa-download"></i>
-            Descargar MKFARMA
-          </a>
-          <a href="https://wa.me/50581088124?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20MKFARMA" target="_blank" class="mkfarma-wa">
-            <i class="fa-brands fa-whatsapp"></i>
-            Consultar
-          </a>
+        <div class="mf-hero-visual">
+          <div class="mf-visual-card">
+            <div class="mf-visual-header">
+              <span class="mf-dot mf-dot-red"></span>
+              <span class="mf-dot mf-dot-yellow"></span>
+              <span class="mf-dot mf-dot-green"></span>
+              <span class="mf-visual-title">MKFARMA</span>
+            </div>
+            <div class="mf-visual-body">
+              <div class="mf-visual-row">
+                <span class="mf-vlabel">Ventas hoy</span>
+                <span class="mf-vvalue">C$12,540</span>
+              </div>
+              <div class="mf-visual-row">
+                <span class="mf-vlabel">Productos</span>
+                <span class="mf-vvalue">1,284</span>
+              </div>
+              <div class="mf-visual-row">
+                <span class="mf-vlabel">Clientes</span>
+                <span class="mf-vvalue">340</span>
+              </div>
+              <div class="mf-visual-bar">
+                <div class="mf-bar-fill" style="width: 73%;"></div>
+              </div>
+              <span class="mf-bar-label">Inventario 73%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="mf-features">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge">FUNCIONALIDADES</span>
+        <h2>Todo lo que tu farmacia necesita</h2>
+        <p>Administra cada aspecto de tu negocio con herramientas diseñadas para farmacias</p>
+      </div>
+
+      <div class="mf-features-grid">
+        <div class="mf-feature-card">
+          <div class="mf-ficon" style="background: rgba(34, 211, 238, 0.1); color: #22D3EE;">
+            <i class="fa-solid fa-boxes-stacked"></i>
+          </div>
+          <h3>Control de inventario</h3>
+          <p>Gestiona tu stock con alertas de bajo inventario y control de lotes.</p>
         </div>
 
-        <div class="mkfarma-platform">
-          <i class="fa-brands fa-windows"></i>
-          Disponible para Windows
+        <div class="mf-feature-card">
+          <div class="mf-ficon" style="background: rgba(129, 140, 248, 0.1); color: #818CF8;">
+            <i class="fa-solid fa-receipt"></i>
+          </div>
+          <h3>Facturación</h3>
+          <p>Facturas electrónicas, tickets y reportes de ventas al instante.</p>
         </div>
 
-        <p class="mkfarma-note">
-          <i class="fa-solid fa-file-zipper"></i>
-          Archivo comprimido .rar — descarga, extrae y prueba el sistema
+        <div class="mf-feature-card">
+          <div class="mf-ficon" style="background: rgba(0, 200, 83, 0.1); color: #00C853;">
+            <i class="fa-solid fa-users"></i>
+          </div>
+          <h3>Gestión de clientes</h3>
+          <p>Historial de compras, crédito y datos de cada cliente registrado.</p>
+        </div>
+
+        <div class="mf-feature-card">
+          <div class="mf-ficon" style="background: rgba(251, 191, 36, 0.1); color: #FBBF24;">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <h3>Reportes</h3>
+          <p>Informes de ventas, productos más vendidos y rentabilidad.</p>
+        </div>
+
+        <div class="mf-feature-card">
+          <div class="mf-ficon" style="background: rgba(244, 63, 94, 0.1); color: #F43F5E;">
+            <i class="fa-solid fa-truck"></i>
+          </div>
+          <h3>Control de proveedores</h3>
+          <p>Administra pedidos, precios de compra y datos de tus proveedores.</p>
+        </div>
+
+        <div class="mf-feature-card">
+          <div class="mf-ficon" style="background: rgba(34, 211, 238, 0.1); color: #22D3EE;">
+            <i class="fa-solid fa-calendar"></i>
+          </div>
+          <h3>Fechas de vencimiento</h3>
+          <p>Alertas automáticas de productos próximos a vencer.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="mf-benefits">
+    <div class="container">
+      <div class="mf-benefits-grid">
+        <div class="mf-benefit-card">
+          <div class="mf-bicon"><i class="fa-solid fa-bolt"></i></div>
+          <h3>Rápido</h3>
+          <p>Interfaz ligera y fluida, optimizada para el día a día de tu farmacia.</p>
+        </div>
+        <div class="mf-benefit-card">
+          <div class="mf-bicon"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Seguro</h3>
+          <p>Tus datos protegidos con respaldo automático y cifrado.</p>
+        </div>
+        <div class="mf-benefit-card">
+          <div class="mf-bicon"><i class="fa-solid fa-hand"></i></div>
+          <h3>Fácil de usar</h3>
+          <p>Sin complicaciones. En minutos tú y tu equipo estarán operando.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOWNLOAD -->
+  <section class="mf-download">
+    <div class="container">
+      <div class="mf-download-card">
+        <div class="section-header">
+          <span class="badge">DESCARGA</span>
+          <h2>Prueba MKFARMA gratis</h2>
+          <p>Descarga, extrae y ejecuta el sistema. Sin registro, sin límite de tiempo.</p>
+        </div>
+
+        <div class="mf-download-info">
+          <div class="mf-dl-item">
+            <i class="fa-solid fa-file-zipper"></i>
+            <span>Archivo .rar — 13 MB</span>
+          </div>
+          <div class="mf-dl-item">
+            <i class="fa-brands fa-windows"></i>
+            <span>Windows 10 / 11</span>
+          </div>
+          <div class="mf-dl-item">
+            <i class="fa-solid fa-microchip"></i>
+            <span>4 GB RAM mínimo</span>
+          </div>
+        </div>
+
+        <a href="/MKFARMA_v2.rar" class="mf-btn-primary mf-btn-large" download>
+          <i class="fa-solid fa-download"></i>
+          Descargar MKFARMA
+        </a>
+
+        <p class="mf-dl-help">
+          ¿Necesitas ayuda con la instalación?
+          <a href="https://wa.me/50581088124?text=Hola%2C%20necesito%20ayuda%20para%20instalar%20MKFARMA" target="_blank">Contáctanos por WhatsApp</a>
         </p>
       </div>
     </div>
@@ -61,7 +202,8 @@ import Asistente from "../components/Asistente.astro";
 </BaseLayout>
 
 <style>
-.mkfarma-hero {
+/* ====== HERO ====== */
+.mf-hero {
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -71,108 +213,91 @@ import Asistente from "../components/Asistente.astro";
   background: var(--background);
 }
 
-.hero-bg {
+.mf-hero-bg {
   position: absolute;
   inset: 0;
   overflow: hidden;
   pointer-events: none;
 }
 
-.hero-orb {
+.mf-orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.5;
-  animation: orb-float 20s ease-in-out infinite;
+  filter: blur(100px);
+  opacity: 0.4;
+  animation: mf-float 20s ease-in-out infinite;
 }
-
-.hero-orb-1 {
-  width: 600px;
-  height: 600px;
-  top: -200px;
-  left: -100px;
+.mf-orb-1 {
+  width: 550px; height: 550px;
+  top: -200px; left: -100px;
   background: radial-gradient(circle, rgba(34, 211, 238, 0.12) 0%, transparent 70%);
-  animation-delay: 0s;
 }
-
-.hero-orb-2 {
-  width: 500px;
-  height: 500px;
-  bottom: -150px;
-  right: -100px;
-  background: radial-gradient(circle, rgba(34, 211, 238, 0.08) 0%, transparent 70%);
+.mf-orb-2 {
+  width: 450px; height: 450px;
+  bottom: -200px; right: -80px;
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.1) 0%, transparent 70%);
   animation-delay: -7s;
 }
+.mf-orb-3 {
+  width: 350px; height: 350px;
+  top: 40%; left: 50%;
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.06) 0%, transparent 70%);
+  animation-delay: -14s;
+}
 
-.hero-grid-overlay {
+.mf-grid {
   position: absolute;
   inset: 0;
   background-image:
     linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
   background-size: 64px 64px;
-  opacity: 0.5;
+  opacity: 0.4;
 }
 
-.mkfarma-content {
-  text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
+@keyframes mf-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -30px) scale(1.05); }
+  66% { transform: translate(-20px, 20px) scale(0.95); }
 }
 
-.mkfarma-content .badge {
-  margin-bottom: 16px;
-  background: rgba(34, 211, 238, 0.1);
-  border-color: rgba(34, 211, 238, 0.2);
-  color: var(--secondary);
+.mf-hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 64px;
+  align-items: center;
+  padding: 48px 0;
 }
 
-.mkfarma-content h1 {
-  font-size: clamp(42px, 6vw, 72px);
+.mf-hero-content .badge { margin-bottom: 16px; }
+
+.mf-hero-content h1 {
+  font-size: clamp(42px, 5vw, 64px);
   font-weight: 800;
   letter-spacing: -0.03em;
   margin-bottom: 16px;
+  line-height: 1.05;
 }
-.mkfarma-content h1 span { color: var(--secondary); }
+.mf-hero-content h1 span { color: var(--secondary); }
 
-.mkfarma-desc {
+.mf-hero-desc {
   font-size: 17px;
   color: var(--on-surface-variant);
   line-height: 1.7;
-  margin-bottom: 36px;
+  margin-bottom: 32px;
+  max-width: 500px;
 }
 
-.mkfarma-features {
+.mf-hero-actions {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 36px;
-}
-
-.mf-item {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 18px;
-  border-radius: var(--shape-full);
-  background: var(--surface-container-high);
-  border: 1px solid rgba(255,255,255,0.06);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--on-surface);
-}
-.mf-item i { font-size: 16px; }
-
-.mkfarma-actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
   gap: 12px;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
-.mkfarma-btn {
+.mf-btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 10px;
@@ -185,14 +310,16 @@ import Asistente from "../components/Asistente.astro";
   text-decoration: none;
   box-shadow: 0 4px 20px rgba(34, 211, 238, 0.25);
   transition: all 0.2s ease;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family);
 }
-
-.mkfarma-btn:hover {
+.mf-btn-primary:hover {
   box-shadow: 0 6px 28px rgba(34, 211, 238, 0.4);
   transform: translateY(-2px);
 }
 
-.mkfarma-wa {
+.mf-btn-secondary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -205,14 +332,14 @@ import Asistente from "../components/Asistente.astro";
   font-weight: 600;
   text-decoration: none;
   transition: all 0.2s ease;
+  font-family: var(--font-family);
 }
-
-.mkfarma-wa:hover {
+.mf-btn-secondary:hover {
   background: rgba(37, 211, 102, 0.15);
   transform: translateY(-2px);
 }
 
-.mkfarma-platform {
+.mf-platform-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -223,28 +350,273 @@ import Asistente from "../components/Asistente.astro";
   color: #00A4EF;
   font-size: 13px;
   font-weight: 600;
-  margin-bottom: 16px;
 }
-.mkfarma-platform i { font-size: 16px; }
+.mf-platform-badge i { font-size: 16px; }
 
-.mkfarma-note {
+/* Visual card (mockup) */
+.mf-hero-visual { position: relative; }
+
+.mf-visual-card {
+  background: var(--surface-container-high);
+  border-radius: var(--shape-lg);
+  border: 1px solid rgba(34, 211, 238, 0.1);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+.mf-visual-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.03);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.mf-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.mf-dot-red { background: #FF5F56; }
+.mf-dot-yellow { background: #FFBD2E; }
+.mf-dot-green { background: #27C93F; }
+
+.mf-visual-title {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--on-surface-variant);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.mf-visual-body {
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mf-visual-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.mf-vlabel {
   font-size: 13px;
   color: var(--on-surface-variant);
+}
+
+.mf-vvalue {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.mf-visual-bar {
+  height: 8px;
+  border-radius: var(--shape-full);
+  background: var(--surface-container);
+  overflow: hidden;
+}
+
+.mf-bar-fill {
+  height: 100%;
+  border-radius: var(--shape-full);
+  background: linear-gradient(90deg, var(--secondary), #0891B2);
+}
+
+.mf-bar-label {
+  font-size: 11px;
+  color: var(--on-surface-variant);
+  text-align: right;
+}
+
+/* ====== FEATURES ====== */
+.mf-features {
+  padding: 96px 0;
+  background: var(--surface-container);
+}
+
+.mf-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.mf-feature-card {
+  background: var(--surface-container-high);
+  border-radius: var(--shape-lg);
+  padding: 32px 24px;
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: all 0.3s ease;
+}
+
+.mf-feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(34, 211, 238, 0.08);
+  border-color: rgba(34, 211, 238, 0.1);
+}
+
+.mf-ficon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--shape-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  font-size: 22px;
+  margin-bottom: 16px;
 }
-.mkfarma-note i { color: var(--secondary); }
 
-@keyframes orb-float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(30px, -30px) scale(1.05); }
-  66% { transform: translate(-20px, 20px) scale(0.95); }
+.mf-feature-card h3 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--on-surface);
+}
+
+.mf-feature-card p {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  line-height: 1.5;
+}
+
+/* ====== BENEFITS ====== */
+.mf-benefits {
+  padding: 80px 0;
+  background: var(--background);
+}
+
+.mf-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.mf-benefit-card {
+  text-align: center;
+  padding: 40px 24px;
+  border-radius: var(--shape-lg);
+  background: var(--surface-container-high);
+  border: 1px solid rgba(34, 211, 238, 0.06);
+  transition: all 0.3s ease;
+}
+
+.mf-benefit-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(34, 211, 238, 0.06);
+}
+
+.mf-bicon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: rgba(34, 211, 238, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: var(--secondary);
+}
+
+.mf-benefit-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--on-surface);
+}
+
+.mf-benefit-card p {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  line-height: 1.5;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+/* ====== DOWNLOAD ====== */
+.mf-download {
+  padding: 96px 0;
+  background: var(--surface-container);
+}
+
+.mf-download-card {
+  max-width: 600px;
+  margin: 0 auto;
+  background: var(--surface-container-high);
+  border-radius: var(--shape-xl);
+  padding: 48px 40px;
+  text-align: center;
+  border: 1px solid rgba(34, 211, 238, 0.08);
+  box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+}
+
+.mf-download-card .section-header {
+  margin-bottom: 32px;
+}
+
+.mf-download-info {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 32px;
+}
+
+.mf-dl-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--shape-full);
+  background: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+  font-size: 13px;
+  color: var(--on-surface);
+}
+.mf-dl-item i { color: var(--secondary); }
+
+.mf-btn-large {
+  padding: 18px 48px;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.mf-dl-help {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+}
+.mf-dl-help a {
+  color: var(--secondary);
+  text-decoration: none;
+  font-weight: 600;
+}
+.mf-dl-help a:hover { text-decoration: underline; }
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 900px) {
+  .mf-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+  .mf-hero-desc { margin: 0 auto 32px; }
+  .mf-hero-actions { justify-content: center; }
+  .mf-hero-visual { max-width: 400px; margin: 0 auto; }
+  .mf-features-grid { grid-template-columns: repeat(2, 1fr); }
+  .mf-benefits-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
 }
 
 @media (max-width: 600px) {
-  .mkfarma-actions { flex-direction: column; align-items: center; }
-  .mkfarma-btn, .mkfarma-wa { width: 100%; justify-content: center; }
+  .mf-hero-actions { flex-direction: column; align-items: center; }
+  .mf-btn-primary, .mf-btn-secondary { width: 100%; justify-content: center; }
+  .mf-features-grid { grid-template-columns: 1fr; }
+  .mf-download-card { padding: 32px 24px; }
 }
 </style>
