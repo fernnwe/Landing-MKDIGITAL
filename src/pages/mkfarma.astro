@@ -44,35 +44,7 @@ import Asistente from "../components/Asistente.astro";
         </div>
 
         <div class="mf-hero-visual">
-          <div class="mf-visual-card">
-            <div class="mf-visual-header">
-              <img src="/favicon.ico" alt="" class="mf-win-icon" onerror="this.style.display='none'" />
-              <span class="mf-visual-title">MKFARMA — Gestión de Farmacias</span>
-              <span class="mf-win-controls">
-                <span class="mf-win-btn mf-win-min"><i class="fa-solid fa-minus"></i></span>
-                <span class="mf-win-btn mf-win-max"><i class="fa-solid fa-square"></i></span>
-                <span class="mf-win-btn mf-win-close"><i class="fa-solid fa-xmark"></i></span>
-              </span>
-            </div>
-            <div class="mf-visual-body">
-              <div class="mf-visual-row">
-                <span class="mf-vlabel">Ventas hoy</span>
-                <span class="mf-vvalue">C$12,540</span>
-              </div>
-              <div class="mf-visual-row">
-                <span class="mf-vlabel">Productos</span>
-                <span class="mf-vvalue">1,284</span>
-              </div>
-              <div class="mf-visual-row">
-                <span class="mf-vlabel">Clientes</span>
-                <span class="mf-vvalue">340</span>
-              </div>
-              <div class="mf-visual-bar">
-                <div class="mf-bar-fill" style="width: 73%;"></div>
-              </div>
-              <span class="mf-bar-label">Inventario 73%</span>
-            </div>
-          </div>
+          <img src="/mkfarma.png" alt="Captura de MKFARMA" class="mf-screenshot" />
         </div>
       </div>
     </div>
@@ -356,60 +328,15 @@ import Asistente from "../components/Asistente.astro";
 }
 .mf-platform-badge i { font-size: 16px; }
 
-/* Visual card (mockup) */
+/* Screenshot */
 .mf-hero-visual { position: relative; }
 
-.mf-visual-card {
-  background: var(--surface-container-high);
+.mf-screenshot {
+  width: 100%;
   border-radius: var(--shape-lg);
-  border: 1px solid rgba(34, 211, 238, 0.1);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  border: 1px solid rgba(34, 211, 238, 0.12);
 }
-
-.mf-visual-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
-  background: var(--surface-container);
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-}
-
-.mf-win-icon {
-  width: 18px;
-  height: 18px;
-}
-
-.mf-visual-title {
-  font-size: 12px;
-  color: var(--on-surface);
-  font-weight: 600;
-  flex: 1;
-}
-
-.mf-win-controls {
-  display: flex;
-  gap: 6px;
-}
-
-.mf-win-btn {
-  width: 24px;
-  height: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  font-size: 11px;
-  color: var(--on-surface-variant);
-  cursor: default;
-  transition: background 0.15s;
-}
-.mf-win-btn:hover { background: rgba(255,255,255,0.1); }
-.mf-win-close:hover { background: #E81123; color: #fff; }
-
-.mf-win-max i { font-size: 10px; }
-.mf-win-min i { font-size: 12px; }
 
 .mf-visual-body {
   padding: 28px;
