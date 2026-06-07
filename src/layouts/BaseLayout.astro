@@ -1,32 +1,36 @@
 ---
 import "../styles/global.css";
 import FlyerPopup from "../components/FlyerPopup.astro";
+
+const { title, description, ogImage, canonical } = Astro.props;
+
+const pageTitle = title || "MKDIGITAL - Soporte técnico remoto en Nicaragua";
+const pageDesc = description || "Soporte técnico remoto en toda Nicaragua. Instalación de programas, Office, Adobe, eliminación de virus y optimización de PC sin salir de casa. Atención inmediata por WhatsApp.";
+const pageOgImage = ogImage || "https://mkdigitalnic.com/favicon.ico";
+const pageUrl = canonical || "https://mkdigitalnic.com/";
 ---
 
 <html lang="es" data-astro-transition-scope>
   <head>
     <meta charset="UTF-8" />
-    <title>MKDIGITAL - Soporte técnico remoto en Nicaragua</title>
+    <title>{pageTitle}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <meta 
-      name="description" 
-      content="Soporte técnico remoto en toda Nicaragua. Instalación de programas, Office, Adobe, eliminación de virus y optimización de PC sin salir de casa. Atención inmediata por WhatsApp." 
-    />
+    <meta name="description" content={pageDesc} />
     <meta 
       name="keywords" 
       content="soporte técnico Nicaragua, soporte remoto Nicaragua, instalar office Nicaragua, instalar programas, eliminar virus PC, optimizar computadora Nicaragua"
     />
     <meta name="author" content="MKdigital Nicaragua" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://mkdigitalnic.com/" />
+    <link rel="canonical" href={pageUrl} />
 
-    <meta property="og:title" content="MKDIGITAL - Soporte técnico remoto en Nicaragua">
-    <meta property="og:description" content="Instalamos el programa que necesitas sin que salgas de tu hogar">
-    <meta property="og:url" content="https://mkdigitalnic.com/">
+    <meta property="og:title" content={pageTitle}>
+    <meta property="og:description" content={pageDesc}>
+    <meta property="og:url" content={pageUrl}>
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://mkdigitalnic.com/favicon.ico">
+    <meta property="og:image" content={pageOgImage}>
 
     <link rel="icon" href="/favicon.ico" />
     <link rel="prefetch" href="/catalogo" />
