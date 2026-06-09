@@ -81,73 +81,176 @@ import Asistente from "../components/Asistente.astro";
       <div class="mf-features-grid">
         <div class="mf-feature-card">
           <div class="mf-ficon" style="background: rgba(34, 211, 238, 0.1); color: #22D3EE;">
-            <i class="fa-solid fa-boxes-stacked"></i>
+            <i class="fa-solid fa-gauge-high"></i>
           </div>
-          <h3>Control de inventario</h3>
-          <p>Gestiona tu stock con alertas de bajo inventario y control de lotes.</p>
+          <h3>Dashboard</h3>
+          <p>Panel con tarjetas de resumen: ventas del día, productos bajos de stock, vencidos, por vencer y gráfico de tendencia.</p>
         </div>
 
         <div class="mf-feature-card">
           <div class="mf-ficon" style="background: rgba(129, 140, 248, 0.1); color: #818CF8;">
-            <i class="fa-solid fa-receipt"></i>
+            <i class="fa-solid fa-boxes-stacked"></i>
           </div>
-          <h3>Facturación</h3>
-          <p>Facturas electrónicas, tickets y reportes de ventas al instante.</p>
+          <h3>Inventario</h3>
+          <p>CRUD de productos, categorías, control de stock, alertas de stock bajo/vencidos, vista por lotes con fechas de vencimiento.</p>
         </div>
 
         <div class="mf-feature-card">
           <div class="mf-ficon" style="background: rgba(0, 200, 83, 0.1); color: #00C853;">
-            <i class="fa-solid fa-users"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
           </div>
-          <h3>Gestión de clientes</h3>
-          <p>Historial de compras, crédito y datos de cada cliente registrado.</p>
+          <h3>Punto de Venta</h3>
+          <p>Carrito de compras, búsqueda por código/nombre, selección de cliente, pago dividido (efectivo/tarjeta/transferencia), descuento e impresión de voucher térmico 58mm.</p>
         </div>
 
         <div class="mf-feature-card">
           <div class="mf-ficon" style="background: rgba(251, 191, 36, 0.1); color: #FBBF24;">
-            <i class="fa-solid fa-chart-line"></i>
+            <i class="fa-solid fa-users"></i>
           </div>
-          <h3>Reportes</h3>
-          <p>Informes de ventas, productos más vendidos y rentabilidad.</p>
+          <h3>Clientes</h3>
+          <p>CRUD de clientes con historial de compras por cliente.</p>
         </div>
 
         <div class="mf-feature-card">
           <div class="mf-ficon" style="background: rgba(244, 63, 94, 0.1); color: #F43F5E;">
             <i class="fa-solid fa-truck"></i>
           </div>
-          <h3>Control de proveedores</h3>
-          <p>Administra pedidos, precios de compra y datos de tus proveedores.</p>
+          <h3>Proveedores</h3>
+          <p>CRUD completo de proveedores.</p>
         </div>
 
         <div class="mf-feature-card">
           <div class="mf-ficon" style="background: rgba(34, 211, 238, 0.1); color: #22D3EE;">
-            <i class="fa-solid fa-calendar"></i>
+            <i class="fa-solid fa-cube"></i>
           </div>
-          <h3>Fechas de vencimiento</h3>
-          <p>Alertas automáticas de productos próximos a vencer.</p>
+          <h3>Compras</h3>
+          <p>Registro de compras con lotes, números de lote y fechas de vencimiento por producto.</p>
+        </div>
+
+        <div class="mf-feature-card">
+          <div class="mf-ficon" style="background: rgba(129, 140, 248, 0.1); color: #818CF8;">
+            <i class="fa-solid fa-cash-register"></i>
+          </div>
+          <h3>Caja</h3>
+          <p>Apertura/cierre de caja, registro de ingresos/gastos, historial de movimientos y diferencia esperado vs real.</p>
+        </div>
+
+        <div class="mf-feature-card">
+          <div class="mf-ficon" style="background: rgba(0, 200, 83, 0.1); color: #00C853;">
+            <i class="fa-solid fa-chart-line"></i>
+          </div>
+          <h3>Reportes</h3>
+          <p>Reportes de ventas por período, vencimientos, stock bajo, clientes frecuentes. Exportables a Excel/CSV/PDF.</p>
+        </div>
+
+        <div class="mf-feature-card">
+          <div class="mf-ficon" style="background: rgba(251, 191, 36, 0.1); color: #FBBF24;">
+            <i class="fa-solid fa-user-gear"></i>
+          </div>
+          <h3>Usuarios</h3>
+          <p>CRUD de usuarios con roles: Admin, Supervisor, Cajero, Inventario.</p>
+        </div>
+
+        <div class="mf-feature-card">
+          <div class="mf-ficon" style="background: rgba(244, 63, 94, 0.1); color: #F43F5E;">
+            <i class="fa-solid fa-database"></i>
+          </div>
+          <h3>Respaldos</h3>
+          <p>Crear y restaurar respaldos completos de la base de datos SQLite local.</p>
+        </div>
+
+        <div class="mf-feature-card">
+          <div class="mf-ficon" style="background: rgba(34, 211, 238, 0.1); color: #22D3EE;">
+            <i class="fa-solid fa-gear"></i>
+          </div>
+          <h3>Configuración</h3>
+          <p>Nombre del negocio, dirección, teléfono, email, IVA, selector de impresora y modo oscuro.</p>
+        </div>
+
+        <div class="mf-feature-card">
+          <div class="mf-ficon" style="background: rgba(129, 140, 248, 0.1); color: #818CF8;">
+            <i class="fa-solid fa-clipboard-list"></i>
+          </div>
+          <h3>Auditoría</h3>
+          <p>Registro de todas las acciones: quién, qué y cuándo.</p>
+        </div>
+
+        <div class="mf-feature-card">
+          <div class="mf-ficon" style="background: rgba(0, 200, 83, 0.1); color: #00C853;">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+          </div>
+          <h3>Historial de Ventas</h3>
+          <p>Historial completo de ventas con filtros por fecha.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BENEFITS -->
-  <section class="mf-benefits">
+  <!-- SPECS -->
+  <section class="mf-specs">
     <div class="container">
-      <div class="mf-benefits-grid">
-        <div class="mf-benefit-card">
-          <div class="mf-bicon"><i class="fa-solid fa-bolt"></i></div>
-          <h3>Rápido</h3>
-          <p>Interfaz ligera y fluida, optimizada para el día a día de tu farmacia.</p>
+      <div class="section-header">
+        <span class="badge">ESPECIFICACIONES</span>
+        <h2>Características técnicas</h2>
+        <p>MKFARMA viene con todo lo necesario para operar tu farmacia sin depender de internet.</p>
+      </div>
+
+      <div class="mf-specs-grid">
+        <div class="mf-spec-item">
+          <i class="fa-solid fa-print"></i>
+          <div>
+            <strong>Impresión térmica</strong>
+            <span>ESC/POS con driver Genérico y Pos-58C</span>
+          </div>
         </div>
-        <div class="mf-benefit-card">
-          <div class="mf-bicon"><i class="fa-solid fa-shield-halved"></i></div>
-          <h3>Seguro</h3>
-          <p>Tus datos protegidos con respaldo automático y cifrado.</p>
+        <div class="mf-spec-item">
+          <i class="fa-solid fa-file-export"></i>
+          <div>
+            <strong>Exportación</strong>
+            <span>Reportes a Excel, CSV y PDF</span>
+          </div>
         </div>
-        <div class="mf-benefit-card">
-          <div class="mf-bicon"><i class="fa-solid fa-hand"></i></div>
-          <h3>Fácil de usar</h3>
-          <p>Sin complicaciones. En minutos tú y tu equipo estarán operando.</p>
+        <div class="mf-spec-item">
+          <i class="fa-solid fa-database"></i>
+          <div>
+            <strong>Base de datos</strong>
+            <span>SQLite local con 23 tablas</span>
+          </div>
+        </div>
+        <div class="mf-spec-item">
+          <i class="fa-solid fa-arrows-rotate"></i>
+          <div>
+            <strong>Respaldos</strong>
+            <span>Crear y restaurar backups de BD</span>
+          </div>
+        </div>
+        <div class="mf-spec-item">
+          <i class="fa-solid fa-moon"></i>
+          <div>
+            <strong>Modo oscuro</strong>
+            <span>Interfaz con tema claro/oscuro</span>
+          </div>
+        </div>
+        <div class="mf-spec-item">
+          <i class="fa-solid fa-lock"></i>
+          <div>
+            <strong>Autenticación</strong>
+            <span>Roles y permisos por usuario</span>
+          </div>
+        </div>
+        <div class="mf-spec-item">
+          <i class="fa-solid fa-coins"></i>
+          <div>
+            <strong>Moneda local</strong>
+            <span>C$ (Córdobas) con separadores de miles</span>
+          </div>
+        </div>
+        <div class="mf-spec-item">
+          <i class="fa-solid fa-shield-halved"></i>
+          <div>
+            <strong>Seguridad</strong>
+            <span>Registro de auditoría de todas las acciones</span>
+          </div>
         </div>
       </div>
     </div>
@@ -486,8 +589,8 @@ import Asistente from "../components/Asistente.astro";
 
 .mf-features-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
   margin-top: 48px;
 }
 
@@ -527,6 +630,51 @@ import Asistente from "../components/Asistente.astro";
   font-size: 13px;
   color: var(--on-surface-variant);
   line-height: 1.5;
+}
+
+/* ====== SPECS ====== */
+.mf-specs {
+  padding: 80px 0;
+  background: var(--background);
+}
+
+.mf-specs-grid {
+  max-width: 800px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.mf-spec-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: var(--shape-md);
+  background: var(--surface-container-high);
+  border: 1px solid rgba(34, 211, 238, 0.06);
+  transition: border-color 0.2s ease;
+}
+.mf-spec-item:hover { border-color: rgba(34, 211, 238, 0.2); }
+
+.mf-spec-item i {
+  font-size: 22px;
+  color: var(--secondary);
+  min-width: 28px;
+  text-align: center;
+}
+
+.mf-spec-item strong {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--on-surface);
+}
+
+.mf-spec-item span {
+  font-size: 12px;
+  color: var(--on-surface-variant);
 }
 
 /* ====== BENEFITS ====== */
@@ -665,6 +813,10 @@ import Asistente from "../components/Asistente.astro";
 .mf-dl-help a:hover { text-decoration: underline; }
 
 /* ====== RESPONSIVE ====== */
+@media (max-width: 1100px) {
+  .mf-features-grid { grid-template-columns: repeat(3, 1fr); }
+}
+
 @media (max-width: 900px) {
   .mf-hero-grid {
     grid-template-columns: 1fr;
@@ -675,7 +827,7 @@ import Asistente from "../components/Asistente.astro";
   .mf-hero-actions { justify-content: center; }
   .mf-hero-visual { max-width: 400px; margin: 0 auto; }
   .mf-features-grid { grid-template-columns: repeat(2, 1fr); }
-  .mf-benefits-grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+  .mf-specs-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 600px) {
