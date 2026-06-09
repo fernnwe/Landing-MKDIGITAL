@@ -6,8 +6,8 @@ const { title, description, ogImage, canonical } = Astro.props;
 
 const pageTitle = title || "MKDIGITAL - Soporte técnico remoto en Nicaragua";
 const pageDesc = description || "Soporte técnico remoto en toda Nicaragua. Instalación de programas, Office, Adobe, eliminación de virus y optimización de PC sin salir de casa. Atención inmediata por WhatsApp.";
-const pageOgImage = ogImage || "https://mkdigitalnic.com/favicon.ico";
-const pageUrl = canonical || "https://mkdigitalnic.com/";
+const pageOgImage = ogImage || "https://mkdigitalnic.com/ceo.webp";
+const pageUrl = canonical || Astro.url.href;
 ---
 
 <html lang="es" data-astro-transition-scope>
