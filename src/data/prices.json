@@ -1,0 +1,1227 @@
+{
+  "prices": {
+    "win10": {
+      "usd": 20,
+      "markup": 5,
+      "finalUsd": 25,
+      "precio": "C$913",
+      "updatedAt": "2026-06-12T04:48:56.100Z",
+      "source": "Licencia Windows 10 Professional"
+    },
+    "office2024": {
+      "usd": 20,
+      "markup": 5,
+      "finalUsd": 25,
+      "precio": "C$913",
+      "updatedAt": "2026-06-12T04:48:56.102Z",
+      "source": "Licencia Office 2024 Professional Plus"
+    },
+    "win11": {
+      "usd": 26,
+      "markup": 5,
+      "finalUsd": 31,
+      "precio": "C$1,132",
+      "updatedAt": "2026-06-12T04:48:56.102Z",
+      "source": "Licencia Windows 11 Professional"
+    },
+    "creativecloud": {
+      "usd": 140,
+      "markup": 8,
+      "finalUsd": 148,
+      "precio": "C$5,402",
+      "updatedAt": "2026-06-12T04:48:56.102Z",
+      "source": "Licencia Adobe Creative Cloud-12 meses"
+    },
+    "acrobat": {
+      "usd": 25,
+      "markup": 5,
+      "finalUsd": 30,
+      "precio": "C$1,095",
+      "updatedAt": "2026-06-12T04:48:56.102Z",
+      "source": "Adobe Acrobat Pro 2020"
+    },
+    "office2021": {
+      "usd": 20,
+      "markup": 5,
+      "finalUsd": 25,
+      "precio": "C$913",
+      "updatedAt": "2026-06-12T04:48:56.102Z",
+      "source": "Licencia Office 2021 Professional Plus LTSC"
+    },
+    "avast": {
+      "usd": 15,
+      "markup": 5,
+      "finalUsd": 20,
+      "precio": "C$730",
+      "updatedAt": "2026-06-12T04:48:56.102Z",
+      "source": "Licencia Avast Premium Security 1 Dispositivo 12 meses"
+    },
+    "autocad": {
+      "usd": 32,
+      "markup": 7,
+      "finalUsd": 39,
+      "precio": "C$1,424",
+      "updatedAt": "2026-06-12T04:48:56.102Z",
+      "source": "AutoCAD 2024 – Suscripción Anual"
+    },
+    "kaspersky": {
+      "usd": 21,
+      "markup": 5,
+      "finalUsd": 26,
+      "precio": "C$949",
+      "updatedAt": "2026-06-12T04:48:56.102Z",
+      "source": "Licencia Kaspersky Internet security 1 Dispositivo 12 meses"
+    },
+    "mcafee": {
+      "usd": 11,
+      "markup": 5,
+      "finalUsd": 16,
+      "precio": "C$584",
+      "updatedAt": "2026-06-12T04:48:56.102Z",
+      "source": "Licencia McAfee AntiVirus"
+    },
+    "eset": {
+      "usd": 26,
+      "markup": 5,
+      "finalUsd": 31,
+      "precio": "C$1,132",
+      "updatedAt": "2026-06-12T04:48:56.102Z",
+      "source": "Licencia ESET Internet Security 1 Dispositivo 12 meses"
+    },
+    "revit": {
+      "usd": 32,
+      "markup": 7,
+      "finalUsd": 39,
+      "precio": "C$1,424",
+      "updatedAt": "2026-06-12T04:48:56.102Z",
+      "source": "Revit 2026 &#8211; Suscripción Anual"
+    },
+    "coreldraw": {
+      "usd": 200,
+      "markup": 8,
+      "finalUsd": 208,
+      "precio": "C$7,592",
+      "updatedAt": "2026-06-12T04:48:56.102Z",
+      "source": "Licencia CorelDRAW Graphics Suite 2024 MAC"
+    }
+  },
+  "unmatched": [
+    {
+      "name": "Licencia Office 2019 Professional Plus",
+      "price": 20
+    },
+    {
+      "name": "Licencia Office 2016 Professional Plus",
+      "price": 13
+    },
+    {
+      "name": "Licencia Office 2021 Professional Plus Phone",
+      "price": 14
+    },
+    {
+      "name": "Licencia Office 2019 Professional Plus Phone",
+      "price": 12
+    },
+    {
+      "name": "Licencia Office 2024 Professional Plus LTSC Phone",
+      "price": 18
+    },
+    {
+      "name": "Licencia Office 2016 Professional Plus Phone",
+      "price": 10
+    },
+    {
+      "name": "Licencia Office 2019 Professional Plus BIND",
+      "price": 60
+    },
+    {
+      "name": "Licencia Office 2021 Professional Plus BIND",
+      "price": 100
+    },
+    {
+      "name": "Licencia Office 365 Pro Plus 5 Dispositivos",
+      "price": 20
+    },
+    {
+      "name": "Licencia Windows 10 Home",
+      "price": 15
+    },
+    {
+      "name": "Licencia Office 2024 Standard",
+      "price": 20
+    },
+    {
+      "name": "Licencia Windows 11 Professional Retail",
+      "price": 12
+    },
+    {
+      "name": "Licencia Adobe Creative Cloud-3 meses",
+      "price": 38
+    },
+    {
+      "name": "Adobe Acrobat Pro DC 2019",
+      "price": 20
+    },
+    {
+      "name": "Licencia Windows server 2019 standard",
+      "price": 40
+    },
+    {
+      "name": "Licencia Windows 11 home",
+      "price": 20
+    },
+    {
+      "name": "Licencia Office Home Business 2021 para Mac BIND",
+      "price": 40
+    },
+    {
+      "name": "Licencia Office 2013 Pro Plus",
+      "price": 14
+    },
+    {
+      "name": "Licencia Office 2024 Standard Phone",
+      "price": 20
+    },
+    {
+      "name": "Licencia AVG Internet Security-Multi-Device",
+      "price": 20
+    },
+    {
+      "name": "Licencia Project Profesional 2021",
+      "price": 30
+    },
+    {
+      "name": "Windows 11 Home + Office 2016 Pro Plus",
+      "price": 33
+    },
+    {
+      "name": "Licencia Office 2021 Professional Plus 5PC",
+      "price": 120
+    },
+    {
+      "name": "Windows 11 Home + Office 2019 Pro Plus",
+      "price": 37
+    },
+    {
+      "name": "Licencia Office 2016 Professional Plus BIND",
+      "price": 38
+    },
+    {
+      "name": "Licencia Windows 8.1 Professional",
+      "price": 12
+    },
+    {
+      "name": "AutoCAD 2026 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Licencia Office Home Business 2019 para Mac",
+      "price": 40
+    },
+    {
+      "name": "Licencia Adobe Creative Cloud-6 meses",
+      "price": 75
+    },
+    {
+      "name": "Licencia Windows 10 Professional Retail",
+      "price": 11
+    },
+    {
+      "name": "Licencia Project Professional 2024",
+      "price": 40
+    },
+    {
+      "name": "Licencia Windows 11 home Retail",
+      "price": 12
+    },
+    {
+      "name": "Spotify Premium",
+      "price": 15
+    },
+    {
+      "name": "Licencia Project Professional 2019 BIND",
+      "price": 32
+    },
+    {
+      "name": "Licencia Avast Ultimate 1 Dispositivo 12 meses",
+      "price": 23
+    },
+    {
+      "name": "Windows 10 Home + Office 2016 Pro Plus",
+      "price": 28
+    },
+    {
+      "name": "Licencia Office 2019 Professional Plus LTSC",
+      "price": 18
+    },
+    {
+      "name": "Windows 10 Home + Office 2019 Pro Plus",
+      "price": 32
+    },
+    {
+      "name": "Licencia Windows Server 2016 Standar",
+      "price": 33
+    },
+    {
+      "name": "Licencia Office 365 Familiar 6 Usuarios 12 Meses",
+      "price": 60
+    },
+    {
+      "name": "Coleccion Autodesk",
+      "price": 130
+    },
+    {
+      "name": "Licencia Windows 7 Professional",
+      "price": 12
+    },
+    {
+      "name": "Licencia Project Professional 2019",
+      "price": 27
+    },
+    {
+      "name": "You Tube Premium 4 mes",
+      "price": 7
+    },
+    {
+      "name": "AutoCAD LT 2025 &#8211; Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Licencia Windows 10 Home Retail",
+      "price": 10
+    },
+    {
+      "name": "Netflix Premium 1 Perfil",
+      "price": 5
+    },
+    {
+      "name": "AutoCAD 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Licencia Office 2019 Professional Plus 5PC",
+      "price": 50
+    },
+    {
+      "name": "Licencia Office 2021 Professional Plus LTSC Phone",
+      "price": 13
+    },
+    {
+      "name": "Licencia Adobe Creative Cloud-1 meses",
+      "price": 25
+    },
+    {
+      "name": "Licencia Windows Server 2025 Standard",
+      "price": 65
+    },
+    {
+      "name": "Licencia Visio Professional 2021",
+      "price": 30
+    },
+    {
+      "name": "Licencia Avast Ultimate 10 Dispositivos 36 meses",
+      "price": 51
+    },
+    {
+      "name": "Licencia Windows 10 Professional Retail 5PC",
+      "price": 30
+    },
+    {
+      "name": "Licencia Office 2016 Professional Plus Phone 5PC",
+      "price": 30
+    },
+    {
+      "name": "Licencia AVG Antivirus 1 Dispositivo 12 meses",
+      "price": 25
+    },
+    {
+      "name": "Licencia Office 2019 Professional Plus LTSC Phone",
+      "price": 11
+    },
+    {
+      "name": "AutoCAD 2025 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Licencia Office 2016 Professional Plus 5PC",
+      "price": 40
+    },
+    {
+      "name": "Civil 3D 2026 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Civil 3D 2025 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Licencia Windows 10 Home Retail 5PC",
+      "price": 26
+    },
+    {
+      "name": "Licencia Avast Ultimate 3 Dispositivo 12 meses",
+      "price": 34
+    },
+    {
+      "name": "Licencia Windows server standar 2022",
+      "price": 140
+    },
+    {
+      "name": "Star Plus 1 mes",
+      "price": 5
+    },
+    {
+      "name": "Licencia Outlook 2021",
+      "price": 35
+    },
+    {
+      "name": "Licencia Windows 10 Enterprise 2021",
+      "price": 40
+    },
+    {
+      "name": "Licencia Windows 11 enterprise",
+      "price": 56
+    },
+    {
+      "name": "Canva Pro suscripción 12 meses",
+      "price": 15
+    },
+    {
+      "name": "Licencia Visio Professional 2024 BIND",
+      "price": 120
+    },
+    {
+      "name": "Google Drive Ilimitado",
+      "price": 40
+    },
+    {
+      "name": "Licencia Avast Cleanup PREMIUM 1 PC 1 AÑO",
+      "price": 16
+    },
+    {
+      "name": "Licencia Avast antivirus Pro 1 Dispositivo 12 meses",
+      "price": 23
+    },
+    {
+      "name": "Licencia Visio professional 2019",
+      "price": 32
+    },
+    {
+      "name": "Licencia Visio Professional 2024",
+      "price": 32
+    },
+    {
+      "name": "Parallels Desktop 20",
+      "price": 140
+    },
+    {
+      "name": "AutoCAD Electrical 2025 Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Revit 2025 &#8211; Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Licencia Windows Server 2025 Datacenter",
+      "price": 110
+    },
+    {
+      "name": "Licencia Windows server 2019 Datacenter",
+      "price": 65
+    },
+    {
+      "name": "Licencia Office 2019 Professional Plus Phone 5PC",
+      "price": 38
+    },
+    {
+      "name": "Licencia Visio Professional 2019 BIND",
+      "price": 35
+    },
+    {
+      "name": "Licencia Avast Driver Updater 1 Disp 1 AÑO",
+      "price": 20
+    },
+    {
+      "name": "Licencia Office home and student 2019",
+      "price": 40
+    },
+    {
+      "name": "Lumion 24 Pro",
+      "price": 90
+    },
+    {
+      "name": "Licencia Windows Server 2025 Remote Desktop Services User Connections 50 Cal",
+      "price": 170
+    },
+    {
+      "name": "Licencia Office 2024 Standard 3PC",
+      "price": 60
+    },
+    {
+      "name": "Inventor professional 2025 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Revit 2024 &#8211; Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Suscripción You tube Premium 12 meses",
+      "price": 60
+    },
+    {
+      "name": "Licencia Project Professional 2024 BIND",
+      "price": 120
+    },
+    {
+      "name": "Licencia Office 2021 Professional Plus Phone 5PC",
+      "price": 45
+    },
+    {
+      "name": "Licencia Windows 11 Education",
+      "price": 30
+    },
+    {
+      "name": "Licencia Windows Server 2012 R2 Standard",
+      "price": 26
+    },
+    {
+      "name": "Licencia Windows Server 2022 Remote Desktop Services User Connections 50 Cal",
+      "price": 160
+    },
+    {
+      "name": "Licencia SQL Server 2019 Standard",
+      "price": 110
+    },
+    {
+      "name": "Netflix Premium 4k 1 año de suscripción",
+      "price": 110
+    },
+    {
+      "name": "Licencia Ashampoo WinOptimizer 18",
+      "price": 6
+    },
+    {
+      "name": "Licencia Norton Security Deluxe",
+      "price": 27
+    },
+    {
+      "name": "Licencia SQL Server 2022 Standard",
+      "price": 160
+    },
+    {
+      "name": "Licencia Glary Utilities PRO 6",
+      "price": 15
+    },
+    {
+      "name": "Licencia Office 2019 Professional Plus 3PC",
+      "price": 40
+    },
+    {
+      "name": "Inventor Nastran 2025 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "3ds Max 2025 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD 2020 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Civil 3D 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Architecture 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Office 2019 Pro Plus + Antivirus",
+      "price": 30
+    },
+    {
+      "name": "EaseUS Data Recovery Wizard Professional",
+      "price": 75
+    },
+    {
+      "name": "Netflix Premium 4k 1 pantalla",
+      "price": 87
+    },
+    {
+      "name": "Licencia Power BI Pro – Suscripción Anual",
+      "price": 25
+    },
+    {
+      "name": "Licencia Office 365 Personal 3 Meses",
+      "price": 32
+    },
+    {
+      "name": "Nickelodeon All-Star Brawl 2 (PC)",
+      "price": 18
+    },
+    {
+      "name": "Avast SecureLine VPN 1 Disp 1 Año",
+      "price": 30
+    },
+    {
+      "name": "Licencia Windows 10 Education",
+      "price": 25
+    },
+    {
+      "name": "Licencia Avast Ultimate 10 Dispositivos 12 meses",
+      "price": 40
+    },
+    {
+      "name": "Licencia Windows Server 2016 Remote Desktop Services User Connections 50 Cal",
+      "price": 120
+    },
+    {
+      "name": "Licencia Windows 10 Enterprise 2019",
+      "price": 37
+    },
+    {
+      "name": "Adobe Illustrator",
+      "price": 75
+    },
+    {
+      "name": "Licencia Windows Server 2019 Remote Desktop Services User Connections 50 Cal",
+      "price": 140
+    },
+    {
+      "name": "Licencia BullGuard Antivirus",
+      "price": 22
+    },
+    {
+      "name": "Licencia AIDA64 Extreme",
+      "price": 28
+    },
+    {
+      "name": "Licencia AVG PC TuneUp",
+      "price": 13
+    },
+    {
+      "name": "Licencia SQL server 2017 standard",
+      "price": 280
+    },
+    {
+      "name": "Licencia Autodesk Autocad 2022",
+      "price": 32
+    },
+    {
+      "name": "Licencia Office Home Business 2016 para Mac BIND",
+      "price": 40
+    },
+    {
+      "name": "Microsoft 365 E5 Enterprise 100 Usuarios",
+      "price": 20
+    },
+    {
+      "name": "Licencia Avast Ultimate 1 Dispositivos 36 meses",
+      "price": 41
+    },
+    {
+      "name": "Licencia SQL Server 2025 Standard",
+      "price": 650
+    },
+    {
+      "name": "Licencia Visual studio Enterprise 2019",
+      "price": 138
+    },
+    {
+      "name": "Licencia Visual Studio Enterprise 2022",
+      "price": 152
+    },
+    {
+      "name": "Licencia Office 2021 Standard 3PC",
+      "price": 60
+    },
+    {
+      "name": "Licencia Office 2016 Professional Plus 3PC",
+      "price": 35
+    },
+    {
+      "name": "AutoCAD Mechanical 2025 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Plant 3D 2025 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Inventor Nastran 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Autocad LT 2021 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Autocad LT 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCad lt 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD 2021 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Inventor professional 2021 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Civil 3D 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Arnold 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Arnold 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Alias AutoStudio 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Civil 3D Project Explorer 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "ReCap Pro 2021 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "3ds Max 2021 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "VRED Professional 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "3ds Max 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "3ds Max 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Maya LT 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Maya LT 2020 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Advance Steel 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Advance Steel 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Alias AutoStudio 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Alias AutoStudio 2021 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Architecture 2021 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Electrical 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Inventor Nastran 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "MotionBuilder 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "MotionBuilder 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Mudbox 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Mudbox 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Navisworks Manage 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Navisworks Simulate 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Point Layout 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Point Layout 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "PowerShape 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "ReCap Pro 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "ReCap Pro 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Robot Structural Analysis Professional 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Robot Structural Analysis Professional 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Structural Bridge Design 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Structural Bridge Design 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Vehicle Tracking 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Map 3D 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Map 3D 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Mechanical 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD MEP 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD MEP 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Plant 3D 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Raster Design 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Raster Design 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Civil 3D Project Explorer 2023– Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Fabrication CADmep 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Fabrication CAMduct 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Fabrication CAMduct 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "HSMWorks Ultimate 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "HSMWorks Ultimate 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Inventor CAM Ultimate 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Inventor CAM Ultimate 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Inventor Nesting 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Plant 3D 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Civil 3D 2021 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Civil 3D 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Civil 3D 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Inventor Professional 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Revit 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Maya 2022 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Architecture 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Maya 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Electrical 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Inventor professional 2023 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Revit 2023 &#8211; Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "ReCap Pro 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD LT 2024 &#8211; Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Civil 3D 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Arnold 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "MotionBuilder 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Point Layout 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Structural Bridge Design 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Fabrication CADmep 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Fabrication CAMduct 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Factory Design Utilities 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "HSMWorks Ultimate 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Mudbox 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Vehicle Tracking 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Raster Design 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD MEP 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD MEP 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Robot Structural Analysis Professional 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Navisworks Manage 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Licencia Ashampoo PDF Pro 3",
+      "price": 150
+    },
+    {
+      "name": "Licencia CorelDRAW Technical Suite 2024 Windows",
+      "price": 150
+    },
+    {
+      "name": "AutoCAD Mechanical 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Map 3D 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Advance Steel 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Architecture 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Inventor CAM Ultimate 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Navisworks Manage 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Electrical 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "3ds Max 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Maya 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "AutoCAD Plant 3D 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Inventor Nastran 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Civil 3D 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Inventor professional 2024 – Suscripción Anual",
+      "price": 32
+    },
+    {
+      "name": "Licencia office 365 Familiar 1 Usuario 24 Meses",
+      "price": 29
+    },
+    {
+      "name": "EaseUs Data Recovery Wizard Professional MAC",
+      "price": 80
+    },
+    {
+      "name": "Licencia Office Hogar y Empresas 2024 PC-MAC BIND",
+      "price": 210
+    },
+    {
+      "name": "Licencia Office 365 Familiar 6 Usuarios 24 Meses",
+      "price": 150
+    },
+    {
+      "name": "Licencia Office 365 Familiar 6 Usuarios 3 Meses",
+      "price": 45
+    },
+    {
+      "name": "Star Wars: The Force Unleashed II (PC)",
+      "price": 22
+    },
+    {
+      "name": "Zombie Shooter 2 (PC)",
+      "price": 16
+    },
+    {
+      "name": "LEGO: Star Wars III &#8211; The Clone Wars (PC)",
+      "price": 16
+    },
+    {
+      "name": "Hatred (PC)",
+      "price": 6
+    },
+    {
+      "name": "Street Fighter V (Champion Edition) (PC)",
+      "price": 24
+    },
+    {
+      "name": "Overcooked! 2 (PC)",
+      "price": 15
+    },
+    {
+      "name": "Devil May Cry 4 (Special Edition)",
+      "price": 12
+    },
+    {
+      "name": "TEKKEN 8 (PC)",
+      "price": 102
+    },
+    {
+      "name": "Warhammer 40,000: Rogue Trader (PC)",
+      "price": 21
+    },
+    {
+      "name": "Generation Zero (PC)",
+      "price": 6
+    },
+    {
+      "name": "Resident Evil 4 (PC)",
+      "price": 60
+    },
+    {
+      "name": "Grand Theft Auto IV Rockstar Games",
+      "price": 32
+    },
+    {
+      "name": "AVG Driver Updater (2024) 1 Disp 1 Año",
+      "price": 20
+    },
+    {
+      "name": "Licencia AVG Driver Updater (2024) 3 Disp 1 Año",
+      "price": 25
+    },
+    {
+      "name": "Licencia Avast Cleanup PREMIUM 10 PC 1 año",
+      "price": 30
+    },
+    {
+      "name": "Licencia Avast Cleanup PREMIUM 10 PC 2 años",
+      "price": 49
+    },
+    {
+      "name": "Licencia Avast Ultimate Suite 1 Dispositivo 12 meses",
+      "price": 36
+    },
+    {
+      "name": "Licencia Outlook 2019",
+      "price": 32
+    },
+    {
+      "name": "Licencia SQL Server 2016 Standard",
+      "price": 90
+    },
+    {
+      "name": "Adobe Photoshop",
+      "price": 75
+    },
+    {
+      "name": "Licencia Windows Server 2019 Essentials",
+      "price": 125
+    },
+    {
+      "name": "Netflix Premium 5 perfiles",
+      "price": 10
+    },
+    {
+      "name": "Licencia BullGuard Internet Security",
+      "price": 52
+    },
+    {
+      "name": "Licencia Iobit Driver Booster 9 PRO",
+      "price": 32
+    },
+    {
+      "name": "Licencia Internet Download Manager",
+      "price": 40
+    },
+    {
+      "name": "Licencia Malwarebytes Premium",
+      "price": 65
+    },
+    {
+      "name": "Licencia Windows server Datacenter 2022",
+      "price": 105
+    },
+    {
+      "name": "Licencia Visual studio profesional 2019",
+      "price": 82
+    },
+    {
+      "name": "Licencia Autodesk Autocad LT 2021",
+      "price": 32
+    },
+    {
+      "name": "Licencia Autodesk Autocad LT 2021 MAC",
+      "price": 32
+    },
+    {
+      "name": "Licencia SolidWorks 2021",
+      "price": 102
+    },
+    {
+      "name": "Licencia CorelDRAW Graphics Suite 2021",
+      "price": 299
+    },
+    {
+      "name": "Licencia Autodesk Revit 2022",
+      "price": 32
+    },
+    {
+      "name": "Licencia ESET smart security premium",
+      "price": 59
+    }
+  ],
+  "timestamp": "2026-06-12T04:48:56.102Z"
+}

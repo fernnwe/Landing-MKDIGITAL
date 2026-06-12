@@ -1,3 +1,5 @@
+import { softkeyPrices } from './prices';
+
 export interface Producto {
   id: string;
   nombre: string;
@@ -262,4 +264,8 @@ export const productos: Producto[] = [
     descripcion: "Control de inventario, ventas, facturación, clientes, proveedores y fechas de vencimiento",
     url: "/mkfarma"
   },
-];
+].map(p => ({
+  ...p,
+  precio: softkeyPrices[p.id] || p.precio,
+}));
+

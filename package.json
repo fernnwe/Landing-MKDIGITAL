@@ -7,8 +7,9 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "npm run update-prices && astro build",
     "preview": "astro preview",
+    "update-prices": "node scripts/fetch-prices.mjs",
     "astro": "astro"
   },
   "dependencies": {
