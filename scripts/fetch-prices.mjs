@@ -18,7 +18,7 @@ const PRODUCT_MAP = [
   { match: /windows\s*11\s*(pro|professional)(?!.*(?:home|retail))/i, id: 'win11', label: 'Windows 11 Pro' },
   { match: /office\s*2024\s*(pro|professional)\s*plus(?:\s+ltsc)?(?:\s+standard)?(?!.*(?:phone|500pc|1pc))/i, id: 'office2024', label: 'Office 2024 Pro Plus' },
   { match: /office\s*2021\s*(pro|professional)\s*plus(?:\s+ltsc)?(?!.*(?:phone|bind|500pc|5pc))/i, id: 'office2021', label: 'Office 2021 Pro Plus' },
-  { match: /adobe\s*creative\s*cloud[^]*?12\s*mese/i, id: 'creativecloud', label: 'Adobe CC 12 meses' },
+  // creativecloud 12 meses removed — kept as unmatched to avoid overriding main CC price (C$1,295)
   { match: /adobe\s*acrobat\s*pro\s*2020/i, id: 'acrobat', label: 'Adobe Acrobat Pro 2020' },
   { match: /autocad\s*2024/i, id: 'autocad', label: 'AutoCAD 2024' },
   { match: /avast\s*premium\s*security/i, id: 'avast', label: 'Avast Premium Security' },
@@ -26,6 +26,21 @@ const PRODUCT_MAP = [
   { match: /kaspersky/i, id: 'kaspersky', label: 'Kaspersky' },
   { match: /mcafee/i, id: 'mcafee', label: 'McAfee' },
   { match: /revit\s*2026/i, id: 'revit', label: 'Revit 2026' },
+  { match: /office\s*2019\s*(pro|professional)\s*plus(?:\s+ltsc)?(?!.*(?:phone|bind|500pc|5pc|3pc))/i, id: 'office2019', label: 'Office 2019 Pro Plus' },
+  { match: /office\s*365\s*pro\s*plus\s*5\s*dispositivos/i, id: 'office365', label: 'Office 365 Pro Plus 5 Disp' },
+  { match: /windows\s*server\s*2019\s*standard/i, id: 'winserver2019', label: 'Windows Server 2019 Standard' },
+  { match: /windows\s*server\s*standar\s*2022/i, id: 'winserver2022', label: 'Windows Server 2022 Standard' },
+  { match: /windows\s*server\s*2025\s*standard/i, id: 'winserver2025', label: 'Windows Server 2025 Standard' },
+  { match: /adobe\s*creative\s*cloud[^]*?3\s*mese/i, id: 'creativecloud3', label: 'Adobe CC 3 meses' },
+  { match: /adobe\s*creative\s*cloud[^]*?6\s*mese/i, id: 'creativecloud6', label: 'Adobe CC 6 meses' },
+  { match: /adobe\s*creative\s*cloud[^]*?1\s*mese/i, id: 'creativecloud1', label: 'Adobe CC 1 mes' },
+  { match: /windows\s*11\s*home(?!.*retail)/i, id: 'win11home', label: 'Windows 11 Home' },
+  { match: /windows\s*10\s*home(?!.*retail)/i, id: 'win10home', label: 'Windows 10 Home' },
+  { match: /norton\s*security\s*deluxe/i, id: 'norton', label: 'Norton Security Deluxe' },
+  { match: /malwarebytes\s*premium/i, id: 'malwarebytes', label: 'Malwarebytes Premium' },
+  { match: /project\s*profesional\s*2021/i, id: 'project2021', label: 'Project Professional 2021' },
+  { match: /visio\s*professional\s*2021/i, id: 'visio2021', label: 'Visio Professional 2021' },
+  { match: /office\s*2024\s*standard(?!.*phone)/i, id: 'office2024std', label: 'Office 2024 Standard' },
 ];
 
 const CATEGORY_RULES = [
@@ -97,6 +112,11 @@ function parseName(htmlBlock) {
   return m ? m[1].trim() : null;
 }
 
+function isOutOfStock(htmlBlock) {
+  return /class="out-of-stock product-label"/i.test(htmlBlock) ||
+         /class="[^"]*\boutofstock\b[^"]*"/i.test(htmlBlock);
+}
+
 function matchProduct(name) {
   if (!name) return null;
   for (const rule of PRODUCT_MAP) {
@@ -137,6 +157,7 @@ function buildPriceMap(softkeyProducts) {
       const blocks = extractProductsFromHTML(html);
       console.log(`  → ${blocks.length} products`);
       for (const block of blocks) {
+        if (isOutOfStock(block)) continue;
         const name = parseName(block);
         const price = parsePrice(block);
         if (name && price !== null && price >= 5) all.push({ name, price });

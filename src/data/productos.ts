@@ -264,6 +264,145 @@ const productosBase: Producto[] = [
     descripcion: "Control de inventario, ventas, facturación, clientes, proveedores y fechas de vencimiento",
     url: "/mkfarma"
   },
+  {
+    id: "office2019",
+    nombre: "Office 2019 Pro Plus",
+    precio: "C$350",
+    old: "C$450",
+    off: "22%",
+    categoria: "microsoft",
+    iconoId: "mdi:microsoft-office",
+    iconoColor: "#D83B01",
+    descripcion: "Word, Excel, PowerPoint, Outlook y más"
+  },
+  {
+    id: "office365",
+    nombre: "Office 365 Pro Plus (5 Disp)",
+    precio: "C$500",
+    categoria: "microsoft",
+    iconoId: "mdi:microsoft-office",
+    iconoColor: "#D83B01",
+    descripcion: "Suscripción · 5 dispositivos"
+  },
+  {
+    id: "winserver2019",
+    nombre: "Windows Server 2019 Standard",
+    precio: "C$1,200",
+    categoria: "microsoft",
+    iconoId: "simple-icons:microsoft",
+    iconoColor: "#00A4EF",
+    descripcion: "Licencia para servidor empresarial"
+  },
+  {
+    id: "winserver2022",
+    nombre: "Windows Server 2022 Standard",
+    precio: "C$1,500",
+    categoria: "microsoft",
+    iconoId: "simple-icons:microsoft",
+    iconoColor: "#00A4EF",
+    descripcion: "Servidor empresarial moderno"
+  },
+  {
+    id: "winserver2025",
+    nombre: "Windows Server 2025 Standard",
+    precio: "C$2,000",
+    categoria: "microsoft",
+    iconoId: "simple-icons:microsoft",
+    iconoColor: "#00A4EF",
+    descripcion: "Última generación de servidor Microsoft"
+  },
+  {
+    id: "creativecloud3",
+    nombre: "Adobe CC 3 meses",
+    precio: "C$1,850",
+    categoria: "adobe",
+    iconoId: "simple-icons:adobecreativecloud",
+    iconoColor: "#FF0000",
+    descripcion: "Photoshop, Illustrator, Premiere y más"
+  },
+  {
+    id: "creativecloud6",
+    nombre: "Adobe CC 6 meses",
+    precio: "C$3,330",
+    categoria: "adobe",
+    iconoId: "simple-icons:adobecreativecloud",
+    iconoColor: "#FF0000",
+    descripcion: "Photoshop, Illustrator, Premiere y más"
+  },
+  {
+    id: "creativecloud1",
+    nombre: "Adobe CC 1 mes",
+    precio: "C$1,295",
+    categoria: "adobe",
+    iconoId: "simple-icons:adobecreativecloud",
+    iconoColor: "#FF0000",
+    descripcion: "Photoshop, Illustrator, Premiere y más"
+  },
+  {
+    id: "win11home",
+    nombre: "Windows 11 Home",
+    precio: "C$700",
+    categoria: "microsoft",
+    iconoId: "simple-icons:microsoft",
+    iconoColor: "#00A4EF",
+    descripcion: "Licencia digital para uso doméstico"
+  },
+  {
+    id: "win10home",
+    nombre: "Windows 10 Home",
+    precio: "C$600",
+    categoria: "microsoft",
+    iconoId: "simple-icons:microsoft",
+    iconoColor: "#00A4EF",
+    descripcion: "Licencia digital para uso doméstico"
+  },
+  {
+    id: "norton",
+    nombre: "Norton Security Deluxe",
+    precio: "C$800",
+    categoria: "seguridad",
+    iconoId: "mdi:shield-check",
+    iconoColor: "#E30512",
+    badge: "top",
+    descripcion: "Protección completa multi-dispositivo"
+  },
+  {
+    id: "malwarebytes",
+    nombre: "Malwarebytes Premium",
+    precio: "C$1,200",
+    categoria: "seguridad",
+    iconoId: "mdi:shield-check",
+    iconoColor: "#F34A4A",
+    badge: "top",
+    descripcion: "Protección avanzada contra malware"
+  },
+  {
+    id: "project2021",
+    nombre: "Project Professional 2021",
+    precio: "C$900",
+    categoria: "microsoft",
+    iconoId: "simple-icons:microsoft",
+    iconoColor: "#00A4EF",
+    descripcion: "Gestión de proyectos profesional"
+  },
+  {
+    id: "visio2021",
+    nombre: "Visio Professional 2021",
+    precio: "C$900",
+    categoria: "microsoft",
+    iconoId: "simple-icons:microsoft",
+    iconoColor: "#00A4EF",
+    descripcion: "Diagramación y visualización profesional"
+  },
+  {
+    id: "office2024std",
+    nombre: "Office 2024 Standard",
+    precio: "C$400",
+    categoria: "microsoft",
+    iconoId: "mdi:microsoft-office",
+    iconoColor: "#D83B01",
+    descripcion: "Word, Excel, PowerPoint, Outlook"
+  },
 ];
 
 // Hardcoded products with price override from softkeypc
