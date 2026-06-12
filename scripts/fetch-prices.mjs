@@ -250,6 +250,19 @@ function buildPriceMap(softkeyProducts) {
     }
   } catch (err) {
     console.error('\n✗ Error:', err.message);
-    process.exit(1);
+    // If prices.ts already exists, keep it (cached) so build doesn't fail
+    if (existsSync(OUTPUT)) {
+      console.log('→ Using cached prices.ts');
+      process.exit(0);
+    }
+    // Generate empty file so imports don't break
+    const fallback = [
+      '// Auto-generated fallback — fetch failed',
+      'export const softkeyPrices: Record<string, string> = {};',
+      'export const softkeyCatalog: any[] = [];',
+    ].join('\n') + '\n';
+    writeFileSync(OUTPUT, fallback, 'utf-8');
+    console.log('→ Created empty prices.ts fallback');
+    process.exit(0);
   }
 })();
