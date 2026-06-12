@@ -252,6 +252,16 @@ function buildPriceMap(softkeyProducts) {
     tsLines.push('};');
     tsLines.push('');
 
+    // IDs that depend on softkeypc stock (mapped via PRODUCT_MAP)
+    tsLines.push('// Product IDs that require a softkey price override to be available');
+    tsLines.push('export const softkeyMappedIds: string[] = [');
+    const allMappedIds = matched.map(m => m.id).sort();
+    for (const id of allMappedIds) {
+      tsLines.push(`  "${id}",`);
+    }
+    tsLines.push('];');
+    tsLines.push('');
+
     // Write full catalog
     tsLines.push('// Full product catalog from softkeypc.com');
     tsLines.push('export const softkeyCatalog: SoftkeyProduct[] = [');

@@ -1,4 +1,4 @@
-import { softkeyPrices, softkeyCatalog } from './prices';
+import { softkeyPrices, softkeyMappedIds, softkeyCatalog } from './prices';
 
 export interface Producto {
   id: string;
@@ -406,10 +406,13 @@ const productosBase: Producto[] = [
 ];
 
 // Hardcoded products with price override from softkeypc
-const hardcoded = productosBase.map(p => ({
-  ...p,
-  precio: softkeyPrices[p.id] || p.precio,
-}));
+// Mapped products (from PRODUCT_MAP) are hidden if out of stock on supplier
+const hardcoded = productosBase
+  .filter(p => !softkeyMappedIds.includes(p.id) || softkeyPrices[p.id])
+  .map(p => ({
+    ...p,
+    precio: softkeyPrices[p.id] || p.precio,
+  }));
 
 // Add all softkey catalog products (they won't have old/off/badge)
 const hardcodedIds = new Set(hardcoded.map(p => p.id));
