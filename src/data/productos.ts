@@ -1,4 +1,4 @@
-import { softkeyPrices } from './prices';
+import { softkeyPrices, softkeyCatalog } from './prices';
 
 export interface Producto {
   id: string;
@@ -33,7 +33,7 @@ export const categorias: Categoria[] = [
   { id: "farmacias", nombre: "Farmacias", icono: "fa-solid fa-prescription-bottle", iconoId: "mdi:medical-bag", color: "#22D3EE", bgGradient: "linear-gradient(135deg, #22D3EE 0%, #0891B2 100%)" },
 ];
 
-export const productos: Producto[] = [
+const productosBase: Producto[] = [
   {
     id: "office2024",
     nombre: "Office 2024 full permanente",
@@ -264,8 +264,21 @@ export const productos: Producto[] = [
     descripcion: "Control de inventario, ventas, facturación, clientes, proveedores y fechas de vencimiento",
     url: "/mkfarma"
   },
-].map(p => ({
+];
+
+// Hardcoded products with price override from softkeypc
+const hardcoded = productosBase.map(p => ({
   ...p,
   precio: softkeyPrices[p.id] || p.precio,
 }));
 
+// Add all softkey catalog products (they won't have old/off/badge)
+const hardcodedIds = new Set(hardcoded.map(p => p.id));
+const additional: Producto[] = softkeyCatalog
+  .filter(sp => !hardcodedIds.has(sp.id))
+  .map(sp => ({
+    ...sp,
+    descripcion: '',
+  }));
+
+export const productos: Producto[] = [...hardcoded, ...additional];
