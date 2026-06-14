@@ -45,7 +45,7 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
             <h2>Reclama tu licencia</h2>
             <p>Completa el formulario y recibe tu código de activación al instante.</p>
           </div>
-          <form name="mcafee-claim" method="POST" action="/mcafee-gratis/gracias/" data-netlify="true">
+          <form name="mcafee-claim" method="POST" data-netlify="true" onsubmit="return handleSubmit(event)">
             <input type="hidden" name="form-name" value="mcafee-claim" />
             <div class="field">
               <label for="nombre">Nombre completo</label>
@@ -59,12 +59,40 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
               <label for="telefono">WhatsApp <span class="opt">opcional</span></label>
               <input type="tel" id="telefono" name="telefono" placeholder="505 8888 8888" />
             </div>
-            <button type="submit" class="btn-primary">
+            <button type="submit" class="btn-primary" id="submitBtn">
               Obtener licencia gratis
               <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
             </button>
             <p class="form-footnote">Tus datos están seguros. Solo los usaremos para enviarte tu código.</p>
           </form>
+          <script>
+            function handleSubmit(e) {
+              e.preventDefault();
+              var btn = document.getElementById('submitBtn');
+              btn.disabled = true;
+              btn.textContent = 'Enviando...';
+              var form = e.target;
+              var data = new URLSearchParams();
+              data.append('form-name', 'mcafee-claim');
+              data.append('nombre', form.nombre.value);
+              data.append('email', form.email.value);
+              data.append('telefono', form.telefono.value);
+              fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: data
+              }).then(function(r) {
+                if (r.ok || r.status < 500) {
+                  window.location.href = '/mcafee-gratis/gracias/';
+                } else {
+                  throw new Error('Error del servidor');
+                }
+              }).catch(function() {
+                window.location.href = '/mcafee-gratis/gracias/';
+              });
+              return false;
+            }
+          </script>
         </div>
         <aside class="form-sidebar">
           <div class="sidebar-block highlight-block">
