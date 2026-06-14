@@ -1,0 +1,181 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<BaseLayout title="Licencia reclamada - McAfee GRATIS MKDIGITAL" description="Gracias por reclamar tu licencia McAfee AntiVirus gratis. Aquí tienes tu código de activación.">
+  <Navbar />
+  <main class="gracias-page">
+    <section class="success-section">
+      <div class="success-icon">✅</div>
+      <h1>¡Licencia reclamada con éxito!</h1>
+      <p class="success-sub">Tu código de activación de McAfee AntiVirus está listo. <strong>Una licencia por persona.</strong></p>
+
+      <div class="license-card">
+        <h2>🔑 Tu código de activación</h2>
+        <div class="license-key">29PVK-DXC72-7F3EJ-GRRN4-A222H</div>
+        <button class="btn-copy" onclick="navigator.clipboard.writeText('29PVK-DXC72-7F3EJ-GRRN4-A222H');this.textContent='¡Copiado!';setTimeout(()=>this.textContent='Copiar código',2000)">Copiar código</button>
+      </div>
+
+      <div class="instructions-card">
+        <h2>📥 Instrucciones de activación</h2>
+        <ol>
+          <li>Ingresa a: <a href="https://www.mcafee.com/es-es/consumer-support/activate-product-key.html" target="_blank" rel="noopener">mcafee.com/activate</a></li>
+          <li>Ingresa el código: <strong>29PVK-DXC72-7F3EJ-GRRN4-A222H</strong></li>
+          <li>Deja el país que te aparezca por defecto</li>
+          <li>Ingresa tu correo electrónico</li>
+          <li>Descarga e instala el antivirus</li>
+        </ol>
+        <div class="disclaimer">
+          <p>⚠️ Licencia válida para 1 dispositivo · 1 año. No compartas este código con otras personas, solo funciona para una activación.</p>
+        </div>
+      </div>
+
+      <div class="whatsapp-card">
+        <p>¿Necesitas ayuda con la activación? Escríbenos por WhatsApp</p>
+        <a href="https://wa.me/50581088124?text=Hola%2C+recib%C3%AD+mi+c%C3%B3digo+de+McAfee+pero+necesito+ayuda+con+la+activaci%C3%B3n" target="_blank" rel="noopener" class="btn-wa">💬 Contactar por WhatsApp</a>
+      </div>
+
+      <a href="/" class="btn-back">← Volver a la página principal</a>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
+
+<style is:global>
+.gracias-page {
+  padding-top: 80px;
+  font-family: system-ui, -apple-system, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a0a1a 0%, #1a1a2e 100%);
+}
+.success-section {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 60px 20px 80px;
+  text-align: center;
+}
+.success-icon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+}
+.success-section h1 {
+  color: #fff;
+  font-size: 2rem;
+  margin: 0 0 8px;
+}
+.success-sub {
+  color: #aaa;
+  font-size: 1.05rem;
+  margin: 0 0 40px;
+  line-height: 1.5;
+}
+.license-card {
+  background: linear-gradient(135deg, #1a2e1a, #0f2610);
+  border: 1px solid #2a5a2a;
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 24px;
+}
+.license-card h2 {
+  color: #00c853;
+  font-size: 1.2rem;
+  margin: 0 0 16px;
+}
+.license-key {
+  background: #0a0a1a;
+  border: 2px dashed #00c853;
+  border-radius: 10px;
+  padding: 16px 20px;
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  color: #00c853;
+  word-break: break-all;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+  user-select: all;
+}
+.btn-copy {
+  background: #00c853;
+  color: #000;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-copy:hover {
+  background: #00e864;
+}
+.instructions-card {
+  background: #1e1e2f;
+  border: 1px solid #2a2a40;
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+.instructions-card h2 {
+  color: #fff;
+  font-size: 1.2rem;
+  margin: 0 0 16px;
+  text-align: center;
+}
+.instructions-card ol {
+  color: #ccc;
+  font-size: 0.95rem;
+  line-height: 2;
+  padding-left: 20px;
+}
+.instructions-card a {
+  color: #00c853;
+  text-decoration: underline;
+}
+.disclaimer {
+  background: #2a1a0a;
+  border: 1px solid #5a3a0a;
+  border-radius: 10px;
+  padding: 16px;
+  margin-top: 20px;
+}
+.disclaimer p {
+  color: #ffa500;
+  font-size: 0.85rem;
+  margin: 0;
+  line-height: 1.5;
+}
+.whatsapp-card {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.whatsapp-card p {
+  color: #ccc;
+  margin: 0 0 16px;
+}
+.btn-wa {
+  display: inline-block;
+  background: #25D366;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.2s;
+}
+.btn-wa:hover {
+  transform: scale(1.04);
+}
+.btn-back {
+  display: inline-block;
+  color: #888;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+.btn-back:hover {
+  color: #00c853;
+}
+</style>
