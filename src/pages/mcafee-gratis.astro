@@ -11,16 +11,15 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
   <main class="mcafee-page">
     <section class="mcafee-hero">
       <div class="hero-container">
-        <div class="hero-brand">
-          <div class="brand-shield">
-            <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#CF0A2C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2L3 7v6c0 5.25 3.83 10.15 9 11 5.17-.85 9-5.75 9-11V7l-9-5z"/>
-              <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2"/>
-            </svg>
-          </div>
-          <h1>McAfee AntiVirus</h1>
-          <p class="hero-subtitle">Licencia original por 1 año para Windows — completamente gratis</p>
+        <div class="brand-shield">
+          <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="#CF0A2C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L3 7v6c0 5.25 3.83 10.15 9 11 5.17-.85 9-5.75 9-11V7l-9-5z"/>
+            <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2"/>
+          </svg>
         </div>
+        <h1>McAfee AntiVirus</h1>
+        <p class="hero-subtitle">Licencia original por 1 año para Windows — completamente gratis</p>
+        <div class="hero-price">Monto total: <strong>C$0.00</strong></div>
         <div class="hero-badges">
           <div class="badge">
             <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
@@ -35,92 +34,72 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
             <span>Protección en tiempo real</span>
           </div>
         </div>
+        <div class="hero-cta">
+          <button id="revealBtn" class="btn-primary btn-lg" onclick="revealLicense()">
+            Obtener licencia McAfee
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
       </div>
     </section>
 
-    <section class="mcafee-form">
-      <div class="form-layout">
-        <div class="form-card">
-          <div class="form-header">
-            <h2>Reclama tu licencia</h2>
-            <p>Completa el formulario y recibe tu código de activación al instante.</p>
-          </div>
-          <form name="mcafee-claim" method="POST" data-netlify="true" onsubmit="return handleSubmit(event)">
-            <input type="hidden" name="form-name" value="mcafee-claim" />
-            <div class="field">
-              <label for="nombre">Nombre completo</label>
-              <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
-            </div>
-            <div class="field">
-              <label for="email">Correo electrónico</label>
-              <input type="email" id="email" name="email" required placeholder="correo@ejemplo.com" />
-            </div>
-            <div class="field">
-              <label for="telefono">WhatsApp <span class="opt">opcional</span></label>
-              <input type="tel" id="telefono" name="telefono" placeholder="505 8888 8888" />
-            </div>
-            <button type="submit" class="btn-primary" id="submitBtn">
-              Obtener licencia gratis
-              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
-            </button>
-            <p class="form-footnote">Tus datos están seguros. Solo los usaremos para enviarte tu código.</p>
-          </form>
-          <script>
-            function handleSubmit(e) {
-              e.preventDefault();
-              var btn = document.getElementById('submitBtn');
-              btn.disabled = true;
-              btn.textContent = 'Enviando...';
-              var form = e.target;
-              var data = new URLSearchParams();
-              data.append('form-name', 'mcafee-claim');
-              data.append('nombre', form.nombre.value);
-              data.append('email', form.email.value);
-              data.append('telefono', form.telefono.value);
-              fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: data
-              }).then(function(r) {
-                if (r.ok || r.status < 500) {
-                  window.location.href = '/mcafee-gratis/gracias/';
-                } else {
-                  throw new Error('Error del servidor');
-                }
-              }).catch(function() {
-                window.location.href = '/mcafee-gratis/gracias/';
-              });
-              return false;
-            }
-          </script>
+    <section id="licenseSection" class="license-section" style="display:none">
+      <div class="license-container">
+        <div class="success-banner">
+          <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#00c853" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
+          <h2>Tu licencia está lista</h2>
         </div>
-        <aside class="form-sidebar">
-          <div class="sidebar-block highlight-block">
-            <div class="block-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#CF0A2C" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+        <div class="license-key-card">
+          <div class="license-label">Código de activación</div>
+          <div class="license-key" id="licenseKey">29PVK-DXC72-7F3EJ-GRRN4-A222H</div>
+          <button class="btn-copy" onclick="copyKey()">Copiar código</button>
+        </div>
+
+        <div class="activate-steps">
+          <h3>Instrucciones de activación</h3>
+          <div class="step-list">
+            <div class="activate-step">
+              <span class="step-num">1</span>
+              <div>
+                <h4>Ingresa al sitio de activación</h4>
+                <p>Abre <a href="https://www.mcafee.com/es-es/consumer-support/activate-product-key.html" target="_blank" rel="noopener">mcafee.com/activate</a> en tu navegador.</p>
+              </div>
             </div>
-            <h3>Promoción exclusiva</h3>
-            <p>Esta licencia para <strong>1 PC con Windows</strong> tiene un valor de <strong>C$740</strong> en nuestro catálogo. Válida para los primeros solicitantes.</p>
-          </div>
-          <div class="sidebar-block">
-            <div class="block-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#666" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <div class="activate-step">
+              <span class="step-num">2</span>
+              <div>
+                <h4>Ingresa tu código</h4>
+                <p>Copia el código <strong>29PVK-DXC72-7F3EJ-GGRN4-A222H</strong> en el campo correspondiente.</p>
+              </div>
             </div>
-            <h3>Recibes</h3>
-            <ul>
-              <li>Código de activación original</li>
-              <li>Instrucciones paso a paso</li>
-              <li>Soporte por WhatsApp si lo necesitas</li>
-            </ul>
-          </div>
-          <div class="sidebar-block">
-            <div class="block-icon">
-              <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#666" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            <div class="activate-step">
+              <span class="step-num">3</span>
+              <div>
+                <h4>Completa el registro</h4>
+                <p>Deja el país que aparezca por defecto, ingresa tu correo electrónico y crea tu cuenta.</p>
+              </div>
             </div>
-            <h3>¿Dudas?</h3>
-            <p>Escríbenos por <a href="https://wa.me/50581088124" target="_blank" rel="noopener">WhatsApp</a> y te ayudamos.</p>
+            <div class="activate-step">
+              <span class="step-num">4</span>
+              <div>
+                <h4>Descarga e instala</h4>
+                <p>McAfee se descargará automáticamente. Sigue las instrucciones en pantalla para completar la instalación.</p>
+              </div>
+            </div>
           </div>
-        </aside>
+          <div class="activate-notice">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="#f59e0b" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <span>Licencia válida para 1 PC con Windows por 1 año. No compartas este código, solo funciona para una activación.</span>
+          </div>
+        </div>
+
+        <div class="support-card">
+          <p>¿Necesitas ayuda con la activación?</p>
+          <a href="https://wa.me/50581088124?text=Hola%2C+recib%C3%AD+mi+c%C3%B3digo+de+McAfee+y+necesito+ayuda+con+la+activaci%C3%B3n" target="_blank" rel="noopener" class="btn-wa">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Contactar por WhatsApp
+          </a>
+        </div>
       </div>
     </section>
 
@@ -159,34 +138,26 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
         </div>
       </div>
     </section>
-
-    <section class="mcafee-steps">
-      <div class="steps-container">
-        <h2>Cómo obtener tu licencia</h2>
-        <div class="steps-track">
-          <div class="step-item">
-            <div class="step-number">01</div>
-            <h3>Completa tus datos</h3>
-            <p>Llena el formulario con tu nombre y correo electrónico.</p>
-          </div>
-          <div class="step-connector"></div>
-          <div class="step-item">
-            <div class="step-number">02</div>
-            <h3>Recibe tu código</h3>
-            <p>En la siguiente pantalla verás tu código de activación.</p>
-          </div>
-          <div class="step-connector"></div>
-          <div class="step-item">
-            <div class="step-number">03</div>
-            <h3>Actívalo</h3>
-            <p>Ingresa a <strong>mcafee.com/activate</strong> e introduce el código.</p>
-          </div>
-        </div>
-      </div>
-    </section>
   </main>
   <Footer />
 </BaseLayout>
+
+<script>
+  function revealLicense() {
+    var btn = document.getElementById('revealBtn');
+    btn.disabled = true;
+    btn.innerHTML = 'Licencia obtenida <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>';
+    var section = document.getElementById('licenseSection');
+    section.style.display = 'block';
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  function copyKey() {
+    navigator.clipboard.writeText('29PVK-DXC72-7F3EJ-GRRN4-A222H');
+    var btn = document.querySelector('.btn-copy');
+    btn.textContent = 'Copiado';
+    setTimeout(function() { btn.textContent = 'Copiar código'; }, 2000);
+  }
+</script>
 
 <style is:global>
 .mcafee-page {
@@ -202,7 +173,7 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
   padding: 64px 20px 56px;
 }
 .hero-container {
-  max-width: 760px;
+  max-width: 640px;
   margin: 0 auto;
   text-align: center;
 }
@@ -223,13 +194,24 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
 .hero-subtitle {
   font-size: 1.15rem;
   color: #888;
-  margin: 0 0 36px;
+  margin: 0 0 12px;
+}
+.hero-price {
+  font-size: 1.6rem;
+  font-weight: 400;
+  color: #aaa;
+  margin-bottom: 28px;
+}
+.hero-price strong {
+  color: #00c853;
+  font-size: 2rem;
 }
 .hero-badges {
   display: flex;
   justify-content: center;
   gap: 24px;
   flex-wrap: wrap;
+  margin-bottom: 36px;
 }
 .badge {
   display: flex;
@@ -240,142 +222,197 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
 }
 .badge svg { color: #CF0A2C; flex-shrink: 0; }
 
-/* ── Form ── */
-.mcafee-form {
-  padding: 56px 20px;
-}
-.form-layout {
-  max-width: 860px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 32px;
-  align-items: start;
-}
-.form-card {
-  background: #11111e;
-  border: 1px solid #1e1e32;
-  border-radius: 16px;
-  padding: 36px;
-}
-.form-header { margin-bottom: 28px; }
-.form-header h2 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  color: #fff;
-  margin: 0 0 6px;
-}
-.form-header p {
-  color: #777;
-  font-size: 0.92rem;
-  margin: 0;
-}
-.field {
-  margin-bottom: 20px;
-}
-.field label {
-  display: block;
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: #bbb;
-  margin-bottom: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-.field .opt {
-  font-weight: 400;
-  text-transform: none;
-  letter-spacing: 0;
-  color: #555;
-  font-size: 0.78rem;
-}
-.field input {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 12px 14px;
-  border: 1px solid #222;
-  border-radius: 10px;
-  background: #0a0a14;
-  color: #fff;
-  font-size: 1rem;
-  transition: border-color 0.2s;
-}
-.field input:focus {
-  outline: none;
-  border-color: #CF0A2C;
-}
-.btn-primary {
+/* ── CTA ── */
+.hero-cta { margin-bottom: 0; }
+.btn-lg {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 10px;
-  width: 100%;
-  padding: 14px;
+  padding: 16px 40px;
   background: #CF0A2C;
   color: #fff;
   border: none;
-  border-radius: 10px;
-  font-size: 1.05rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
   font-weight: 700;
   cursor: pointer;
   transition: background 0.2s, transform 0.15s;
 }
-.btn-primary:hover {
+.btn-lg:hover {
   background: #b00926;
-  transform: translateY(-1px);
+  transform: translateY(-2px);
 }
-.btn-primary:active {
-  transform: translateY(0);
-}
-.form-footnote {
-  color: #555;
-  font-size: 0.78rem;
-  text-align: center;
-  margin: 16px 0 0;
+.btn-lg:disabled {
+  background: #1a3a1a;
+  cursor: default;
+  transform: none;
 }
 
-/* ── Sidebar ── */
-.form-sidebar {
+/* ── License section ── */
+.license-section {
+  padding: 48px 20px;
+}
+.license-container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.success-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: 32px;
+}
+.success-banner h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+}
+
+/* Key card */
+.license-key-card {
+  background: #11111e;
+  border: 1px solid rgba(0,200,83,0.2);
+  border-radius: 16px;
+  padding: 32px;
+  text-align: center;
+  margin-bottom: 32px;
+}
+.license-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #666;
+  margin-bottom: 12px;
+}
+.license-key {
+  font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: #00c853;
+  background: #0a0a14;
+  border: 1px dashed rgba(0,200,83,0.3);
+  border-radius: 10px;
+  padding: 16px 20px;
+  word-break: break-all;
+  letter-spacing: 1.5px;
+  user-select: all;
+  margin-bottom: 20px;
+}
+.btn-copy {
+  background: transparent;
+  color: #00c853;
+  border: 1px solid #00c853;
+  padding: 10px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-copy:hover { background: rgba(0,200,83,0.1); }
+
+/* Activate steps */
+.activate-steps {
+  background: #11111e;
+  border: 1px solid #1e1e32;
+  border-radius: 16px;
+  padding: 36px;
+  margin-bottom: 32px;
+}
+.activate-steps h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 24px;
+  text-align: center;
+}
+.step-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
-.sidebar-block {
-  background: #11111e;
-  border: 1px solid #1e1e32;
-  border-radius: 14px;
-  padding: 24px;
+.activate-step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
 }
-.sidebar-block.highlight-block {
-  border-color: rgba(207,10,44,0.25);
-  background: linear-gradient(135deg, rgba(207,10,44,0.06), rgba(207,10,44,0.02));
+.step-num {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(207,10,44,0.1);
+  color: #CF0A2C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
 }
-.block-icon { margin-bottom: 12px; }
-.sidebar-block h3 {
+.activate-step h4 {
   font-size: 0.95rem;
   font-weight: 700;
   color: #fff;
-  margin: 0 0 8px;
+  margin: 0 0 4px;
 }
-.sidebar-block p {
+.activate-step p {
   font-size: 0.85rem;
   color: #888;
+  margin: 0;
   line-height: 1.5;
-  margin: 0;
 }
-.sidebar-block ul {
-  margin: 0;
-  padding: 0 0 0 16px;
-  font-size: 0.85rem;
-  color: #888;
-  line-height: 1.8;
-}
-.sidebar-block a {
+.activate-step a {
   color: #CF0A2C;
-  text-decoration: none;
-  font-weight: 600;
+  text-decoration: underline;
 }
-.sidebar-block a:hover { text-decoration: underline; }
+.activate-notice {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 12px 16px;
+  background: rgba(245,158,11,0.06);
+  border: 1px solid rgba(245,158,11,0.15);
+  border-radius: 10px;
+}
+.activate-notice span {
+  font-size: 0.82rem;
+  color: #a88;
+  line-height: 1.4;
+}
+
+/* Support */
+.support-card {
+  text-align: center;
+  background: #11111e;
+  border: 1px solid #1e1e32;
+  border-radius: 16px;
+  padding: 32px;
+}
+.support-card p {
+  color: #888;
+  font-size: 0.95rem;
+  margin: 0 0 20px;
+}
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-wa:hover {
+  background: #1ebe5b;
+  transform: translateY(-1px);
+}
 
 /* ── Details ── */
 .mcafee-details {
@@ -423,79 +460,14 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
   margin: 0;
 }
 
-/* ── Steps ── */
-.mcafee-steps {
-  padding: 56px 20px 80px;
-  border-top: 1px solid #14141e;
-}
-.steps-container {
-  max-width: 720px;
-  margin: 0 auto;
-  text-align: center;
-}
-.steps-container h2 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #fff;
-  margin: 0 0 44px;
-}
-.steps-track {
-  display: flex;
-  align-items: flex-start;
-  gap: 0;
-}
-.step-item {
-  flex: 1;
-  padding: 0 16px;
-}
-.step-number {
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: rgba(207,10,44,0.15);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-.step-item h3 {
-  font-size: 1rem;
-  font-weight: 700;
-  color: #fff;
-  margin: 0 0 6px;
-}
-.step-item p {
-  font-size: 0.85rem;
-  color: #888;
-  line-height: 1.5;
-  margin: 0;
-}
-.step-connector {
-  flex-shrink: 0;
-  width: 40px;
-  height: 2px;
-  background: linear-gradient(90deg, #CF0A2C, transparent);
-  margin-top: 28px;
-}
-.step-connector:last-child { display: none; }
-
 /* ── Responsive ── */
-@media (max-width: 768px) {
-  .form-layout {
-    grid-template-columns: 1fr;
-  }
-  .details-grid {
-    grid-template-columns: 1fr;
-  }
-  .steps-track {
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-  }
-  .step-connector {
-    width: 2px;
-    height: 24px;
-    background: linear-gradient(180deg, #CF0A2C, transparent);
-    margin: 0;
-  }
+@media (max-width: 640px) {
   .hero-container h1 { font-size: 1.8rem; }
-  .form-card { padding: 24px; }
+  .hero-price { font-size: 1.3rem; }
+  .hero-price strong { font-size: 1.6rem; }
+  .license-key { font-size: 1rem; padding: 14px; }
+  .activate-steps { padding: 24px; }
+  .details-grid { grid-template-columns: 1fr; }
+  .btn-lg { width: 100%; padding: 16px 20px; }
 }
 </style>
