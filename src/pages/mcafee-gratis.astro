@@ -47,6 +47,10 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
           </div>
           <form name="mcafee-claim" method="POST" action="/mcafee-gratis/gracias" data-netlify="true">
             <input type="hidden" name="form-name" value="mcafee-claim" />
+            <input type="hidden" name="device-user-agent" id="field-ua" value="" />
+            <input type="hidden" name="device-platform" id="field-platform" value="" />
+            <input type="hidden" name="device-screen" id="field-screen" value="" />
+            <input type="hidden" name="device-referrer" id="field-referrer" value="" />
             <div class="field">
               <label for="nombre">Nombre completo</label>
               <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre" />
@@ -65,6 +69,19 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
             </button>
             <p class="form-footnote">Tus datos están seguros. Solo los usaremos para enviarte tu código.</p>
           </form>
+          <script>
+            (function() {
+              var form = document.querySelector('form[name="mcafee-claim"]');
+              if (form) {
+                form.addEventListener('submit', function() {
+                  document.getElementById('field-ua').value = navigator.userAgent;
+                  document.getElementById('field-platform').value = navigator.platform;
+                  document.getElementById('field-screen').value = screen.width + 'x' + screen.height;
+                  document.getElementById('field-referrer').value = document.referrer || '(directo)';
+                });
+              }
+            })();
+          </script>
         </div>
         <aside class="form-sidebar">
           <div class="sidebar-block highlight-block">
