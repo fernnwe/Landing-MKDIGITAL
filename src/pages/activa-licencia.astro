@@ -8,7 +8,19 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
 
 <BaseLayout title={title} description={desc}>
   <Navbar />
-  <main class="mcafee-page">
+  <main class="mcafee-page" id="mainContent" style="display:none">
+    <div id="passwordOverlay" class="password-overlay" style="display:flex">
+      <div class="password-modal">
+        <div class="password-lock">
+          <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#CF0A2C" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+        </div>
+        <h2>Acceso restringido</h2>
+        <p>Ingresa la contraseña para acceder a esta página.</p>
+        <input type="password" id="passwordInput" placeholder="Contraseña" onkeydown="if(event.key==='Enter')checkPass()" />
+        <button onclick="checkPass()">Ingresar</button>
+        <p id="passError" class="pass-error" style="display:none">Contraseña incorrecta</p>
+      </div>
+    </div>
     <section class="mcafee-hero">
       <div class="hero-container">
         <div class="brand-shield">
@@ -143,6 +155,21 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
 </BaseLayout>
 
 <script is:inline>
+  function checkPass() {
+    if (document.getElementById('passwordInput').value === 'mkdigital2026$') {
+      sessionStorage.setItem('activa-licencia-auth', '1');
+      document.getElementById('passwordOverlay').style.display = 'none';
+      document.getElementById('mainContent').style.display = 'block';
+    } else {
+      document.getElementById('passError').style.display = 'block';
+    }
+  }
+  (function() {
+    if (sessionStorage.getItem('activa-licencia-auth') === '1') {
+      document.getElementById('passwordOverlay').style.display = 'none';
+      document.getElementById('mainContent').style.display = 'block';
+    }
+  })();
   function revealLicense() {
     var btn = document.getElementById('revealBtn');
     btn.disabled = true;
@@ -164,6 +191,73 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
   padding-top: 80px;
   font-family: system-ui, -apple-system, sans-serif;
   background: #0a0a12;
+}
+
+/* ── Password gate ── */
+.password-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #0a0a12;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.password-modal {
+  background: #11111e;
+  border: 1px solid #1e1e32;
+  border-radius: 16px;
+  padding: 40px 36px;
+  text-align: center;
+  max-width: 380px;
+  width: 100%;
+}
+.password-lock { margin-bottom: 16px; }
+.password-modal h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 6px;
+}
+.password-modal p {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0 0 24px;
+}
+.password-modal input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid #222;
+  border-radius: 10px;
+  background: #0a0a14;
+  color: #fff;
+  font-size: 1rem;
+  margin-bottom: 16px;
+  text-align: center;
+}
+.password-modal input:focus {
+  outline: none;
+  border-color: #CF0A2C;
+}
+.password-modal button {
+  width: 100%;
+  padding: 14px;
+  background: #CF0A2C;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.password-modal button:hover { background: #b00926; }
+.pass-error {
+  color: #CF0A2C;
+  font-size: 0.85rem;
+  margin: 12px 0 0 !important;
 }
 
 /* ── Hero ── */
