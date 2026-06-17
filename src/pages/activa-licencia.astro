@@ -8,19 +8,19 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
 
 <BaseLayout title={title} description={desc}>
   <Navbar />
-  <main class="mcafee-page" id="mainContent" style="display:none">
-    <div id="passwordOverlay" class="password-overlay" style="display:flex">
-      <div class="password-modal">
-        <div class="password-lock">
-          <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#CF0A2C" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-        </div>
-        <h2>Acceso restringido</h2>
-        <p>Ingresa la contraseña para acceder a esta página.</p>
-        <input type="password" id="passwordInput" placeholder="Contraseña" onkeydown="if(event.key==='Enter')checkPass()" />
-        <button onclick="checkPass()">Ingresar</button>
-        <p id="passError" class="pass-error" style="display:none">Contraseña incorrecta</p>
+  <div id="passwordOverlay" class="password-overlay">
+    <div class="password-modal">
+      <div class="password-lock">
+        <svg viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="#CF0A2C" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
       </div>
+      <h2>Acceso restringido</h2>
+      <p>Ingresa la contraseña para acceder a esta página.</p>
+      <input type="password" id="passwordInput" placeholder="Contraseña" onkeydown="if(event.key==='Enter')checkPass()" />
+      <button onclick="checkPass()">Ingresar</button>
+      <p id="passError" class="pass-error" style="display:none">Contraseña incorrecta</p>
     </div>
+  </div>
+  <main class="mcafee-page" id="mainContent">
     <section class="mcafee-hero">
       <div class="hero-container">
         <div class="brand-shield">
@@ -159,7 +159,6 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
     if (document.getElementById('passwordInput').value === 'mkdigital2026$') {
       sessionStorage.setItem('activa-licencia-auth', '1');
       document.getElementById('passwordOverlay').style.display = 'none';
-      document.getElementById('mainContent').style.display = 'block';
     } else {
       document.getElementById('passError').style.display = 'block';
     }
@@ -167,7 +166,6 @@ const desc = "Obtén tu licencia McAfee AntiVirus completamente gratis. Promoci�
   (function() {
     if (sessionStorage.getItem('activa-licencia-auth') === '1') {
       document.getElementById('passwordOverlay').style.display = 'none';
-      document.getElementById('mainContent').style.display = 'block';
     }
   })();
   function revealLicense() {
