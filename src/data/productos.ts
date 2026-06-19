@@ -241,18 +241,7 @@ const productosBase: Producto[] = [
     badge: "top",
     descripcion: "Software de facturación para escritorio"
   },
-  {
-    id: "mksoft",
-    nombre: "MKSOFT — Sistema para Restaurantes",
-    precio: "C$900",
-    off: "al mes",
-    categoria: "restaurantes",
-    iconoId: "mdi:silverware-variant",
-    iconoColor: "#F59E0B",
-    badge: "own",
-    descripcion: "Administración completa de restaurantes: pedidos, facturación, inventario y reportes",
-    url: "https://app.mkdigitalnic.com/"
-  },
+
   {
     id: "mkfarma",
     nombre: "MKFARMA — Sistema para Farmacias",
