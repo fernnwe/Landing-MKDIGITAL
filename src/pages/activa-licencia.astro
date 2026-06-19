@@ -63,8 +63,16 @@ const desc = "Canjea tu licencia McAfee AntiVirus aquí. Promoción exclusiva po
         </div>
         <div class="license-key-card">
           <div class="license-label">Código de activación</div>
-          <div class="license-key license-coming">976ML-N66JZ-EG7PY-RTGD4-A2PA2</div>
-          <button class="btn-copy" onclick="copyKey()">Copiar código</button>
+          <div class="license-list">
+            <div class="license-item">
+              <div class="license-key">976ML-N66JZ-EG7PY-RTGD4-A2PA2</div>
+              <button class="btn-copy" onclick="copyKey('976ML-N66JZ-EG7PY-RTGD4-A2PA2',this)">Copiar código</button>
+            </div>
+            <div class="license-item">
+              <div class="license-key">29TZD-JZDP5-NRG66-3T2EA-A2FM2</div>
+              <button class="btn-copy" onclick="copyKey('29TZD-JZDP5-NRG66-3T2EA-A2FM2',this)">Copiar código</button>
+            </div>
+          </div>
         </div>
 
         <div class="activate-steps">
@@ -80,7 +88,7 @@ const desc = "Canjea tu licencia McAfee AntiVirus aquí. Promoción exclusiva po
               <span class="step-num">2</span>
               <div>
                 <h4>Ingresa tu código</h4>
-                <p>Copia el código <strong>976ML-N66JZ-EG7PY-RTGD4-A2PA2</strong> en el campo correspondiente.</p>
+                <p>Copia cualquiera de los códigos de arriba en el campo correspondiente.</p>
               </div>
             </div>
             <div class="activate-step">
@@ -171,9 +179,8 @@ const desc = "Canjea tu licencia McAfee AntiVirus aquí. Promoción exclusiva po
     section.style.display = 'block';
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
-  function copyKey() {
-    navigator.clipboard.writeText('976ML-N66JZ-EG7PY-RTGD4-A2PA2');
-    var btn = document.querySelector('.btn-copy');
+  function copyKey(code, btn) {
+    navigator.clipboard.writeText(code);
     btn.textContent = 'Copiado';
     setTimeout(function() { btn.textContent = 'Copiar código'; }, 2000);
   }
@@ -385,7 +392,17 @@ const desc = "Canjea tu licencia McAfee AntiVirus aquí. Promoción exclusiva po
   word-break: break-all;
   letter-spacing: 1.5px;
   user-select: all;
-  margin-bottom: 20px;
+}
+.license-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.license-item {
+  text-align: center;
+}
+.license-item .btn-copy {
+  margin-top: 12px;
 }
 .btn-copy {
   background: transparent;
