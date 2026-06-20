@@ -2,8 +2,8 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
-const title = "Canjear licencia McAfee - MKDIGITAL Nicaragua";
-const desc = "Canjea tu licencia McAfee AntiVirus aquí. Promoción exclusiva por tiempo limitado en Nicaragua.";
+const title = "Canjear licencias - MKDIGITAL Nicaragua";
+const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoción exclusiva por tiempo limitado en Nicaragua.";
 ---
 
 <BaseLayout title={title} description={desc}>
@@ -20,140 +20,193 @@ const desc = "Canjea tu licencia McAfee AntiVirus aquí. Promoción exclusiva po
       <p id="passError" class="pass-error" style="display:none">Contraseña incorrecta</p>
     </div>
   </div>
-  <main class="mcafee-page" id="mainContent">
-    <section class="mcafee-hero">
+  <main class="license-page" id="mainContent">
+    <section class="page-hero">
       <div class="hero-container">
-        <div class="brand-shield">
-          <svg viewBox="0 0 24 24" width="56" height="56" fill="none" stroke="#CF0A2C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2L3 7v6c0 5.25 3.83 10.15 9 11 5.17-.85 9-5.75 9-11V7l-9-5z"/>
-            <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2"/>
-          </svg>
-        </div>
-        <h1>McAfee AntiVirus</h1>
-        <p class="hero-subtitle">Canjea tu licencia original para Windows — 1 año de validez</p>
-        <div class="hero-badges">
-          <div class="badge">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-            <span>1 año de protección</span>
+        <h1>Canjea tu licencia</h1>
+        <p class="hero-subtitle">Selecciona el producto y canjea tu licencia original.</p>
+      </div>
+    </section>
+
+    <!-- McAfee -->
+    <section class="product-section" id="mcafee-section">
+      <div class="product-inner">
+        <div class="product-header">
+          <div class="product-icon" style="background:rgba(207,10,44,0.1)">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#CF0A2C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2L3 7v6c0 5.25 3.83 10.15 9 11 5.17-.85 9-5.75 9-11V7l-9-5z"/>
+              <path d="M9 12l2 2 4-4" stroke="#fff" stroke-width="2"/>
+            </svg>
           </div>
-          <div class="badge">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
-            <span>1 PC con Windows</span>
+          <h2>McAfee AntiVirus</h2>
+          <p class="product-subtitle">Licencia original para Windows — 1 año de validez</p>
+          <div class="hero-badges">
+            <div class="badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <span>1 año</span>
+            </div>
+            <div class="badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+              <span>1 PC</span>
+            </div>
+            <div class="badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>Tiempo real</span>
+            </div>
           </div>
-          <div class="badge">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <span>Protección en tiempo real</span>
-          </div>
-        </div>
-        <div class="hero-cta">
-          <button id="revealBtn" class="btn-primary btn-lg" onclick="revealLicense()">
+          <button class="btn-reveal" id="revealMcAfee" onclick="revealMcAfee()">
             Canjear licencia
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
           </button>
         </div>
-      </div>
-    </section>
 
-    <section id="licenseSection" class="license-section" style="display:none">
-      <div class="license-container">
-        <div class="success-banner">
-          <svg viewBox="0 0 24 24" width="40" height="40" fill="none" stroke="#00c853" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l2 2 4-4"/></svg>
-          <h2>Código de activación</h2>
-        </div>
-        <div class="license-key-card">
-          <div class="license-label">Código de activación</div>
-          <div class="license-list">
-            <div class="license-item">
-              <div class="license-key">976ML-N66JZ-EG7PY-RTGD4-A2PA2</div>
-              <button class="btn-copy" onclick="copyKey('976ML-N66JZ-EG7PY-RTGD4-A2PA2',this)">Copiar código</button>
-            </div>
-            <div class="license-item">
-              <div class="license-key">29TZD-JZDP5-NRG66-3T2EA-A2FM2</div>
-              <button class="btn-copy" onclick="copyKey('29TZD-JZDP5-NRG66-3T2EA-A2FM2',this)">Copiar código</button>
-            </div>
-            <div class="license-item">
-              <div class="license-key">943YR-U9257-4A47M-46CY9-APJFP</div>
-              <button class="btn-copy" onclick="copyKey('943YR-U9257-4A47M-46CY9-APJFP',this)">Copiar código</button>
-            </div>
-          </div>
-        </div>
-
-        <div class="activate-steps">
-          <div class="step-list">
-            <div class="activate-step">
-              <span class="step-num">📥</span>
-              <div>
-                <h4>Ingresa al sitio de activación</h4>
-                <p>Abre <a href="https://www.mcafee.com/es-es/consumer-support/activate-product-key.html" target="_blank" rel="noopener">mcafee.com/activate</a> en tu navegador.</p>
+        <div id="mcafeeLicense" class="license-reveal" style="display:none">
+          <div class="license-key-card">
+            <div class="license-label">Códigos de activación McAfee</div>
+            <div class="license-list">
+              <div class="license-item">
+                <div class="license-key">976ML-N66JZ-EG7PY-RTGD4-A2PA2</div>
+                <button class="btn-copy" onclick="copyKey('976ML-N66JZ-EG7PY-RTGD4-A2PA2',this)">Copiar código</button>
               </div>
-            </div>
-            <div class="activate-step">
-              <span class="step-num">2</span>
-              <div>
-                <h4>Ingresa tu código</h4>
-                <p>Copia cualquiera de los códigos de arriba en el campo correspondiente.</p>
+              <div class="license-item">
+                <div class="license-key">29TZD-JZDP5-NRG66-3T2EA-A2FM2</div>
+                <button class="btn-copy" onclick="copyKey('29TZD-JZDP5-NRG66-3T2EA-A2FM2',this)">Copiar código</button>
               </div>
-            </div>
-            <div class="activate-step">
-              <span class="step-num">3</span>
-              <div>
-                <h4>Deja el país que aparezca</h4>
-                <p>No cambies el país predeterminado. Continúa al siguiente paso.</p>
-              </div>
-            </div>
-            <div class="activate-step">
-              <span class="step-num">4</span>
-              <div>
-                <h4>Ingresa tu email y descarga</h4>
-                <p>Pon tu correo electrónico, crea tu cuenta y descarga el antivirus automáticamente.</p>
+              <div class="license-item">
+                <div class="license-key">943YR-U9257-4A47M-46CY9-APJFP</div>
+                <button class="btn-copy" onclick="copyKey('943YR-U9257-4A47M-46CY9-APJFP',this)">Copiar código</button>
               </div>
             </div>
           </div>
-        </div>
 
-        <div class="support-card">
-          <p>¿Problemas con la activación? Escríbenos.</p>
-          <a href="https://wa.me/50581088124?text=Hola%2C+recib%C3%AD+mi+c%C3%B3digo+McAfee+y+necesito+ayuda+con+la+activaci%C3%B3n" target="_blank" rel="noopener" class="btn-wa">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-            Consultar por WhatsApp
-          </a>
+          <div class="activate-steps">
+            <h3>Pasos para activar McAfee</h3>
+            <div class="step-list">
+              <div class="activate-step">
+                <span class="step-num">1</span>
+                <div>
+                  <h4>Ingresa al sitio de activación</h4>
+                  <p>Abre <a href="https://www.mcafee.com/es-es/consumer-support/activate-product-key.html" target="_blank" rel="noopener">mcafee.com/activate</a> en tu navegador.</p>
+                </div>
+              </div>
+              <div class="activate-step">
+                <span class="step-num">2</span>
+                <div>
+                  <h4>Ingresa tu código</h4>
+                  <p>Copia cualquiera de los códigos de arriba en el campo correspondiente.</p>
+                </div>
+              </div>
+              <div class="activate-step">
+                <span class="step-num">3</span>
+                <div>
+                  <h4>Deja el país que aparezca</h4>
+                  <p>No cambies el país predeterminado. Continúa al siguiente paso.</p>
+                </div>
+              </div>
+              <div class="activate-step">
+                <span class="step-num">4</span>
+                <div>
+                  <h4>Ingresa tu email y descarga</h4>
+                  <p>Pon tu correo electrónico, crea tu cuenta y descarga el antivirus automáticamente.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="mcafee-details">
-      <div class="details-container">
-        <h2>Protección completa para tu PC con Windows</h2>
-        <div class="details-grid">
-          <div class="detail-card">
-            <div class="detail-icon">
-              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#CF0A2C" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            </div>
-            <h3>Anti-malware avanzado</h3>
-            <p>Detección y eliminación de virus, spyware, ransomware y otras amenazas en tiempo real.</p>
+    <!-- Avast -->
+    <section class="product-section" id="avast-section">
+      <div class="product-inner">
+        <div class="product-header">
+          <div class="product-icon" style="background:rgba(255,107,0,0.1)">
+            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#FF6B00" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <circle cx="12" cy="12" r="3" stroke="#FF6B00" fill="none"/>
+            </svg>
           </div>
-          <div class="detail-card">
-            <div class="detail-icon">
-              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#CF0A2C" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          <h2>Avast Premium</h2>
+          <p class="product-subtitle">Licencia original — 1 año de validez</p>
+          <div class="hero-badges">
+            <div class="badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+              <span>1 año</span>
             </div>
-            <h3>Navegación segura</h3>
-            <p>Protege tus datos mientras navegas, compras en línea y realizas transacciones bancarias.</p>
+            <div class="badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg>
+              <span>1 PC</span>
+            </div>
+            <div class="badge">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <span>Anti-malware</span>
+            </div>
           </div>
-          <div class="detail-card">
-            <div class="detail-icon">
-              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#CF0A2C" stroke-width="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <button class="btn-reveal" id="revealAvast" onclick="revealAvast()">
+            Canjear licencia
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+
+        <div id="avastLicense" class="license-reveal" style="display:none">
+          <div class="license-key-card">
+            <div class="license-label">Código de activación Avast</div>
+            <div class="license-list">
+              <div class="license-item">
+                <div class="license-key">U8TJST-VHHCQ2-4Z448J</div>
+                <button class="btn-copy" onclick="copyKey('U8TJST-VHHCQ2-4Z448J',this)">Copiar código</button>
+              </div>
+              <div class="license-item">
+                <div class="license-key">QTULFA-FCQLW2-54UCFW</div>
+                <button class="btn-copy" onclick="copyKey('QTULFA-FCQLW2-54UCFW',this)">Copiar código</button>
+              </div>
             </div>
-            <h3>Firewall inteligente</h3>
-            <p>Monitorea el tráfico de red y bloquea accesos no autorizados a tu equipo.</p>
           </div>
-          <div class="detail-card">
-            <div class="detail-icon">
-              <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#CF0A2C" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+
+          <div class="activate-steps">
+            <h3>Pasos para activar Avast</h3>
+            <div class="step-list">
+              <div class="activate-step">
+                <span class="step-num">1</span>
+                <div>
+                  <h4>Descarga Avast</h4>
+                  <p>Descarga Avast Free desde <a href="https://www.avast.com/es-es/download-thank-you.php?product=ANTIVIRUS&locale=es-es" target="_blank" rel="noopener">avast.com</a> e instálalo en tu PC.</p>
+                </div>
+              </div>
+              <div class="activate-step">
+                <span class="step-num">2</span>
+                <div>
+                  <h4>Ve a Menú &gt; Mis licencias</h4>
+                  <p>Abre Avast, haz clic en <strong>Menú</strong> (esquina superior derecha) y selecciona <strong>Mis licencias</strong>.</p>
+                </div>
+              </div>
+              <div class="activate-step">
+                <span class="step-num">3</span>
+                <div>
+                  <h4>Introducir código de activación</h4>
+                  <p>Haz clic en <strong>Introducir código de activación</strong> e ingresa el código de arriba.</p>
+                </div>
+              </div>
+              <div class="activate-step">
+                <span class="step-num">4</span>
+                <div>
+                  <h4>Listo</h4>
+                  <p>Tu Avast se actualizará automáticamente a la versión Premium. ¡Disfruta de protección completa!</p>
+                </div>
+              </div>
             </div>
-            <h3>Actualizaciones automáticas</h3>
-            <p>McAfee se actualiza solo para estar siempre protegido contra las últimas amenazas.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="support-band">
+      <div class="support-container">
+        <p>¿Problemas con la activación? Escríbenos.</p>
+        <a href="https://wa.me/50581088124?text=Hola%2C+recib%C3%AD+mi+c%C3%B3digo+y+necesito+ayuda+con+la+activaci%C3%B3n" target="_blank" rel="noopener" class="btn-wa">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Consultar por WhatsApp
+        </a>
       </div>
     </section>
   </main>
@@ -174,12 +227,22 @@ const desc = "Canjea tu licencia McAfee AntiVirus aquí. Promoción exclusiva po
       document.getElementById('passwordOverlay').style.display = 'none';
     }
   })();
-  function revealLicense() {
-    var btn = document.getElementById('revealBtn');
-    btn.disabled = true;
-    btn.innerHTML = 'Listo <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>';
-    var section = document.getElementById('licenseSection');
+  function revealMcAfee() {
+    var btn = document.getElementById('revealMcAfee');
+    var section = document.getElementById('mcafeeLicense');
+    if (section.style.display === 'block') { return; }
     section.style.display = 'block';
+    btn.disabled = true;
+    btn.innerHTML = 'Listo <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>';
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+  function revealAvast() {
+    var btn = document.getElementById('revealAvast');
+    var section = document.getElementById('avastLicense');
+    if (section.style.display === 'block') { return; }
+    section.style.display = 'block';
+    btn.disabled = true;
+    btn.innerHTML = 'Listo <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>';
     section.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
   function copyKey(code, btn) {
@@ -190,7 +253,7 @@ const desc = "Canjea tu licencia McAfee AntiVirus aquí. Promoción exclusiva po
 </script>
 
 <style is:global>
-.mcafee-page {
+.license-page {
   padding-top: 80px;
   font-family: system-ui, -apple-system, sans-serif;
   background: #0a0a12;
@@ -263,129 +326,138 @@ const desc = "Canjea tu licencia McAfee AntiVirus aquí. Promoción exclusiva po
   margin: 12px 0 0 !important;
 }
 
-/* ── Hero ── */
-.mcafee-hero {
-  background: linear-gradient(135deg, #0d0d1a 0%, #1a0a0e 40%, #0d0d1a 100%);
-  border-bottom: 1px solid #1a1a2e;
-  padding: 64px 20px 56px;
-}
-.hero-container {
-  max-width: 640px;
-  margin: 0 auto;
+/* ── Page hero ── */
+.page-hero {
+  padding: 48px 20px 32px;
   text-align: center;
 }
-.brand-shield {
-  margin-bottom: 16px;
-  display: inline-flex;
-  background: rgba(207,10,44,0.08);
-  padding: 14px;
-  border-radius: 20px;
-}
-.hero-container h1 {
-  font-size: 2.6rem;
+.page-hero h1 {
+  font-size: 2.2rem;
   font-weight: 700;
   color: #fff;
-  letter-spacing: -0.5px;
   margin: 0 0 8px;
+  letter-spacing: -0.5px;
 }
-.hero-subtitle {
-  font-size: 1.15rem;
+.page-hero p {
+  font-size: 1.05rem;
   color: #888;
-  margin: 0 0 12px;
+  margin: 0;
 }
-.hero-price {
+
+/* ── Product sections ── */
+.product-section {
+  padding: 24px 20px;
+}
+.product-section:last-of-type { padding-bottom: 48px; }
+.product-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  background: #11111e;
+  border: 1px solid #1a1a2a;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.product-header {
+  text-align: center;
+  padding: 36px 32px 0;
+}
+.product-icon {
+  display: inline-flex;
+  padding: 14px;
+  border-radius: 18px;
+  margin-bottom: 14px;
+}
+.product-header h2 {
   font-size: 1.6rem;
-  font-weight: 400;
-  color: #aaa;
-  margin-bottom: 28px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 4px;
 }
-.hero-price strong {
-  color: #00c853;
-  font-size: 2rem;
+.product-subtitle {
+  font-size: 0.95rem;
+  color: #888;
+  margin: 0 0 16px;
 }
 .hero-badges {
   display: flex;
   justify-content: center;
-  gap: 24px;
+  gap: 20px;
   flex-wrap: wrap;
-  margin-bottom: 36px;
+  margin-bottom: 24px;
 }
 .badge {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   color: #bbb;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
-.badge svg { color: #CF0A2C; flex-shrink: 0; }
+.badge svg { flex-shrink: 0; }
+#mcafee-section .badge svg { color: #CF0A2C; }
+#avast-section .badge svg { color: #FF6B00; }
 
-/* ── CTA ── */
-.hero-cta { margin-bottom: 0; }
-.btn-lg {
+.btn-reveal {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 40px;
-  background: #CF0A2C;
-  color: #fff;
+  padding: 14px 36px;
   border: none;
   border-radius: 12px;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   cursor: pointer;
   transition: background 0.2s, transform 0.15s;
+  margin-bottom: 32px;
 }
-.btn-lg:hover {
+#mcafee-section .btn-reveal {
+  background: #CF0A2C;
+  color: #fff;
+}
+#mcafee-section .btn-reveal:hover {
   background: #b00926;
   transform: translateY(-2px);
 }
-.btn-lg:disabled {
+#mcafee-section .btn-reveal:disabled {
   background: #1a3a1a;
   cursor: default;
   transform: none;
 }
-
-/* ── License section ── */
-.license-section {
-  padding: 48px 20px;
-}
-.license-container {
-  max-width: 640px;
-  margin: 0 auto;
-}
-.success-banner {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  justify-content: center;
-  margin-bottom: 32px;
-}
-.success-banner h2 {
-  font-size: 1.4rem;
-  font-weight: 700;
+#avast-section .btn-reveal {
+  background: #FF6B00;
   color: #fff;
-  margin: 0;
+}
+#avast-section .btn-reveal:hover {
+  background: #e05f00;
+  transform: translateY(-2px);
+}
+#avast-section .btn-reveal:disabled {
+  background: #3a2a1a;
+  cursor: default;
+  transform: none;
 }
 
-/* Key card */
+/* ── License reveal ── */
+.license-reveal {
+  padding: 0 32px 32px;
+}
 .license-key-card {
-  background: #11111e;
+  background: #0a0a14;
   border: 1px solid rgba(0,200,83,0.2);
   border-radius: 16px;
-  padding: 32px;
+  padding: 28px;
   text-align: center;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
 }
 .license-label {
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #666;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
 .license-key {
   font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #00c853;
   background: #0a0a14;
@@ -399,14 +471,10 @@ const desc = "Canjea tu licencia McAfee AntiVirus aquí. Promoción exclusiva po
 .license-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
-.license-item {
-  text-align: center;
-}
-.license-item .btn-copy {
-  margin-top: 12px;
-}
+.license-item { text-align: center; }
+.license-item .btn-copy { margin-top: 10px; }
 .btn-copy {
   background: transparent;
   color: #00c853;
@@ -420,88 +488,77 @@ const desc = "Canjea tu licencia McAfee AntiVirus aquí. Promoción exclusiva po
 }
 .btn-copy:hover { background: rgba(0,200,83,0.1); }
 
-/* Activate steps */
+/* ── Activate steps ── */
 .activate-steps {
-  background: #11111e;
   border: 1px solid #1e1e32;
   border-radius: 16px;
-  padding: 36px;
-  margin-bottom: 32px;
+  padding: 28px;
+  margin-bottom: 0;
 }
 .activate-steps h3 {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #fff;
-  margin: 0 0 24px;
+  margin: 0 0 20px;
   text-align: center;
 }
 .step-list {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
 }
 .activate-step {
   display: flex;
-  gap: 16px;
+  gap: 14px;
   align-items: flex-start;
 }
 .step-num {
   flex-shrink: 0;
-  width: 32px;
-  height: 32px;
+  width: 30px;
+  height: 30px;
   border-radius: 8px;
-  background: rgba(207,10,44,0.1);
-  color: #CF0A2C;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 700;
   font-size: 0.85rem;
 }
+#mcafee-section .step-num { background: rgba(207,10,44,0.1); color: #CF0A2C; }
+#avast-section .step-num { background: rgba(255,107,0,0.1); color: #FF6B00; }
 .activate-step h4 {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   font-weight: 700;
   color: #fff;
-  margin: 0 0 4px;
+  margin: 0 0 3px;
 }
 .activate-step p {
-  font-size: 0.85rem;
+  font-size: 0.84rem;
   color: #888;
   margin: 0;
   line-height: 1.5;
 }
-.activate-step a {
-  color: #CF0A2C;
-  text-decoration: underline;
-}
-.activate-notice {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin-top: 24px;
-  padding: 12px 16px;
-  background: rgba(245,158,11,0.06);
-  border: 1px solid rgba(245,158,11,0.15);
-  border-radius: 10px;
-}
-.activate-notice span {
-  font-size: 0.82rem;
-  color: #a88;
-  line-height: 1.4;
-}
+.activate-step a { text-decoration: underline; }
+#mcafee-section .activate-step a { color: #CF0A2C; }
+#avast-section .activate-step a { color: #FF6B00; }
+.activate-step strong { color: #ddd; }
 
-/* Support */
-.support-card {
+/* ── Support ── */
+.support-band {
+  padding: 0 20px 64px;
+}
+.support-container {
+  max-width: 640px;
+  margin: 0 auto;
   text-align: center;
   background: #11111e;
   border: 1px solid #1e1e32;
   border-radius: 16px;
-  padding: 32px;
+  padding: 28px;
 }
-.support-card p {
+.support-container p {
   color: #888;
   font-size: 0.95rem;
-  margin: 0 0 20px;
+  margin: 0 0 18px;
 }
 .btn-wa {
   display: inline-flex;
@@ -509,10 +566,10 @@ const desc = "Canjea tu licencia McAfee AntiVirus aquí. Promoción exclusiva po
   gap: 10px;
   background: #25D366;
   color: #fff;
-  padding: 14px 32px;
+  padding: 12px 28px;
   border-radius: 10px;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 0.95rem;
   text-decoration: none;
   transition: background 0.2s, transform 0.15s;
 }
@@ -521,60 +578,15 @@ const desc = "Canjea tu licencia McAfee AntiVirus aquí. Promoción exclusiva po
   transform: translateY(-1px);
 }
 
-/* ── Details ── */
-.mcafee-details {
-  padding: 64px 20px;
-  border-top: 1px solid #14141e;
-}
-.details-container {
-  max-width: 860px;
-  margin: 0 auto;
-}
-.details-container h2 {
-  font-size: 1.6rem;
-  font-weight: 700;
-  color: #fff;
-  text-align: center;
-  margin: 0 0 44px;
-}
-.details-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
-.detail-card {
-  background: #11111e;
-  border: 1px solid #1a1a2a;
-  border-radius: 14px;
-  padding: 28px 24px;
-  transition: border-color 0.2s, transform 0.2s;
-}
-.detail-card:hover {
-  border-color: #CF0A2C;
-  transform: translateY(-2px);
-}
-.detail-icon { margin-bottom: 16px; }
-.detail-card h3 {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #fff;
-  margin: 0 0 10px;
-}
-.detail-card p {
-  font-size: 0.88rem;
-  color: #888;
-  line-height: 1.6;
-  margin: 0;
-}
-
 /* ── Responsive ── */
 @media (max-width: 640px) {
-  .hero-container h1 { font-size: 1.8rem; }
-  .hero-price { font-size: 1.3rem; }
-  .hero-price strong { font-size: 1.6rem; }
-  .license-key { font-size: 1rem; padding: 14px; }
-  .activate-steps { padding: 24px; }
-  .details-grid { grid-template-columns: 1fr; }
-  .btn-lg { width: 100%; padding: 16px 20px; }
+  .page-hero h1 { font-size: 1.6rem; }
+  .product-header { padding: 28px 20px 0; }
+  .product-header h2 { font-size: 1.3rem; }
+  .btn-reveal { width: 100%; padding: 14px 20px; }
+  .license-reveal { padding: 0 20px 24px; }
+  .license-key { font-size: 0.95rem; padding: 14px; }
+  .activate-steps { padding: 20px; }
+  .support-band { padding: 0 20px 48px; }
 }
 </style>
