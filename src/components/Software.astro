@@ -1,3 +1,7 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
 <section class="section software-section">
   <div class="container">
 
@@ -15,7 +19,7 @@
       <div class="software-card reveal reveal-left stagger-1">
         <div class="software-top">
           <div class="sw-icon">
-            <i class="fa-solid fa-mobile-screen-button"></i>
+            <Icon name="mdi:cellphone" />
           </div>
           <span class="software-badge">APP ANDROID</span>
         </div>
@@ -28,10 +32,10 @@
         </p>
 
         <ul class="feature-list">
-          <li><i class="fa-solid fa-bolt"></i> Facturación inmediata</li>
-          <li><i class="fa-solid fa-chart-line"></i> Control de ventas</li>
-          <li><i class="fa-solid fa-receipt"></i> Emisión de vouchers</li>
-          <li><i class="fa-solid fa-headset"></i> Actualizaciones</li>
+          <li><Icon name="mdi:bolt" /> Facturación inmediata</li>
+          <li><Icon name="mdi:chart-line" /> Control de ventas</li>
+          <li><Icon name="mdi:receipt" /> Emisión de vouchers</li>
+          <li><Icon name="mdi:headset" /> Actualizaciones</li>
         </ul>
 
         <a href="https://factulite.net" target="_blank" class="software-btn">
@@ -44,7 +48,7 @@
 
         <div class="software-top">
           <div class="sw-icon">
-            <i class="fa-solid fa-desktop"></i>
+            <Icon name="mdi:desktop-classic" />
           </div>
           <span class="software-badge">Punto de venta web</span>
         </div>
@@ -57,10 +61,10 @@
         </p>
 
         <ul class="feature-list">
-          <li><i class="fa-solid fa-boxes-stacked"></i> Inventario en tiempo real</li>
-          <li><i class="fa-solid fa-chart-pie"></i> Reportes y estadísticas</li>
-          <li><i class="fa-solid fa-users"></i> Multiusuario y Multisucursal</li>
-          <li><i class="fa-solid fa-screwdriver-wrench"></i>Soporte técnico incluido</li>
+          <li><Icon name="mdi:package-variant-closed" /> Inventario en tiempo real</li>
+          <li><Icon name="mdi:chart-pie" /> Reportes y estadísticas</li>
+          <li><Icon name="mdi:users" /> Multiusuario y Multisucursal</li>
+          <li><Icon name="mdi:screwdriver" />Soporte técnico incluido</li>
         </ul>
 
         <a href="https://www.viperpos.net/login" target="_blank" class="software-btn">
@@ -172,7 +176,7 @@
   font-size: 14px;
   color: var(--on-surface-variant);
 }
-.feature-list li i { color: var(--primary); width: 16px; }
+.feature-list li svg { color: var(--primary); width: 16px; height: 16px; }
 
 .software-btn {
   display: inline-flex;

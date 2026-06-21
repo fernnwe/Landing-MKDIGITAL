@@ -108,9 +108,9 @@ import { Icon } from "astro-icon/components";
         <p>Conexión cifrada y control total del proceso en tiempo real.</p>
 
         <div class="trust-list">
-          <span><i class="fa-solid fa-check"></i> No requiere instalación</span>
-          <span><i class="fa-solid fa-check"></i> Conexión cifrada</span>
-          <span><i class="fa-solid fa-check"></i> Soporte inmediato</span>
+          <span><Icon name="mdi:check" /> No requiere instalación</span>
+          <span><Icon name="mdi:check" /> Conexión cifrada</span>
+          <span><Icon name="mdi:check" /> Soporte inmediato</span>
         </div>
       </div>
     </div>
@@ -332,7 +332,7 @@ document.addEventListener("DOMContentLoaded", () => {
   font-size: 13px;
   color: var(--on-surface-variant);
 }
-.trust-list i { color: var(--primary); font-size: 12px; }
+.trust-list :global(svg) { color: var(--primary); width: 12px; height: 12px; }
 
 @media (max-width: 900px) {
   .anydesk-grid {

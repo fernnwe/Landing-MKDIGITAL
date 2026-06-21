@@ -13,7 +13,7 @@ import { Icon } from "astro-icon/components";
   <div class="container">
     <div class="promo-content">
       <span class="promo-badge reveal reveal-down stagger-1">
-        <i class="fa-solid fa-tag"></i>
+        <Icon name="mdi:tag" />
         PROMOCIÓN DEL MES
       </span>
 
@@ -30,27 +30,27 @@ import { Icon } from "astro-icon/components";
 
       <div class="promo-chips reveal reveal-up stagger-4">
         <span class="promo-chip">
-          <i class="fa-brands fa-microsoft" style="color: #00A4EF;"></i>
+          <Icon name="simple-icons:microsoft" color="#00A4EF" />
           Office 2024/2021
         </span>
         <span class="promo-chip">
-          <i class="fa-solid fa-shield-halved" style="color: #00C853;"></i>
+          <Icon name="mdi:shield-half-full" color="#00C853" />
           Antivirus
         </span>
         <span class="promo-chip">
-          <i class="fa-brands fa-adobe" style="color: #FF0000;"></i>
+          <Icon name="simple-icons:adobe" color="#FF0000" />
           Adobe CC
         </span>
         <span class="promo-chip">
-          <i class="fa-solid fa-cubes" style="color: #E51050;"></i>
+          <Icon name="mdi:hexagon-multiple" color="#E51050" />
           Autodesk
         </span>
         <span class="promo-chip">
-          <i class="fa-brands fa-windows" style="color: #00A4EF;"></i>
+          <Icon name="simple-icons:windows" color="#00A4EF" />
           Windows
         </span>
         <span class="promo-chip">
-          <i class="fa-solid fa-file-invoice" style="color: #818CF8;"></i>
+          <Icon name="mdi:file-document-outline" color="#818CF8" />
           Facturación
         </span>
       </div>
@@ -58,16 +58,16 @@ import { Icon } from "astro-icon/components";
       <div class="promo-actions reveal reveal-up stagger-5">
         <a href="/catalogo" class="promo-btn">
           Ver ofertas disponibles
-          <i class="fa-solid fa-arrow-right"></i>
+          <Icon name="mdi:arrow-right" />
         </a>
         <a href="https://wa.me/50581088124?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20las%20promociones%20de%20este%20mes" target="_blank" class="promo-wa">
-          <i class="fa-brands fa-whatsapp"></i>
+          <Icon name="simple-icons:whatsapp" />
           Consultar por WhatsApp
         </a>
       </div>
 
       <div class="promo-countdown reveal reveal-up stagger-6">
-        <i class="fa-regular fa-clock"></i>
+        <Icon name="mdi:clock-outline" />
         <span>Ofertas válidas hasta fin de mes — No dejes pasar esta oportunidad</span>
       </div>
     </div>
@@ -163,7 +163,7 @@ import { Icon } from "astro-icon/components";
   50% { box-shadow: 0 0 0 12px rgba(251, 191, 36, 0); }
 }
 
-.promo-badge i { font-size: 13px; }
+.promo-badge :global(svg) { width: 13px; height: 13px; }
 
 .promo-content h2 {
   font-size: clamp(28px, 3.5vw, 42px);
@@ -218,7 +218,7 @@ import { Icon } from "astro-icon/components";
   box-shadow: 0 4px 12px rgba(251, 191, 36, 0.1);
 }
 
-.promo-chip i { font-size: 16px; }
+.promo-chip :global(svg) { width: 16px; height: 16px; }
 
 .promo-actions {
   display: flex;
@@ -248,8 +248,8 @@ import { Icon } from "astro-icon/components";
   transform: translateY(-2px);
 }
 
-.promo-btn i { transition: transform 0.2s ease; }
-.promo-btn:hover i { transform: translateX(4px); }
+.promo-btn :global(svg) { transition: transform 0.2s ease; }
+.promo-btn:hover :global(svg) { transform: translateX(4px); }
 
 .promo-wa {
   display: inline-flex;
@@ -280,7 +280,7 @@ import { Icon } from "astro-icon/components";
   color: var(--on-surface-variant);
 }
 
-.promo-countdown i { font-size: 14px; color: var(--tertiary); }
+.promo-countdown :global(svg) { width: 14px; height: 14px; color: var(--tertiary); }
 
 @media (max-width: 900px) {
   .promo-section { padding: 60px 0; }

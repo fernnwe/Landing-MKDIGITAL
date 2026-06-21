@@ -38,7 +38,7 @@ const pOldNum = p.old ? parsePrecio(p.old) : null;
   )}
   {p.badge === "own" && (
     <span class="badge-own">
-      <i class="fa-solid fa-star"></i>
+      <Icon name="mdi:star" />
       MK
     </span>
   )}
@@ -74,7 +74,7 @@ const pOldNum = p.old ? parsePrecio(p.old) : null;
           </a>
         )}
         <a href={`https://wa.me/50581088124?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20${encodeURIComponent(p.nombre)}`} target="_blank" class="card-btn card-btn-wa">
-          <i class="fa-brands fa-whatsapp"></i>
+          <Icon name="simple-icons:whatsapp" />
         </a>
       </div>
     </div>
@@ -129,7 +129,7 @@ const pOldNum = p.old ? parsePrecio(p.old) : null;
   font-size: 10px;
   font-weight: 700;
 }
-.badge-own i { font-size: 8px; }
+.badge-own :global(svg) { width: 8px; height: 8px; }
 
 .card-icon {
   position: relative;

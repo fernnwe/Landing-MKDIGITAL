@@ -1,3 +1,7 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
 <section class="hero" id="inicio">
   <div class="hero-bg">
     <div class="hero-orb hero-orb-1"></div>
@@ -9,7 +13,7 @@
   <div class="container hero-grid">
     <div class="hero-content">
       <span class="badge reveal reveal-down stagger-1">
-        <i class="fa-solid fa-wifi"></i>
+        <Icon name="mdi:wifi" />
         SOPORTE REMOTO EN TODA NICARAGUA
       </span>
 
@@ -25,35 +29,35 @@
 
       <div class="hero-buttons reveal reveal-up stagger-4">
         <a href="https://wa.me/50581088124" target="_blank" class="btn-primary btn-lg">
-          <i class="fa-brands fa-whatsapp"></i>
+          <Icon name="simple-icons:whatsapp" />
           Solicitar soporte
         </a>
         <a href="/catalogo" class="btn-outline btn-lg">
-          <i class="fa-solid fa-layer-group"></i>
+          <Icon name="mdi:layers" />
           Ver catálogo
         </a>
       </div>
 
       <div class="hero-features reveal reveal-up stagger-5">
-        <span class="chip"><i class="fa-solid fa-bolt"></i> Atención inmediata</span>
-        <span class="chip"><i class="fa-solid fa-lock"></i> Instalación segura</span>
-        <span class="chip"><i class="fa-solid fa-credit-card"></i> Pago por transferencia</span>
-        <span class="chip"><i class="fa-solid fa-desktop"></i> Soporte remoto real</span>
+        <span class="chip"><Icon name="mdi:bolt" /> Atención inmediata</span>
+        <span class="chip"><Icon name="mdi:lock" /> Instalación segura</span>
+        <span class="chip"><Icon name="mdi:credit-card" /> Pago por transferencia</span>
+        <span class="chip"><Icon name="mdi:desktop-classic" /> Soporte remoto real</span>
       </div>
 
       <div class="hero-stats reveal reveal-up stagger-6">
         <div class="stat-item">
-          <i class="fa-solid fa-users"></i>
+          <Icon name="mdi:users" />
           <strong>+500</strong>
           <span>Clientes atendidos</span>
         </div>
         <div class="stat-item">
-          <i class="fa-solid fa-clock"></i>
+          <Icon name="mdi:clock-outline" />
           <strong>15 min</strong>
           <span>Tiempo de respuesta</span>
         </div>
         <div class="stat-item">
-          <i class="fa-solid fa-globe"></i>
+          <Icon name="mdi:globe" />
           <strong>100%</strong>
           <span>Remoto</span>
         </div>
@@ -70,7 +74,7 @@
         <div class="hero-services">
           <div class="hero-service-item">
             <div class="service-icon">
-              <i class="fa-solid fa-laptop"></i>
+              <Icon name="mdi:laptop" />
             </div>
             <div class="service-text">
               <strong>Instalación de programas</strong>
@@ -80,7 +84,7 @@
 
           <div class="hero-service-item">
             <div class="service-icon">
-              <i class="fa-solid fa-microchip"></i>
+              <Icon name="mdi:chip" />
             </div>
             <div class="service-text">
               <strong>Drivers y optimización</strong>
@@ -90,7 +94,7 @@
 
           <div class="hero-service-item">
             <div class="service-icon">
-              <i class="fa-solid fa-shield-virus"></i>
+              <Icon name="mdi:shield-check" />
             </div>
             <div class="service-text">
               <strong>Eliminación de virus</strong>
@@ -100,7 +104,7 @@
 
           <div class="hero-service-item">
             <div class="service-icon">
-              <i class="fa-solid fa-file-word"></i>
+              <Icon name="mdi:file-word" />
             </div>
             <div class="service-text">
               <strong>Instalación de Office</strong>
@@ -236,7 +240,7 @@
   font-size: 12px;
   font-weight: 500;
 }
-.chip i { font-size: 12px; color: var(--primary); }
+.chip svg { width: 12px; height: 12px; color: var(--primary); }
 
 .hero-features {
   display: flex;
@@ -255,7 +259,7 @@
   flex-direction: column;
   gap: 2px;
 }
-.stat-item i { color: var(--primary); font-size: 16px; margin-bottom: 4px; }
+.stat-item svg { color: var(--primary); width: 16px; height: 16px; margin-bottom: 4px; }
 .stat-item strong { font-size: 28px; font-weight: 700; color: var(--on-surface); letter-spacing: -0.02em; }
 .stat-item span { font-size: 12px; color: var(--on-surface-variant); }
 

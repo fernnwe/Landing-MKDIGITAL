@@ -1,10 +1,11 @@
 ---
+import { Icon } from "astro-icon/components";
 ---
 
 <div id="flyer-overlay" class="flyer-overlay">
   <div class="flyer-modal">
     <button id="flyer-close" class="flyer-close" aria-label="Cerrar">
-      <i class="fa-solid fa-xmark"></i>
+      <Icon name="mdi:close" />
     </button>
 
     <div class="flyer-header">
@@ -21,27 +22,27 @@
 
     <div class="flyer-grid">
       <div class="flyer-item">
-        <i class="fa-brands fa-microsoft" style="color: #00A4EF;"></i>
+        <Icon name="simple-icons:microsoft" color="#00A4EF" />
         <span>Office 2024 / 2021</span>
       </div>
       <div class="flyer-item">
-        <i class="fa-solid fa-palette" style="color: #FF0000;"></i>
+        <Icon name="mdi:palette" color="#FF0000" />
         <span>Adobe Creative Cloud</span>
       </div>
       <div class="flyer-item">
-        <i class="fa-solid fa-file-invoice" style="color: #818CF8;"></i>
+        <Icon name="mdi:file-document-outline" color="#818CF8" />
         <span>Facturación Windows</span>
       </div>
       <div class="flyer-item">
-        <i class="fa-solid fa-globe" style="color: #22D3EE;"></i>
+        <Icon name="mdi:globe" color="#22D3EE" />
         <span>Sistemas Web</span>
       </div>
       <div class="flyer-item">
-        <i class="fa-solid fa-shield-halved" style="color: #00C853;"></i>
+        <Icon name="mdi:shield-half-full" color="#00C853" />
         <span>Antivirus Premium</span>
       </div>
       <div class="flyer-item">
-        <i class="fa-brands fa-windows" style="color: #00A4EF;"></i>
+        <Icon name="simple-icons:windows" color="#00A4EF" />
         <span>Windows Pro</span>
       </div>
     </div>
@@ -53,17 +54,17 @@
         <span>Asesor en software y soporte técnico</span>
       </div>
       <a href="https://wa.me/50581088124" target="_blank" class="flyer-contact-wa">
-        <i class="fa-brands fa-whatsapp"></i>
+        <Icon name="simple-icons:whatsapp" />
       </a>
     </div>
 
     <div class="flyer-footer">
       <a href="/catalogo" class="flyer-btn" id="flyer-cta">
         Ver catálogo completo
-        <i class="fa-solid fa-arrow-right"></i>
+        <Icon name="mdi:arrow-right" />
       </a>
       <p class="flyer-note">
-        <i class="fa-regular fa-clock"></i>
+        <Icon name="mdi:clock-outline" />
         Promociones válidas hasta fin de mes
       </p>
     </div>
@@ -222,7 +223,7 @@
   transition: all 0.2s ease;
 }
 
-.flyer-item i { font-size: 20px; min-width: 24px; text-align: center; }
+.flyer-item svg { width: 20px; height: 20px; min-width: 20px; }
 
 .flyer-footer {
   padding: 20px 36px 32px;
@@ -250,8 +251,8 @@
   transform: translateY(-2px);
 }
 
-.flyer-btn i { transition: transform 0.2s ease; }
-.flyer-btn:hover i { transform: translateX(4px); }
+.flyer-btn svg { transition: transform 0.2s ease; }
+.flyer-btn:hover svg { transform: translateX(4px); }
 
 .flyer-note {
   font-size: 12px;
@@ -262,7 +263,7 @@
   gap: 6px;
 }
 
-.flyer-note i { color: var(--tertiary, #FBBF24); }
+.flyer-note svg { color: var(--tertiary, #FBBF24); }
 
 .flyer-contact {
   display: flex;
@@ -311,10 +312,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
   text-decoration: none;
   transition: all 0.2s ease;
 }
+.flyer-contact-wa svg { width: 18px; height: 18px; }
 
 .flyer-contact-wa:hover {
   transform: scale(1.1);
@@ -325,7 +326,7 @@
   .flyer-header { padding: 32px 24px 20px; }
   .flyer-grid { padding: 0 24px 24px; gap: 6px; }
   .flyer-item { padding: 10px 12px; font-size: 12px; }
-  .flyer-item i { font-size: 17px; min-width: 20px; }
+  .flyer-item svg { width: 17px; height: 17px; min-width: 17px; }
   .flyer-footer { padding: 16px 24px 28px; }
   .flyer-btn { width: 100%; justify-content: center; }
 }

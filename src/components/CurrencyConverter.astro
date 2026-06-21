@@ -1,15 +1,16 @@
 ---
+import { Icon } from "astro-icon/components";
 ---
 
 <div class="converter-card" id="converter">
   <div class="converter-toggle" onclick="toggleConverter()">
-    <i class="fa-solid fa-arrow-right-arrow-left"></i>
+    <Icon name="mdi:arrow-left-right" />
     <span>Convertir C$ a $</span>
-    <i class="fa-solid fa-chevron-down" id="converter-chevron"></i>
+    <Icon name="mdi:chevron-down" id="converter-chevron" />
   </div>
 
   <div class="converter-body open" id="converter-body">
-    <p class="converter-rate"><i class="fa-solid fa-info-circle"></i> 1 USD = C$37</p>
+    <p class="converter-rate"><Icon name="mdi:information" /> 1 USD = C$37</p>
 
     <div class="converter-row">
       <div class="converter-field">
@@ -19,7 +20,7 @@
           <input type="number" id="input-cordoba" value="370" min="0" step="1" />
         </div>
       </div>
-      <div class="converter-equal"><i class="fa-solid fa-equals"></i></div>
+      <div class="converter-equal"><Icon name="mdi:equal" /></div>
       <div class="converter-field">
         <label>Dólares ($)</label>
         <div class="converter-input-wrapper">
@@ -101,15 +102,17 @@
   transition: background 0.2s;
 }
 .converter-toggle:hover { background: rgba(129, 140, 248, 0.06); }
-.converter-toggle i:first-child {
+.converter-toggle :global(svg):first-child {
   color: var(--primary);
-  font-size: 16px;
+  width: 16px;
+  height: 16px;
 }
 .converter-toggle span { flex: 1; }
-.converter-toggle i:last-child {
+.converter-toggle :global(svg):last-child {
   transition: transform 0.3s ease;
   color: var(--on-surface-variant);
-  font-size: 12px;
+  width: 12px;
+  height: 12px;
 }
 
 .converter-body {
@@ -126,7 +129,7 @@
   align-items: center;
   gap: 6px;
 }
-.converter-rate i { color: var(--primary); font-size: 13px; }
+.converter-rate :global(svg) { color: var(--primary); width: 13px; height: 13px; }
 
 .converter-row {
   display: flex;

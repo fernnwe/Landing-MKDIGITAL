@@ -13,7 +13,7 @@ import CurrencyConverter from "./CurrencyConverter.astro";
     </div>
     <div class="container hero-content">
       <div class="badge reveal reveal-down">
-        <i class="fa-solid fa-layer-group"></i>
+        <Icon name="mdi:layers" />
         CATÁLOGO DE SOFTWARE
       </div>
       <h1 class="reveal reveal-up stagger-2">
@@ -23,7 +23,7 @@ import CurrencyConverter from "./CurrencyConverter.astro";
         Todos los programas que instalamos a precio justo, con soporte remoto incluido
       </p>
       <div class="licencias-badge reveal reveal-up stagger-4">
-        <i class="fa-solid fa-check-circle"></i>
+        <Icon name="mdi:check-circle" />
         Licencias Originales
       </div>
 
@@ -54,7 +54,7 @@ import CurrencyConverter from "./CurrencyConverter.astro";
 
         <div class="filter-tabs" id="filterTabs">
           <button class="filter-tab active" data-filter="all">
-            <i class="fa-solid fa-grid-2"></i>
+            <Icon name="mdi:grid" />
             Todos
           </button>
           {categorias.map(cat => (
@@ -93,7 +93,7 @@ import CurrencyConverter from "./CurrencyConverter.astro";
       })}
 
       <div class="empty-state" id="emptyState" style="display:none">
-        <i class="fa-solid fa-search"></i>
+        <Icon name="mdi:search" />
         <h3>Sin resultados</h3>
         <p>No encontramos productos que coincidan con tu búsqueda</p>
         <button class="btn-outline" onclick="resetFilters()">Limpiar filtros</button>
@@ -254,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function() {
   font-weight: 600;
   letter-spacing: 0.02em;
 }
-.licencias-badge i { font-size: 14px; }
+.licencias-badge :global(svg) { width: 14px; height: 14px; }
 
 .licencias-strip {
   margin-top: 24px;
@@ -447,8 +447,9 @@ document.addEventListener("DOMContentLoaded", function() {
   text-align: center;
   gap: 12px;
 }
-.empty-state i {
-  font-size: 48px;
+.empty-state :global(svg) {
+  width: 48px;
+  height: 48px;
   color: var(--on-surface-variant);
   opacity: 0.3;
 }

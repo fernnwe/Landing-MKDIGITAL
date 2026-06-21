@@ -1,3 +1,7 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
 <section id="cta-section" class="cta-section">
   <div class="container">
 
@@ -7,7 +11,7 @@
       <div class="cta-content">
 
         <div class="badge pulse">
-          <i class="fa-solid fa-headset"></i>
+          <Icon name="mdi:headset" />
           SOPORTE DISPONIBLE AHORA
         </div>
 
@@ -24,7 +28,7 @@
         <div class="cta-benefits">
 
           <div class="cta-benefit">
-            <div class="benefit-icon"><i class="fa-solid fa-bolt"></i></div>
+            <div class="benefit-icon"><Icon name="mdi:bolt" /></div>
             <div>
               <strong>Respuesta rápida</strong>
               <span>Promedio de 15 minutos</span>
@@ -32,7 +36,7 @@
           </div>
 
           <div class="cta-benefit">
-            <div class="benefit-icon"><i class="fa-solid fa-shield-halved"></i></div>
+            <div class="benefit-icon"><Icon name="mdi:shield-half-full" /></div>
             <div>
               <strong>Conexión segura</strong>
               <span>Sesión supervisada en todo momento</span>
@@ -40,7 +44,7 @@
           </div>
 
           <div class="cta-benefit">
-            <div class="benefit-icon"><i class="fa-solid fa-star"></i></div>
+            <div class="benefit-icon"><Icon name="mdi:star" /></div>
             <div>
               <strong>Clientes satisfechos</strong>
               <span>Calificación promedio 4.9</span>
@@ -50,13 +54,13 @@
         </div>
 
         <a href="https://wa.me/50581088124" target="_blank" class="btn-primary">
-          <i class="fa-brands fa-whatsapp"></i>
+          <Icon name="simple-icons:whatsapp" />
           Solicitar soporte ahora
-          <span class="cta-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+          <span class="cta-arrow"><Icon name="mdi:arrow-right" /></span>
         </a>
 
         <div class="cta-trust">
-          <i class="fa-solid fa-circle-check"></i>
+          <Icon name="mdi:check-circle-outline" />
           Más de <strong>500 instalaciones remotas</strong> completadas con éxito
         </div>
 
@@ -66,16 +70,16 @@
       <div class="cta-card-wrapper">
         <div class="cta-card">
 
-          <h3><i class="fa-solid fa-credit-card"></i> Métodos de pago</h3>
+          <h3><Icon name="mdi:credit-card" /> Métodos de pago</h3>
 
           <div class="banks">
-            <span class="bank-chip"><i class="fa-solid fa-building-columns"></i> BANPRO</span>
-            <span class="bank-chip"><i class="fa-solid fa-building-columns"></i> BAC</span>
-            <span class="bank-chip"><i class="fa-solid fa-building-columns"></i> LAFISE</span>
+            <span class="bank-chip"><Icon name="mdi:bank" /> BANPRO</span>
+            <span class="bank-chip"><Icon name="mdi:bank" /> BAC</span>
+            <span class="bank-chip"><Icon name="mdi:bank" /> LAFISE</span>
           </div>
 
           <div class="secure-note">
-            <i class="fa-solid fa-lock"></i>
+            <Icon name="mdi:lock" />
             Transferencias y depósitos verificados
           </div>
 
@@ -149,8 +153,9 @@
   align-items: center;
   justify-content: center;
   color: var(--primary);
-  font-size: 14px;
 }
+
+.benefit-icon svg { width: 14px; height: 14px; }
 
 .cta-benefit strong {
   display: block;
@@ -172,7 +177,7 @@
   font-size: 13px;
   color: var(--on-surface-variant);
 }
-.cta-trust i { color: var(--primary); margin-right: 6px; }
+.cta-trust svg { color: var(--primary); margin-right: 6px; }
 .cta-trust strong { color: var(--on-surface); }
 
 /* Right card */
@@ -194,7 +199,7 @@
   align-items: center;
   gap: 10px;
 }
-.cta-card h3 i { color: var(--primary); }
+.cta-card h3 svg { color: var(--primary); }
 
 .banks {
   display: flex;
@@ -215,7 +220,7 @@
   font-weight: 500;
   color: var(--on-surface);
 }
-.bank-chip i { color: var(--primary); }
+.bank-chip svg { color: var(--primary); }
 
 .secure-note {
   font-size: 13px;
@@ -224,7 +229,7 @@
   align-items: center;
   gap: 8px;
 }
-.secure-note i { color: var(--primary); }
+.secure-note svg { color: var(--primary); }
 
 @media (max-width: 900px) {
   .cta-grid {

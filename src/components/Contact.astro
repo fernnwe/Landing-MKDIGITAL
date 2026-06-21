@@ -1,3 +1,7 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
 <section id="contacto" class="section contact-section">
   <div class="container contact-grid">
 
@@ -19,7 +23,7 @@
       <div class="contact-benefits">
 
         <div class="contact-benefit">
-          <i class="fa-solid fa-clock"></i>
+          <Icon name="mdi:clock-outline" />
           <div>
             <strong>Respuesta inmediata</strong>
             <span>Tiempo promedio: 15 minutos</span>
@@ -27,7 +31,7 @@
         </div>
 
         <div class="contact-benefit">
-          <i class="fa-solid fa-laptop"></i>
+          <Icon name="mdi:laptop" />
           <div>
             <strong>Soporte 100% remoto</strong>
             <span>Sin salir de casa</span>
@@ -35,7 +39,7 @@
         </div>
 
         <div class="contact-benefit">
-          <i class="fa-solid fa-shield-halved"></i>
+          <Icon name="mdi:shield-half-full" />
           <div>
             <strong>Proceso seguro</strong>
             <span>Conexión protegida</span>
@@ -45,7 +49,7 @@
       </div>
 
       <div class="contact-trust">
-        <i class="fa-solid fa-circle-check"></i>
+        <Icon name="mdi:check-circle-outline" />
         Más de <strong>500 clientes atendidos</strong> en Nicaragua
       </div>
 
@@ -57,7 +61,7 @@
       <div class="contact-card">
 
         <div class="contact-wa-icon">
-          <i class="fa-brands fa-whatsapp"></i>
+          <Icon name="simple-icons:whatsapp" />
         </div>
 
         <h3>Hablar por WhatsApp</h3>
@@ -69,13 +73,13 @@
           class="contact-wa-btn"
         >
           Iniciar conversación
-          <i class="fa-solid fa-arrow-right"></i>
+          <Icon name="mdi:arrow-right" />
         </a>
 
         <div class="contact-chips">
-          <span><i class="fa-solid fa-bolt"></i> Atención rápida</span>
-          <span><i class="fa-solid fa-lock"></i> Conexión segura</span>
-          <span><i class="fa-solid fa-desktop"></i> Soporte remoto real</span>
+          <span><Icon name="mdi:bolt" /> Atención rápida</span>
+          <span><Icon name="mdi:lock" /> Conexión segura</span>
+          <span><Icon name="mdi:desktop-classic" /> Soporte remoto real</span>
         </div>
 
       </div>
@@ -124,11 +128,11 @@
   gap: 14px;
   align-items: flex-start;
 }
-.contact-benefit i {
-  font-size: 18px;
+.contact-benefit svg {
   color: var(--primary);
   margin-top: 2px;
   width: 24px;
+  height: 18px;
 }
 .contact-benefit strong {
   display: block;
@@ -146,7 +150,7 @@
   font-size: 13px;
   color: var(--on-surface-variant);
 }
-.contact-trust i { color: var(--primary); margin-right: 6px; }
+.contact-trust svg { color: var(--primary); margin-right: 6px; }
 .contact-trust strong { color: var(--on-surface); }
 
 /* Right card */
@@ -172,9 +176,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32px;
   color: var(--primary);
 }
+.contact-wa-icon svg { width: 32px; height: 32px; }
 
 .contact-card h3 {
   font-size: 20px;
@@ -219,7 +223,7 @@
   font-size: 12px;
   color: var(--on-surface-variant);
 }
-.contact-chips i { color: var(--primary); font-size: 12px; }
+.contact-chips svg { color: var(--primary); width: 12px; height: 12px; }
 
 @media (max-width: 900px) {
   .contact-grid {
