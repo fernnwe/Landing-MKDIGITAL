@@ -1,4 +1,4 @@
-<section id="contacto" class="cta-section">
+<section id="cta-section" class="cta-section">
   <div class="container">
 
     <div class="cta-grid">
@@ -49,7 +49,7 @@
 
         </div>
 
-        <a href="https://wa.me/50581088124" target="_blank" class="cta-btn">
+        <a href="https://wa.me/50581088124" target="_blank" class="btn-primary">
           <i class="fa-brands fa-whatsapp"></i>
           Solicitar soporte ahora
           <span class="cta-arrow"><i class="fa-solid fa-arrow-right"></i></span>
@@ -163,26 +163,9 @@
   color: var(--on-surface-variant);
 }
 
-.cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 14px 32px;
-  border-radius: var(--shape-full);
-  background: var(--primary);
-  color: var(--on-primary);
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  box-shadow: var(--elevation-2);
-  transition: box-shadow 0.2s ease, transform 0.1s ease;
-}
-.cta-btn:hover {
-  box-shadow: var(--elevation-4);
-}
-.cta-btn:active { transform: scale(0.97); }
 .cta-arrow { transition: transform 0.2s ease; }
-.cta-btn:hover .cta-arrow { transform: translateX(4px); }
+.cta-section .btn-primary:hover .cta-arrow { transform: translateX(4px); }
+.cta-section .btn-primary { gap: 12px; padding: 14px 32px; font-size: 15px; font-weight: 600; }
 
 .cta-trust {
   margin-top: 24px;
@@ -251,7 +234,7 @@
   }
   .cta-desc { margin: 0 auto 32px; }
   .cta-benefits { align-items: center; }
-  .cta-btn { width: 100%; justify-content: center; }
+  .cta-section .btn-primary { width: 100%; justify-content: center; }
   .banks { justify-content: center; }
   .secure-note { justify-content: center; }
 }

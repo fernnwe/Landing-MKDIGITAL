@@ -67,6 +67,11 @@
   --font-weight-semibold: 600;
   --font-weight-bold: 700;
 
+  /* Breakpoints */
+  --bp-sm: 600px;
+  --bp-md: 768px;
+  --bp-lg: 900px;
+
   /* Motion */
   --motion-duration-short1: 50ms;
   --motion-duration-short2: 100ms;
@@ -99,6 +104,10 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+button, a, input, select, textarea, [role="button"] {
+  touch-action: manipulation;
 }
 
 ::selection {
@@ -485,4 +494,16 @@ section, [id] { scroll-margin-top: 72px; }
 
 @media (max-width: 600px) {
   .section { padding: 56px 0; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .orb-float { animation: none !important; }
 }

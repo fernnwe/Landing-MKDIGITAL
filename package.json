@@ -15,7 +15,6 @@
   "dependencies": {
     "@iconify-json/mdi": "^1.2.3",
     "@iconify-json/simple-icons": "^1.2.79",
-    "aos": "^2.3.4",
     "astro": "^6.2.1",
     "astro-icon": "^1.1.5"
   }

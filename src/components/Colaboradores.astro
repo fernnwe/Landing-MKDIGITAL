@@ -1,7 +1,7 @@
 ---
 ---
 
-<section id="equipo" class="section team-section">
+<section id="equipo" class="section team-section reveal reveal-up">
   <div class="container">
 
     <div class="section-header">
@@ -55,33 +55,12 @@
   </div>
 </section>
 
-<script is:inline>
-const teamObserver = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("team-visible");
-    }
-  });
-}, {threshold: 0.2});
-
-const teamSection = document.querySelector(".team-section");
-if (teamSection) teamObserver.observe(teamSection);
-</script>
-
 <style>
 /* MD3 Team Section */
 .team-section {
   padding: 96px 0;
   background: var(--background, #0F1115);
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
 
-.team-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
 
 .team-grid {
   display: grid;
