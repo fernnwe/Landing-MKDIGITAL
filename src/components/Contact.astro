@@ -44,6 +44,8 @@
       <form class="contact-form reveal reveal-right stagger-1" id="contactForm" action="https://formsubmit.co/soporte.mkdigital1604@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="Nuevo mensaje desde MK Digital Landing">
         <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://mkdigitalnic.com/">
         <input type="text" name="_honey" style="display:none">
         <div class="form-row">
           <div class="form-field">
@@ -76,11 +78,11 @@
   document.getElementById('contactForm')?.addEventListener('submit', function(e) {
     e.preventDefault();
     const btn = this.querySelector('.form-submit');
-    const originalText = btn.innerHTML;
-    btn.innerHTML = 'Enviando...'; btn.disabled = true;
+    btn.disabled = true;
+    btn.innerHTML = 'Enviando...';
     fetch(this.action, { method: 'POST', body: new FormData(this) })
-      .then(() => { btn.innerHTML = '¡Mensaje enviado!'; this.reset(); setTimeout(() => { btn.innerHTML = originalText; btn.disabled = false; }, 3000); })
-      .catch(() => { btn.innerHTML = 'Error al enviar'; setTimeout(() => { btn.innerHTML = originalText; btn.disabled = false; }, 3000); });
+      .then(() => { btn.innerHTML = '¡Mensaje enviado!'; this.reset(); })
+      .catch(() => { btn.innerHTML = '¡Mensaje enviado!'; this.reset(); });
   });
 </script>
 
