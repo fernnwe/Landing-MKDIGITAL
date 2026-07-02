@@ -30,15 +30,15 @@
 <style>
   .navbar {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-    padding: 16px 0;
-    transition: background 0.3s, transform 0.3s, padding 0.3s;
+    padding: 14px 0;
+    transition: background 0.4s ease, transform 0.4s ease, padding 0.4s ease;
   }
-  .navbar.scrolled { background: rgba(6,6,8,0.8); backdrop-filter: blur(24px) saturate(1.4); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 10px 0; }
+  .navbar.scrolled { background: rgba(6,6,8,0.85); backdrop-filter: blur(24px) saturate(1.4); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 10px 0; }
   .navbar.hidden { transform: translateY(-100%); }
-  .navbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .navbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
   .navbar-logo { flex-shrink: 0; display: flex; align-items: center; text-decoration: none; }
-  .logo-text { font-size: 22px; font-weight: 700; letter-spacing: -0.5px; color: var(--on-surface); }
-  .logo-accent { color: var(--primary); font-weight: 800; }
+  .logo-text { font-size: 22px; font-weight: 800; letter-spacing: 0; color: var(--on-surface); line-height: 1; }
+  .logo-accent { color: var(--primary); font-weight: 900; }
 
   .menu-toggle { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 5px; width: 40px; height: 40px; background: none; border: 1px solid var(--outline); border-radius: 10px; cursor: pointer; padding: 8px; }
   .menu-toggle:hover { border-color: var(--primary); }
@@ -60,6 +60,35 @@
   .nav-link.active { color: var(--primary); }
 
   .nav-cta { padding: 10px 20px; font-size: 13px; margin-left: 8px; flex-shrink: 0; }
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      navbar.classList.toggle('scrolled', currentScroll > 20);
+      navbar.classList.toggle('hidden', currentScroll > lastScroll && currentScroll > 80);
+      lastScroll = currentScroll;
+    }, { passive: true });
+
+    menuToggle?.addEventListener('click', () => {
+      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+      menuToggle.setAttribute('aria-expanded', !expanded);
+      navLinks.classList.toggle('open');
+      document.body.classList.toggle('menu-open');
+    });
+
+    navLinks?.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        document.body.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
 
   @media (max-width: 768px) {
     .menu-toggle { display: flex; }
