@@ -95,8 +95,8 @@
   const path = window.location.pathname;
   navLinks?.querySelectorAll('.nav-link').forEach(link => {
     const href = link.getAttribute('href');
-    const linkPath = href.split('#')[0] || '/';
-    link.classList.toggle('active', linkPath === path);
+    if (href.includes('#')) return;
+    link.classList.toggle('active', href === path);
   });
 
   window.addEventListener('scroll', () => {
