@@ -1,5 +1,47 @@
 ---
 import { Icon } from "astro-icon/components";
+
+const products = [
+  {
+    name: "MK Farma",
+    icon: "mdi:medical-bag",
+    tag: "Gestión farmacéutica",
+    desc: "Plataforma integral para la gestión de farmacias con control de medicamentos, lotes y facturación electrónica.",
+    features: [
+      "Control de lotes y fechas de vencimiento",
+      "Facturación electrónica SRI",
+      "Inventario automatizado en tiempo real",
+      "Reportes gerenciales y analytics",
+    ],
+    accent: "linear-gradient(135deg, #F59E0B, #F97316)",
+  },
+  {
+    name: "Sistema de Inventario",
+    icon: "mdi:package-variant-closed",
+    tag: "Control de stock",
+    desc: "Solución completa para la gestión de inventarios con seguimiento en tiempo real y alertas inteligentes.",
+    features: [
+      "Seguimiento de stock multi-almacén",
+      "Alertas de inventario bajo y vencimientos",
+      "Transferencias entre sucursales",
+      "Reportes y dashboard en vivo",
+    ],
+    accent: "linear-gradient(135deg, #10B981, #059669)",
+  },
+  {
+    name: "ViperPOS",
+    icon: "mdi:desktop-classic",
+    tag: "Punto de venta web",
+    desc: "Sistema profesional de facturación e inventario accesible desde cualquier navegador o dispositivo.",
+    features: [
+      "Facturación electrónica y tickets",
+      "Multiusuario y multisucursal",
+      "Inventario en tiempo real",
+      "Soporte técnico incluido",
+    ],
+    accent: "linear-gradient(135deg, #06B6D4, #0891B2)",
+  },
+];
 ---
 
 <section class="section software-section">
@@ -15,189 +57,221 @@ import { Icon } from "astro-icon/components";
     </div>
 
     <div class="software-grid">
-
-      <div class="software-card reveal reveal-left stagger-1">
-        <div class="software-top">
-          <div class="sw-icon">
-            <Icon name="mdi:cellphone" />
+      {
+        products.map((product, i) => (
+          <div class={`glow-card software-card reveal reveal-up stagger-${i + 1}`}>
+            <div class="card-accent" style={`background: ${product.accent}`}></div>
+            <div class="software-top">
+              <div class="sw-icon" style={`background: ${product.accent}`}>
+                <Icon name={product.icon} />
+              </div>
+              <span class="software-badge">{product.tag}</span>
+            </div>
+            <h3>{product.name}</h3>
+            <p class="software-desc">{product.desc}</p>
+            <ul class="feature-list">
+              {product.features.map((feat) => (
+                <li>
+                  <Icon name="mdi:check-circle" />
+                  {feat}
+                </li>
+              ))}
+            </ul>
+            <a
+              href="https://wa.me/593999999999?text=Quiero%20informaci%C3%B3n%20sobre%20{encodeURIComponent(product.name)}"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="software-cta"
+            >
+              <Icon name="mdi:whatsapp" />
+              Consultar por WhatsApp
+            </a>
           </div>
-          <span class="software-badge">APP ANDROID</span>
-        </div>
-
-        <h3>FactuLite</h3>
-
-        <p class="software-desc">
-          Facturación rápida para emprendedores y pequeños negocios.
-          Vende directamente desde tu teléfono de forma simple.
-        </p>
-
-        <ul class="feature-list">
-          <li><Icon name="mdi:bolt" /> Facturación inmediata</li>
-          <li><Icon name="mdi:chart-line" /> Control de ventas</li>
-          <li><Icon name="mdi:receipt" /> Emisión de vouchers</li>
-          <li><Icon name="mdi:headset" /> Actualizaciones</li>
-        </ul>
-
-        <a href="https://factulite.net" target="_blank" class="software-btn">
-          Conocer FactuLite
-        </a>
-      </div>
-
-      <div class="software-card featured reveal reveal-up stagger-2">
-        <div class="popular-badge">RECOMENDADO</div>
-
-        <div class="software-top">
-          <div class="sw-icon">
-            <Icon name="mdi:desktop-classic" />
-          </div>
-          <span class="software-badge">Punto de venta web</span>
-        </div>
-
-        <h3>ViperPOS</h3>
-
-        <p class="software-desc">
-          Sistema profesional de facturación e inventario accesible desde
-          cualquier computadora o navegador.
-        </p>
-
-        <ul class="feature-list">
-          <li><Icon name="mdi:package-variant-closed" /> Inventario en tiempo real</li>
-          <li><Icon name="mdi:chart-pie" /> Reportes y estadísticas</li>
-          <li><Icon name="mdi:users" /> Multiusuario y Multisucursal</li>
-          <li><Icon name="mdi:screwdriver" />Soporte técnico incluido</li>
-        </ul>
-
-        <a href="https://www.viperpos.net/login" target="_blank" class="software-btn">
-          Conocer ViperPOS
-        </a>
-      </div>
-
-      
+        ))
+      }
     </div>
+
+    <div class="divider reveal reveal-scale"></div>
+
   </div>
 </section>
 
 <style>
 .software-section {
-  padding: 96px 0;
+  position: relative;
+  padding: 128px 0;
   background: var(--background);
+  overflow: hidden;
+}
+
+.software-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 50% 0%, rgba(245, 158, 11, 0.03) 0%, transparent 60%),
+    radial-gradient(ellipse at 0% 50%, rgba(6, 182, 212, 0.02) 0%, transparent 50%);
+  pointer-events: none;
 }
 
 .software-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 64px;
 }
 
 .software-card {
   position: relative;
-  background: var(--surface-container-high);
-  border-radius: var(--shape-xl);
   padding: 32px;
-  box-shadow: var(--elevation-1);
-  border: 1px solid transparent;
-  transition: box-shadow 0.3s cubic-bezier(0.2, 0, 0, 1),
-              transform 0.3s cubic-bezier(0.2, 0, 0, 1),
-              border-color 0.3s ease;
+  background: var(--surface);
+  border: 1px solid var(--outline);
+  border-radius: 20px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
+
 .software-card:hover {
-  box-shadow: var(--elevation-4);
-  transform: translateY(-4px);
-  border-color: rgba(129, 140, 248, 0.15);
+  border-color: var(--outline-variant);
 }
 
-.featured {
-  border: 1px solid rgba(129, 140, 248, 0.2);
-  box-shadow: 0 0 30px rgba(129, 140, 248, 0.05);
-}
-
-.popular-badge {
+.card-accent {
   position: absolute;
-  top: -10px;
-  right: 24px;
-  background: linear-gradient(135deg, var(--primary), #6366F1);
-  color: #FFFFFF;
-  padding: 4px 14px;
-  border-radius: var(--shape-full);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-  box-shadow: 0 0 20px rgba(129, 140, 248, 0.3);
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease, height 0.3s ease;
+}
+
+.software-card:hover .card-accent {
+  opacity: 1;
+  height: 5px;
 }
 
 .software-top {
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
 }
 
 .sw-icon {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--shape-md);
-  background: rgba(129, 140, 248, 0.1);
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  color: var(--primary);
+  font-size: 22px;
+  color: #ffffff;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .software-badge {
   font-size: 12px;
   font-weight: 500;
-  color: var(--secondary);
-  padding: 4px 10px;
-  border-radius: var(--shape-full);
-  background: rgba(34, 211, 238, 0.1);
-  border: 1px solid rgba(34, 211, 238, 0.15);
+  color: var(--on-surface-variant);
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: var(--surface-container);
+  border: 1px solid var(--outline);
 }
 
-.software-card h3 { font-size: 24px; font-weight: 600; margin-bottom: 12px; }
+.software-card h3 {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
 
 .software-desc {
   font-size: 14px;
-  line-height: 1.6;
-  margin-bottom: 24px;
+  line-height: 1.7;
   color: var(--on-surface-variant);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
 }
 
 .feature-list {
   list-style: none;
   padding: 0;
-  margin-bottom: 28px;
+  margin: 0 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+  flex: 1;
 }
+
 .feature-list li {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 8px 0;
   font-size: 14px;
   color: var(--on-surface-variant);
+  line-height: 1.5;
 }
-.feature-list li svg { color: var(--primary); width: 16px; height: 16px; }
 
-.software-btn {
+.feature-list li svg {
+  width: 18px;
+  height: 18px;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.software-cta {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 12px 24px;
-  border-radius: var(--shape-full);
-  color: #FFFFFF;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 24px;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
+  border-radius: 12px;
   text-decoration: none;
-  background: linear-gradient(135deg, var(--primary), #6366F1);
-  box-shadow: 0 0 20px rgba(129, 140, 248, 0.2);
-  transition: box-shadow 0.2s ease, transform 0.15s ease;
-}
-.software-btn:hover {
-  box-shadow: 0 0 30px rgba(129, 140, 248, 0.35);
-  transform: scale(1.03);
+  color: #ffffff;
+  background: linear-gradient(135deg, #25D366, #128C7E);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  z-index: 1;
 }
 
-@media (max-width: 600px) {
+.software-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.3);
+}
+
+.software-cta svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 1024px) {
+  .software-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .software-section { padding: 80px 0; }
+  .software-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-top: 48px;
+  }
   .software-card { padding: 24px; }
 }
 </style>

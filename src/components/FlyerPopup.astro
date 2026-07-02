@@ -2,17 +2,17 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<div id="flyer-overlay" class="flyer-overlay">
-  <div class="flyer-modal">
+<div id="flyer-overlay" class="flyer-overlay glass">
+  <div class="flyer-modal card glow-card">
     <button id="flyer-close" class="flyer-close" aria-label="Cerrar">
       <Icon name="mdi:close" />
     </button>
 
     <div class="flyer-header">
-      <span class="flyer-badge">OFERTA DEL MES</span>
+      <span class="badge">OFERTA DEL MES</span>
       <h2>
         Programas para tu PC<br />
-        <span>al mejor precio</span>
+        <span class="text-accent">al mejor precio</span>
       </h2>
       <p>
         Office, Adobe, sistemas de facturación, sistemas web,
@@ -59,7 +59,7 @@ import { Icon } from "astro-icon/components";
     </div>
 
     <div class="flyer-footer">
-      <a href="/catalogo" class="flyer-btn" id="flyer-cta">
+      <a href="/catalogo" class="btn-primary" id="flyer-cta">
         Ver catálogo completo
         <Icon name="mdi:arrow-right" />
       </a>
@@ -98,10 +98,6 @@ import { Icon } from "astro-icon/components";
   position: relative;
   max-width: 520px;
   width: 100%;
-  background: var(--surface-container-high, #141627);
-  border-radius: var(--shape-xl, 24px);
-  border: 1px solid rgba(129, 140, 248, 0.12);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   animation: flyer-scale-in 0.35s cubic-bezier(0.2, 0, 0, 1);
 }
@@ -135,7 +131,6 @@ import { Icon } from "astro-icon/components";
   transition: all 0.2s ease;
   z-index: 2;
 }
-
 .flyer-close:hover {
   background: rgba(255, 255, 255, 0.12);
   color: var(--on-surface);
@@ -162,20 +157,8 @@ import { Icon } from "astro-icon/components";
   pointer-events: none;
 }
 
-.flyer-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 16px;
-  border-radius: var(--shape-full, 9999px);
-  background: linear-gradient(135deg, rgba(251, 191, 36, 0.2), rgba(251, 191, 36, 0.05));
-  border: 1px solid rgba(251, 191, 36, 0.25);
-  color: var(--tertiary, #FBBF24);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+.flyer-header .badge {
   margin-bottom: 16px;
-  position: relative;
 }
 
 .flyer-header h2 {
@@ -186,8 +169,8 @@ import { Icon } from "astro-icon/components";
   position: relative;
 }
 
-.flyer-header h2 span {
-  background: linear-gradient(135deg, var(--tertiary, #FBBF24), #F97316);
+.text-accent {
+  background: linear-gradient(135deg, var(--primary), #F97316);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -214,45 +197,24 @@ import { Icon } from "astro-icon/components";
   align-items: center;
   gap: 10px;
   padding: 12px 14px;
-  border-radius: var(--shape-sm, 8px);
-  background: var(--surface-container, #0F111F);
+  border-radius: 8px;
+  background: var(--surface-container-high);
   border: 1px solid rgba(255, 255, 255, 0.04);
   font-size: 13px;
   font-weight: 500;
   color: var(--on-surface);
   transition: all 0.2s ease;
 }
-
-.flyer-item svg { width: 20px; height: 20px; min-width: 20px; }
+.flyer-item :global(svg) { width: 20px; height: 20px; min-width: 20px; }
 
 .flyer-footer {
   padding: 20px 36px 32px;
   text-align: center;
-}
-
-.flyer-btn {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 10px;
-  padding: 14px 36px;
-  border-radius: var(--shape-full, 9999px);
-  background: linear-gradient(135deg, var(--tertiary, #FBBF24), #F97316);
-  color: #1a1a2e;
-  font-size: 15px;
-  font-weight: 700;
-  text-decoration: none;
-  box-shadow: 0 4px 20px rgba(251, 191, 36, 0.25);
-  transition: all 0.2s ease;
-  margin-bottom: 14px;
+  gap: 14px;
 }
-
-.flyer-btn:hover {
-  box-shadow: 0 6px 28px rgba(251, 191, 36, 0.4);
-  transform: translateY(-2px);
-}
-
-.flyer-btn svg { transition: transform 0.2s ease; }
-.flyer-btn:hover svg { transform: translateX(4px); }
 
 .flyer-note {
   font-size: 12px;
@@ -262,8 +224,7 @@ import { Icon } from "astro-icon/components";
   justify-content: center;
   gap: 6px;
 }
-
-.flyer-note svg { color: var(--tertiary, #FBBF24); }
+.flyer-note :global(svg) { color: var(--primary); }
 
 .flyer-contact {
   display: flex;
@@ -271,7 +232,7 @@ import { Icon } from "astro-icon/components";
   gap: 12px;
   margin: 0 36px 20px;
   padding: 14px 16px;
-  border-radius: var(--shape-md, 12px);
+  border-radius: 12px;
   background: linear-gradient(135deg, rgba(37, 211, 102, 0.08), rgba(37, 211, 102, 0.02));
   border: 1px solid rgba(37, 211, 102, 0.15);
 }
@@ -288,14 +249,12 @@ import { Icon } from "astro-icon/components";
   flex: 1;
   min-width: 0;
 }
-
 .flyer-contact-info strong {
   display: block;
   font-size: 13px;
   font-weight: 600;
   color: var(--on-surface);
 }
-
 .flyer-contact-info span {
   display: block;
   font-size: 11px;
@@ -315,8 +274,7 @@ import { Icon } from "astro-icon/components";
   text-decoration: none;
   transition: all 0.2s ease;
 }
-.flyer-contact-wa svg { width: 18px; height: 18px; }
-
+.flyer-contact-wa :global(svg) { width: 18px; height: 18px; }
 .flyer-contact-wa:hover {
   transform: scale(1.1);
   box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
@@ -326,9 +284,10 @@ import { Icon } from "astro-icon/components";
   .flyer-header { padding: 32px 24px 20px; }
   .flyer-grid { padding: 0 24px 24px; gap: 6px; }
   .flyer-item { padding: 10px 12px; font-size: 12px; }
-  .flyer-item svg { width: 17px; height: 17px; min-width: 17px; }
+  .flyer-item :global(svg) { width: 17px; height: 17px; min-width: 17px; }
   .flyer-footer { padding: 16px 24px 28px; }
-  .flyer-btn { width: 100%; justify-content: center; }
+  .btn-primary { width: 100%; justify-content: center; }
+  .flyer-contact { margin: 0 24px 16px; }
 }
 </style>
 

@@ -1,354 +1,84 @@
----
-import { Icon } from "astro-icon/components";
----
-
-<section class="hero" id="inicio">
+<section class="hero" id="hero">
   <div class="hero-bg">
     <div class="hero-orb hero-orb-1"></div>
     <div class="hero-orb hero-orb-2"></div>
     <div class="hero-orb hero-orb-3"></div>
-    <div class="hero-grid-overlay"></div>
+    <div class="hero-grid"></div>
   </div>
 
-  <div class="container hero-grid">
-    <div class="hero-content">
-      <span class="badge reveal reveal-down stagger-1">
-        <Icon name="mdi:wifi" />
-        SOPORTE REMOTO EN TODA NICARAGUA
-      </span>
-
-      <h1 class="reveal reveal-up stagger-2">
-        Soporte informático remoto
-        <span>rápido y profesional</span>
+  <div class="hero-content container">
+    <div class="hero-text">
+      <div class="badge hero-badge reveal reveal-up">Transformación Digital</div>
+      <h1 class="hero-title reveal reveal-up stagger-1">
+        Innovación digital que impulsa tu <span class="text-accent">negocio al futuro</span>
       </h1>
-
-      <p class="hero-desc reveal reveal-up stagger-3">
-        Instalamos programas, configuramos, eliminamos virus y optimizamos tu PC
-        sin que salgas de casa. Atención inmediata y segura.
+      <p class="hero-subtitle reveal reveal-up stagger-2">
+        Somos una empresa tecnológica que brinda soluciones de software, hardware y servicio técnico especializado. Ayudamos a empresas en Nicaragua a potenciar su productividad con tecnología de punta.
       </p>
-
-      <div class="hero-buttons reveal reveal-up stagger-4">
-        <a href="https://wa.me/50581088124" target="_blank" class="btn-primary btn-lg">
-          <Icon name="simple-icons:whatsapp" />
-          Solicitar soporte
+      <div class="hero-actions reveal reveal-up stagger-3">
+        <a href="#servicios" class="btn-primary">
+          Nuestros Servicios
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="/catalogo" class="btn-outline btn-lg">
-          <Icon name="mdi:layers" />
-          Ver catálogo
+        <a href="https://wa.me/50583623077" target="_blank" rel="noopener noreferrer" class="btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Contáctanos
         </a>
       </div>
-
-      <div class="hero-features reveal reveal-up stagger-5">
-        <span class="chip"><Icon name="mdi:bolt" /> Atención inmediata</span>
-        <span class="chip"><Icon name="mdi:lock" /> Instalación segura</span>
-        <span class="chip"><Icon name="mdi:credit-card" /> Pago por transferencia</span>
-        <span class="chip"><Icon name="mdi:desktop-classic" /> Soporte remoto real</span>
-      </div>
-
-      <div class="hero-stats reveal reveal-up stagger-6">
-        <div class="stat-item">
-          <Icon name="mdi:users" />
-          <strong>+500</strong>
-          <span>Clientes atendidos</span>
+      <div class="hero-stats reveal reveal-up stagger-4">
+        <div class="hero-stat">
+          <span class="hero-stat-number">+10</span>
+          <span class="hero-stat-label">Años de experiencia</span>
         </div>
-        <div class="stat-item">
-          <Icon name="mdi:clock-outline" />
-          <strong>15 min</strong>
-          <span>Tiempo de respuesta</span>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">+200</span>
+          <span class="hero-stat-label">Clientes satisfechos</span>
         </div>
-        <div class="stat-item">
-          <Icon name="mdi:globe" />
-          <strong>100%</strong>
-          <span>Remoto</span>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-number">+500</span>
+          <span class="hero-stat-label">Proyectos realizados</span>
         </div>
       </div>
     </div>
 
-    <div class="hero-card-wrapper reveal reveal-right stagger-3">
-      <div class="hero-card glass">
-        <div class="hero-card-header">
-          <h3>Servicios más solicitados</h3>
-          <span class="status-chip">En linea</span>
-        </div>
+  </div>
 
-        <div class="hero-services">
-          <div class="hero-service-item">
-            <div class="service-icon">
-              <Icon name="mdi:laptop" />
-            </div>
-            <div class="service-text">
-              <strong>Instalación de programas</strong>
-              <span>Office, Adobe, AutoCAD y más</span>
-            </div>
-          </div>
-
-          <div class="hero-service-item">
-            <div class="service-icon">
-              <Icon name="mdi:chip" />
-            </div>
-            <div class="service-text">
-              <strong>Drivers y optimización</strong>
-              <span>Máximo rendimiento del sistema</span>
-            </div>
-          </div>
-
-          <div class="hero-service-item">
-            <div class="service-icon">
-              <Icon name="mdi:shield-check" />
-            </div>
-            <div class="service-text">
-              <strong>Eliminación de virus</strong>
-              <span>Limpieza profunda y protección</span>
-            </div>
-          </div>
-
-          <div class="hero-service-item">
-            <div class="service-icon">
-              <Icon name="mdi:file-word" />
-            </div>
-            <div class="service-text">
-              <strong>Instalación de Office</strong>
-              <span>Activación completa y lista</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 100" preserveAspectRatio="none" fill="var(--background)">
+      <path d="M0,40 C360,100 1080,0 1440,60 L1440,100 L0,100 Z"/>
+    </svg>
   </div>
 </section>
 
 <style>
-.hero {
-  position: relative;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  padding-top: 64px;
-  overflow: hidden;
-  background: var(--background);
-}
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; padding-top: 80px; }
+  .hero-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+  .hero-orb { position: absolute; border-radius: 50%; filter: blur(100px); opacity: 0.3; animation: orb-float 20s ease-in-out infinite; }
+  .hero-orb-1 { width: 600px; height: 600px; background: radial-gradient(circle, rgba(245,158,11,0.15), transparent); top: -200px; right: -100px; }
+  .hero-orb-2 { width: 400px; height: 400px; background: radial-gradient(circle, rgba(6,182,212,0.1), transparent); bottom: -100px; left: -100px; animation-delay: -7s; }
+  .hero-orb-3 { width: 300px; height: 300px; background: radial-gradient(circle, rgba(16,185,129,0.08), transparent); top: 40%; left: 50%; animation-delay: -14s; }
+  .hero-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px); background-size: 60px 60px; mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 60%); }
+  .hero-content { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 40px 0; }
+  .hero-text { display: flex; flex-direction: column; gap: 24px; }
+  .hero-badge { align-self: flex-start; }
+  .hero-title { font-size: clamp(32px, 4.5vw, 56px); line-height: 1.05; font-weight: 800; letter-spacing: -0.03em; }
+  .text-accent { background: linear-gradient(135deg, var(--primary), #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .hero-subtitle { font-size: 17px; max-width: 520px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; padding-top: 8px; }
+  .hero-stats { display: flex; align-items: center; gap: 24px; padding-top: 12px; }
+  .hero-stat { display: flex; flex-direction: column; gap: 2px; }
+  .hero-stat-number { font-size: 22px; font-weight: 700; color: var(--primary); line-height: 1.2; }
+  .hero-stat-label { font-size: 12px; color: var(--on-surface-variant); line-height: 1.3; }
+  .hero-stat-divider { width: 1px; height: 36px; background: var(--outline); opacity: 0.5; }
+  .hero-visual { display: flex; justify-content: center; align-items: center; }
+  .hero-image-wrapper { position: relative; width: 100%; max-width: 520px; }
+  .hero-image-glow { position: absolute; inset: -20px; background: radial-gradient(ellipse at center, rgba(245,158,11,0.08), transparent 70%); border-radius: 50%; animation: pulse-glow 4s ease-in-out infinite; }
+  .hero-image { position: relative; width: 100%; height: auto; object-fit: contain; border-radius: 20px; z-index: 1; }
+  .hero-wave { position: absolute; bottom: -1px; left: 0; right: 0; width: 100%; line-height: 0; z-index: 1; }
+  .hero-wave svg { display: block; width: 100%; height: 60px; }
 
-/* Animated tech background */
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.hero-orb {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.5;
-  animation: orb-float 20s ease-in-out infinite;
-}
-
-.hero-orb-1 {
-  width: 600px;
-  height: 600px;
-  top: -200px;
-  left: -100px;
-  background: radial-gradient(circle, rgba(129, 140, 248, 0.15) 0%, transparent 70%);
-  animation-delay: 0s;
-}
-
-.hero-orb-2 {
-  width: 500px;
-  height: 500px;
-  bottom: -150px;
-  right: -100px;
-  background: radial-gradient(circle, rgba(34, 211, 238, 0.1) 0%, transparent 70%);
-  animation-delay: -7s;
-}
-
-.hero-orb-3 {
-  width: 400px;
-  height: 400px;
-  top: 40%;
-  right: 30%;
-  background: radial-gradient(circle, rgba(129, 140, 248, 0.08) 0%, transparent 70%);
-  animation-delay: -14s;
-}
-
-.hero-grid-overlay {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(129, 140, 248, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(129, 140, 248, 0.03) 1px, transparent 1px);
-  background-size: 64px 64px;
-  opacity: 0.5;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 64px;
-  align-items: center;
-  padding-top: 48px;
-  padding-bottom: 48px;
-  position: relative;
-  z-index: 1;
-}
-
-.hero-content .badge { margin-bottom: 16px; }
-
-.hero h1 {
-  font-size: clamp(36px, 4.5vw, 52px);
-  font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 20px;
-  letter-spacing: -0.02em;
-}
-
-.hero h1 span {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.hero-desc {
-  font-size: 17px;
-  color: var(--on-surface-variant);
-  margin-bottom: 32px;
-  max-width: 480px;
-  line-height: 1.7;
-}
-
-.hero-buttons {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 32px;
-}
-
-.btn-lg {
-  padding: 14px 32px;
-  font-size: 15px;
-}
-
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: var(--shape-full);
-  background: rgba(129, 140, 248, 0.08);
-  border: 1px solid rgba(129, 140, 248, 0.15);
-  color: var(--on-surface-variant);
-  font-size: 12px;
-  font-weight: 500;
-}
-.chip svg { width: 12px; height: 12px; color: var(--primary); }
-
-.hero-features {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 40px;
-}
-
-.hero-stats {
-  display: flex;
-  gap: 40px;
-}
-
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-.stat-item svg { color: var(--primary); width: 16px; height: 16px; margin-bottom: 4px; }
-.stat-item strong { font-size: 28px; font-weight: 700; color: var(--on-surface); letter-spacing: -0.02em; }
-.stat-item span { font-size: 12px; color: var(--on-surface-variant); }
-
-.hero-card-wrapper { position: relative; }
-
-.hero-card {
-  background: var(--surface-container-high);
-  border-radius: var(--shape-xl);
-  box-shadow: var(--elevation-3);
-  padding: 32px;
-  border: 1px solid rgba(129, 140, 248, 0.1);
-}
-
-.hero-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 24px;
-}
-.hero-card-header h3 { font-size: 20px; font-weight: 600; }
-
-.status-chip {
-  padding: 4px 12px;
-  border-radius: var(--shape-full);
-  background: rgba(34, 211, 238, 0.1);
-  color: var(--secondary);
-  font-size: 11px;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-.status-chip::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--secondary);
-  box-shadow: 0 0 6px var(--secondary);
-}
-
-.hero-services {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.hero-service-item {
-  display: flex;
-  gap: 14px;
-  align-items: center;
-  padding: 14px;
-  border-radius: var(--shape-md);
-  transition: background 0.2s;
-  cursor: default;
-}
-.hero-service-item:hover {
-  background: rgba(129, 140, 248, 0.06);
-}
-
-.service-icon {
-  width: 40px;
-  height: 40px;
-  min-width: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--shape-sm);
-  background: rgba(129, 140, 248, 0.12);
-  color: var(--primary);
-  font-size: 16px;
-}
-
-.service-text strong { display: block; font-size: 14px; font-weight: 600; color: var(--on-surface); }
-.service-text span { font-size: 12px; color: var(--on-surface-variant); }
-
-@media (max-width: 900px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
-    gap: 48px;
-    text-align: center;
-  }
-  .hero-desc { margin: 0 auto 32px; }
-  .hero-buttons { justify-content: center; flex-direction: column; align-items: center; }
-  .hero-features { justify-content: center; }
-  .hero-stats { justify-content: center; }
-  .hero-card-wrapper { display: flex; justify-content: center; }
-  .hero-card { width: 100%; max-width: 400px; }
-  .hero-card-header { flex-direction: column; gap: 8px; text-align: center; }
-  .stat-item { align-items: center; }
-}
+  @media (max-width: 900px) { .hero-content { grid-template-columns: 1fr; gap: 40px; text-align: center; } .hero-text { align-items: center; } .hero-badge { align-self: center; } .hero-subtitle { max-width: 100%; } .hero-actions { justify-content: center; } .hero-stats { justify-content: center; flex-wrap: wrap; } .hero-visual { display: none; } .hero { min-height: 90vh; } }
+  @media (max-width: 600px) { .hero { min-height: 85vh; padding-top: 64px; } .hero-actions { flex-direction: column; align-items: center; } .hero-stats { gap: 16px; } .hero-stat-divider { display: none; } .hero-wave svg { height: 30px; } }
 </style>

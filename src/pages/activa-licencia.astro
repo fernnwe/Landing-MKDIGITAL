@@ -21,7 +21,7 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
     </div>
   </div>
   <main class="license-page" id="mainContent">
-    <section class="page-hero">
+    <section class="page-hero reveal reveal-up">
       <div class="hero-container">
         <h1>Canjea tu licencia</h1>
         <p class="hero-subtitle">Selecciona el producto y canjea tu licencia original.</p>
@@ -29,7 +29,7 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
     </section>
 
     <!-- McAfee -->
-    <section class="product-section" id="mcafee-section">
+    <section class="product-section reveal reveal-up" id="mcafee-section">
       <div class="product-inner">
         <div class="product-header">
           <div class="product-icon" style="background:rgba(207,10,44,0.1)">
@@ -126,7 +126,7 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
     </section>
 
     <!-- Avast -->
-    <section class="product-section" id="avast-section">
+    <section class="product-section reveal reveal-up" id="avast-section">
       <div class="product-inner">
         <div class="product-header">
           <div class="product-icon" style="background:rgba(255,107,0,0.1)">
@@ -214,7 +214,7 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
     </section>
 
     <!-- Autodesk 2026 -->
-    <section class="product-section" id="autodesk-section">
+    <section class="product-section reveal reveal-up" id="autodesk-section">
       <div class="product-inner">
         <div class="product-header">
           <div class="product-icon" style="background:rgba(0,169,224,0.1)">
@@ -336,7 +336,7 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
       </div>
     </section>
 
-    <section class="support-band">
+    <section class="support-band reveal reveal-up">
       <div class="support-container">
         <p>¿Problemas con la activación? Escríbenos.</p>
         <a href="https://wa.me/50581088124?text=Hola%2C+recib%C3%AD+mi+c%C3%B3digo+y+necesito+ayuda+con+la+activaci%C3%B3n" target="_blank" rel="noopener" class="btn-wa">
@@ -400,15 +400,15 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
 <style is:global>
 .license-page {
   padding-top: 80px;
-  font-family: system-ui, -apple-system, sans-serif;
-  background: #0a0a12;
+  font-family: var(--font-family);
+  background: var(--background);
 }
 
 /* ── Password gate ── */
 .password-overlay {
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: #0a0a12;
+  background: var(--background);
   z-index: 9999;
   display: flex;
   align-items: center;
@@ -416,9 +416,9 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
   padding: 20px;
 }
 .password-modal {
-  background: #11111e;
-  border: 1px solid #1e1e32;
-  border-radius: 16px;
+  background: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--shape-lg);
   padding: 40px 36px;
   text-align: center;
   max-width: 380px;
@@ -428,25 +428,25 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
 .password-modal h2 {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--on-surface);
   margin: 0 0 6px;
 }
 .password-modal p {
   font-size: 0.9rem;
-  color: #888;
+  color: var(--on-surface-variant);
   margin: 0 0 24px;
 }
 .password-modal input {
   width: 100%;
-  box-sizing: border-box;
   padding: 12px 14px;
-  border: 1px solid #222;
-  border-radius: 10px;
-  background: #0a0a14;
-  color: #fff;
+  border: 1px solid var(--outline);
+  border-radius: var(--shape-sm);
+  background: var(--surface-container-low);
+  color: var(--on-surface);
   font-size: 1rem;
   margin-bottom: 16px;
   text-align: center;
+  font-family: var(--font-family);
 }
 .password-modal input:focus {
   outline: none;
@@ -458,11 +458,12 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
   background: #CF0A2C;
   color: #fff;
   border: none;
-  border-radius: 10px;
+  border-radius: var(--shape-sm);
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
   transition: background 0.2s;
+  font-family: var(--font-family);
 }
 .password-modal button:hover { background: #b00926; }
 .pass-error {
@@ -479,14 +480,18 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
 .page-hero h1 {
   font-size: 2.2rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--on-surface);
   margin: 0 0 8px;
   letter-spacing: -0.5px;
 }
 .page-hero p {
   font-size: 1.05rem;
-  color: #888;
+  color: var(--on-surface-variant);
   margin: 0;
+}
+.hero-container {
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 /* ── Product sections ── */
@@ -497,9 +502,9 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
 .product-inner {
   max-width: 640px;
   margin: 0 auto;
-  background: #11111e;
-  border: 1px solid #1a1a2a;
-  border-radius: 20px;
+  background: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--shape-xl);
   overflow: hidden;
 }
 .product-header {
@@ -509,18 +514,18 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
 .product-icon {
   display: inline-flex;
   padding: 14px;
-  border-radius: 18px;
+  border-radius: var(--shape-lg);
   margin-bottom: 14px;
 }
 .product-header h2 {
   font-size: 1.6rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--on-surface);
   margin: 0 0 4px;
 }
 .product-subtitle {
   font-size: 0.95rem;
-  color: #888;
+  color: var(--on-surface-variant);
   margin: 0 0 16px;
 }
 .hero-badges {
@@ -530,17 +535,17 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
   flex-wrap: wrap;
   margin-bottom: 24px;
 }
-.badge {
+.hero-badges .badge {
   display: flex;
   align-items: center;
   gap: 6px;
-  color: #bbb;
+  color: var(--on-surface-variant);
   font-size: 0.85rem;
 }
-.badge svg { flex-shrink: 0; }
-#mcafee-section .badge svg { color: #CF0A2C; }
-#avast-section .badge svg { color: #FF6B00; }
-#autodesk-section .badge svg { color: #00A9E0; }
+.hero-badges .badge svg { flex-shrink: 0; }
+#mcafee-section .hero-badges .badge svg { color: #CF0A2C; }
+#avast-section .hero-badges .badge svg { color: #FF6B00; }
+#autodesk-section .hero-badges .badge svg { color: #00A9E0; }
 
 .btn-reveal {
   display: inline-flex;
@@ -548,12 +553,13 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
   gap: 10px;
   padding: 14px 36px;
   border: none;
-  border-radius: 12px;
+  border-radius: var(--shape-md);
   font-size: 1.05rem;
   font-weight: 700;
   cursor: pointer;
   transition: background 0.2s, transform 0.15s;
   margin-bottom: 32px;
+  font-family: var(--font-family);
 }
 #mcafee-section .btn-reveal {
   background: #CF0A2C;
@@ -600,9 +606,9 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
   padding: 0 32px 32px;
 }
 .license-key-card {
-  background: #0a0a14;
+  background: var(--surface);
   border: 1px solid rgba(0,200,83,0.2);
-  border-radius: 16px;
+  border-radius: var(--shape-lg);
   padding: 28px;
   text-align: center;
   margin-bottom: 24px;
@@ -611,7 +617,7 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #666;
+  color: var(--on-surface-variant);
   margin-bottom: 16px;
 }
 .license-key {
@@ -619,9 +625,9 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
   font-size: 1.1rem;
   font-weight: 600;
   color: #00c853;
-  background: #0a0a14;
+  background: var(--surface);
   border: 1px dashed rgba(0,200,83,0.3);
-  border-radius: 10px;
+  border-radius: var(--shape-sm);
   padding: 16px 20px;
   word-break: break-all;
   letter-spacing: 1.5px;
@@ -630,7 +636,7 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
 .license-product {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #ccc;
+  color: var(--on-surface);
   margin-bottom: 4px;
 }
 .license-list {
@@ -645,25 +651,26 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
   color: #00c853;
   border: 1px solid #00c853;
   padding: 10px 28px;
-  border-radius: 8px;
+  border-radius: var(--shape-sm);
   font-weight: 600;
   font-size: 0.9rem;
   cursor: pointer;
   transition: background 0.2s;
+  font-family: var(--font-family);
 }
 .btn-copy:hover { background: rgba(0,200,83,0.1); }
 
 /* ── Activate steps ── */
 .activate-steps {
-  border: 1px solid #1e1e32;
-  border-radius: 16px;
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--shape-lg);
   padding: 28px;
   margin-bottom: 0;
 }
 .activate-steps h3 {
   font-size: 1rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--on-surface);
   margin: 0 0 20px;
   text-align: center;
 }
@@ -681,7 +688,7 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
   flex-shrink: 0;
   width: 30px;
   height: 30px;
-  border-radius: 8px;
+  border-radius: var(--shape-sm);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -694,12 +701,12 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
 .activate-step h4 {
   font-size: 0.92rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--on-surface);
   margin: 0 0 3px;
 }
 .activate-step p {
   font-size: 0.84rem;
-  color: #888;
+  color: var(--on-surface-variant);
   margin: 0;
   line-height: 1.5;
 }
@@ -707,7 +714,7 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
 #mcafee-section .activate-step a { color: #CF0A2C; }
 #avast-section .activate-step a { color: #FF6B00; }
 #autodesk-section .activate-step a { color: #00A9E0; }
-.activate-step strong { color: #ddd; }
+.activate-step strong { color: var(--on-surface); }
 
 /* ── Support ── */
 .support-band {
@@ -717,13 +724,13 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
   max-width: 640px;
   margin: 0 auto;
   text-align: center;
-  background: #11111e;
-  border: 1px solid #1e1e32;
-  border-radius: 16px;
+  background: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--shape-lg);
   padding: 28px;
 }
 .support-container p {
-  color: #888;
+  color: var(--on-surface-variant);
   font-size: 0.95rem;
   margin: 0 0 18px;
 }
@@ -734,11 +741,12 @@ const desc = "Canjea tu licencia McAfee AntiVirus o Avast Premium aquí. Promoci
   background: #25D366;
   color: #fff;
   padding: 12px 28px;
-  border-radius: 10px;
+  border-radius: var(--shape-sm);
   font-weight: 700;
   font-size: 0.95rem;
   text-decoration: none;
   transition: background 0.2s, transform 0.15s;
+  font-family: var(--font-family);
 }
 .btn-wa:hover {
   background: #1ebe5b;

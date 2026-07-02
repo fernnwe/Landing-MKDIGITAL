@@ -1,168 +1,41 @@
 ---
+const colaboradores = [
+  { name: 'Colaborador 1', image: null },
+  { name: 'Colaborador 2', image: null },
+  { name: 'Colaborador 3', image: null },
+  { name: 'Colaborador 4', image: null },
+  { name: 'Colaborador 5', image: null },
+];
 ---
 
-<section id="equipo" class="section team-section reveal reveal-up">
+<section class="section" id="colaboradores">
   <div class="container">
-
     <div class="section-header">
-      <span class="badge">EQUIPO MKDIGITAL</span>
-      <h2>Colaboradores</h2>
-      <p>
-        Profesionales encargados de brindar soporte remoto seguro,
-        rápido y confiable a nuestros clientes.
-      </p>
+      <div class="badge reveal reveal-up">Aliados</div>
+      <h2 class="reveal reveal-up stagger-1">Empresas que confían en nosotros</h2>
     </div>
-
-    <div class="team-grid">
-
-      <!-- CEO -->
-      <div class="team-card ceo">
-        <span class="team-badge">CEO</span>
-
-        <div class="team-avatar">
-          <img src="/ceo.webp" alt="Ing. Fernando Aguirre" class="team-avatar-img" />
+    <div class="colab-grid">
+      {colaboradores.map((colab, i) => (
+        <div class={`card reveal reveal-up stagger-${Math.min(i + 1, 8)}`}>
+          {colab.image ? (
+            <img src={colab.image} alt={colab.name} class="colab-img" />
+          ) : (
+            <div class="colab-placeholder">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              <span>{colab.name}</span>
+            </div>
+          )}
         </div>
-
-        <h3>Ing. Fernando Aguirre</h3>
-        <span class="team-role">Asesor en software y soporte técnico</span>
-
-        <div class="team-skills">
-          <span class="skill-chip">Asesor en software</span>
-          <span class="skill-chip">Atención al cliente</span>
-          <span class="skill-chip">Soporte técnico</span>
-        </div>
-      </div>
-
-      <!-- ÁLVARO -->
-      <div class="team-card">
-        <span class="team-badge">SOPORTE TÉCNICO</span>
-
-        <div class="team-avatar">
-          <img src="/colaboradores/alvaro-delgado.jpg" alt="Álvaro Delgado" class="team-avatar-img" />
-        </div>
-
-        <h3>Álvaro Delgado</h3>
-        <span class="team-role">Técnico en soporte y optimización</span>
-
-        <div class="team-skills">
-          <span class="skill-chip">Soporte técnico</span>
-          <span class="skill-chip">Configuración</span>
-          <span class="skill-chip">Soporte remoto</span>
-        </div>
-      </div>
-
+      ))}
     </div>
   </div>
 </section>
 
 <style>
-/* MD3 Team Section */
-.team-section {
-  padding: 96px 0;
-  background: var(--background, #0F1115);
-
-
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-  align-items: stretch;
-}
-
-.team-card {
-  position: relative;
-  background: var(--surface-container-high, #1C1D22);
-  border-radius: var(--shape-xl);
-  padding: 40px 32px;
-  text-align: center;
-  box-shadow: var(--elevation-1);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-.team-card:hover {
-  box-shadow: var(--elevation-3);
-  transform: translateY(-2px);
-}
-
-.ceo {
-  border: 1px solid var(--primary);
-}
-
-.team-badge {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  padding: 4px 10px;
-  border-radius: var(--shape-full);
-  background: var(--primary-container);
-  color: var(--primary);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-
-.team-avatar {
-  width: 72px;
-  height: 72px;
-  margin: 0 auto 16px;
-  border-radius: 50%;
-  background: var(--primary-container);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-}
-.team-avatar-img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-.ceo .team-avatar {
-  width: 120px;
-  height: 120px;
-  border: 3px solid var(--primary);
-  box-shadow: 0 0 24px rgba(129, 140, 248, 0.25);
-}
-
-.team-avatar svg {
-  width: 32px;
-  height: 32px;
-  color: var(--primary);
-}
-
-.team-card h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.team-role {
-  display: block;
-  font-size: 13px;
-  color: var(--on-surface-variant);
-  margin-bottom: 20px;
-}
-
-.team-skills {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.skill-chip {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: var(--shape-full);
-  background: var(--surface-container, #17191E);
-  border: 1px solid var(--outline-variant);
-  font-size: 11px;
-  font-weight: 500;
-  color: var(--on-surface-variant);
-}
-
-@media (max-width: 600px) {
-  .ceo { border-width: 1px; }
-}
+  .colab-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 20px; }
+  .card { display: flex; align-items: center; justify-content: center; padding: 28px 20px; min-height: 100px; cursor: default; }
+  .colab-placeholder { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--on-surface-variant); opacity: 0.5; }
+  .colab-placeholder span { font-size: 12px; font-weight: 500; }
+  @media (max-width: 768px) { .colab-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 600px) { .colab-grid { grid-template-columns: repeat(2, 1fr); } .card { min-height: 80px; padding: 20px 16px; } }
 </style>

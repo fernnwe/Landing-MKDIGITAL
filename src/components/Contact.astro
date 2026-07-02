@@ -1,238 +1,108 @@
----
-import { Icon } from "astro-icon/components";
----
-
-<section id="contacto" class="section contact-section">
-  <div class="container contact-grid">
-
-    <!-- LEFT -->
-    <div class="contact-info">
-
-      <span class="badge">CONTACTO</span>
-
-      <h2>
-        ¿Listo para resolver tu problema  
-        <span>en minutos?</span>
-      </h2>
-
-      <p class="contact-desc">
-        Conéctate con un técnico ahora mismo y comenzamos el soporte remoto.
-        Instalamos, optimizamos y dejamos tu computadora funcionando hoy.
-      </p>
-
-      <div class="contact-benefits">
-
-        <div class="contact-benefit">
-          <Icon name="mdi:clock-outline" />
-          <div>
-            <strong>Respuesta inmediata</strong>
-            <span>Tiempo promedio: 15 minutos</span>
-          </div>
-        </div>
-
-        <div class="contact-benefit">
-          <Icon name="mdi:laptop" />
-          <div>
-            <strong>Soporte 100% remoto</strong>
-            <span>Sin salir de casa</span>
-          </div>
-        </div>
-
-        <div class="contact-benefit">
-          <Icon name="mdi:shield-half-full" />
-          <div>
-            <strong>Proceso seguro</strong>
-            <span>Conexión protegida</span>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="contact-trust">
-        <Icon name="mdi:check-circle-outline" />
-        Más de <strong>500 clientes atendidos</strong> en Nicaragua
-      </div>
-
+<section class="section" id="contacto">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge reveal reveal-up">Contacto</div>
+      <h2 class="reveal reveal-up stagger-1">Hablemos de tu proyecto</h2>
+      <p class="reveal reveal-up stagger-2">Cuéntanos sobre tu idea o desafío técnico y te responderemos en breve.</p>
     </div>
 
-    <!-- RIGHT -->
-    <div class="contact-card-wrapper">
-
-      <div class="contact-card">
-
-        <div class="contact-wa-icon">
-          <Icon name="simple-icons:whatsapp" />
+    <div class="contact-grid">
+      <div class="contact-info reveal reveal-left stagger-1">
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <h4>Correo Electrónico</h4>
+            <a href="mailto:mkdigital.ni@gmail.com">mkdigital.ni@gmail.com</a>
+          </div>
         </div>
-
-        <h3>Hablar por WhatsApp</h3>
-        <p class="contact-sub">Disponible de 6:00 AM a 9:00 PM</p>
-
-        <a 
-          href="https://wa.me/50581088124?text=Hola,%20quiero%20instalar%20software"
-          target="_blank"
-          class="contact-wa-btn"
-        >
-          Iniciar conversación
-          <Icon name="mdi:arrow-right" />
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div>
+            <h4>Teléfono</h4>
+            <a href="tel:+50583623077">+505 8362 3077</a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <h4>Ubicación</h4>
+            <span>Managua, Nicaragua</span>
+          </div>
+        </div>
+        <a href="https://wa.me/50583623077" target="_blank" rel="noopener noreferrer" class="btn-primary contact-whatsapp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Escríbenos por WhatsApp
         </a>
-
-        <div class="contact-chips">
-          <span><Icon name="mdi:bolt" /> Atención rápida</span>
-          <span><Icon name="mdi:lock" /> Conexión segura</span>
-          <span><Icon name="mdi:desktop-classic" /> Soporte remoto real</span>
-        </div>
-
       </div>
-    </div>
 
+      <form class="contact-form reveal reveal-right stagger-1" id="contactForm" action="https://formsubmit.co/mkdigital.ni@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Nuevo mensaje desde MK Digital Landing">
+        <input type="hidden" name="_template" value="table">
+        <input type="text" name="_honey" style="display:none">
+        <div class="form-row">
+          <div class="form-field">
+            <label for="name">Nombre completo</label>
+            <input type="text" id="name" name="name" placeholder="Tu nombre" required />
+          </div>
+          <div class="form-field">
+            <label for="email">Correo electrónico</label>
+            <input type="email" id="email" name="email" placeholder="tu@correo.com" required />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="phone">Teléfono</label>
+          <input type="tel" id="phone" name="phone" placeholder="+505 8888 8888" />
+        </div>
+        <div class="form-field">
+          <label for="message">Mensaje</label>
+          <textarea id="message" name="message" rows="5" placeholder="Cuéntanos sobre tu proyecto o consulta..." required></textarea>
+        </div>
+        <button type="submit" class="btn-primary form-submit">
+          Enviar Mensaje
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2L15 22L11 13L2 9L22 2z"/></svg>
+        </button>
+      </form>
+    </div>
   </div>
 </section>
 
+<script>
+  document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const btn = this.querySelector('.form-submit');
+    const originalText = btn.innerHTML;
+    btn.innerHTML = 'Enviando...'; btn.disabled = true;
+    fetch(this.action, { method: 'POST', body: new FormData(this) })
+      .then(() => { btn.innerHTML = '¡Mensaje enviado!'; this.reset(); setTimeout(() => { btn.innerHTML = originalText; btn.disabled = false; }, 3000); })
+      .catch(() => { btn.innerHTML = 'Error al enviar'; setTimeout(() => { btn.innerHTML = originalText; btn.disabled = false; }, 3000); });
+  });
+</script>
+
 <style>
-/* MD3 Contact Section */
-.contact-section {
-  padding: 96px 0;
-  background: var(--surface-container, #17191E);
-}
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 64px;
-  align-items: center;
-}
-
-.contact-info h2 {
-  font-size: clamp(28px, 3.5vw, 40px);
-  font-weight: 700;
-  line-height: 1.1;
-  margin: 16px 0 16px;
-}
-.contact-info h2 span { color: var(--primary); }
-
-.contact-desc {
-  font-size: 15px;
-  max-width: 480px;
-  margin-bottom: 32px;
-  line-height: 1.6;
-}
-
-.contact-benefits {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.contact-benefit {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-}
-.contact-benefit svg {
-  color: var(--primary);
-  margin-top: 2px;
-  width: 24px;
-  height: 18px;
-}
-.contact-benefit strong {
-  display: block;
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--on-surface);
-}
-.contact-benefit span {
-  font-size: 12px;
-  color: var(--on-surface-variant);
-}
-
-.contact-trust {
-  margin-top: 24px;
-  font-size: 13px;
-  color: var(--on-surface-variant);
-}
-.contact-trust svg { color: var(--primary); margin-right: 6px; }
-.contact-trust strong { color: var(--on-surface); }
-
-/* Right card */
-.contact-card-wrapper { position: relative; }
-
-.contact-card {
-  background: var(--surface-container-high, #1C1D22);
-  border-radius: var(--shape-xl);
-  padding: 40px 32px;
-  text-align: center;
-  box-shadow: var(--elevation-2);
-  border: 1px solid rgba(255,255,255,0.06);
-  transition: box-shadow 0.2s ease;
-}
-.contact-card:hover { box-shadow: var(--elevation-3); }
-
-.contact-wa-icon {
-  width: 72px;
-  height: 72px;
-  margin: 0 auto 20px;
-  border-radius: 50%;
-  background: var(--primary-container);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary);
-}
-.contact-wa-icon svg { width: 32px; height: 32px; }
-
-.contact-card h3 {
-  font-size: 20px;
-  font-weight: 600;
-  margin-bottom: 4px;
-}
-
-.contact-sub {
-  font-size: 13px;
-  color: var(--on-surface-variant);
-  margin-bottom: 24px;
-}
-
-.contact-wa-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  padding: 14px 24px;
-  border-radius: var(--shape-full);
-  background: var(--primary);
-  color: var(--on-primary);
-  font-size: 15px;
-  font-weight: 600;
-  text-decoration: none;
-  margin-bottom: 24px;
-  box-shadow: var(--elevation-1);
-  transition: box-shadow 0.2s ease;
-}
-.contact-wa-btn:hover { box-shadow: var(--elevation-2); }
-
-.contact-chips {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-.contact-chips span {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 12px;
-  color: var(--on-surface-variant);
-}
-.contact-chips svg { color: var(--primary); width: 12px; height: 12px; }
-
-@media (max-width: 900px) {
-  .contact-grid {
-    grid-template-columns: 1fr;
-    text-align: center;
-    gap: 48px;
-  }
-  .contact-desc { margin: 0 auto 32px; }
-  .contact-benefits { align-items: center; }
-  .contact-benefit { justify-content: center; }
-}
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 40px; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 16px; }
+  .contact-card { display: flex; align-items: center; gap: 16px; padding: 20px; border-radius: 14px; background: var(--surface-container); border: 1px solid var(--outline-variant); }
+  .contact-card h4 { font-size: 14px; font-weight: 600; color: var(--on-surface); margin-bottom: 2px; }
+  .contact-card a, .contact-card span { font-size: 14px; color: var(--on-surface-variant); text-decoration: none; }
+  .contact-card a:hover { color: var(--primary); }
+  .contact-icon { width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; border-radius: 12px; background: rgba(245,158,11,0.08); color: var(--primary); flex-shrink: 0; }
+  .contact-whatsapp { justify-content: center; width: 100%; padding: 16px 24px; font-size: 15px; }
+  .contact-form { display: flex; flex-direction: column; gap: 20px; padding: 36px; border-radius: 20px; background: var(--surface-container); border: 1px solid var(--outline-variant); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-field { display: flex; flex-direction: column; gap: 6px; }
+  .form-field label { font-size: 13px; font-weight: 500; color: var(--on-surface); }
+  .form-field input, .form-field textarea { width: 100%; padding: 12px 16px; border-radius: 10px; background: var(--background); border: 1px solid var(--outline); color: var(--on-surface); font-family: var(--font-family); font-size: 14px; outline: none; transition: border-color 0.3s; }
+  .form-field input::placeholder, .form-field textarea::placeholder { color: var(--on-surface-variant); opacity: 0.6; }
+  .form-field input:focus, .form-field textarea:focus { border-color: var(--primary); }
+  .form-field textarea { resize: vertical; min-height: 120px; }
+  .form-submit { justify-content: center; width: 100%; padding: 16px 32px; font-size: 15px; }
+  .form-submit:disabled { opacity: 0.7; cursor: not-allowed; }
+  @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) { .contact-form { padding: 24px 20px; border-radius: 16px; } }
 </style>

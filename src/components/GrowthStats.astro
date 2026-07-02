@@ -1,38 +1,38 @@
-<section class="growth-section" id="crecimiento">
+<section class="section growth-section" id="crecimiento">
   <div class="container">
 
     <div class="section-header">
-      <span class="badge">NUESTROS RESULTADOS</span>
-      <h2>Crecimiento constante desde 2023</h2>
-      <p>
+      <span class="badge reveal reveal-up">NUESTROS RESULTADOS</span>
+      <h2 class="reveal reveal-up stagger-1">Crecimiento constante desde 2023</h2>
+      <p class="reveal reveal-up stagger-2">
         Cada mes ayudamos a más clientes en toda Nicaragua con instalaciones
         remotas rápidas y seguras.
       </p>
     </div>
 
     <div class="growth-stats-grid">
-      <div class="growth-stat-card">
+      <div class="card glow-card growth-stat-card reveal reveal-up stagger-3">
         <h3 data-target="520">0</h3>
         <span>Instalaciones realizadas</span>
       </div>
 
-      <div class="growth-stat-card">
+      <div class="card glow-card growth-stat-card reveal reveal-up stagger-4">
         <h3 data-target="340">0</h3>
         <span>Clientes atendidos</span>
       </div>
 
-      <div class="growth-stat-card">
+      <div class="card glow-card growth-stat-card reveal reveal-up stagger-5">
         <h3 data-target="4.9">0</h3>
         <span>Calificación promedio</span>
       </div>
 
-      <div class="growth-stat-card">
+      <div class="card glow-card growth-stat-card reveal reveal-up stagger-6">
         <h3 data-target="18">0</h3>
         <span>Meses creciendo</span>
       </div>
     </div>
 
-    <div class="chart-container">
+    <div class="card chart-container reveal reveal-up stagger-7">
       <h3>Crecimiento mensual de servicios</h3>
 
       <div class="chart" id="chart">
@@ -127,20 +127,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <style>
 .growth-section {
-  padding: 96px 0;
-  background: var(--background, #0F1115);
+  background: var(--background);
 }
 
-.section-header {
-  text-align: center;
-  max-width: 640px;
-  margin: 0 auto 56px;
-}
-.section-header .badge { margin-bottom: 12px; }
-.section-header h2 { font-size: 28px; font-weight: 600; margin-bottom: 8px; }
-.section-header p { color: var(--on-surface-variant); font-size: 14px; }
-
-/* MD3 Stat cards */
 .growth-stats-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -149,14 +138,10 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
 .growth-stat-card {
-  background: var(--surface-container, #17191E);
-  border-radius: var(--shape-lg);
   padding: 32px 24px;
   text-align: center;
-  box-shadow: var(--elevation-1);
-  transition: box-shadow 0.2s ease;
+  background: var(--surface-container);
 }
-.growth-stat-card:hover { box-shadow: var(--elevation-2); }
 
 .growth-stat-card h3 {
   font-size: 40px;
@@ -170,12 +155,10 @@ document.addEventListener("DOMContentLoaded", () => {
   font-weight: 500;
 }
 
-/* MD3 Chart */
 .chart-container {
-  background: var(--surface-container, #17191E);
-  border-radius: var(--shape-xl);
   padding: 32px 24px 48px;
   overflow-x: auto;
+  background: var(--surface-container);
 }
 .chart-container h3 {
   text-align: center;
@@ -208,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
   min-width: 36px;
   background: linear-gradient(180deg, var(--primary) 0%, color-mix(in srgb, var(--primary) 60%, transparent) 100%);
   height: 0;
-  border-radius: var(--shape-sm) var(--shape-sm) 0 0;
+  border-radius: 6px 6px 0 0;
   position: relative;
   transition: height 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -230,7 +213,7 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
 .highlight {
-  background: linear-gradient(180deg, var(--tertiary, #A1CFE2) 0%, color-mix(in srgb, var(--tertiary, #A1CFE2) 60%, transparent) 100%);
+  background: linear-gradient(180deg, var(--tertiary) 0%, color-mix(in srgb, var(--tertiary) 60%, transparent) 100%);
 }
 
 .chart-container::-webkit-scrollbar { height: 6px; }

@@ -5,7 +5,7 @@ import { Icon } from "astro-icon/components";
 <section id="beneficios" class="section benefits-section">
   <div class="container benefits-grid">
 
-    <div class="benefits-image">
+    <div class="benefits-image reveal reveal-left">
       <img
         src="/soporte.jpg"
         sizes="(max-width:900px) 100vw, 50vw"
@@ -20,18 +20,18 @@ import { Icon } from "astro-icon/components";
 
     <div class="benefits-content">
 
-      <span class="badge">POR QUÉ ELEGIRNOS</span>
+      <span class="badge reveal reveal-up">POR QUÉ ELEGIRNOS</span>
 
-      <h2>Soporte confiable, rápido y profesional</h2>
+      <h2 class="reveal reveal-up stagger-1">Soporte confiable, rápido y profesional</h2>
 
-      <p class="benefits-desc">
+      <p class="benefits-desc reveal reveal-up stagger-2">
         Brindamos soporte remoto profesional para empresas y usuarios
         que necesitan soluciones inmediatas sin salir de casa.
       </p>
 
       <div class="benefits-list">
 
-        <div class="benefit-row">
+        <div class="card benefit-row reveal reveal-up stagger-3">
           <div class="benefit-icon">
             <Icon name="mdi:clock-fast"/>
           </div>
@@ -41,7 +41,7 @@ import { Icon } from "astro-icon/components";
           </div>
         </div>
 
-        <div class="benefit-row">
+        <div class="card benefit-row reveal reveal-up stagger-4">
           <div class="benefit-icon">
             <Icon name="mdi:laptop"/>
           </div>
@@ -51,7 +51,7 @@ import { Icon } from "astro-icon/components";
           </div>
         </div>
 
-        <div class="benefit-row">
+        <div class="card benefit-row reveal reveal-up stagger-5">
           <div class="benefit-icon">
             <Icon name="mdi:cash-multiple"/>
           </div>
@@ -61,7 +61,7 @@ import { Icon } from "astro-icon/components";
           </div>
         </div>
 
-        <div class="benefit-row">
+        <div class="card benefit-row reveal reveal-up stagger-6">
           <div class="benefit-icon">
             <Icon name="mdi:account-star"/>
           </div>
@@ -73,7 +73,7 @@ import { Icon } from "astro-icon/components";
 
       </div>
 
-      <div class="benefits-stats">
+      <div class="benefits-stats reveal reveal-up stagger-7">
         <div><strong>+500</strong><span>Clientes felices</span></div>
         <div><strong>15 min</strong><span>Tiempo de respuesta</span></div>
         <div><strong>100%</strong><span>Remoto</span></div>
@@ -83,29 +83,9 @@ import { Icon } from "astro-icon/components";
   </div>
 </section>
 
-<script is:inline>
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting){
-      entry.target.classList.add("benefits-visible");
-    }
-  });
-}, {threshold: 0.15});
-
-observer.observe(document.querySelector(".benefits-section"));
-</script>
-
 <style>
 .benefits-section {
-  padding: 96px 0;
-  background: var(--surface-container, #17191E);
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
-}
-.benefits-visible {
-  opacity: 1;
-  transform: translateY(0);
+  background: var(--background);
 }
 
 .benefits-grid {
@@ -117,16 +97,15 @@ observer.observe(document.querySelector(".benefits-section"));
 
 .benefits-image {
   position: relative;
-  border-radius: var(--shape-xl);
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: var(--elevation-3);
 }
 
 .benefits-img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: var(--shape-xl);
+  border-radius: 16px;
 }
 
 .benefits-content .badge { margin-bottom: 16px; }
@@ -156,20 +135,19 @@ observer.observe(document.querySelector(".benefits-section"));
   gap: 16px;
   align-items: flex-start;
   padding: 16px;
-  border-radius: var(--shape-md);
-  background: var(--surface-container-high, #1C1D22);
-  transition: background 0.2s;
+  background: var(--surface-container);
+  border: 1px solid var(--outline-variant);
 }
 .benefit-row:hover {
-  background: var(--surface-container-highest, #212227);
+  border-color: rgba(245,158,11,0.15);
 }
 
 .benefit-icon {
   width: 40px;
   height: 40px;
   min-width: 40px;
-  border-radius: var(--shape-sm);
-  background: var(--primary-container);
+  border-radius: 10px;
+  background: rgba(245,158,11,0.12);
   display: flex;
   align-items: center;
   justify-content: center;

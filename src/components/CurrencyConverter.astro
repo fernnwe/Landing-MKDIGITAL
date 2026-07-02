@@ -2,7 +2,7 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<div class="converter-card" id="converter">
+<div class="card glow-card converter-card reveal reveal-up" id="converter">
   <div class="converter-toggle" onclick="toggleConverter()">
     <Icon name="mdi:arrow-left-right" />
     <span>Convertir C$ a $</span>
@@ -83,9 +83,6 @@ import { Icon } from "astro-icon/components";
 <style>
 .converter-card {
   margin: 0 0 40px;
-  border-radius: var(--shape-lg);
-  background: var(--surface-container-high);
-  border: 1px solid rgba(129, 140, 248, 0.06);
   overflow: hidden;
 }
 
@@ -101,7 +98,7 @@ import { Icon } from "astro-icon/components";
   user-select: none;
   transition: background 0.2s;
 }
-.converter-toggle:hover { background: rgba(129, 140, 248, 0.06); }
+.converter-toggle:hover { background: rgba(245,158,11,0.06); }
 .converter-toggle :global(svg):first-child {
   color: var(--primary);
   width: 16px;
@@ -157,7 +154,7 @@ import { Icon } from "astro-icon/components";
   display: flex;
   align-items: center;
   gap: 0;
-  border-radius: var(--shape-sm);
+  border-radius: 12px;
   background: var(--surface-container);
   border: 1.5px solid var(--outline-variant);
   overflow: hidden;
@@ -165,7 +162,7 @@ import { Icon } from "astro-icon/components";
 }
 .converter-input-wrapper:focus-within {
   border-color: var(--primary);
-  box-shadow: 0 0 16px rgba(129, 140, 248, 0.1);
+  box-shadow: 0 0 20px rgba(245,158,11,0.08);
 }
 
 .converter-currency {
@@ -207,8 +204,8 @@ import { Icon } from "astro-icon/components";
 }
 
 .quick-btn {
-  padding: 6px 16px;
-  border-radius: var(--shape-full);
+  padding: 7px 18px;
+  border-radius: 8px;
   background: var(--surface-container);
   border: 1px solid var(--outline-variant);
   color: var(--on-surface-variant);
@@ -221,6 +218,6 @@ import { Icon } from "astro-icon/components";
 .quick-btn:hover {
   border-color: var(--primary);
   color: var(--primary);
-  background: rgba(129, 140, 248, 0.06);
+  background: rgba(245,158,11,0.06);
 }
 </style>

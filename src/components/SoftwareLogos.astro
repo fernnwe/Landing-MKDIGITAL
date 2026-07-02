@@ -28,33 +28,32 @@ const software: SoftwareItem[] = [
 ];
 ---
 
-<section class="software-logos" id="software">
+<section class="section" id="software">
   <div class="container">
-
-    <div class="section-header reveal reveal-up">
-      <span class="badge">
+    <div class="section-header">
+      <span class="badge reveal reveal-up">
         <Icon name="mdi:cube" />
         SOFTWARE DISPONIBLE
       </span>
-      <h2>Software que instalamos diariamente</h2>
-      <p>
+      <h2 class="reveal reveal-up stagger-1">Software que instalamos diariamente</h2>
+      <p class="reveal reveal-up stagger-2">
         Trabajamos con los programas más utilizados por estudiantes, empresas y profesionales.
       </p>
     </div>
 
     <div class="logos-grid">
       {software.map((s, i) => (
-        <div class="flip-card reveal reveal-up stagger-{Math.min(i + 1, 10)}">
+        <div class="card glow-card flip-card reveal reveal-up stagger-{Math.min(i + 1, 10)}">
           <div class="flip-card-inner">
             <div class="flip-card-front">
-              <span class="icon-wrap">
+              <span class="icon-wrap" style="color: {s.color}">
                 <Icon name={s.icono} color={s.color} />
               </span>
               <span class="name">{s.nombre}</span>
             </div>
             <div class="flip-card-back">
               <div class="back-content">
-                <span class="icon-wrap">
+                <span class="icon-wrap sm" style="color: {s.color}">
                   <Icon name={s.icono} color={s.color} />
                 </span>
                 <p>{s.descripcion}</p>
@@ -68,11 +67,6 @@ const software: SoftwareItem[] = [
 </section>
 
 <style>
-.software-logos {
-  padding: 96px 0;
-  background: var(--surface-container);
-}
-
 .logos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
@@ -82,6 +76,7 @@ const software: SoftwareItem[] = [
 .flip-card {
   perspective: 800px;
   height: 130px;
+  cursor: default;
 }
 
 .flip-card-inner {
@@ -106,25 +101,22 @@ const software: SoftwareItem[] = [
   justify-content: center;
   gap: 10px;
   padding: 20px 12px;
-  border-radius: var(--shape-md);
+  border-radius: 16px;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
   overflow: hidden;
 }
 
 .flip-card-front {
-  background: var(--surface-container-high);
-  border: 1px solid transparent;
-  transition: border-color 0.3s ease;
+  background: var(--surface-container);
 }
 .flip-card:hover .flip-card-front {
-  border-color: rgba(129, 140, 248, 0.15);
+  border-color: rgba(245, 158, 11, 0.15);
 }
 
 .flip-card-back {
   transform: rotateY(180deg);
   background: var(--surface-container);
-  border: 1px solid rgba(129, 140, 248, 0.12);
 }
 
 .back-content {
@@ -134,7 +126,6 @@ const software: SoftwareItem[] = [
   gap: 8px;
   text-align: center;
 }
-
 .back-content p {
   font-size: 11px;
   line-height: 1.4;
@@ -148,16 +139,14 @@ const software: SoftwareItem[] = [
   text-align: center;
 }
 
-.flip-card-front .icon-wrap {
+.icon-wrap {
   display: flex;
   font-size: 32px;
   line-height: 1;
 }
 
-.flip-card-back .icon-wrap {
-  display: flex;
+.icon-wrap.sm {
   font-size: 22px;
-  line-height: 1;
   opacity: 0.8;
 }
 </style>

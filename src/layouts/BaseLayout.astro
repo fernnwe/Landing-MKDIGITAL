@@ -9,25 +9,22 @@ const pageDesc = description || "Soporte técnico remoto en toda Nicaragua. Inst
 const pageUrl = canonical || Astro.url.href;
 ---
 
-<html lang="es" data-astro-transition-scope>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <title>{pageTitle}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={pageDesc} />
-    <meta 
-      name="keywords" 
-      content="soporte técnico Nicaragua, soporte remoto Nicaragua, instalar office Nicaragua, instalar programas, eliminar virus PC, optimizar computadora Nicaragua"
-    />
+    <meta name="keywords" content="soporte técnico Nicaragua, soporte remoto Nicaragua, instalar office Nicaragua, instalar programas, eliminar virus PC, optimizar computadora Nicaragua" />
     <meta name="author" content="MKdigital Nicaragua" />
     <meta name="google-site-verification" content="lvVh_1tC_LrfL9zZlPv8djy9OWAnqqVycqisCZu_dUA" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={pageUrl} />
 
-    <meta property="og:title" content={pageTitle}>
-    <meta property="og:description" content={pageDesc}>
-    <meta property="og:url" content={pageUrl}>
-    <meta property="og:type" content="website">
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDesc} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:type" content="website" />
     {ogImage && <meta property="og:image" content={ogImage} />}
 
     <link rel="icon" href="/favicon.ico" />
@@ -44,31 +41,18 @@ const pageUrl = canonical || Astro.url.href;
     <FlyerPopup />
     <slot />
 
-    <script is:inline>
-    function initReveal() {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            observer.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
+    document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    }
-
-    function initRevealAfterNav() {
-      setTimeout(initReveal, 100);
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', initReveal);
-    } else {
-      initReveal();
-    }
-
-    document.addEventListener('astro:after-swap', initRevealAfterNav);
+    });
     </script>
   </body>
 </html>

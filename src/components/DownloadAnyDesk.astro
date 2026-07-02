@@ -6,15 +6,15 @@ import { Icon } from "astro-icon/components";
   <div class="container anydesk-grid">
 
     <div class="anydesk-text">
-      <span class="badge">CONEXIÓN REMOTA SEGURA</span>
-      <h2>Descarga el programa para soporte remoto</h2>
+      <span class="badge reveal reveal-up">CONEXIÓN REMOTA SEGURA</span>
+      <h2 class="reveal reveal-up stagger-1">Descarga el programa para soporte remoto</h2>
 
-      <p class="anydesk-desc">
+      <p class="anydesk-desc reveal reveal-up stagger-2">
         Para comenzar el soporte remoto solo necesitas descargar uno de estos
         programas. No requieren instalación y tardan menos de 1 minuto.
       </p>
 
-      <div class="tab-bar">
+      <div class="tab-bar reveal reveal-up stagger-3">
         <button class="tab active" data-target="anydeskSteps">
           <Icon name="simple-icons:anydesk"/> AnyDesk
         </button>
@@ -23,7 +23,7 @@ import { Icon } from "astro-icon/components";
         </button>
       </div>
 
-      <div class="steps-panel active" id="anydeskSteps">
+      <div class="steps-panel active reveal reveal-up stagger-4" id="anydeskSteps">
         <div class="steps-list">
           <div class="step">
             <div class="step-num">1</div>
@@ -50,7 +50,7 @@ import { Icon } from "astro-icon/components";
           </div>
         </div>
 
-        <a href="https://anydesk.com/es/downloads/thank-you?dv=win_exe" target="_blank" class="download-btn">
+        <a href="https://anydesk.com/es/downloads/thank-you?dv=win_exe" target="_blank" class="btn-primary">
           <Icon name="mdi:download"/> Descargar AnyDesk
         </a>
       </div>
@@ -82,12 +82,12 @@ import { Icon } from "astro-icon/components";
           </div>
         </div>
 
-        <a href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" target="_blank" class="download-btn">
+        <a href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" target="_blank" class="btn-primary">
           <Icon name="mdi:download"/> Descargar TeamViewer
         </a>
       </div>
 
-      <div class="help-card">
+      <div class="help-card reveal reveal-up stagger-5">
         <div class="help-card-inner">
           <Icon name="mdi:play-circle-outline" />
           <div>
@@ -101,8 +101,8 @@ import { Icon } from "astro-icon/components";
 
     </div>
 
-    <div class="anydesk-visual">
-      <div class="anydesk-card">
+    <div class="anydesk-visual reveal reveal-up stagger-3">
+      <div class="card glow-card anydesk-card">
         <Icon name="mdi:shield-lock-outline" class="shield-icon" />
         <h3>Conexión 100% segura</h3>
         <p>Conexión cifrada y control total del proceso en tiempo real.</p>
@@ -139,8 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <style>
 .anydesk-section {
-  padding: 96px 0;
-  background: linear-gradient(180deg, var(--background) 0%, var(--surface-container-low) 100%);
+  padding: 100px 0;
+  background: var(--background);
 }
 
 .anydesk-grid {
@@ -165,14 +165,13 @@ document.addEventListener("DOMContentLoaded", () => {
   color: var(--on-surface-variant);
 }
 
-/* MD3 Tabs */
 .tab-bar {
   display: flex;
   gap: 8px;
   margin-bottom: 28px;
-  background: var(--surface-container-high, #1C1D22);
+  background: var(--surface-container);
   padding: 4px;
-  border-radius: var(--shape-full);
+  border-radius: 12px;
   width: fit-content;
 }
 
@@ -181,7 +180,7 @@ document.addEventListener("DOMContentLoaded", () => {
   align-items: center;
   gap: 8px;
   padding: 8px 20px;
-  border-radius: var(--shape-full);
+  border-radius: 8px;
   border: none;
   background: transparent;
   color: var(--on-surface-variant);
@@ -193,16 +192,14 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 .tab:hover { background: rgba(255,255,255,0.06); }
 .tab.active {
-  background: var(--surface-container);
+  background: var(--surface-container-high);
   color: var(--on-surface);
-  box-shadow: var(--elevation-1);
 }
 .tab svg { width: 18px; height: 18px; }
 
 .steps-panel { display: none; }
 .steps-panel.active { display: block; }
 
-/* MD3 Steps */
 .steps-list {
   display: flex;
   flex-direction: column;
@@ -221,8 +218,8 @@ document.addEventListener("DOMContentLoaded", () => {
   height: 32px;
   min-width: 32px;
   border-radius: 50%;
-  background: var(--primary-container);
-  color: var(--on-primary-container);
+  background: rgba(245,158,11,0.15);
+  color: var(--primary);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -238,25 +235,9 @@ document.addEventListener("DOMContentLoaded", () => {
 .step p {
   font-size: 13px;
   line-height: 1.5;
+  color: var(--on-surface-variant);
 }
 
-.download-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 28px;
-  border-radius: var(--shape-full);
-  background: var(--primary);
-  color: var(--on-primary);
-  font-size: 14px;
-  font-weight: 500;
-  text-decoration: none;
-  box-shadow: var(--elevation-1);
-  transition: box-shadow 0.2s ease;
-}
-.download-btn:hover { box-shadow: var(--elevation-2); }
-
-/* Help card */
 .help-card {
   margin-top: 20px;
 }
@@ -266,14 +247,14 @@ document.addEventListener("DOMContentLoaded", () => {
   align-items: center;
   gap: 14px;
   padding: 16px 20px;
-  border-radius: var(--shape-md);
-  background: var(--surface-container-high, #1C1D22);
+  border-radius: 12px;
+  background: var(--surface-container);
   border: 1px solid var(--outline-variant);
 }
 .help-card-inner svg {
   width: 28px;
   height: 28px;
-  color: #EF4444;
+  color: var(--tertiary);
   min-width: 28px;
 }
 .help-card-inner p {
@@ -290,22 +271,17 @@ document.addEventListener("DOMContentLoaded", () => {
 .help-card-inner a:hover { text-decoration: underline; }
 .help-card-inner div { min-width: 0; }
 
-/* Right card */
 .anydesk-visual { position: relative; }
 
 .anydesk-card {
-  background: var(--surface-container-high, #1C1D22);
-  border-radius: var(--shape-xl);
   padding: 40px 32px;
   text-align: center;
-  box-shadow: var(--elevation-3);
-  border: 1px solid rgba(255,255,255,0.06);
 }
 
 .shield-icon {
   width: 56px;
   height: 56px;
-  color: #EF4444;
+  color: var(--tertiary);
   margin-bottom: 16px;
 }
 
@@ -318,6 +294,7 @@ document.addEventListener("DOMContentLoaded", () => {
   font-size: 14px;
   line-height: 1.6;
   margin-bottom: 24px;
+  color: var(--on-surface-variant);
 }
 
 .trust-list {

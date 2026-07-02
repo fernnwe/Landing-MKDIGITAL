@@ -1,15 +1,15 @@
-<section class="testimonials-section">
+<section class="section testimonials-section">
   <div class="container">
 
     <div class="section-header">
-      <span class="badge">OPINIONES REALES</span>
-      <h2>Clientes que ya confiaron en nosotros</h2>
-      <p>Empresas, estudiantes y profesionales en toda Nicaragua.</p>
+      <span class="badge reveal reveal-up">OPINIONES REALES</span>
+      <h2 class="reveal reveal-up stagger-1">Clientes que ya confiaron en nosotros</h2>
+      <p class="reveal reveal-up stagger-2">Empresas, estudiantes y profesionales en toda Nicaragua.</p>
     </div>
 
     <div class="testimonials-grid">
 
-      <div class="testimonial-card">
+      <div class="card glow-card testimonial-card reveal reveal-up stagger-3">
         <div class="testimonial-avatar">
           <img src="https://scontent.fmga11-2.fna.fbcdn.net/v/t39.30808-6/477074284_3554499034844286_6683701472792848202_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=53a332&_nc_ohc=PUKtlj3eTj4Q7kNvwHQ0tTd&_nc_oc=Adrj7vT7DDJtfXCPnhMaGSV6iJ6W71g_HuJT3F9e6J3u4p5C0ZgsBx6Tc1ogdmMsACU&_nc_zt=23&_nc_ht=scontent.fmga11-2.fna&_nc_gid=FIXiDzRXF21F0znA_MHeOw&_nc_ss=7b2a8&oh=00_Af2pYEWtvV-_caMafxhxi79Weg3hdBAd3GA2EW_bpWmx0g&oe=69F86842" alt="Diego Espino" loading="lazy">
         </div>
@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <div class="testimonial-card">
+      <div class="card glow-card testimonial-card reveal reveal-up stagger-4">
         <div class="testimonial-avatar">
           <img src="https://scontent.fmga3-1.fna.fbcdn.net/v/t39.30808-6/493081666_122105584904878436_3428209111323622382_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=104&ccb=1-7&_nc_sid=1d70fc&_nc_ohc=ZDkvsBQKVysQ7kNvwFCFGFB&_nc_oc=AdroK8hbVZSIbZ3-59Iz1m_ukThjYUWvOBO4wjbRPXxeTdHBLpFvAUHx3N20f9uaSKY&_nc_zt=23&_nc_ht=scontent.fmga3-1.fna&_nc_gid=I9QdzYkfGbxCtp1tTgnJQw&_nc_ss=7b2a8&oh=00_Af20jNlexOcYDHaL_hAvQ7gjkOYoQABGEBgr92sSm4Guag&oe=69F87F56" alt="Juan Caldera" loading="lazy">
         </div>
@@ -31,7 +31,7 @@
         </div>
       </div>
 
-      <div class="testimonial-card">
+      <div class="card glow-card testimonial-card reveal reveal-up stagger-5">
         <div class="testimonial-avatar">
           <img src="https://scontent.fmga3-2.fna.fbcdn.net/v/t39.30808-6/682706330_1453691210103160_4001106066378769170_n.jpg?stp=cp6_dst-jpegr_tt6&_nc_cat=107&ccb=1-7&_nc_sid=7b2446&_nc_ohc=MizJLhj5lvEQ7kNvwEUE4iY&_nc_oc=AdpUrfbXVKhXkgA0p_RRAlOjo-1x3NHNoc-oJQSyPtnVG6oSzCDwkrXmbauTBSqL8rc&_nc_zt=23&se=-1&_nc_ht=scontent.fmga3-2.fna&_nc_gid=gnNRXqopo-K2gWxAsFoduQ&_nc_ss=7b2a8&oh=00_Af1AXlYgSIldjw9_89QUI1U8JYfD6fwbY6Kmx0iKRuIT8Q&oe=69F88BEC" alt="Tropi Gamer" loading="lazy">
         </div>
@@ -49,18 +49,9 @@
 
 <style>
 .testimonials-section {
-  padding: 96px 0;
-  background: var(--surface-container, #17191E);
+  background: var(--surface);
   text-align: center;
 }
-
-.section-header {
-  max-width: 600px;
-  margin: 0 auto 48px;
-}
-.section-header .badge { margin-bottom: 12px; }
-.section-header h2 { font-size: 28px; font-weight: 600; margin-bottom: 8px; }
-.section-header p { font-size: 14px; color: var(--on-surface-variant); }
 
 .testimonials-grid {
   display: grid;
@@ -69,15 +60,8 @@
 }
 
 .testimonial-card {
-  background: var(--surface-container-high, #1C1D22);
-  border-radius: var(--shape-lg);
   padding: 32px 24px;
-  box-shadow: var(--elevation-1);
-  transition: box-shadow 0.2s ease, transform 0.2s ease;
-}
-.testimonial-card:hover {
-  box-shadow: var(--elevation-2);
-  transform: translateY(-2px);
+  text-align: center;
 }
 
 .testimonial-avatar {
@@ -86,7 +70,7 @@
   margin: 0 auto 16px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid var(--primary-container);
+  border: 2px solid rgba(245,158,11,0.2);
 }
 .testimonial-avatar img {
   width: 100%;

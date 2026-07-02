@@ -6,14 +6,14 @@ import { Icon } from "astro-icon/components";
   <div class="container">
 
     <div class="section-header">
-      <span class="badge">PREGUNTAS FRECUENTES</span>
-      <h2>Resolvemos tus dudas</h2>
-      <p>Todo lo que necesitas saber antes de solicitar soporte remoto</p>
+      <span class="badge reveal reveal-up">PREGUNTAS FRECUENTES</span>
+      <h2 class="reveal reveal-up stagger-1">Resolvemos tus dudas</h2>
+      <p class="reveal reveal-up stagger-2">Todo lo que necesitas saber antes de solicitar soporte remoto</p>
     </div>
 
     <div class="faq-list">
 
-      <details class="faq-item">
+      <details class="faq-item card reveal reveal-up stagger-3">
         <summary>
           <Icon name="mdi:laptop" />
           <span>¿Cómo se conectan a mi computadora?</span>
@@ -38,7 +38,7 @@ import { Icon } from "astro-icon/components";
         </div>
       </details>
 
-      <details class="faq-item">
+      <details class="faq-item card reveal reveal-up stagger-4">
         <summary>
           <Icon name="mdi:shield-lock" />
           <span>¿Es seguro el soporte remoto?</span>
@@ -52,7 +52,7 @@ import { Icon } from "astro-icon/components";
         </div>
       </details>
 
-      <details class="faq-item">
+      <details class="faq-item card reveal reveal-up stagger-5">
         <summary>
           <Icon name="mdi:microsoft-windows" />
           <span>¿Los sistemas funcionan en Mac?</span>
@@ -66,7 +66,7 @@ import { Icon } from "astro-icon/components";
         </div>
       </details>
 
-      <details class="faq-item">
+      <details class="faq-item card reveal reveal-up stagger-6">
         <summary>
           <Icon name="mdi:cash-register" />
           <span>¿Qué es FactuLite?</span>
@@ -80,7 +80,7 @@ import { Icon } from "astro-icon/components";
         </div>
       </details>
 
-      <details class="faq-item">
+      <details class="faq-item card reveal reveal-up stagger-7">
         <summary>
           <Icon name="mdi:web" />
           <span>¿Qué es ViperPOS?</span>
@@ -94,7 +94,7 @@ import { Icon } from "astro-icon/components";
         </div>
       </details>
 
-      <details class="faq-item">
+      <details class="faq-item card reveal reveal-up stagger-8">
         <summary>
           <Icon name="mdi:map-marker" />
           <span>¿Dónde están ubicados?</span>
@@ -108,7 +108,7 @@ import { Icon } from "astro-icon/components";
         </div>
       </details>
 
-      <details class="faq-item">
+      <details class="faq-item card reveal reveal-up stagger-9">
         <summary>
           <Icon name="mdi:clock-outline" />
           <span>¿Cuánto tarda la instalación?</span>
@@ -122,7 +122,7 @@ import { Icon } from "astro-icon/components";
         </div>
       </details>
 
-      <details class="faq-item">
+      <details class="faq-item card reveal reveal-up stagger-10">
         <summary>
           <Icon name="mdi:shield-check" />
           <span>¿Cuánta garantía ofrecen?</span>
@@ -136,7 +136,7 @@ import { Icon } from "astro-icon/components";
         </div>
       </details>
 
-      <details class="faq-item">
+      <details class="faq-item card reveal reveal-up stagger-10">
         <summary>
           <Icon name="mdi:cash-multiple" />
           <span>¿Los precios están en córdobas o dólares?</span>
@@ -150,7 +150,7 @@ import { Icon } from "astro-icon/components";
         </div>
       </details>
 
-      <details class="faq-item">
+      <details class="faq-item card reveal reveal-up stagger-10">
         <summary>
           <Icon name="mdi:credit-card-check" />
           <span>¿Cuándo se realiza el pago?</span>
@@ -164,7 +164,7 @@ import { Icon } from "astro-icon/components";
         </div>
       </details>
 
-      <details class="faq-item">
+      <details class="faq-item card reveal reveal-up stagger-10">
         <summary>
           <Icon name="mdi:bank" />
           <span>Métodos de pago disponibles</span>
@@ -203,34 +203,18 @@ import { Icon } from "astro-icon/components";
 
 <style>
 .faq-section {
-  padding: 96px 0;
-  background: var(--background, #0F1115);
+  background: var(--surface);
 }
 
-.section-header {
-  text-align: center;
-  max-width: 600px;
-  margin: 0 auto 48px;
-}
-.section-header .badge { margin-bottom: 12px; }
-.section-header h2 { font-size: 28px; font-weight: 600; margin-bottom: 8px; }
-.section-header p { font-size: 14px; color: var(--on-surface-variant); }
-
-/* MD3 Accordion */
 .faq-list {
   max-width: 720px;
   margin: 0 auto;
 }
 
 .faq-item {
-  background: var(--surface-container, #17191E);
-  border-radius: var(--shape-md);
+  background: var(--surface-container);
   margin-bottom: 8px;
   overflow: hidden;
-  transition: background 0.2s;
-}
-.faq-item:hover {
-  background: var(--surface-container-high, #1C1D22);
 }
 
 .faq-item summary {
@@ -286,8 +270,8 @@ import { Icon } from "astro-icon/components";
   align-items: center;
   gap: 6px;
   padding: 6px 14px;
-  border-radius: var(--shape-full);
-  background: var(--surface-container-high, #1C1D22);
+  border-radius: 8px;
+  background: var(--surface-container-high);
   border: 1px solid var(--outline-variant);
   font-size: 12px;
   font-weight: 500;

@@ -1,126 +1,30 @@
-<section class="stats-section reveal reveal-up">
+---
+const stats = [
+  { number: '10+', label: 'Años de Experiencia' },
+  { number: '200+', label: 'Clientes Satisfechos' },
+  { number: '500+', label: 'Proyectos Realizados' },
+  { number: '50+', label: 'Soluciones Implementadas' }
+];
+---
+
+<section class="section" style="padding: 60px 0">
   <div class="container">
-
-    <div class="section-header">
-      <span class="badge">RESULTADOS REALES</span>
-      <h2>Nuestro impacto en números</h2>
-      <p>Empresas y profesionales confían cada día en nuestro soporte remoto.</p>
-    </div>
-
     <div class="stats-grid">
-
-      <div class="stat-card reveal reveal-up stagger-1">
-        <div class="stat-number" data-target="500">0</div>
-        <div class="stat-label">Instalaciones realizadas</div>
-      </div>
-
-      <div class="stat-card reveal reveal-up stagger-2">
-        <div class="stat-number" data-target="300">0</div>
-        <div class="stat-label">Clientes atendidos</div>
-      </div>
-
-      <div class="stat-card reveal reveal-up stagger-3">
-        <div class="stat-number rating">4.9</div>
-        <div class="stat-label">Calificación promedio</div>
-      </div>
-
-      <div class="stat-card reveal reveal-up stagger-4">
-        <div class="stat-number">100%</div>
-        <div class="stat-label">Cobertura nacional</div>
-      </div>
-
+      {stats.map((stat, i) => (
+          <div class="stat-card reveal reveal-up stagger-{i + 1}">
+          <div class="stat-number">{stat.number}</div>
+          <div class="stat-label">{stat.label}</div>
+        </div>
+      ))}
     </div>
-
   </div>
 </section>
 
-<script is:inline>
-const counters = document.querySelectorAll('.stat-number[data-target]');
-let started = false;
-
-const animateCounters = () => {
-  if(started) return;
-  started = true;
-
-  counters.forEach(counter => {
-    const target = +counter.dataset.target;
-    const duration = 1500;
-    let start = 0;
-    const increment = target / (duration / 16);
-
-    const updateCount = () => {
-      start += increment;
-      if(start < target){
-        counter.innerText = Math.floor(start);
-        requestAnimationFrame(updateCount);
-      } else {
-        counter.innerText = "+" + target;
-      }
-    };
-    updateCount();
-  });
-};
-
-const observer = new IntersectionObserver(entries => {
-  if(entries[0].isIntersecting) animateCounters();
-});
-
-observer.observe(document.querySelector('.stats-section'));
-</script>
-
 <style>
-.stats-section {
-  padding: 96px 0;
-  background: var(--surface-container);
-  text-align: center;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 24px;
-}
-
-.stat-card {
-  background: var(--surface-container-high);
-  border-radius: var(--shape-lg);
-  padding: 40px 24px;
-  box-shadow: var(--elevation-1);
-  border: 1px solid transparent;
-  transition: box-shadow 0.3s cubic-bezier(0.2, 0, 0, 1),
-              transform 0.3s cubic-bezier(0.2, 0, 0, 1),
-              border-color 0.3s ease;
-}
-.stat-card:hover {
-  box-shadow: var(--elevation-3);
-  transform: translateY(-4px);
-  border-color: rgba(129, 140, 248, 0.15);
-}
-
-.stat-number {
-  font-size: 48px;
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  line-height: 1.1;
-  margin-bottom: 8px;
-}
-
-.stat-label {
-  font-size: 14px;
-  color: var(--on-surface-variant);
-  font-weight: 500;
-}
-
-.rating {
-  -webkit-text-fill-color: initial;
-  color: var(--tertiary);
-}
-
-@media (max-width: 600px) {
-  .stats-section { padding: 72px 0; }
-  .stat-number { font-size: 36px; }
-}
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+  .stat-card { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 32px 20px; border-radius: 16px; background: var(--surface-container); border: 1px solid var(--outline-variant); text-align: center; }
+  .stat-number { font-size: 36px; font-weight: 800; background: linear-gradient(135deg, var(--primary), #F97316); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; }
+  .stat-label { font-size: 14px; color: var(--on-surface-variant); font-weight: 500; }
+  @media (max-width: 768px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } .stat-card { padding: 24px 16px; } .stat-number { font-size: 28px; } }
+  @media (max-width: 600px) { .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; } .stat-card { padding: 20px 12px; } .stat-number { font-size: 24px; } }
 </style>

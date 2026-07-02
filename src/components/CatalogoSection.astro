@@ -17,7 +17,7 @@ import CurrencyConverter from "./CurrencyConverter.astro";
         CATÁLOGO DE SOFTWARE
       </div>
       <h1 class="reveal reveal-up stagger-2">
-        Encuentra el software que <span>necesitas</span>
+        Encuentra el software que <span class="text-accent">necesitas</span>
       </h1>
       <p class="reveal reveal-up stagger-3">
         Todos los programas que instalamos a precio justo, con soporte remoto incluido
@@ -46,7 +46,7 @@ import CurrencyConverter from "./CurrencyConverter.astro";
 
   <div class="catalogo-body">
     <div class="container">
-      <div class="search-filters">
+      <div class="search-filters glass">
         <div class="search-bar">
           <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
           <input id="searchInput" type="text" placeholder="Buscar producto..." autocomplete="off" />
@@ -72,7 +72,7 @@ import CurrencyConverter from "./CurrencyConverter.astro";
         const items = productos.filter(p => p.categoria === cat.id);
         return (
           <div class="cat-section" data-categoria={cat.id}>
-            <div class="cat-header reveal reveal-up">
+            <div class="cat-header card reveal reveal-up">
               <span class="cat-icon" style="background: {cat.bgGradient}">
                 <Icon name={cat.iconoId} color="#FFFFFF" />
               </span>
@@ -182,8 +182,7 @@ document.addEventListener("DOMContentLoaded", function() {
 }
 
 .catalogo-hero-bg {
-  position: absolute;
-  inset: 0;
+  position: absolute; inset: 0;
   overflow: hidden;
   pointer-events: none;
 }
@@ -194,14 +193,12 @@ document.addEventListener("DOMContentLoaded", function() {
   filter: blur(100px);
   opacity: 0.4;
 }
-
 .orb-1 {
   width: 600px; height: 600px;
   top: -300px; left: -100px;
   background: radial-gradient(circle, rgba(129, 140, 248, 0.2) 0%, transparent 70%);
   animation: orb-float 20s ease-in-out infinite;
 }
-
 .orb-2 {
   width: 500px; height: 500px;
   bottom: -250px; right: -100px;
@@ -226,7 +223,8 @@ document.addEventListener("DOMContentLoaded", function() {
   margin-bottom: 16px;
   letter-spacing: -0.02em;
 }
-.hero-content h1 span {
+
+.text-accent {
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -246,7 +244,7 @@ document.addEventListener("DOMContentLoaded", function() {
   gap: 8px;
   margin-top: 20px;
   padding: 8px 22px;
-  border-radius: var(--shape-full);
+  border-radius: 9999px;
   background: linear-gradient(135deg, rgba(0, 200, 83, 0.12), rgba(0, 200, 83, 0.04));
   border: 1px solid rgba(0, 200, 83, 0.2);
   color: #00C853;
@@ -270,10 +268,7 @@ document.addEventListener("DOMContentLoaded", function() {
   width: max-content;
   animation: licencia-scroll 40s linear infinite;
 }
-
-.licencias-track:hover {
-  animation-play-state: paused;
-}
+.licencias-track:hover { animation-play-state: paused; }
 
 @keyframes licencia-scroll {
   0% { transform: translateX(0); }
@@ -283,7 +278,7 @@ document.addEventListener("DOMContentLoaded", function() {
 .licencia-thumb {
   flex: 0 0 auto;
   width: 160px;
-  border-radius: var(--shape-sm);
+  border-radius: 8px;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.06);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -310,10 +305,7 @@ document.addEventListener("DOMContentLoaded", function() {
   z-index: 5;
   margin-bottom: 56px;
   padding: 24px 32px;
-  background: var(--surface-container-high);
-  border-radius: var(--shape-xl);
-  border: 1px solid rgba(129, 140, 248, 0.06);
-  box-shadow: var(--elevation-1);
+  border-radius: 20px;
 }
 
 .search-bar {
@@ -323,14 +315,14 @@ document.addEventListener("DOMContentLoaded", function() {
   max-width: 480px;
   margin: 0 auto 20px;
   padding: 10px 18px;
-  border-radius: var(--shape-full);
-  background: var(--surface-container);
+  border-radius: 9999px;
+  background: var(--surface-container-high);
   border: 1.5px solid var(--outline-variant);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 .search-bar:focus-within {
   border-color: var(--primary);
-  box-shadow: 0 0 20px rgba(129, 140, 248, 0.1);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.1);
 }
 .search-bar svg { color: var(--on-surface-variant); min-width: 20px; }
 .search-bar input {
@@ -356,7 +348,7 @@ document.addEventListener("DOMContentLoaded", function() {
   align-items: center;
   gap: 6px;
   padding: 8px 18px;
-  border-radius: var(--shape-full);
+  border-radius: 9999px;
   background: transparent;
   border: 1.5px solid var(--outline-variant);
   color: var(--on-surface-variant);
@@ -370,26 +362,23 @@ document.addEventListener("DOMContentLoaded", function() {
 .filter-tab:hover {
   border-color: var(--primary);
   color: var(--on-surface);
-  background: rgba(129, 140, 248, 0.06);
+  background: rgba(245, 158, 11, 0.06);
 }
 .filter-tab.active {
-  background: linear-gradient(135deg, var(--primary), #6366F1);
+  background: var(--primary);
   border-color: transparent;
-  color: #FFFFFF;
-  box-shadow: 0 2px 12px rgba(129, 140, 248, 0.25);
+  color: var(--on-primary);
+  box-shadow: 0 2px 12px rgba(245, 158, 11, 0.25);
 }
 .filter-tab .tab-icon { display: inline-flex; color: var(--cat-color); }
 .filter-tab .tab-icon :global(svg) { width: 16px; height: 16px; }
-.filter-tab.active .tab-icon { color: #FFFFFF; }
+.filter-tab.active .tab-icon { color: var(--on-primary); }
 
 /* Category sections */
 .cat-section {
   margin-bottom: 48px;
 }
-
-.cat-section:last-child {
-  margin-bottom: 0;
-}
+.cat-section:last-child { margin-bottom: 0; }
 
 .cat-header {
   display: flex;
@@ -397,9 +386,7 @@ document.addEventListener("DOMContentLoaded", function() {
   gap: 16px;
   margin-bottom: 24px;
   padding: 16px 20px;
-  background: var(--surface-container-high);
-  border-radius: var(--shape-lg);
-  border: 1px solid rgba(129, 140, 248, 0.06);
+  cursor: default;
 }
 
 .cat-icon {
@@ -409,7 +396,7 @@ document.addEventListener("DOMContentLoaded", function() {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--shape-md);
+  border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 .cat-icon :global(svg) { width: 26px; height: 26px; }
