@@ -17,7 +17,10 @@ const promociones = [
     <div class="promos-grid">
       {promociones.map((p, i) => (
         <div class={`promo-card reveal reveal-up stagger-${Math.min(i + 1, 4)}`}>
-          <img src={p.src} alt={`Promoción ${i + 1}`} loading="lazy" />
+          <div class="promo-img-wrap">
+            <span class="promo-discount">-79%</span>
+            <img src={p.src} alt={`Promoción ${i + 1}`} loading="lazy" />
+          </div>
         </div>
       ))}
     </div>
@@ -45,6 +48,24 @@ const promociones = [
     border-color: var(--primary);
     transform: translateY(-4px);
     box-shadow: 0 12px 40px rgba(245, 158, 11, 0.1);
+  }
+  .promo-img-wrap {
+    position: relative;
+  }
+  .promo-discount {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    background: var(--primary);
+    color: #000;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    padding: 6px 16px;
+    border-radius: 8px;
+    line-height: 1;
+    box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35);
   }
   .promo-card img {
     width: 100%;
