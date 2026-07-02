@@ -50,8 +50,12 @@ const promociones = [
     width: 100%;
     height: auto;
     display: block;
+    max-height: 420px;
+    object-fit: contain;
+    object-position: top;
   }
   @media (max-width: 700px) {
     .promos-grid { grid-template-columns: 1fr; }
+    .promo-card img { max-height: none; }
   }
 </style>
