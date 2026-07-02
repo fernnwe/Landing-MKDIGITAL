@@ -1,0 +1,57 @@
+---
+const promociones = [
+  { src: "/promociones/1.jpg" },
+  { src: "/promociones/2.jpg" },
+  { src: "/promociones/3.jpg" },
+  { src: "/promociones/4.jpg" },
+];
+---
+
+<section class="section promos-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge reveal reveal-up">PROMOCIONES</span>
+      <h2 class="reveal reveal-up stagger-1">Ofertas especiales</h2>
+      <p class="reveal reveal-up stagger-2">Aprovecha nuestros precios exclusivos en software original</p>
+    </div>
+    <div class="promos-grid">
+      {promociones.map((p, i) => (
+        <div class={`promo-card reveal reveal-up stagger-${Math.min(i + 1, 4)}`}>
+          <img src={p.src} alt={`Promoción ${i + 1}`} loading="lazy" />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .promos-section {
+    background: var(--surface);
+  }
+  .promos-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 48px;
+  }
+  .promo-card {
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--surface-container);
+    border: 1px solid var(--outline-variant);
+    transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  }
+  .promo-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(245, 158, 11, 0.1);
+  }
+  .promo-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  @media (max-width: 700px) {
+    .promos-grid { grid-template-columns: 1fr; }
+  }
+</style>
