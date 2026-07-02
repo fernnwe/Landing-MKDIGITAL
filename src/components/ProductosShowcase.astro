@@ -1,0 +1,85 @@
+---
+const productos = [
+  { src: "/productos/windows11.png", nombre: "Windows 11" },
+  { src: "/productos/windows10.png", nombre: "Windows 10" },
+  { src: "/productos/office2024.png", nombre: "Office 2024" },
+  { src: "/productos/office2021.png", nombre: "Office 2021" },
+  { src: "/productos/adobe.jpg", nombre: "Adobe Creative Cloud" },
+  { src: "/productos/acrobat.png", nombre: "Adobe Acrobat" },
+  { src: "/productos/autocad.png", nombre: "AutoCAD" },
+  { src: "/productos/revit.png", nombre: "Revit" },
+  { src: "/productos/avast.png", nombre: "Avast" },
+  { src: "/productos/viperpos.png", nombre: "ViperPOS" },
+  { src: "/productos/factulite.png", nombre: "FactuLite" },
+  { src: "/productos/facturacion.png", nombre: "Facturación" },
+];
+---
+
+<section class="section productos-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="badge reveal reveal-up">PRODUCTOS</span>
+      <h2 class="reveal reveal-up stagger-1">Software original con entrega inmediata</h2>
+      <p class="reveal reveal-up stagger-2">Todos los programas que necesitas, originales y con instalación remota incluida.</p>
+    </div>
+    <div class="productos-grid">
+      {productos.map((p, i) => (
+        <div class="producto-card reveal reveal-up stagger-{Math.min(i + 1, 8)}">
+          <img src={p.src} alt={p.nombre} loading="lazy" />
+          <span class="producto-name">{p.nombre}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .productos-section {
+    background: var(--surface);
+  }
+  .productos-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
+    margin-top: 48px;
+  }
+  .producto-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 20px 12px;
+    background: var(--surface-container);
+    border: 1px solid var(--outline);
+    border-radius: 14px;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .producto-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+  }
+  .producto-card img {
+    width: 100%;
+    max-width: 100px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 6px;
+  }
+  .producto-name {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--on-surface-variant);
+    text-align: center;
+    line-height: 1.3;
+  }
+  @media (max-width: 900px) {
+    .productos-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .productos-grid { grid-template-columns: repeat(3, 1fr); }
+    .producto-card { padding: 14px 10px; }
+  }
+  @media (max-width: 400px) {
+    .productos-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+</style>
