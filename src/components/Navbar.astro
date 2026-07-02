@@ -62,35 +62,6 @@
 
   .nav-cta { padding: 10px 20px; font-size: 13px; margin-left: 8px; flex-shrink: 0; }
 
-  <script>
-    const navbar = document.getElementById('navbar');
-    const menuToggle = document.getElementById('menuToggle');
-    const navLinks = document.getElementById('navLinks');
-    let lastScroll = 0;
-
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.scrollY;
-      navbar.classList.toggle('scrolled', currentScroll > 20);
-      navbar.classList.toggle('hidden', currentScroll > lastScroll && currentScroll > 80);
-      lastScroll = currentScroll;
-    }, { passive: true });
-
-    menuToggle?.addEventListener('click', () => {
-      const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
-      menuToggle.setAttribute('aria-expanded', !expanded);
-      navLinks.classList.toggle('open');
-      document.body.classList.toggle('menu-open');
-    });
-
-    navLinks?.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        navLinks.classList.remove('open');
-        document.body.classList.remove('menu-open');
-        menuToggle.setAttribute('aria-expanded', 'false');
-      });
-    });
-  </script>
-
   @media (max-width: 1000px) {
     .navbar-inner { gap: 16px; }
     .nav-link { padding: 8px 10px; font-size: 13px; }
@@ -113,3 +84,32 @@
     .nav-cta { margin: 12px 0 0; justify-content: center; width: 100%; }
   }
 </style>
+
+<script>
+  const navbar = document.getElementById('navbar');
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  let lastScroll = 0;
+
+  window.addEventListener('scroll', () => {
+    const currentScroll = window.scrollY;
+    navbar.classList.toggle('scrolled', currentScroll > 20);
+    navbar.classList.toggle('hidden', currentScroll > lastScroll && currentScroll > 80);
+    lastScroll = currentScroll;
+  }, { passive: true });
+
+  menuToggle?.addEventListener('click', () => {
+    const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', !expanded);
+    navLinks.classList.toggle('open');
+    document.body.classList.toggle('menu-open');
+  });
+
+  navLinks?.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      document.body.classList.remove('menu-open');
+      menuToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+</script>
