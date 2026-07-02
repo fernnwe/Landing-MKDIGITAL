@@ -12,7 +12,7 @@
 
     <div class="navbar-links" id="navLinks">
       <div class="nav-links-inner">
-        <a href="/" class="nav-link active">Inicio</a>
+        <a href="/" class="nav-link">Inicio</a>
         <a href="/soluciones" class="nav-link">Soluciones</a>
         <a href="/#servicios" class="nav-link">Servicios</a>
         <a href="/#software" class="nav-link">Software</a>
@@ -90,6 +90,14 @@
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
   let lastScroll = 0;
+
+  // Active link based on current URL
+  const path = window.location.pathname;
+  navLinks?.querySelectorAll('.nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    const linkPath = href.split('#')[0] || '/';
+    link.classList.toggle('active', linkPath === path);
+  });
 
   window.addEventListener('scroll', () => {
     const currentScroll = window.scrollY;
