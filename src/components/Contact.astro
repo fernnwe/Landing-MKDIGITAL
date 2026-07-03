@@ -46,11 +46,8 @@
         </a>
       </div>
 
-      <form class="contact-form reveal reveal-right stagger-1" id="contactForm" action="https://formsubmit.co/soporte.mkdigital1604@gmail.com" method="POST">
+      <form class="contact-form reveal reveal-right stagger-1" id="contactForm" action="https://formsubmit.co/ajax/soporte.mkdigital1604@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="Nuevo mensaje desde MK Digital Landing">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://mkdigitalnic.com/">
         <input type="text" name="_honey" style="display:none">
         <div class="form-row">
           <div class="form-field">
@@ -83,11 +80,19 @@
   document.getElementById('contactForm')?.addEventListener('submit', function(e) {
     e.preventDefault();
     const btn = this.querySelector('.form-submit');
+    const original = btn.innerHTML;
     btn.disabled = true;
     btn.innerHTML = 'Enviando...';
-    fetch(this.action, { method: 'POST', body: new FormData(this) })
-      .then(() => { btn.innerHTML = '¡Mensaje enviado!'; this.reset(); })
-      .catch(() => { btn.innerHTML = '¡Mensaje enviado!'; this.reset(); });
+    fetch(this.action, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(this) })
+      .then(r => r.json())
+      .then(d => {
+        if (d.success) { btn.innerHTML = '¡Mensaje enviado!'; this.reset(); }
+        else { btn.innerHTML = 'Error, intenta de nuevo'; setTimeout(() => { btn.innerHTML = original; btn.disabled = false; }, 3000); }
+      })
+      .catch(() => {
+        btn.innerHTML = 'Error de conexión';
+        setTimeout(() => { btn.innerHTML = original; btn.disabled = false; }, 3000);
+      });
   });
 </script>
 
