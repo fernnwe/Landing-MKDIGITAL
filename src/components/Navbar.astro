@@ -103,8 +103,13 @@
 
   window.addEventListener('scroll', () => {
     const currentScroll = window.scrollY;
+    const menuOpen = navLinks.classList.contains('open');
     navbar.classList.toggle('scrolled', currentScroll > 20);
-    navbar.classList.toggle('hidden', currentScroll > lastScroll && currentScroll > 80);
+    if (!menuOpen) {
+      navbar.classList.toggle('hidden', currentScroll > lastScroll && currentScroll > 80);
+    } else {
+      navbar.classList.remove('hidden');
+    }
     lastScroll = currentScroll;
   }, { passive: true });
 
@@ -113,6 +118,7 @@
     menuToggle.setAttribute('aria-expanded', !expanded);
     navLinks.classList.toggle('open');
     document.body.classList.toggle('menu-open');
+    if (!expanded) navbar.classList.remove('hidden');
   });
 
   navLinks?.querySelectorAll('.nav-link').forEach(link => {
