@@ -25,9 +25,12 @@ const pageUrl = canonical || Astro.url.href;
     <meta property="og:description" content={pageDesc} />
     <meta property="og:url" content={pageUrl} />
     <meta property="og:type" content="website" />
-    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:image" content={ogImage || "https://mkdigitalnic.com/logo.svg"} />
+    <meta property="og:image:width" content="500" />
+    <meta property="og:image:height" content="500" />
 
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.svg" />
     <link rel="prefetch" href="/catalogo" />
     <link rel="prefetch" href="/beneficios" />
     <link rel="prefetch" href="/comentarios" />
