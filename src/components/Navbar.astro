@@ -31,9 +31,11 @@
   .navbar {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
     padding: 14px 0;
+    background: rgba(6,6,8,0.75); backdrop-filter: blur(24px) saturate(1.4);
+    border-bottom: 1px solid rgba(255,255,255,0.05);
     transition: background 0.4s ease, transform 0.4s ease, padding 0.4s ease;
   }
-  .navbar.scrolled { background: rgba(6,6,8,0.85); backdrop-filter: blur(24px) saturate(1.4); border-bottom: 1px solid rgba(255,255,255,0.05); padding: 10px 0; }
+  .navbar.scrolled { background: rgba(6,6,8,0.92); backdrop-filter: blur(28px) saturate(1.6); padding: 10px 0; }
   .navbar.hidden { transform: translateY(-100%); }
   .navbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
   .navbar-logo { flex-shrink: 0; display: flex; align-items: center; text-decoration: none; }
