@@ -10,7 +10,7 @@
       <span class="menu-bar"></span>
     </button>
 
-    <div class="nav-links" id="navLinks">
+    <div class="nav-links">
       <a href="/" class="nav-link">Inicio</a>
       <a href="/soluciones" class="nav-link">Soluciones</a>
       <a href="/#servicios" class="nav-link">Servicios</a>
@@ -27,6 +27,23 @@
   </nav>
 </header>
 
+<div class="nav-overlay" id="navOverlay">
+  <div class="nav-overlay-links">
+    <a href="/" class="nav-link overlay-link">Inicio</a>
+    <a href="/soluciones" class="nav-link overlay-link">Soluciones</a>
+    <a href="/#servicios" class="nav-link overlay-link">Servicios</a>
+    <a href="/#software" class="nav-link overlay-link">Software</a>
+    <a href="/contacto" class="nav-link overlay-link">Contacto</a>
+    <a href="/catalogo" class="nav-link overlay-link">Catálogo</a>
+    <a href="/anydesk" class="nav-link overlay-link">AnyDesk</a>
+    <a href="/comentarios" class="nav-link overlay-link">Comentarios</a>
+    <a href="https://wa.me/50581088124" target="_blank" rel="noopener noreferrer" class="btn-primary overlay-cta">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Escríbenos
+    </a>
+  </div>
+</div>
+
 <style>
   .navbar {
     position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
@@ -35,7 +52,7 @@
     border-bottom: 1px solid rgba(255,255,255,0.05);
     transition: background 0.4s ease, transform 0.4s ease, padding 0.4s ease;
   }
-  .navbar.scrolled { background: rgba(6,6,8,0.92); backdrop-filter: blur(28px) saturate(1.6); padding: 10px 0; }
+  .navbar.scrolled { background: rgba(3,3,5,0.98); backdrop-filter: blur(28px) saturate(1.6); padding: 10px 0; }
   .navbar.hidden { transform: translateY(-100%); }
   .navbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 32px; }
   .navbar-logo { flex-shrink: 0; display: flex; align-items: center; text-decoration: none; }
@@ -63,6 +80,10 @@
 
   .nav-cta { padding: 10px 20px; font-size: 13px; margin-left: 8px; flex-shrink: 0; }
 
+  .nav-overlay { display: none; }
+  .overlay-link { display: none; }
+  .overlay-cta { display: none; }
+
   @media (max-width: 1000px) {
     .navbar-inner { gap: 16px; }
     .nav-link { padding: 8px 10px; font-size: 13px; }
@@ -71,42 +92,53 @@
   }
 
   @media (max-width: 768px) {
-    .navbar { background: rgba(6,6,8,0.85); backdrop-filter: blur(24px) saturate(1.4); border-bottom: 1px solid rgba(255,255,255,0.05); }
-    .menu-toggle { display: flex; }
+    .nav-links { display: none; }
 
-    .nav-links {
-      display: flex; position: fixed; top: 0; right: 0; bottom: 0;
-      width: 280px; max-width: 80vw;
-      flex-direction: column; align-items: stretch; gap: 2px;
-      padding: 80px 20px 24px;
-      background: rgba(8,8,12,0.97); backdrop-filter: blur(40px);
-      border-left: 1px solid rgba(255,255,255,0.06);
-      transform: translateX(100%);
-      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
-      z-index: 1000;
+    .nav-overlay {
+      display: flex; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+      background: #060608;
+      flex-direction: column; align-items: center; justify-content: center;
+      padding: 80px 24px;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 999;
     }
-    .nav-links.open {
-      transform: translateX(0);
+    .nav-overlay.open { opacity: 1; visibility: visible; }
+
+    .nav-overlay-links {
+      display: flex; flex-direction: column; align-items: center;
+      gap: 4px; width: 100%; max-width: 320px;
     }
-    .nav-link {
-      padding: 14px 18px; font-size: 15px; border-radius: 10px;
+
+    .overlay-link { display: flex; }
+    .overlay-cta { display: flex; }
+
+    .overlay-link {
+      padding: 16px 24px; font-size: 18px; font-weight: 600;
+      border-radius: 12px; width: 100%; justify-content: center;
+      color: rgba(255,255,255,0.7); text-decoration: none;
+      transition: background 0.2s, color 0.2s;
     }
-    .nav-cta {
-      margin: 8px 0 0; justify-content: center; width: 100%;
-      border-radius: 12px; padding: 14px 20px; font-size: 14px;
+    .overlay-link:hover { background: rgba(255,255,255,0.06); color: #fff; }
+    .overlay-link.active { color: var(--primary); }
+
+    .overlay-cta {
+      margin-top: 16px; justify-content: center; width: 100%;
+      border-radius: 12px; padding: 16px 24px; font-size: 16px; font-weight: 600;
     }
+
+    .menu-toggle { display: flex; }
   }
 </style>
 
 <script>
   const navbar = document.getElementById('navbar');
   const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
+  const navOverlay = document.getElementById('navOverlay');
   let lastScroll = 0;
 
-  // Active link based on current URL
   const path = window.location.pathname;
-  navLinks?.querySelectorAll('.nav-link').forEach(link => {
+  document.querySelectorAll('.nav-link, .overlay-link').forEach(link => {
     const href = link.getAttribute('href');
     if (href.includes('#')) return;
     link.classList.toggle('active', href === path);
@@ -114,7 +146,7 @@
 
   window.addEventListener('scroll', () => {
     const currentScroll = window.scrollY;
-    const menuOpen = navLinks?.classList.contains('open');
+    const menuOpen = navOverlay?.classList.contains('open');
     navbar.classList.toggle('scrolled', currentScroll > 20);
     if (!menuOpen) {
       navbar.classList.toggle('hidden', currentScroll > lastScroll && currentScroll > 80);
@@ -127,14 +159,14 @@
   menuToggle?.addEventListener('click', () => {
     const expanded = menuToggle.getAttribute('aria-expanded') === 'true';
     menuToggle.setAttribute('aria-expanded', !expanded);
-    navLinks?.classList.toggle('open');
+    navOverlay?.classList.toggle('open');
     document.body.classList.toggle('menu-open');
     if (!expanded) navbar?.classList.remove('hidden');
   });
 
-  navLinks?.querySelectorAll('.nav-link').forEach(link => {
+  navOverlay?.querySelectorAll('.overlay-link, .overlay-cta').forEach(link => {
     link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
+      navOverlay.classList.remove('open');
       document.body.classList.remove('menu-open');
       menuToggle?.setAttribute('aria-expanded', 'false');
     });
