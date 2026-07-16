@@ -27,10 +27,15 @@ import { Icon } from "astro-icon/components";
             facturación, clientes y proveedores en un solo lugar. Rápido, seguro y fácil de usar.
           </p>
 
+          <div class="mf-version-badge">
+            <span class="mf-version-dot"></span>
+            Nueva versión disponible — v2.0
+          </div>
+
           <div class="mf-hero-actions">
             <a href="/MKFARMA_v2.rar" class="mf-btn-primary" download>
               <Icon name="mdi:download" />
-              Descargar gratis
+              Descargar gratis v2.0
             </a>
             <a href="https://wa.me/50581088124?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20MKFARMA" target="_blank" class="mf-btn-secondary">
               <Icon name="simple-icons:whatsapp" />
@@ -436,11 +441,30 @@ import { Icon } from "astro-icon/components";
   max-width: 500px;
 }
 
+.mf-version-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 24px; padding: 8px 16px;
+  font-size: 13px; font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase;
+  color: #10b981; border-radius: 100px;
+  background: rgba(16,185,129,0.08); border: 1px solid rgba(16,185,129,0.15);
+  animation: mf-pulse-badge 2s ease-in-out infinite;
+}
+@keyframes mf-pulse-badge { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
+.mf-version-dot {
+  width: 8px; height: 8px; border-radius: 50%; background: #10b981; flex-shrink: 0;
+  position: relative;
+}
+.mf-version-dot::after {
+  content: ''; position: absolute; inset: -3px; border-radius: 50%;
+  background: rgba(16,185,129,0.25); animation: mf-pulse-dot 2s ease-in-out infinite;
+}
+@keyframes mf-pulse-dot { 0%, 100% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0; } }
+
 .mf-hero-actions {
   display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-bottom: 20px;
+  align-items: center;
+  gap: 16px;
+  margin-top: 32px;
 }
 
 .mf-btn-primary {

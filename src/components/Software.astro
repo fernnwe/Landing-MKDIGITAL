@@ -6,7 +6,6 @@ const products = [
     name: "MK Farma",
     icon: "mdi:medical-bag",
     tag: "Gestión farmacéutica",
-    newVersion: true,
     desc: "Plataforma integral para la gestión de farmacias con control de medicamentos, lotes y facturación electrónica.",
     features: [
       "Control de lotes y fechas de vencimiento",
@@ -66,10 +65,7 @@ const products = [
                 <div class="sw-icon" style={`background: ${product.accent}`}>
                   <Icon name={product.icon} />
                 </div>
-                <div class="sw-badges">
-                  <span class="software-badge">{product.tag}</span>
-                  {product.newVersion && <span class="version-badge">Nueva versión disponible</span>}
-                </div>
+                <span class="software-badge">{product.tag}</span>
               </div>
             <h3>{product.name}</h3>
             <p class="software-desc">{product.desc}</p>
@@ -163,16 +159,6 @@ const products = [
   position: relative;
   z-index: 1;
 }
-
-.sw-badges { display: flex; flex-direction: column; gap: 4px; }
-
-.version-badge {
-  font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase;
-  color: #10b981; padding: 3px 10px; border-radius: 100px;
-  background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2);
-  animation: pulse-badge 2s ease-in-out infinite;
-}
-@keyframes pulse-badge { 0%, 100% { opacity: 1; } 50% { opacity: 0.55; } }
 
 .sw-icon {
   width: 52px;
