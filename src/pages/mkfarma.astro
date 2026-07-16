@@ -51,11 +51,12 @@ import { Icon } from "astro-icon/components";
 
         <div class="mf-hero-visual" id="mkfarma-carousel">
           <div class="mf-carousel-track">
-            <img src="/mkfarma.png" alt="MKFARMA" class="mf-carousel-slide active" data-index="0" loading="lazy" />
-            <img src="/mkfarma/1.png" alt="MKFARMA" class="mf-carousel-slide" data-index="1" loading="lazy" />
-            <img src="/mkfarma/2.png" alt="MKFARMA" class="mf-carousel-slide" data-index="2" loading="lazy" />
-            <img src="/mkfarma/3.png" alt="MKFARMA" class="mf-carousel-slide" data-index="3" loading="lazy" />
-            <img src="/mkfarma/4.png" alt="MKFARMA" class="mf-carousel-slide" data-index="4" loading="lazy" />
+            <img src="/mkfarma/logo.png" alt="MKFARMA Logo" class="mf-carousel-slide active" data-index="0" loading="lazy" />
+            <img src="/mkfarma.png" alt="MKFARMA" class="mf-carousel-slide" data-index="1" loading="lazy" />
+            <img src="/mkfarma/1.png" alt="MKFARMA" class="mf-carousel-slide" data-index="2" loading="lazy" />
+            <img src="/mkfarma/2.png" alt="MKFARMA" class="mf-carousel-slide" data-index="3" loading="lazy" />
+            <img src="/mkfarma/3.png" alt="MKFARMA" class="mf-carousel-slide" data-index="4" loading="lazy" />
+            <img src="/mkfarma/4.png" alt="MKFARMA" class="mf-carousel-slide" data-index="5" loading="lazy" />
           </div>
           <div class="mf-carousel-dots" id="mkfarma-dots">
             <span class="mf-dot active" data-slide="0"></span>
@@ -63,6 +64,7 @@ import { Icon } from "astro-icon/components";
             <span class="mf-dot" data-slide="2"></span>
             <span class="mf-dot" data-slide="3"></span>
             <span class="mf-dot" data-slide="4"></span>
+            <span class="mf-dot" data-slide="5"></span>
           </div>
           <button class="mf-carousel-btn mf-carousel-prev" id="mkfarma-prev" aria-label="Anterior">
             <Icon name="mdi:chevron-left" />
@@ -282,6 +284,8 @@ import { Icon } from "astro-icon/components";
   <section class="mf-download reveal reveal-up">
     <div class="container">
       <div class="mf-download-card">
+        <img src="/mkfarma/logo.png" alt="MKFARMA" class="mf-download-logo" />
+
         <div class="section-header">
           <span class="badge">DESCARGA</span>
           <h2>Prueba MKFARMA gratis</h2>
@@ -739,6 +743,11 @@ import { Icon } from "astro-icon/components";
   text-align: center;
   border: 1px solid rgba(34, 211, 238, 0.08);
   box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+}
+.mf-download-logo {
+  width: 80px; height: 80px; object-fit: contain; margin: 0 auto 20px;
+  display: block; border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(34,211,238,0.08);
 }
 
 .mf-download-card .section-header {
