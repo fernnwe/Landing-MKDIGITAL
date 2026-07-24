@@ -29,7 +29,7 @@ export const categorias: Categoria[] = [
   { id: "autodesk", nombre: "Autodesk", icono: "fa-solid fa-cubes", iconoId: "simple-icons:autodesk", color: "#E51050", bgGradient: "linear-gradient(135deg, #E51050 0%, #b8003e 100%)" },
   { id: "seguridad", nombre: "Seguridad", icono: "fa-solid fa-shield-halved", iconoId: "mdi:shield-check", color: "#00C853", bgGradient: "linear-gradient(135deg, #00C853 0%, #009624 100%)" },
   { id: "facturacion", nombre: "Facturación", icono: "fa-solid fa-calculator", iconoId: "mdi:receipt-text", color: "#818CF8", bgGradient: "linear-gradient(135deg, #818CF8 0%, #6366F1 100%)" },
-  { id: "restaurantes", nombre: "Restaurantes", icono: "fa-solid fa-utensils", iconoId: "mdi:silverware-variant", color: "#F59E0B", bgGradient: "linear-gradient(135deg, #F59E0B 0%, #D97706 100%)" },
+  { id: "restaurantes", nombre: "Restaurantes", icono: "fa-solid fa-utensils", iconoId: "mdi:silverware-variant", color: "#06B6D4", bgGradient: "linear-gradient(135deg, #06B6D4 0%, #0891B2 100%)" },
   { id: "farmacias", nombre: "Farmacias", icono: "fa-solid fa-prescription-bottle", iconoId: "mdi:medical-bag", color: "#22D3EE", bgGradient: "linear-gradient(135deg, #22D3EE 0%, #0891B2 100%)" },
 ];
 
