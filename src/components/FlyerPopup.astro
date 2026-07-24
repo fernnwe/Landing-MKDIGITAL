@@ -291,7 +291,7 @@ import { Icon } from "astro-icon/components";
 }
 </style>
 
-<script>
+<script is:inline>
 (function() {
   var overlay = document.getElementById('flyer-overlay');
   if (!overlay) return;
@@ -305,7 +305,8 @@ import { Icon } from "astro-icon/components";
   var ctaBtn = document.getElementById('flyer-cta');
 
   function dismiss() {
-    overlay.classList.add('flyer-hidden');
+    var el = document.getElementById('flyer-overlay');
+    if (el) el.classList.add('flyer-hidden');
     sessionStorage.setItem('flyer-shown', '1');
   }
 
