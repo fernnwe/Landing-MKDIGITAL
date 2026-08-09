@@ -5,21 +5,53 @@ import './Hero.css';
 
 const rotatingWords = ['licencias originales', 'instalación remota', 'sistemas a medida', 'soporte inmediato'];
 
-const terminalLines = [
-  { text: '$ mkdigital init --servicio', color: 'cmd' },
-  { text: '> Conectando vía AnyDesk...', color: 'ok' },
-  { text: '> Instalando Office 2024 Pro Plus', color: 'ok' },
-  { text: '> Activando licencia original...', color: 'ok' },
-  { text: '> Licencia válida — 100% original', color: 'success' },
-  { text: '> Cliente verificado por WhatsApp', color: 'ok' },
+type LineKind = 'cmd' | 'out' | 'ok' | 'info' | 'done';
+interface Line {
+  kind: LineKind;
+  text: string;
+}
+interface ProgressInfo {
+  label: string;
+  pct: number;
+}
+type Step =
+  | { kind: 'type'; line: Line }
+  | { kind: 'progress'; label: string }
+  | { kind: 'pause'; ms: number }
+  | { kind: 'clear' };
+
+const sleep = (ms: number) => new Promise<void>((res) => setTimeout(res, ms));
+
+const script: Step[] = [
+  { kind: 'type', line: { kind: 'cmd', text: 'mkdigital --sesion-remota' } },
+  { kind: 'type', line: { kind: 'out', text: 'Conectando al equipo del cliente via AnyDesk...' } },
+  { kind: 'type', line: { kind: 'ok', text: 'Canal seguro establecido [AES-256]' } },
+  { kind: 'type', line: { kind: 'cmd', text: 'instalar --paquete office-2024 --original' } },
+  { kind: 'progress', label: 'Descargando Office 2024 Pro Plus' },
+  { kind: 'progress', label: 'Instalando componentes y dependencias' },
+  { kind: 'progress', label: 'Activando licencia original' },
+  { kind: 'type', line: { kind: 'ok', text: 'Licencia verificada al 100%' } },
+  { kind: 'type', line: { kind: 'cmd', text: 'verificar --estado' } },
+  { kind: 'type', line: { kind: 'info', text: 'Sistema .................. [ OK ]' } },
+  { kind: 'type', line: { kind: 'info', text: 'Windows Pro .............. [ OK ]' } },
+  { kind: 'type', line: { kind: 'info', text: 'Office 2024 .............. [ OK ]' } },
+  { kind: 'type', line: { kind: 'info', text: 'Antivirus ................ [ OK ]' } },
+  { kind: 'type', line: { kind: 'info', text: 'Soporte remoto ........... [ en linea ]' } },
+  { kind: 'type', line: { kind: 'cmd', text: 'finalizar --servicio' } },
+  { kind: 'type', line: { kind: 'done', text: 'Servicio completado en 12:47 - Cliente satisfecho' } },
+  { kind: 'pause', ms: 3200 },
+  { kind: 'clear' },
 ];
 
 export default function Hero() {
   const heroRef = useRef<HTMLElement>(null);
+  const bodyRef = useRef<HTMLDivElement>(null);
   const [wordIdx, setWordIdx] = useState(0);
-  const [lines, setLines] = useState<number[]>([]);
+  const [lines, setLines] = useState<Line[]>([]);
   const [current, setCurrent] = useState('');
-  const [typing, setTyping] = useState(true);
+  const [currentKind, setCurrentKind] = useState<LineKind>('out');
+  const [progress, setProgress] = useState<ProgressInfo | null>(null);
+  const [clock, setClock] = useState('00:00:00');
 
   useEffect(() => {
     const onMove = (e: MouseEvent) => {
@@ -41,40 +73,107 @@ export default function Hero() {
   }, []);
 
   useEffect(() => {
-    let timer = 0;
-    let lineIdx = 0;
-    let char = 0;
+    const tick = () => {
+      const d = new Date();
+      setClock(
+        `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}:${String(
+          d.getSeconds(),
+        ).padStart(2, '0')}`,
+      );
+    };
+    tick();
+    const t = window.setInterval(tick, 1000);
+    return () => clearInterval(t);
+  }, []);
 
-    const typeNext = () => {
-      const line = terminalLines[lineIdx].text;
-      if (char < line.length) {
-        char += 1;
-        setCurrent(line.slice(0, char));
-        timer = window.setTimeout(typeNext, 12 + Math.random() * 28);
-      } else {
-        const completed = lineIdx;
-        setLines((prev) => [...prev, completed]);
-        setCurrent('');
-        char = 0;
-        lineIdx += 1;
-        if (lineIdx >= terminalLines.length) {
-          setTyping(false);
-          timer = window.setTimeout(() => {
-            setLines([]);
-            setTyping(true);
-            lineIdx = 0;
-            char = 0;
-            timer = window.setTimeout(typeNext, 700);
-          }, 3200);
-        } else {
-          timer = window.setTimeout(typeNext, 320);
-        }
+  useEffect(() => {
+    let cancelled = false;
+
+    const commit = (line: Line) => setLines((prev) => [...prev, line]);
+
+    const typeLine = async (line: Line, speed: number) => {
+      for (let i = 1; i <= line.text.length; i++) {
+        if (cancelled) return;
+        setCurrentKind(line.kind);
+        setCurrent(line.text.slice(0, i));
+        await sleep(i === line.text.length ? 70 : speed);
       }
+      setCurrent('');
+      commit(line);
     };
 
-    timer = window.setTimeout(typeNext, 600);
-    return () => clearTimeout(timer);
+    const runCycle = async () => {
+      for (const step of script) {
+        if (cancelled) return;
+        if (step.kind === 'type') {
+          await typeLine(step.line, step.line.kind === 'cmd' ? 26 : 13);
+        } else if (step.kind === 'progress') {
+          for (let p = 0; p <= 100; p += 2) {
+            if (cancelled) return;
+            setProgress({ label: step.label, pct: p });
+            await sleep(26);
+          }
+          await sleep(180);
+          setProgress(null);
+          commit({ kind: 'ok', text: `✓ ${step.label}` });
+        } else if (step.kind === 'pause') {
+          await sleep(step.ms);
+        } else if (step.kind === 'clear') {
+          setLines([]);
+          setProgress(null);
+          setCurrent('');
+          await sleep(600);
+        }
+      }
+      await sleep(3000);
+      if (cancelled) return;
+      setLines([]);
+      setProgress(null);
+      setCurrent('');
+    };
+
+    (async () => {
+      await sleep(600);
+      while (!cancelled) await runCycle();
+    })();
+
+    return () => {
+      cancelled = true;
+    };
   }, []);
+
+  useEffect(() => {
+    const el = bodyRef.current;
+    if (el) el.scrollTop = el.scrollHeight;
+  }, [lines, current, progress]);
+
+  const renderLineContent = (l: Line) => {
+    if (l.kind === 'cmd') {
+      return (
+        <>
+          <span className="t-prompt">$ </span>
+          {l.text.split(/(--\w+)/).map((seg, j) => (
+            <span key={j} className={seg.startsWith('--') ? 't-flag' : undefined}>
+              {seg}
+            </span>
+          ))}
+        </>
+      );
+    }
+    if (l.kind === 'info') {
+      return l.text.split(/(\[[^\]]*\])/).map((part, j) => (
+        <span
+          key={j}
+          className={
+            /^\[.*\]$/.test(part) ? (part.includes('OK') ? 't-badge-ok' : 't-badge-info') : undefined
+          }
+        >
+          {part}
+        </span>
+      ));
+    }
+    return <>{l.text}</>;
+  };
 
   return (
     <section className="hero" id="hero" ref={heroRef}>
@@ -152,32 +251,44 @@ export default function Hero() {
                   <span className="dot dot-green"></span>
                 </div>
                 <span className="terminal-title">mkdigital@remote: ~</span>
+                <span className="terminal-clock">{clock}</span>
                 <span className="terminal-status">
                   <span className="status-dot"></span> online
                 </span>
               </div>
-              <div className="terminal-body">
-                <div className="terminal-prompt-line">
-                  <span className="prompt-sign">$</span>
-                  <span className="prompt-cmd">mkdigital --help</span>
-                </div>
-                {lines.map((idx) => (
-                  <p key={idx} className={`t-line t-${terminalLines[idx].color}`}>
-                    {terminalLines[idx].text}
+              <div className="terminal-body" ref={bodyRef}>
+                {lines.map((l, i) => (
+                  <p key={i} className={`t-line t-${l.kind}`}>
+                    {renderLineContent(l)}
                   </p>
                 ))}
-                {typing && (
-                  <p className={`t-line t-${terminalLines[lines.length]?.color ?? 'ok'}`}>
-                    {current}
+                {progress && (
+                  <div className="t-line t-progress">
+                    <span className="progress-label">{progress.label}</span>
+                    <span className="progress-track">
+                      <span className="progress-fill" style={{ width: `${progress.pct}%` }}></span>
+                    </span>
+                    <span className="progress-pct">{String(progress.pct).padStart(3, '0')}%</span>
+                  </div>
+                )}
+                {current !== '' ? (
+                  <p className={`t-line t-${currentKind}`}>
+                    {renderLineContent({ kind: currentKind, text: current })}
                     <span className="t-cursor"></span>
                   </p>
-                )}
-                {!typing && (
-                  <p className="t-line t-success">
-                    ✓ Servicio completado en tiempo récord
-                    <span className="t-cursor"></span>
+                ) : (
+                  <p className="t-line t-out" aria-hidden="true">
+                    <span className="t-cursor dim"></span>
                   </p>
                 )}
+              </div>
+              <div className="terminal-footer">
+                <span className="t-foot-label">SESION</span>
+                <span className="t-foot-value">NIC-MAN-8412</span>
+                <span className="t-foot-spacer"></span>
+                <span className="t-foot-dot"></span>
+                <span className="t-foot-msg">soporte activo</span>
+                <span className="t-cursor"></span>
               </div>
             </div>
 

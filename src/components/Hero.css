@@ -140,6 +140,12 @@
   font-family: var(--font-mono); font-size: 12px; color: var(--on-surface-variant);
   flex: 1; text-align: center; letter-spacing: 0.3px;
 }
+.terminal-clock {
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.5px;
+  color: var(--secondary-bright);
+  text-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
+  white-space: nowrap;
+}
 .terminal-status {
   display: inline-flex; align-items: center; gap: 6px;
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 1px; text-transform: uppercase;
@@ -152,20 +158,67 @@
   padding: 18px 20px 22px;
   min-height: 268px;
   font-family: var(--font-mono); font-size: 13px; line-height: 1.9;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(6, 182, 212, 0.35) transparent;
 }
-.terminal-prompt-line { display: flex; gap: 8px; margin-bottom: 6px; }
-.prompt-sign { color: var(--primary-bright); font-weight: 700; }
-.prompt-cmd { color: var(--on-surface); }
 .t-line { color: var(--on-surface-variant); white-space: nowrap; overflow: hidden; }
 .t-cmd { color: var(--on-surface); }
-.t-ok { color: var(--on-surface-variant); }
-.t-success { color: #34D399; text-shadow: 0 0 12px rgba(52, 211, 153, 0.4); }
+.t-out { color: var(--on-surface-variant); }
+.t-ok { color: #34D399; text-shadow: 0 0 12px rgba(52, 211, 153, 0.4); }
+.t-info { color: var(--on-surface-variant); }
+.t-done { color: var(--primary-bright); text-shadow: 0 0 14px rgba(6, 182, 212, 0.45); font-weight: 500; }
+
+.t-prompt { color: var(--primary-bright); font-weight: 700; text-shadow: 0 0 10px var(--glow-cyan); }
+.t-flag { color: var(--secondary-bright); text-shadow: 0 0 10px rgba(251, 191, 36, 0.25); }
+.t-badge-ok {
+  color: #34D399; padding: 1px 8px; border-radius: 9999px;
+  background: rgba(52, 211, 153, 0.1); border: 1px solid rgba(52, 211, 153, 0.3);
+  text-shadow: none; font-size: 11.5px;
+}
+.t-badge-info {
+  color: var(--primary-bright); padding: 1px 8px; border-radius: 9999px;
+  background: rgba(6, 182, 212, 0.1); border: 1px solid rgba(6, 182, 212, 0.3);
+  text-shadow: none; font-size: 11.5px;
+}
+
+.t-progress { display: flex; align-items: center; gap: 10px; }
+.progress-label { color: var(--on-surface-variant); flex: none; }
+.progress-track {
+  flex: 1; height: 6px; border-radius: 9999px; overflow: hidden;
+  background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.05);
+}
+.progress-fill {
+  display: block; height: 100%; border-radius: 9999px;
+  background: linear-gradient(90deg, var(--primary), var(--primary-bright));
+  box-shadow: 0 0 12px var(--glow-cyan);
+  transition: width 0.24s linear;
+}
+.progress-pct {
+  font-size: 12px; min-width: 34px; text-align: right; letter-spacing: 0.5px;
+  color: var(--primary-bright); text-shadow: 0 0 10px var(--glow-cyan);
+}
+
+.terminal-footer {
+  display: flex; align-items: center; gap: 8px;
+  padding: 9px 16px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.5px;
+  background: rgba(255, 255, 255, 0.03);
+  border-top: 1px solid var(--outline-variant);
+}
+.t-foot-label { color: var(--on-surface-variant); letter-spacing: 1.5px; }
+.t-foot-value { color: var(--primary-bright); text-shadow: 0 0 8px var(--glow-cyan); }
+.t-foot-spacer { flex: 1; }
+.t-foot-dot { width: 5px; height: 5px; border-radius: 50%; background: #34D399; box-shadow: 0 0 6px #34D399; }
+.t-foot-msg { color: #34D399; text-transform: uppercase; letter-spacing: 1px; }
+
 .t-cursor {
   display: inline-block; width: 8px; height: 15px; margin-left: 4px;
   background: var(--primary-bright); vertical-align: middle;
   box-shadow: 0 0 8px var(--primary-bright);
   animation: blink 0.8s step-end infinite;
 }
+.t-cursor.dim { opacity: 0.3; box-shadow: none; }
 
 .float-chip {
   position: absolute; z-index: 2;
