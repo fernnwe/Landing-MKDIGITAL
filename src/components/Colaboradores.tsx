@@ -3,6 +3,7 @@ import './Colaboradores.css';
 const colaboradores = [
   { name: 'Fernando Aguirre', image: '/ceo.webp', role: 'CEO & Fundador' },
   { name: 'Alvaro Delgado', image: '/colaboradores/alvaro-delgado.jpg', role: 'Soporte TI' },
+  { name: 'Ernesto Schwartz', image: '/colaboradores/ernesto-schwartz.jpg', role: 'Soporte TI' },
 ];
 
 export default function Colaboradores() {
