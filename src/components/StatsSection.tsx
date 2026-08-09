@@ -1,10 +1,11 @@
+import CountUp from './CountUp';
 import './StatsSection.css';
 
 const stats = [
-  { number: '10+', label: 'Años de Experiencia' },
-  { number: '200+', label: 'Clientes Satisfechos' },
-  { number: '500+', label: 'Proyectos Realizados' },
-  { number: '50+', label: 'Soluciones Implementadas' },
+  { value: 10, suffix: '+', label: 'Años de Experiencia' },
+  { value: 200, suffix: '+', label: 'Clientes Satisfechos' },
+  { value: 500, suffix: '+', label: 'Proyectos Realizados' },
+  { value: 50, suffix: '+', label: 'Soluciones Implementadas' },
 ];
 
 export default function StatsSection() {
@@ -13,9 +14,11 @@ export default function StatsSection() {
       <div className="container">
         <div className="stats-grid">
           {stats.map((stat, i) => (
-            <div key={stat.label} className={`stat-card reveal reveal-up stagger-${i + 1}`}>
-              <div className="stat-number">{stat.number}</div>
-              <div className="stat-label">{stat.label}</div>
+            <div key={stat.label} className={`stat-card spotlight-card reveal reveal-up stagger-${i + 1}`}>
+              <span className="stat-number">
+                <CountUp value={stat.value} suffix={stat.suffix} delay={i * 120} />
+              </span>
+              <span className="stat-label">{stat.label}</span>
             </div>
           ))}
         </div>

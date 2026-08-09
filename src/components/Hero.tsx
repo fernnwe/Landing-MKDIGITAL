@@ -1,18 +1,96 @@
+import { useEffect, useRef, useState } from 'react';
+import { Icon } from '@iconify/react';
+import CountUp from './CountUp';
 import './Hero.css';
 
+const rotatingWords = ['licencias originales', 'instalación remota', 'sistemas a medida', 'soporte inmediato'];
+
+const terminalLines = [
+  { text: '$ mkdigital init --servicio', color: 'cmd' },
+  { text: '> Conectando vía AnyDesk...', color: 'ok' },
+  { text: '> Instalando Office 2024 Pro Plus', color: 'ok' },
+  { text: '> Activando licencia original...', color: 'ok' },
+  { text: '> Licencia válida — 100% original', color: 'success' },
+  { text: '> Cliente verificado por WhatsApp', color: 'ok' },
+];
+
 export default function Hero() {
+  const heroRef = useRef<HTMLElement>(null);
+  const [wordIdx, setWordIdx] = useState(0);
+  const [lines, setLines] = useState<number[]>([]);
+  const [current, setCurrent] = useState('');
+  const [typing, setTyping] = useState(true);
+
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      const el = heroRef.current;
+      if (!el) return;
+      const r = el.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      el.style.setProperty('--px', String(x));
+      el.style.setProperty('--py', String(y));
+    };
+    window.addEventListener('mousemove', onMove, { passive: true });
+    return () => window.removeEventListener('mousemove', onMove);
+  }, []);
+
+  useEffect(() => {
+    const t = window.setInterval(() => setWordIdx((i) => (i + 1) % rotatingWords.length), 2600);
+    return () => clearInterval(t);
+  }, []);
+
+  useEffect(() => {
+    let timer = 0;
+    let lineIdx = 0;
+    let char = 0;
+
+    const typeNext = () => {
+      const line = terminalLines[lineIdx].text;
+      if (char < line.length) {
+        char += 1;
+        setCurrent(line.slice(0, char));
+        timer = window.setTimeout(typeNext, 12 + Math.random() * 28);
+      } else {
+        setLines((prev) => [...prev, lineIdx]);
+        setCurrent('');
+        char = 0;
+        lineIdx += 1;
+        if (lineIdx >= terminalLines.length) {
+          setTyping(false);
+          timer = window.setTimeout(() => {
+            setLines([]);
+            setTyping(true);
+            lineIdx = 0;
+            char = 0;
+            timer = window.setTimeout(typeNext, 700);
+          }, 3200);
+        } else {
+          timer = window.setTimeout(typeNext, 320);
+        }
+      }
+    };
+
+    timer = window.setTimeout(typeNext, 600);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section className="hero" id="hero">
+    <section className="hero" id="hero" ref={heroRef}>
       <div className="hero-bg">
         <div className="hero-orb hero-orb-1"></div>
         <div className="hero-orb hero-orb-2"></div>
         <div className="hero-orb hero-orb-3"></div>
+        <div className="hero-aurora"></div>
         <div className="hero-grid"></div>
       </div>
 
       <div className="hero-content container">
         <div className="hero-text">
-          <div className="badge hero-badge reveal reveal-up">Transformación Digital</div>
+          <div className="badge hero-badge reveal reveal-up">
+            <span className="badge-dot"></span>
+            Transformación Digital
+          </div>
           <h1 className="hero-title reveal reveal-up stagger-1">
             Innovación digital que impulsa tu <span className="text-accent">negocio al futuro</span>
           </h1>
@@ -21,7 +99,14 @@ export default function Hero() {
             instalación de programas, desarrollo de sistemas a medida y soporte técnico remoto
             en toda Nicaragua.
           </p>
-          <div className="hero-actions reveal reveal-up stagger-3">
+          <p className="hero-type reveal reveal-up stagger-3" aria-hidden="true">
+            <span className="type-label">Especialistas en&nbsp;</span>
+            <span key={wordIdx} className="type-word">
+              {rotatingWords[wordIdx]}
+            </span>
+            <span className="type-cursor">_</span>
+          </p>
+          <div className="hero-actions reveal reveal-up stagger-4">
             <a href="#servicios" className="btn-primary">
               Nuestros Servicios
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
@@ -31,20 +116,90 @@ export default function Hero() {
               Contáctanos
             </a>
           </div>
-          <div className="hero-stats reveal reveal-up stagger-4">
+          <div className="hero-stats reveal reveal-up stagger-5">
             <div className="hero-stat">
-              <span className="hero-stat-number">+10</span>
+              <span className="hero-stat-number">
+                +<CountUp value={10} />
+              </span>
               <span className="hero-stat-label">Años de experiencia</span>
             </div>
             <div className="hero-stat-divider"></div>
             <div className="hero-stat">
-              <span className="hero-stat-number">+200</span>
+              <span className="hero-stat-number">
+                +<CountUp value={200} delay={150} />
+              </span>
               <span className="hero-stat-label">Clientes satisfechos</span>
             </div>
             <div className="hero-stat-divider"></div>
             <div className="hero-stat">
-              <span className="hero-stat-number">+500</span>
+              <span className="hero-stat-number">
+                +<CountUp value={500} delay={300} />
+              </span>
               <span className="hero-stat-label">Proyectos realizados</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="hero-visual reveal reveal-scale stagger-2">
+          <div className="hero-console-wrap">
+            <div className="terminal-glow"></div>
+            <div className="terminal">
+              <div className="terminal-header">
+                <div className="terminal-dots">
+                  <span className="dot dot-red"></span>
+                  <span className="dot dot-yellow"></span>
+                  <span className="dot dot-green"></span>
+                </div>
+                <span className="terminal-title">mkdigital@remote: ~</span>
+                <span className="terminal-status">
+                  <span className="status-dot"></span> online
+                </span>
+              </div>
+              <div className="terminal-body">
+                <div className="terminal-prompt-line">
+                  <span className="prompt-sign">$</span>
+                  <span className="prompt-cmd">mkdigital --help</span>
+                </div>
+                {lines.map((idx) => (
+                  <p key={idx} className={`t-line t-${terminalLines[idx].color}`}>
+                    {terminalLines[idx].text}
+                  </p>
+                ))}
+                {typing && (
+                  <p className={`t-line t-${terminalLines[lines.length]?.color ?? 'ok'}`}>
+                    {current}
+                    <span className="t-cursor"></span>
+                  </p>
+                )}
+                {!typing && (
+                  <p className="t-line t-success">
+                    ✓ Servicio completado en tiempo récord
+                    <span className="t-cursor"></span>
+                  </p>
+                )}
+              </div>
+            </div>
+
+            <div className="float-chip chip-1">
+              <span className="chip-icon chip-icon-cyan"><Icon icon="simple-icons:microsoftoffice" /></span>
+              <div className="chip-text">
+                <strong>Office 2024</strong>
+                <span>Instalado y activado</span>
+              </div>
+            </div>
+            <div className="float-chip chip-2">
+              <span className="chip-icon chip-icon-green"><Icon icon="mdi:shield-check" /></span>
+              <div className="chip-text">
+                <strong>Licencia 100% original</strong>
+                <span>Verificada</span>
+              </div>
+            </div>
+            <div className="float-chip chip-3">
+              <span className="chip-icon chip-icon-amber"><Icon icon="simple-icons:whatsapp" /></span>
+              <div className="chip-text">
+                <strong>Soporte remoto</strong>
+                <span>Respuesta en minutos</span>
+              </div>
             </div>
           </div>
         </div>

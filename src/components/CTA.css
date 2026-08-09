@@ -1,10 +1,70 @@
-.cta-card { position: relative; overflow: hidden; padding: 80px 60px; border-radius: 24px; background: linear-gradient(135deg, rgba(245,158,11,0.08), rgba(6,182,212,0.04)); border: 1px solid rgba(245,158,11,0.12); text-align: center; }
-.cta-bg { position: absolute; inset: 0; z-index: 0; }
-.cta-orb { position: absolute; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(245,158,11,0.06), transparent 70%); top: -200px; left: 50%; transform: translateX(-50%); animation: orb-float 15s ease-in-out infinite; }
-.cta-content { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 20px; max-width: 600px; margin: 0 auto; }
-.cta-title { font-size: clamp(28px, 3.5vw, 40px); line-height: 1.15; font-weight: 800; }
-.text-accent { background: linear-gradient(135deg, var(--primary), #22D3EE); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.cta-card {
+  position: relative;
+  overflow: hidden;
+  padding: 88px 60px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.06), rgba(129, 140, 248, 0.06), rgba(245, 158, 11, 0.05));
+  border: 1px solid rgba(129, 140, 248, 0.18);
+  text-align: center;
+}
+
+.cta-card::before {
+  content: '';
+  position: absolute; inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(120deg, rgba(6, 182, 212, 0.4), rgba(129, 140, 248, 0.4), rgba(245, 158, 11, 0.4), rgba(6, 182, 212, 0.4));
+  background-size: 300% 300%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: gradientShift 10s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.cta-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; }
+.cta-orb {
+  position: absolute; width: 560px; height: 560px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(129, 140, 248, 0.12), transparent 70%);
+  top: -220px; left: 50%; transform: translateX(-50%);
+  animation: orb-float 15s ease-in-out infinite;
+}
+.cta-orb::after {
+  content: '';
+  position: absolute; inset: 60px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.1), transparent 70%);
+}
+
+.cta-content {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; gap: 20px;
+  max-width: 620px; margin: 0 auto;
+}
+.cta-card .badge {
+  border-color: rgba(129, 140, 248, 0.3);
+  color: var(--violet-bright);
+  background: linear-gradient(135deg, rgba(129, 140, 248, 0.1), rgba(6, 182, 212, 0.08));
+  animation: cta-pulse 2.4s ease-in-out infinite;
+}
+@keyframes cta-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(129, 140, 248, 0.25); }
+  50% { box-shadow: 0 0 0 12px rgba(129, 140, 248, 0); }
+}
+
+.cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(30px, 3.6vw, 44px); line-height: 1.12; font-weight: 700; letter-spacing: -0.02em;
+}
 .cta-desc { font-size: 16px; max-width: 480px; }
 .cta-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; padding-top: 8px; }
-@media (max-width: 768px) { .cta-card { padding: 60px 28px; border-radius: 20px; } }
-@media (max-width: 600px) { .cta-card { padding: 48px 20px; } .cta-actions { flex-direction: column; align-items: center; } }
+
+@media (max-width: 768px) {
+  .cta-card { padding: 64px 28px; border-radius: 22px; }
+}
+@media (max-width: 600px) {
+  .cta-card { padding: 52px 20px; }
+  .cta-actions { flex-direction: column; align-items: center; width: 100%; }
+  .cta-actions .btn-primary, .cta-actions .btn-outline { width: 100%; }
+}

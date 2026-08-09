@@ -95,13 +95,6 @@
   position: relative;
 }
 
-.text-accent {
-  background: linear-gradient(135deg, var(--primary), #22D3EE);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
 .flyer-header p {
   font-size: 14px;
   color: var(--on-surface-variant);

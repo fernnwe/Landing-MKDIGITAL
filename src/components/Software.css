@@ -24,17 +24,20 @@
 
 .software-card {
   position: relative;
-  padding: 32px;
-  background: var(--surface);
-  border: 1px solid var(--outline);
-  border-radius: 20px;
+  padding: 34px;
+  background: linear-gradient(180deg, var(--surface-container-high), var(--surface-container));
+  border: 1px solid var(--outline-variant);
+  border-radius: 22px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  transition: border-color 0.3s var(--motion-easing-standard), transform 0.3s var(--motion-easing-standard), box-shadow 0.3s var(--motion-easing-standard);
 }
 
 .software-card:hover {
-  border-color: var(--outline-variant);
+  border-color: rgba(6, 182, 212, 0.35);
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px -18px rgba(0, 0, 0, 0.65), 0 0 44px -18px var(--glow-cyan);
 }
 
 .card-accent {
@@ -75,16 +78,20 @@
 }
 
 .software-badge {
-  font-size: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
   font-weight: 500;
+  letter-spacing: 0.5px;
   color: var(--on-surface-variant);
-  padding: 5px 12px;
+  padding: 6px 14px;
   border-radius: 100px;
-  background: var(--surface-container);
-  border: 1px solid var(--outline);
+  background: rgba(11, 13, 21, 0.7);
+  border: 1px solid var(--outline-variant);
+  backdrop-filter: blur(8px);
 }
 
 .software-card h3 {
+  font-family: var(--font-display);
   font-size: 24px;
   font-weight: 700;
   color: var(--on-surface);

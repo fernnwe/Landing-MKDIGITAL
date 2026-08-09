@@ -58,7 +58,7 @@ export default function Software() {
 
         <div className="software-grid">
           {products.map((product, i) => (
-            <div key={product.name} className={`glow-card software-card reveal reveal-up stagger-${i + 1}`}>
+            <div key={product.name} className={`glow-card spotlight-card software-card reveal reveal-up stagger-${i + 1}`}>
               <div className="card-accent" style={{ background: product.accent }}></div>
               <div className="software-top">
                 <div className="sw-icon" style={{ background: product.accent }}>

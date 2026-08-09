@@ -36,7 +36,7 @@ export default function Testimonios() {
 
         <div className="testimonials-grid">
           {testimonios.map((t, i) => (
-            <div key={t.author} className={`card glow-card testimonial-card reveal reveal-up stagger-${i + 3}`}>
+            <div key={t.author} className={`card glow-card spotlight-card testimonial-card reveal reveal-up stagger-${i + 3}`}>
               <div className="testimonial-avatar">
                 <img src={t.img} alt={t.alt} loading="lazy" />
               </div>

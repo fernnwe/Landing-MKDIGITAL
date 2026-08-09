@@ -18,12 +18,15 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [progress, setProgress] = useState(0);
   const lastScroll = useRef(0);
 
   useEffect(() => {
     const onScroll = () => {
       const currentScroll = window.scrollY;
       setScrolled(currentScroll > 20);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      setProgress(max > 0 ? Math.min(100, (currentScroll / max) * 100) : 0);
       if (menuOpen) {
         setHidden(false);
       } else {
@@ -77,6 +80,7 @@ export default function Navbar() {
   return (
     <>
       <header className={navClass} id="navbar">
+        <div className="navbar-progress" style={{ width: `${progress}%` }}></div>
         <nav className="navbar-inner container">
           <Link to="/" className="navbar-logo" aria-label="MK Digital">
             <span className="logo-text">

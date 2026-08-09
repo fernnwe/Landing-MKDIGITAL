@@ -44,9 +44,9 @@ export default function SoftwareLogos() {
 
         <div className="logos-grid">
           {software.map((s, i) => (
-            <div key={s.id} className={`card glow-card flip-card reveal reveal-up stagger-${Math.min(i + 1, 10)}`}>
+            <div key={s.id} className={`card glow-card spotlight-card flip-card reveal reveal-up stagger-${Math.min(i + 1, 10)}`}>
               <div className="flip-card-inner">
-                <div className="flip-card-front">
+                <div className="flip-card-front" style={{ borderColor: `${s.color}33` }}>
                   <span className="icon-wrap" style={{ color: s.color }}>
                     <Icon icon={s.icono} color={s.color} />
                   </span>

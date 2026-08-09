@@ -44,7 +44,8 @@ export default function Services() {
         </div>
         <div className="services-grid">
           {services.map((srv, i) => (
-            <article key={srv.title} className={`card glow-card reveal reveal-up stagger-${Math.min(i + 1, 8)}`}>
+            <article key={srv.title} className={`card spotlight-card glow-card service-card reveal reveal-up stagger-${Math.min(i + 1, 8)}`}>
+              <span className="service-num">0{i + 1}</span>
               <div className="service-icon" dangerouslySetInnerHTML={{ __html: srv.icon }}></div>
               <h3 className="service-title">{srv.title}</h3>
               <p className="service-desc">{srv.description}</p>

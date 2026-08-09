@@ -44,18 +44,12 @@
 .hero-content .badge { margin-bottom: 16px; }
 
 .hero-content h1 {
+  font-family: var(--font-display);
   font-size: clamp(32px, 4.5vw, 48px);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.1;
   margin-bottom: 16px;
   letter-spacing: -0.02em;
-}
-
-.text-accent {
-  background: linear-gradient(135deg, var(--primary), var(--secondary));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
 }
 
 .hero-content p {

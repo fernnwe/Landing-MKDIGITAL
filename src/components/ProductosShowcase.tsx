@@ -27,7 +27,7 @@ export default function ProductosShowcase() {
         </div>
         <div className="productos-grid">
           {productos.map((p, i) => (
-            <div key={p.src} className={`producto-card reveal reveal-up stagger-${Math.min(i + 1, 8)}`}>
+            <div key={p.src} className={`producto-card spotlight-card reveal reveal-up stagger-${Math.min(i + 1, 8)}`}>
               <img src={p.src} alt={p.nombre} loading="lazy" />
               <span className="producto-name">{p.nombre}</span>
             </div>

@@ -15,8 +15,10 @@ export default function Colaboradores() {
         </div>
         <div className="colab-grid">
           {colaboradores.map((colab, i) => (
-            <div key={colab.name} className={`card glow-card reveal reveal-up stagger-${Math.min(i + 1, 8)}`}>
-              <img src={colab.image} alt={colab.name} className="colab-img" />
+            <div key={colab.name} className={`card spotlight-card colab-card reveal reveal-up stagger-${Math.min(i + 1, 8)}`}>
+              <div className="colab-avatar-wrap">
+                <img src={colab.image} alt={colab.name} className="colab-img" />
+              </div>
               <span className="colab-name">{colab.name}</span>
               <span className="colab-role">{colab.role}</span>
             </div>

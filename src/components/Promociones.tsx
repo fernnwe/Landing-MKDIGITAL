@@ -18,7 +18,7 @@ export default function Promociones() {
         </div>
         <div className="promos-grid">
           {promociones.map((p, i) => (
-            <div key={p.src} className={`promo-card reveal reveal-up stagger-${Math.min(i + 1, 4)}`}>
+            <div key={p.src} className={`promo-img-card spotlight-card reveal reveal-up stagger-${Math.min(i + 1, 4)}`}>
               <div className="promo-img-wrap">
                 <span className="promo-discount">-79%</span>
                 <img src={p.src} alt={`Promoción ${i + 1}`} loading="lazy" />

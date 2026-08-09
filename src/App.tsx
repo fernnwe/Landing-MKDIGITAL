@@ -29,6 +29,26 @@ function ScrollManager() {
   return null;
 }
 
+function SpotlightProvider() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const onMove = (e: MouseEvent) => {
+      const els = document.querySelectorAll<HTMLElement>('.spotlight-card');
+      for (let i = 0; i < els.length; i++) {
+        const el = els[i];
+        const r = el.getBoundingClientRect();
+        el.style.setProperty('--mx', `${e.clientX - r.left}px`);
+        el.style.setProperty('--my', `${e.clientY - r.top}px`);
+      }
+    };
+    window.addEventListener('mousemove', onMove, { passive: true });
+    return () => window.removeEventListener('mousemove', onMove);
+  }, [pathname]);
+
+  return null;
+}
+
 function RevealObserver() {
   const { pathname } = useLocation();
 
@@ -74,6 +94,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <ScrollManager />
+      <SpotlightProvider />
       <RevealObserver />
       <Layout>
         <AppRoutes />
