@@ -52,7 +52,8 @@ export default function Hero() {
         setCurrent(line.slice(0, char));
         timer = window.setTimeout(typeNext, 12 + Math.random() * 28);
       } else {
-        setLines((prev) => [...prev, lineIdx]);
+        const completed = lineIdx;
+        setLines((prev) => [...prev, completed]);
         setCurrent('');
         char = 0;
         lineIdx += 1;
