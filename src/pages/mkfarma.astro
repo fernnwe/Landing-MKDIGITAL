@@ -6,7 +6,7 @@ import Asistente from "../components/Asistente.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<BaseLayout title="MKFARMA - Sistema de gestión para farmacias | MKDIGITAL" description="Control de inventario, ventas, facturación y más para tu farmacia. Descarga gratis MKFARMA para Windows." ogImage="https://mkdigitalnic.com/mkfarma.png">
+<BaseLayout title="MKFARMA - Sistema de gestión para farmacias | MKDIGITAL" description="Control de inventario, ventas, facturación y más para tu farmacia. MKFARMA para Windows, pago único de C$3,700." ogImage="https://mkdigitalnic.com/mkfarma.png">
   <Navbar />
 
   <!-- HERO -->
@@ -33,14 +33,21 @@ import { Icon } from "astro-icon/components";
           </div>
 
           <div class="mf-hero-actions">
-            <a href="/MKFARMA_v2.rar" class="mf-btn-primary" download>
-              <Icon name="mdi:download" />
-              Descargar gratis v2.0
+            <a href="https://wa.me/50581088124?text=Hola%2C%20quiero%20adquirir%20MKFARMA%20(C%243%2C700%20%3D%20%24100%20USD%2C%20pago%20%C3%BAnico)" target="_blank" class="mf-btn-primary">
+              <Icon name="mdi:cart" />
+              Adquirir MKFARMA
             </a>
             <a href="https://wa.me/50581088124?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20MKFARMA" target="_blank" class="mf-btn-secondary">
               <Icon name="simple-icons:whatsapp" />
               Consultar
             </a>
+          </div>
+
+          <div class="mf-price-badge">
+            <span class="mf-price-amount">C$3,700</span>
+            <span class="mf-price-sep">=</span>
+            <span class="mf-price-usd">$100 USD</span>
+            <span class="mf-price-label">Pago único</span>
           </div>
 
           <div class="mf-platform-badge">
@@ -288,14 +295,14 @@ import { Icon } from "astro-icon/components";
 
         <div class="section-header">
           <span class="badge">DESCARGA</span>
-          <h2>Prueba MKFARMA gratis</h2>
-          <p>Descarga, extrae y ejecuta el sistema. Sin registro, sin límite de tiempo.</p>
+          <h2>Adquiere MKFARMA</h2>
+          <p>Pago único de C$3,700 ($100 USD). Recibe el sistema en archivo .zip y actívalo en tu farmacia.</p>
         </div>
 
         <div class="mf-download-info">
           <div class="mf-dl-item">
             <Icon name="mdi:zip-box" />
-            <span>Archivo .rar — 13 MB</span>
+            <span>Archivo .zip</span>
           </div>
           <div class="mf-dl-item">
             <Icon name="simple-icons:windows" />
@@ -307,9 +314,9 @@ import { Icon } from "astro-icon/components";
           </div>
         </div>
 
-        <a href="/MKFARMA_v2.rar" class="mf-btn-primary mf-btn-large" download>
-          <Icon name="mdi:download" />
-          Descargar MKFARMA
+        <a href="https://wa.me/50581088124?text=Hola%2C%20quiero%20adquirir%20MKFARMA%20(C%243%2C700%20%3D%20%24100%20USD%2C%20pago%20%C3%BAnico)" target="_blank" class="mf-btn-primary mf-btn-large">
+          <Icon name="simple-icons:whatsapp" />
+          Comprar por WhatsApp
         </a>
 
         <p class="mf-dl-help">
@@ -526,6 +533,31 @@ import { Icon } from "astro-icon/components";
   font-weight: 600;
 }
 .mf-platform-badge svg { width: 16px; height: 16px; }
+
+.mf-price-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 10px 22px;
+  border-radius: var(--shape-full);
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+}
+.mf-price-amount { font-size: 20px; font-weight: 800; color: var(--on-surface); }
+.mf-price-sep { font-size: 14px; color: var(--on-surface-variant); }
+.mf-price-usd { font-size: 20px; font-weight: 800; color: #10b981; }
+.mf-price-label {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  padding: 4px 10px;
+  border-radius: var(--shape-full);
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+}
 
 /* ====== CAROUSEL ====== */
 .mf-hero-visual {
