@@ -1,0 +1,366 @@
+.license-page {
+  padding-top: 80px;
+  font-family: var(--font-family);
+  background: var(--background);
+}
+
+/* ── Password gate ── */
+.password-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: var(--background);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.password-modal {
+  background: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--shape-lg);
+  padding: 40px 36px;
+  text-align: center;
+  max-width: 380px;
+  width: 100%;
+}
+.password-lock { margin-bottom: 16px; }
+.password-modal h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin: 0 0 6px;
+}
+.password-modal p {
+  font-size: 0.9rem;
+  color: var(--on-surface-variant);
+  margin: 0 0 24px;
+}
+.password-modal input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--outline);
+  border-radius: var(--shape-sm);
+  background: var(--surface-container-low);
+  color: var(--on-surface);
+  font-size: 1rem;
+  margin-bottom: 16px;
+  text-align: center;
+  font-family: var(--font-family);
+}
+.password-modal input:focus {
+  outline: none;
+  border-color: #CF0A2C;
+}
+.password-modal button {
+  width: 100%;
+  padding: 14px;
+  background: #CF0A2C;
+  color: #fff;
+  border: none;
+  border-radius: var(--shape-sm);
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: var(--font-family);
+}
+.password-modal button:hover { background: #b00926; }
+.pass-error {
+  color: #CF0A2C;
+  font-size: 0.85rem;
+  margin: 12px 0 0 !important;
+}
+
+/* ── Page hero ── */
+.page-hero {
+  padding: 48px 20px 32px;
+  text-align: center;
+}
+.page-hero h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin: 0 0 8px;
+  letter-spacing: -0.5px;
+}
+.page-hero p {
+  font-size: 1.05rem;
+  color: var(--on-surface-variant);
+  margin: 0;
+}
+.hero-container {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* ── Product sections ── */
+.product-section {
+  padding: 24px 20px;
+}
+.product-section:last-of-type { padding-bottom: 48px; }
+.product-inner {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--shape-xl);
+  overflow: hidden;
+}
+.product-header {
+  text-align: center;
+  padding: 36px 32px 0;
+}
+.product-icon {
+  display: inline-flex;
+  padding: 14px;
+  border-radius: var(--shape-lg);
+  margin-bottom: 14px;
+}
+.product-header h2 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin: 0 0 4px;
+}
+.product-subtitle {
+  font-size: 0.95rem;
+  color: var(--on-surface-variant);
+  margin: 0 0 16px;
+}
+.hero-badges {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.hero-badges .badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--on-surface-variant);
+  font-size: 0.85rem;
+}
+.hero-badges .badge svg { flex-shrink: 0; }
+#mcafee-section .hero-badges .badge svg { color: #CF0A2C; }
+#avast-section .hero-badges .badge svg { color: #FF6B00; }
+#autodesk-section .hero-badges .badge svg { color: #00A9E0; }
+
+.btn-reveal {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  border: none;
+  border-radius: var(--shape-md);
+  font-size: 1.05rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  margin-bottom: 32px;
+  font-family: var(--font-family);
+}
+#mcafee-section .btn-reveal {
+  background: #CF0A2C;
+  color: #fff;
+}
+#mcafee-section .btn-reveal:hover {
+  background: #b00926;
+  transform: translateY(-2px);
+}
+#mcafee-section .btn-reveal:disabled {
+  background: #1a3a1a;
+  cursor: default;
+  transform: none;
+}
+#avast-section .btn-reveal {
+  background: #FF6B00;
+  color: #fff;
+}
+#avast-section .btn-reveal:hover {
+  background: #e05f00;
+  transform: translateY(-2px);
+}
+#avast-section .btn-reveal:disabled {
+  background: #3a2a1a;
+  cursor: default;
+  transform: none;
+}
+#autodesk-section .btn-reveal {
+  background: #00A9E0;
+  color: #fff;
+}
+#autodesk-section .btn-reveal:hover {
+  background: #0095c2;
+  transform: translateY(-2px);
+}
+#autodesk-section .btn-reveal:disabled {
+  background: #1a2a3a;
+  cursor: default;
+  transform: none;
+}
+
+/* ── License reveal ── */
+.license-reveal {
+  padding: 0 32px 32px;
+}
+.license-key-card {
+  background: var(--surface);
+  border: 1px solid rgba(0,200,83,0.2);
+  border-radius: var(--shape-lg);
+  padding: 28px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.license-label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--on-surface-variant);
+  margin-bottom: 16px;
+}
+.license-key {
+  font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #00c853;
+  background: var(--surface);
+  border: 1px dashed rgba(0,200,83,0.3);
+  border-radius: var(--shape-sm);
+  padding: 16px 20px;
+  word-break: break-all;
+  letter-spacing: 1.5px;
+  user-select: all;
+}
+.license-product {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--on-surface);
+  margin-bottom: 4px;
+}
+.license-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.license-item { text-align: center; }
+.license-item .btn-copy { margin-top: 10px; }
+.btn-copy {
+  background: transparent;
+  color: #00c853;
+  border: 1px solid #00c853;
+  padding: 10px 28px;
+  border-radius: var(--shape-sm);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: var(--font-family);
+}
+.btn-copy:hover { background: rgba(0,200,83,0.1); }
+
+/* ── Activate steps ── */
+.activate-steps {
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--shape-lg);
+  padding: 28px;
+  margin-bottom: 0;
+}
+.activate-steps h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin: 0 0 20px;
+  text-align: center;
+}
+.step-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.activate-step {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+.step-num {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--shape-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+#mcafee-section .step-num { background: rgba(207,10,44,0.1); color: #CF0A2C; }
+#avast-section .step-num { background: rgba(255,107,0,0.1); color: #FF6B00; }
+#autodesk-section .step-num { background: rgba(0,169,224,0.1); color: #00A9E0; }
+.activate-step h4 {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin: 0 0 3px;
+}
+.activate-step p {
+  font-size: 0.84rem;
+  color: var(--on-surface-variant);
+  margin: 0;
+  line-height: 1.5;
+}
+.activate-step a { text-decoration: underline; }
+#mcafee-section .activate-step a { color: #CF0A2C; }
+#avast-section .activate-step a { color: #FF6B00; }
+#autodesk-section .activate-step a { color: #00A9E0; }
+.activate-step strong { color: var(--on-surface); }
+
+/* ── Support ── */
+.support-band {
+  padding: 0 20px 64px;
+}
+.support-container {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+  background: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+  border-radius: var(--shape-lg);
+  padding: 28px;
+}
+.support-container p {
+  color: var(--on-surface-variant);
+  font-size: 0.95rem;
+  margin: 0 0 18px;
+}
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #25D366;
+  color: #fff;
+  padding: 12px 28px;
+  border-radius: var(--shape-sm);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  font-family: var(--font-family);
+}
+.btn-wa:hover {
+  background: #1ebe5b;
+  transform: translateY(-1px);
+}
+
+/* ── Responsive ── */
+@media (max-width: 640px) {
+  .page-hero h1 { font-size: 1.6rem; }
+  .product-header { padding: 28px 20px 0; }
+  .product-header h2 { font-size: 1.3rem; }
+  .btn-reveal { width: 100%; padding: 14px 20px; }
+  .license-reveal { padding: 0 20px 24px; }
+  .license-key { font-size: 0.95rem; padding: 14px; }
+  .activate-steps { padding: 20px; }
+  .support-band { padding: 0 20px 48px; }
+}

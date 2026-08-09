@@ -1,0 +1,9 @@
+.comments-section {
+  background: var(--surface);
+  border-top: 1px solid var(--outline-variant);
+}
+
+.disqus-container {
+  max-width: 720px;
+  margin: 0 auto;
+}

@@ -1,0 +1,100 @@
+.growth-section {
+  background: var(--background);
+}
+
+.growth-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-bottom: 64px;
+}
+
+.growth-stat-card {
+  padding: 32px 24px;
+  text-align: center;
+  background: var(--surface-container);
+}
+
+.growth-stat-card h3 {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+.growth-stat-card span {
+  font-size: 14px;
+  color: var(--on-surface-variant);
+  font-weight: 500;
+}
+
+.chart-container {
+  padding: 32px 24px 48px;
+  overflow-x: auto;
+  background: var(--surface-container);
+}
+.chart-container h3 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  height: 280px;
+  min-width: 650px;
+  padding: 0 8px;
+}
+
+.bar-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.bar {
+  width: 100%;
+  max-width: 60px;
+  min-width: 36px;
+  background: linear-gradient(180deg, var(--primary) 0%, color-mix(in srgb, var(--primary) 60%, transparent) 100%);
+  height: 0;
+  border-radius: 6px 6px 0 0;
+  position: relative;
+  transition: height 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.bar::before {
+  content: attr(data-label);
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--on-surface);
+}
+
+.bar-group span {
+  font-size: 11px;
+  color: var(--on-surface-variant);
+  text-align: center;
+}
+
+.highlight {
+  background: linear-gradient(180deg, var(--tertiary) 0%, color-mix(in srgb, var(--tertiary) 60%, transparent) 100%);
+}
+
+.chart-container::-webkit-scrollbar { height: 6px; }
+.chart-container::-webkit-scrollbar-thumb {
+  background: var(--outline-variant);
+  border-radius: 4px;
+}
+
+@media (max-width: 900px) {
+  .chart { height: 220px; min-width: 560px; gap: 12px; }
+  .bar { min-width: 28px; }
+}

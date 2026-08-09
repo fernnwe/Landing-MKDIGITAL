@@ -1,0 +1,184 @@
+.anydesk-section {
+  padding: 100px 0;
+  background: var(--background);
+}
+
+.anydesk-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.anydesk-text .badge { margin-bottom: 16px; }
+
+.anydesk-text h2 {
+  font-size: clamp(24px, 3vw, 32px);
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.anydesk-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  margin-bottom: 28px;
+  color: var(--on-surface-variant);
+}
+
+.tab-bar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 28px;
+  background: var(--surface-container);
+  padding: 4px;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: none;
+  background: transparent;
+  color: var(--on-surface-variant);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  font-family: var(--font-family);
+}
+.tab:hover { background: rgba(255,255,255,0.06); }
+.tab.active {
+  background: var(--surface-container-high);
+  color: var(--on-surface);
+}
+.tab svg { width: 18px; height: 18px; }
+
+.steps-panel { display: none; }
+.steps-panel.active { display: block; }
+
+.steps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.step {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.step-num {
+  width: 32px;
+  height: 32px;
+  min-width: 32px;
+  border-radius: 50%;
+  background: rgba(245,158,11,0.15);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.step h4 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+.step p {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--on-surface-variant);
+}
+
+.help-card {
+  margin-top: 20px;
+}
+
+.help-card-inner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  background: var(--surface-container);
+  border: 1px solid var(--outline-variant);
+}
+.help-card-inner svg {
+  width: 28px;
+  height: 28px;
+  color: var(--tertiary);
+  min-width: 28px;
+}
+.help-card-inner p {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  margin-bottom: 2px;
+}
+.help-card-inner a {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+}
+.help-card-inner a:hover { text-decoration: underline; }
+.help-card-inner div { min-width: 0; }
+
+.anydesk-visual { position: relative; }
+
+.anydesk-card {
+  padding: 40px 32px;
+  text-align: center;
+}
+
+.shield-icon {
+  width: 56px;
+  height: 56px;
+  color: var(--tertiary);
+  margin-bottom: 16px;
+}
+
+.anydesk-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.anydesk-card p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  color: var(--on-surface-variant);
+}
+
+.trust-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.trust-list span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--on-surface-variant);
+}
+.trust-list svg { color: var(--primary); width: 12px; height: 12px; }
+
+@media (max-width: 900px) {
+  .anydesk-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    text-align: center;
+  }
+  .tab-bar { margin: 0 auto 28px; }
+  .steps-list { align-items: center; }
+  .step { text-align: left; max-width: 400px; }
+  .help-card-inner { text-align: left; }
+}

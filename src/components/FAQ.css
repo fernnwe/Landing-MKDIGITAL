@@ -1,0 +1,104 @@
+.faq-section {
+  background: var(--surface);
+}
+
+.faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  background: var(--surface-container);
+  margin-bottom: 8px;
+  overflow: hidden;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 20px;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--on-surface);
+  list-style: none;
+  user-select: none;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+
+.faq-item summary svg:first-child {
+  width: 20px;
+  height: 20px;
+  color: var(--primary);
+  min-width: 20px;
+}
+
+.faq-item summary span { flex: 1; }
+
+.chevron {
+  transition: transform 0.2s ease;
+  color: var(--on-surface-variant);
+}
+.faq-item[open] .chevron {
+  transform: rotate(180deg);
+}
+
+.faq-body {
+  padding: 0 20px 20px;
+}
+
+.faq-body p {
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--on-surface-variant);
+}
+.faq-body strong { color: var(--on-surface); }
+
+.faq-apps {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.faq-app {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: var(--surface-container-high);
+  border: 1px solid var(--outline-variant);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--on-surface-variant);
+}
+.faq-app svg { width: 16px; height: 16px; color: var(--primary); }
+
+.payment-info {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.payment-section h4 {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--on-surface);
+  margin-bottom: 6px;
+}
+.payment-section p {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.payment-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.payment-section li {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  padding: 4px 0;
+}
