@@ -5,6 +5,7 @@ import HomePage from './pages/HomePage';
 import ContactoPage from './pages/ContactoPage';
 import CatalogoPage from './pages/CatalogoPage';
 import MkFarmaPage from './pages/MkFarmaPage';
+import DentalProPage from './pages/DentalProPage';
 import ActivaLicenciaPage from './pages/ActivaLicenciaPage';
 import AnyDeskPage from './pages/AnyDeskPage';
 import BeneficiosPage from './pages/BeneficiosPage';
@@ -80,6 +81,7 @@ function AppRoutes() {
       <Route path="/contacto" element={<ContactoPage />} />
       <Route path="/catalogo" element={<CatalogoPage />} />
       <Route path="/mkfarma" element={<MkFarmaPage />} />
+      <Route path="/dentalpro" element={<DentalProPage />} />
       <Route path="/activa-licencia" element={<ActivaLicenciaPage />} />
       <Route path="/anydesk" element={<AnyDeskPage />} />
       <Route path="/beneficios" element={<BeneficiosPage />} />

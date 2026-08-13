@@ -8,4 +8,8 @@
     <loc>https://mkdigitalnic.com/comentarios</loc>
     <priority>0.80</priority>
   </url>
+  <url>
+    <loc>https://mkdigitalnic.com/dentalpro</loc>
+    <priority>0.80</priority>
+  </url>
 </urlset>

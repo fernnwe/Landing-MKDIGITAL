@@ -50,6 +50,7 @@ export default function Footer() {
               <Link to="/beneficios" className="footer-link">Beneficios</Link>
               <Link to="/anydesk" className="footer-link">AnyDesk</Link>
               <Link to="/activa-licencia" className="footer-link">Activar Licencia</Link>
+              <Link to="/dentalpro" className="footer-link">DentalPro</Link>
             </div>
             <div className="footer-col">
               <h4 className="footer-col-title">Contacto</h4>
