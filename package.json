@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender-meta.cjs",
     "preview": "vite preview",
     "typecheck": "tsc --noEmit",
     "update-prices": "node scripts/fetch-prices.mjs"

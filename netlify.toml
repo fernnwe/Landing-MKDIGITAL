@@ -15,6 +15,56 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[redirects]]
+  from = "/contacto"
+  to = "/contacto.html"
+  status = 200
+
+[[redirects]]
+  from = "/catalogo"
+  to = "/catalogo.html"
+  status = 200
+
+[[redirects]]
+  from = "/mkfarma"
+  to = "/mkfarma.html"
+  status = 200
+
+[[redirects]]
+  from = "/dentalpro"
+  to = "/dentalpro.html"
+  status = 200
+
+[[redirects]]
+  from = "/activa-licencia"
+  to = "/activa-licencia.html"
+  status = 200
+
+[[redirects]]
+  from = "/anydesk"
+  to = "/anydesk.html"
+  status = 200
+
+[[redirects]]
+  from = "/beneficios"
+  to = "/beneficios.html"
+  status = 200
+
+[[redirects]]
+  from = "/comentarios"
+  to = "/comentarios.html"
+  status = 200
+
+[[redirects]]
+  from = "/faq"
+  to = "/faq.html"
+  status = 200
+
+[[redirects]]
+  from = "/soluciones"
+  to = "/soluciones.html"
+  status = 200
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
