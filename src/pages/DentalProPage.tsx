@@ -28,7 +28,8 @@ const features = [
 
 const specs = [
   { icon: 'mdi:desktop-classic', title: 'App de escritorio', desc: 'Windows, funciona 100% sin internet' },
-  { icon: 'mdi:database', title: 'Datos locales', desc: 'Base de datos en %APPDATA%\\DentalPro' },
+  { icon: 'simple-icons:android', title: 'App móvil', desc: 'Android 6.0+, disponible en .apk' },
+  { icon: 'mdi:database', title: 'Datos locales', desc: 'Base de datos local en cada dispositivo' },
   { icon: 'mdi:tooth', title: 'Odontograma 3D', desc: 'Vistas interactivas 2D y 3D por diente' },
   { icon: 'simple-icons:whatsapp', title: 'Recordatorios', desc: 'Avisos de citas por WhatsApp' },
   { icon: 'mdi:lock', title: 'Seguridad', desc: 'Hash con salt y permisos por módulo' },
@@ -47,11 +48,13 @@ export default function DentalProPage() {
   const [showModal, setShowModal] = useState(false);
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
+  const [downloadTarget, setDownloadTarget] = useState<'windows' | 'android'>('windows');
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const openModal = () => {
+  const openModal = (target: 'windows' | 'android' = 'windows') => {
     setError(false);
     setPassword('');
+    setDownloadTarget(target);
     setShowModal(true);
     window.setTimeout(() => inputRef.current?.focus(), 50);
   };
@@ -70,8 +73,13 @@ export default function DentalProPage() {
     if (password === 'mkdigital2026$') {
       setShowModal(false);
       const a = document.createElement('a');
-      a.href = '/dentalpro/DentalProSetup-1.0.0.exe';
-      a.download = 'DentalProSetup-1.0.0.exe';
+      if (downloadTarget === 'android') {
+        a.href = '/dentalpro/DentalPro-1.0.0.apk';
+        a.download = 'DentalPro-1.0.0.apk';
+      } else {
+        a.href = '/dentalpro/DentalProSetup-1.0.0.exe';
+        a.download = 'DentalProSetup-1.0.0.exe';
+      }
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -131,7 +139,8 @@ export default function DentalProPage() {
 
               <div className="dp-platform-badge">
                 <Icon icon="simple-icons:windows" />
-                Disponible para Windows
+                <Icon icon="simple-icons:android" />
+                Windows y Android
               </div>
             </div>
 
@@ -218,17 +227,17 @@ export default function DentalProPage() {
             <div className="section-header">
               <span className="badge">DESCARGA</span>
               <h2>Adquiere DentalPro</h2>
-              <p>Pago único de $150 USD (C$5,550). Recibe el instalador .exe y actívalo en tu clínica. Las actualizaciones son gratuitas y no es obligatorio actualizar.</p>
+              <p>Pago único de $150 USD (C$5,550). Disponible para Windows y Android. Las actualizaciones son gratuitas y no es obligatorio actualizar.</p>
             </div>
 
             <div className="dp-download-info">
               <div className="dp-dl-item">
-                <Icon icon="mdi:application" />
-                <span>Instalador .exe</span>
-              </div>
-              <div className="dp-dl-item">
                 <Icon icon="simple-icons:windows" />
                 <span>Windows 10 / 11</span>
+              </div>
+              <div className="dp-dl-item">
+                <Icon icon="simple-icons:android" />
+                <span>Android 6.0+</span>
               </div>
               <div className="dp-dl-item">
                 <Icon icon="mdi:chip" />
@@ -241,10 +250,16 @@ export default function DentalProPage() {
               Comprar por WhatsApp
             </a>
 
-            <button onClick={openModal} className="dp-btn-download dp-btn-large">
-              <Icon icon="mdi:download" />
-              Descargar DentalPro
-            </button>
+            <div className="dp-download-btns">
+              <button onClick={() => openModal('windows')} className="dp-btn-download dp-btn-large">
+                <Icon icon="simple-icons:windows" />
+                Descargar para Windows
+              </button>
+              <button onClick={() => openModal('android')} className="dp-btn-download dp-btn-large dp-btn-android">
+                <Icon icon="simple-icons:android" />
+                Descargar para Android
+              </button>
+            </div>
 
             <p className="dp-dl-help">
               ¿Necesitas ayuda con la instalación?
@@ -264,7 +279,10 @@ export default function DentalProPage() {
               <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="var(--primary)" strokeWidth="1.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
             </div>
             <h3>Descarga protegida</h3>
-            <p>Ingresa la contraseña que recibiste al adquirir DentalPro para descargar el sistema.</p>
+            <p>{downloadTarget === 'android'
+              ? 'Ingresa la contraseña para descargar la versión Android (.apk).'
+              : 'Ingresa la contraseña para descargar la versión Windows (.exe).'
+            }</p>
             <input
               type="password"
               placeholder="Contraseña"

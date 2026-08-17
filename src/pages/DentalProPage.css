@@ -469,6 +469,8 @@
   .dp-btn-primary, .dp-btn-secondary { width: 100%; justify-content: center; }
   .dp-features-grid { grid-template-columns: 1fr; }
   .dp-download-card { padding: 32px 24px; }
+  .dp-download-btns { gap: 10px; }
+  .dp-btn-download { width: 100%; }
 }
 
 /* ====== DOWNLOAD BUTTON ====== */
@@ -492,6 +494,22 @@
   border-color: var(--primary);
   color: var(--primary);
   transform: translateY(-2px);
+}
+.dp-btn-android {
+  border-color: rgba(61, 220, 132, 0.25);
+  color: #3DDC84;
+}
+.dp-btn-android:hover {
+  border-color: #3DDC84;
+  color: #3DDC84;
+  box-shadow: 0 4px 20px rgba(61, 220, 132, 0.15);
+}
+.dp-download-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
 /* ====== PASSWORD OVERLAY ====== */
@@ -589,7 +607,4 @@
   color: #ef4444;
   font-size: 0.85rem;
   margin: 12px 0 0 !important;
-}
-@media (max-width: 600px) {
-  .dp-btn-download { width: 100%; }
 }
