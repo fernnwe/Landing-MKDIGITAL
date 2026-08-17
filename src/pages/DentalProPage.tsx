@@ -275,6 +275,24 @@ export default function DentalProPage() {
         </div>
       </section>
 
+      {/* ===================== GALLERY ===================== */}
+      <section className="dp-gallery reveal reveal-up">
+        <div className="container">
+          <div className="section-header">
+            <span className="badge">CAPTURAS</span>
+            <h2>Así se ve DentalPro</h2>
+            <p>Interfaz moderna, intuitiva y profesional. Diseñada para uso diario en clínica.</p>
+          </div>
+          <div className="dp-gallery-grid">
+            {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
+              <div className={`dp-gallery-item reveal reveal-up stagger-${Math.min(n, 8)}`} key={n}>
+                <img src={`/dentalpro/screenshot-${n}.png`} alt={`DentalPro - Captura ${n}`} loading="lazy" />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===================== SPECS ===================== */}
       <section className="dp-specs reveal reveal-up">
         <div className="container">
