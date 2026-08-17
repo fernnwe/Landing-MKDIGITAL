@@ -545,6 +545,100 @@
   transform: scale(1.05);
 }
 
+/* ====== LIGHTBOX ====== */
+.dp-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: dp-lb-in 0.25s ease;
+}
+
+@keyframes dp-lb-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.dp-lightbox-img {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 8px;
+  box-shadow: 0 0 60px rgba(34, 211, 238, 0.2);
+  object-fit: contain;
+  animation: dp-lb-scale 0.3s ease;
+}
+
+@keyframes dp-lb-scale {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.dp-lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  z-index: 2;
+}
+
+.dp-lightbox-close:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--primary);
+}
+
+.dp-lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+  z-index: 2;
+}
+
+.dp-lightbox-arrow:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--primary);
+}
+
+.dp-lightbox-prev { left: 20px; }
+.dp-lightbox-next { right: 20px; }
+
+.dp-lightbox-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 14px;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 2px;
+}
+
 /* ====== SPECS ====== */
 .dp-specs {
   padding: 80px 0;
@@ -957,4 +1051,7 @@
   .dp-dl-pricing, .dp-dl-downloads { padding: 32px 24px; }
   .dp-hero-visual { display: none; }
   .dp-hero-meta { flex-direction: column; }
+  .dp-lightbox-arrow { width: 36px; height: 36px; font-size: 18px; }
+  .dp-lightbox-prev { left: 10px; }
+  .dp-lightbox-next { right: 10px; }
 }

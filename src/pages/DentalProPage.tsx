@@ -48,6 +48,7 @@ export default function DentalProPage() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
   const [downloadTarget, setDownloadTarget] = useState<'windows' | 'android'>('windows');
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   const openModal = (target: 'windows' | 'android' = 'windows') => {
@@ -62,11 +63,18 @@ export default function DentalProPage() {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeModal();
+      if (e.key === 'Escape') {
+        if (lightboxIndex !== null) setLightboxIndex(null);
+        else closeModal();
+      }
+      if (lightboxIndex !== null) {
+        if (e.key === 'ArrowRight') setLightboxIndex((i) => (i !== null ? (i % 8) + 1 : null));
+        if (e.key === 'ArrowLeft') setLightboxIndex((i) => (i !== null ? ((i - 2 + 8) % 8) + 1 : null));
+      }
     };
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
-  }, []);
+  }, [lightboxIndex]);
 
   const checkPass = () => {
     if (password === 'mkdigital2026$') {
@@ -285,7 +293,7 @@ export default function DentalProPage() {
           </div>
           <div className="dp-gallery-grid">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
-              <div className={`dp-gallery-item reveal reveal-up stagger-${Math.min(n, 8)}`} key={n}>
+              <div className={`dp-gallery-item reveal reveal-up stagger-${Math.min(n, 8)}`} key={n} onClick={() => setLightboxIndex(n)} role="button" tabIndex={0}>
                 <img src={`/dentalpro/screenshot-${n}.png`} alt={`DentalPro - Captura ${n}`} loading="lazy" />
               </div>
             ))}
@@ -404,6 +412,27 @@ export default function DentalProPage() {
             <button className="dp-password-submit" onClick={checkPass}>Descargar</button>
             {error && <p className="dp-pass-error">Contraseña incorrecta</p>}
           </div>
+        </div>
+      )}
+      {/* ===================== LIGHTBOX ===================== */}
+      {lightboxIndex !== null && (
+        <div className="dp-lightbox" onClick={() => setLightboxIndex(null)}>
+          <button className="dp-lightbox-close" onClick={() => setLightboxIndex(null)} aria-label="Cerrar">
+            <Icon icon="mdi:close" />
+          </button>
+          <button className="dp-lightbox-arrow dp-lightbox-prev" onClick={(e) => { e.stopPropagation(); setLightboxIndex(((lightboxIndex - 2 + 8) % 8) + 1); }} aria-label="Anterior">
+            <Icon icon="mdi:chevron-left" />
+          </button>
+          <img
+            src={`/dentalpro/screenshot-${lightboxIndex}.png`}
+            alt={`DentalPro - Captura ${lightboxIndex}`}
+            className="dp-lightbox-img"
+            onClick={(e) => e.stopPropagation()}
+          />
+          <button className="dp-lightbox-arrow dp-lightbox-next" onClick={(e) => { e.stopPropagation(); setLightboxIndex((lightboxIndex % 8) + 1); }} aria-label="Siguiente">
+            <Icon icon="mdi:chevron-right" />
+          </button>
+          <div className="dp-lightbox-counter">{lightboxIndex} / 8</div>
         </div>
       )}
     </>
