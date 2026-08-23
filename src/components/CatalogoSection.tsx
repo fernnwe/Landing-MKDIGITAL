@@ -4,11 +4,9 @@ import { productos, categorias } from '../data/productos';
 import ProductCard from './ProductCard';
 import CurrencyConverter from './CurrencyConverter';
 import CartSidebar from './CartSidebar';
-import { CartProvider, useCart } from '../context/CartContext';
 import './CatalogoSection.css';
 
-function CatalogoSectionContent() {
-  const { openCart, totalItems } = useCart();
+export default function CatalogoSection() {
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState('all');
 
@@ -100,16 +98,6 @@ return (
                     </button>
                   ))}
                 </div>
-                <button
-                  className="cart-btn-catalogo"
-                  onClick={openCart}
-                  aria-label={`Abrir carrito (${totalItems} productos)`}
-                >
-                  <Icon icon="mdi:cart" style={{ width: 22, height: 22 }} />
-                  {totalItems > 0 && (
-                    <span className="cart-badge">{totalItems > 99 ? '99+' : totalItems}</span>
-                  )}
-                </button>
               </div>
 
               <div className="results-count">
@@ -180,12 +168,4 @@ return (
         </div>
 </section>
 );
-}
-
-export default function CatalogoSection() {
-  return (
-    <CartProvider>
-      <CatalogoSectionContent />
-    </CartProvider>
-  );
 }

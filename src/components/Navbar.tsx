@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { Icon } from '@iconify/react';
+import { useCart } from '../context/CartContext';
 import './Navbar.css';
 
 const links = [
@@ -49,6 +51,9 @@ export default function Navbar() {
 
   const isActive = (to: string) => !to.includes('#') && pathname === to;
   const navClass = `navbar${scrolled ? ' scrolled' : ''}${hidden ? ' hidden' : ''}`;
+
+  const { openCart, totalItems } = useCart();
+  const showCart = pathname === '/catalogo';
 
   const renderLink = (to: string, label: string, overlay: boolean) => {
     if (to.startsWith('http')) {
@@ -101,6 +106,18 @@ export default function Navbar() {
 
           <div className="nav-links">
             {links.map((l) => renderLink(l.to, l.label, false))}
+            {showCart && (
+              <button
+                className="cart-btn"
+                onClick={openCart}
+                aria-label={`Carrito de compras (${totalItems} productos)`}
+              >
+                <Icon icon="mdi:cart" style={{ width: 20, height: 20 }} />
+                {totalItems > 0 && (
+                  <span className="cart-badge">{totalItems > 99 ? '99+' : totalItems}</span>
+                )}
+              </button>
+            )}
             <a href="https://wa.me/50581088124" target="_blank" rel="noopener noreferrer" className="btn-primary nav-cta">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
@@ -114,6 +131,19 @@ export default function Navbar() {
       <div className={`nav-overlay${menuOpen ? ' open' : ''}`} id="navOverlay">
         <div className="nav-overlay-links">
           {links.map((l) => renderLink(l.to, l.label, true))}
+          {showCart && (
+            <button
+              className="cart-btn overlay-cart-btn"
+              onClick={openCart}
+              aria-label={`Carrito de compras (${totalItems} productos)`}
+            >
+              <Icon icon="mdi:cart" style={{ width: 20, height: 20 }} />
+              <span>Carrito</span>
+              {totalItems > 0 && (
+                <span className="cart-badge">{totalItems > 99 ? '99+' : totalItems}</span>
+              )}
+            </button>
+          )}
           <a href="https://wa.me/50581088124" target="_blank" rel="noopener noreferrer" className="btn-primary overlay-cta">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
