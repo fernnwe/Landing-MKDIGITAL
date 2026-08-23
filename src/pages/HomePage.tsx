@@ -1,5 +1,6 @@
 import { usePageMeta } from '../hooks/usePageMeta';
 import Hero from '../components/Hero';
+import BannerCarousel from '../components/BannerCarousel';
 import PromoSection from '../components/PromoSection';
 import StatsSection from '../components/StatsSection';
 import SoftwareLogos from '../components/SoftwareLogos';
@@ -20,6 +21,7 @@ export default function HomePage() {
   return (
     <>
       <Hero />
+      <BannerCarousel />
       <section className="reveal reveal-up">
         <PromoSection />
       </section>
