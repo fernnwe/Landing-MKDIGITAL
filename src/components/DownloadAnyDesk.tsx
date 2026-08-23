@@ -123,7 +123,6 @@ export default function DownloadAnyDesk() {
               <p className="sim-label">Dentro del programa verás algo así</p>
 
               <div className="sim-id-zone">
-                <span className="sim-id-scanline" aria-hidden="true" />
                 <span className="sim-id-badge-demo">
                   <Icon icon="mdi:eye-outline" />
                   Ejemplo ilustrativo
@@ -131,7 +130,10 @@ export default function DownloadAnyDesk() {
                 <span className="sim-id-app-label">
                   {activeTab === 'anydesk' ? 'Este puesto de trabajo' : 'Su ID'}
                 </span>
-                <span className="sim-id-example" aria-hidden="true">
+                <span
+                  className={`sim-id-example${activeTab === 'teamviewer' ? ' tv' : ''}`}
+                  aria-hidden="true"
+                >
                   {activeTab === 'anydesk' ? 'XXX · XXX · XXX' : 'XXXX XXXXXX'}
                 </span>
                 <span className="sim-id-note">
