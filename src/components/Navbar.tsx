@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Icon } from '@iconify/react';
+import { useCart } from '../context/CartContext';
 import './Navbar.css';
 
 const THEME_KEY = 'mk-theme';
@@ -62,6 +63,8 @@ export default function Navbar() {
     setMenuOpen(false);
   }, [pathname]);
 
+  const { openCart, totalItems } = useCart();
+
   const isActive = (to: string) => !to.includes('#') && pathname === to;
   const navClass = `navbar${scrolled ? ' scrolled' : ''}${hidden ? ' hidden' : ''}`;
 
@@ -116,6 +119,16 @@ export default function Navbar() {
 
           <div className="nav-links">
             {links.map((l) => renderLink(l.to, l.label, false))}
+            <button
+              className="cart-btn"
+              onClick={openCart}
+              aria-label={`Carrito de compras (${totalItems} productos)`}
+            >
+              <Icon icon="mdi:cart" />
+              {totalItems > 0 && (
+                <span className="cart-badge">{totalItems > 99 ? '99+' : totalItems}</span>
+              )}
+            </button>
             <button
               className="theme-toggle"
               onClick={toggleTheme}
