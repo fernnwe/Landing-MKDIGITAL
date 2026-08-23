@@ -341,3 +341,232 @@ html[data-theme='light'] .qty-btn { background: #fff; border-color: #E2E8F0; }
 html[data-theme='light'] .qty-btn:hover:not(:disabled) { background: var(--primary); }
 html[data-theme='light'] .cart-item-remove { border-color: #E2E8F0; }
 html[data-theme='light'] .btn-clear { border-color: #E2E8F0; }
+
+/* =============================================
+   CLIENT DATA FORM
+   ============================================= */
+
+.client-data-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 8px 4px 16px;
+}
+
+.form-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  padding: 8px 0 4px;
+}
+
+.form-header h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin: 0;
+}
+
+.form-header p {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  margin: 0;
+  max-width: 280px;
+}
+
+.client-data-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--on-surface);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.required {
+  color: #EF4444;
+  font-size: 12px;
+}
+
+.form-group input[type="text"] {
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--outline);
+  background: var(--surface-container);
+  color: var(--on-surface);
+  font-size: 15px;
+  font-family: var(--font-body);
+  transition: all 0.25s;
+  box-sizing: border-box;
+}
+
+.form-group input[type="text"]:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.25);
+}
+
+.form-group input[type="text"]::placeholder {
+  color: var(--on-surface-variant);
+  opacity: 0.5;
+}
+
+.bank-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bank-option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 2px solid var(--outline);
+  background: var(--surface-container);
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.bank-option:hover {
+  border-color: rgba(6, 182, 212, 0.5);
+  background: rgba(6, 182, 212, 0.05);
+}
+
+.bank-option.selected {
+  border-color: var(--primary);
+  background: rgba(6, 182, 212, 0.1);
+  box-shadow: 0 0 0 1px var(--primary), 0 4px 16px -4px var(--glow-cyan);
+}
+
+.bank-option input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.bank-option-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.bank-option-content svg {
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.bank-option-content span {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--on-surface);
+}
+
+.bank-radio {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 2px solid var(--outline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s;
+  flex-shrink: 0;
+}
+
+.bank-option.selected .bank-radio {
+  border-color: var(--primary);
+  background: var(--primary);
+}
+
+.bank-option.selected .bank-radio::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--on-primary);
+}
+
+.form-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.btn-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  padding: 14px 20px;
+  border-radius: 12px;
+  background: transparent;
+  border: 1px solid var(--outline);
+  color: var(--on-surface-variant);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s;
+}
+
+.btn-back:hover {
+  background: var(--surface-container-high);
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Light theme for client data form */
+html[data-theme='light'] .form-group input[type="text"] {
+  background: #F8FAFC;
+  border-color: #E2E8F0;
+}
+
+html[data-theme='light'] .form-group input[type="text"]:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(6, 182, 212, 0.25);
+}
+
+html[data-theme='light'] .bank-option {
+  background: #F8FAFC;
+  border-color: #E2E8F0;
+}
+
+html[data-theme='light'] .bank-option:hover {
+  background: rgba(6, 182, 212, 0.05);
+  border-color: rgba(6, 182, 212, 0.5);
+}
+
+html[data-theme='light'] .bank-option.selected {
+  background: rgba(6, 182, 212, 0.1);
+  border-color: var(--primary);
+}
+
+html[data-theme='light'] .btn-back {
+  border-color: #E2E8F0;
+}
+
+html[data-theme='light'] .btn-back:hover {
+  background: #F1F5F9;
+}

@@ -4,9 +4,10 @@ import { productos, categorias } from '../data/productos';
 import ProductCard from './ProductCard';
 import CurrencyConverter from './CurrencyConverter';
 import CartSidebar from './CartSidebar';
+import { CartProvider } from '../context/CartContext';
 import './CatalogoSection.css';
 
-export default function CatalogoSection() {
+function CatalogoSectionContent() {
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState('all');
 
@@ -167,5 +168,13 @@ return (
           </div>
         </div>
 </section>
+);
+}
+
+export default function CatalogoSection() {
+  return (
+    <CartProvider>
+      <CatalogoSectionContent />
+    </CartProvider>
   );
 }
