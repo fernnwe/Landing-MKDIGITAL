@@ -3,7 +3,6 @@ import { Icon } from '@iconify/react';
 import { productos, categorias } from '../data/productos';
 import ProductCard from './ProductCard';
 import CurrencyConverter from './CurrencyConverter';
-import { CartProvider } from '../context/CartContext';
 import CartSidebar from './CartSidebar';
 import './CatalogoSection.css';
 
@@ -24,7 +23,6 @@ export default function CatalogoSection() {
   }, [q, filter]);
 
 return (
-    <CartProvider>
       <section className="catalogo" id="catalogo">
         <CartSidebar />
         <div className="catalogo-hero">
@@ -168,7 +166,6 @@ return (
             </div>
           </div>
         </div>
-      </section>
-    </CartProvider>
+</section>
   );
 }
