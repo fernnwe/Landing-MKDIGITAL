@@ -1,6 +1,7 @@
 import { Icon } from '@iconify/react';
 import type { Producto } from '../data/productos';
 import { categorias } from '../data/productos';
+import { useCart } from '../context/CartContext';
 import './ProductCard.css';
 
 const TASA = 37;
@@ -22,10 +23,16 @@ function precioUSDSimple(n: number): string {
 }
 
 export default function ProductCard({ producto: p }: { producto: Producto }) {
+  const { addItem } = useCart();
   const cat = categorias.find((c) => c.id === p.categoria)!;
   const pCordoba = p.precio;
   const pDolar = precioUSD(p.precio);
   const pOldNum = p.old ? parsePrecio(p.old) : null;
+
+  const handleAddToCart = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    addItem(p);
+  };
 
   return (
     <div className="product-card" data-categoria={p.categoria} data-nombre={p.nombre.toLowerCase()}>
@@ -67,6 +74,13 @@ export default function ProductCard({ producto: p }: { producto: Producto }) {
                 <Icon icon="mdi:eye-outline" color="#FFFFFF" />
               </a>
             )}
+            <button
+              onClick={handleAddToCart}
+              className="card-btn card-btn-cart"
+              aria-label={`Agregar ${p.nombre} al carrito`}
+            >
+              <Icon icon="mdi:cart-plus" />
+            </button>
             <a
               href={`https://wa.me/50581088124?text=${encodeURIComponent(`Hola, quiero información sobre ${p.nombre}`)}`}
               target="_blank"

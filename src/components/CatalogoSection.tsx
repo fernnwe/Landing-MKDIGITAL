@@ -3,6 +3,8 @@ import { Icon } from '@iconify/react';
 import { productos, categorias } from '../data/productos';
 import ProductCard from './ProductCard';
 import CurrencyConverter from './CurrencyConverter';
+import { CartProvider } from '../context/CartContext';
+import CartSidebar from './CartSidebar';
 import './CatalogoSection.css';
 
 export default function CatalogoSection() {
@@ -22,8 +24,10 @@ export default function CatalogoSection() {
   }, [q, filter]);
 
   return (
-    <section className="catalogo" id="catalogo">
-      <div className="catalogo-hero">
+    <CartProvider>
+      <section className="catalogo" id="catalogo">
+        <CartSidebar />
+        <div className="catalogo-hero">
         <div className="catalogo-hero-bg">
           <div className="hero-orb orb-1"></div>
           <div className="hero-orb orb-2"></div>
@@ -145,5 +149,6 @@ export default function CatalogoSection() {
         </div>
       </div>
     </section>
-  );
+  </CartProvider>
+);
 }
