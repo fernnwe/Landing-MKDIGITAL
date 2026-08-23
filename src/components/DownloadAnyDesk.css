@@ -340,67 +340,116 @@ html[data-theme='light'] .help-text em { color: #047857; }
   color: var(--on-surface-variant);
 }
 
-.sim-id {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 2px;
-  font-family: var(--font-mono);
-  font-size: clamp(30px, 3.4vw, 42px);
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: var(--primary-bright);
-  text-shadow: 0 0 24px rgba(6, 182, 212, 0.5);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 6px 14px;
-  border-radius: 12px;
-  transition: background 0.25s, transform 0.2s;
-  font-variant-numeric: tabular-nums;
-}
-.sim-id:hover { background: rgba(6, 182, 212, 0.08); transform: scale(1.02); }
-.sim-id.flip { animation: id-flip 0.26s ease; }
-@keyframes id-flip {
-  0% { filter: blur(6px); opacity: 0.4; transform: scale(0.96); }
-  100% { filter: blur(0); opacity: 1; transform: scale(1); }
-}
-.sim-id-sep-wrap { display: inline-flex; }
-.sim-id-sep {
-  color: var(--secondary-bright);
-  margin: 0 6px;
-  text-shadow: 0 0 12px rgba(251, 191, 36, 0.4);
-}
-.sim-id-pass {
-  font-size: 0.42em;
-  letter-spacing: 2px;
-  color: var(--on-surface-variant);
-  text-shadow: none;
-  margin-left: 10px;
+/* ===== Ilustrative ID zone ===== */
+.sim-id-zone {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  padding: 30px 20px 20px;
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.02);
 }
 
-.sim-copy {
+/* marching-ants dashed frame */
+.sim-id-zone::before {
+  content: '';
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  padding: 2px;
+  background: repeating-linear-gradient(90deg, rgba(6, 182, 212, 0.65) 0 12px, transparent 12px 26px);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  animation: sim-ants 1.4s linear infinite;
+  pointer-events: none;
+}
+@keyframes sim-ants {
+  to { background-position: 26px 0; }
+}
+
+/* sweeping scanline */
+.sim-id-scanline {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 56px;
+  background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.13), transparent);
+  animation: sim-scan 2.8s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes sim-scan {
+  0% { left: -12%; opacity: 0; }
+  18% { opacity: 1; }
+  82% { opacity: 1; }
+  100% { left: 106%; opacity: 0; }
+}
+
+.sim-id-example {
+  font-family: var(--font-mono);
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 700;
+  letter-spacing: 5px;
+  background: linear-gradient(180deg, rgba(234, 233, 232, 0.55), rgba(156, 163, 175, 0.35));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  user-select: none;
+  line-height: 1.1;
+}
+
+.sim-id-note {
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--on-surface-variant);
+  max-width: 250px;
+}
+
+.sim-id-badge-demo {
+  position: absolute;
+  top: 8px; right: 10px;
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 9px 20px;
-  border-radius: 9999px;
-  border: 1px solid rgba(6, 182, 212, 0.4);
-  background: rgba(6, 182, 212, 0.08);
-  color: var(--primary-bright);
+  gap: 4px;
   font-family: var(--font-mono);
-  font-size: 12.5px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.25s ease;
+  font-size: 9px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--on-surface-variant);
+  padding: 2px 8px;
+  border-radius: 9999px;
+  border: 1px solid var(--outline-variant);
+  background: rgba(9, 11, 18, 0.55);
 }
-.sim-copy:hover {
-  background: rgba(6, 182, 212, 0.16);
-  box-shadow: 0 0 18px -4px var(--glow-cyan);
+.sim-id-badge-demo svg { width: 11px; height: 11px; }
+
+.sim-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 24px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #16A34A, #15803D);
+  color: #fff;
+  font-size: 13.5px;
+  font-weight: 700;
+  text-decoration: none;
+  box-shadow: 0 8px 24px -8px rgba(22, 163, 74, 0.6);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: sim-wa-glow 2.6s ease-in-out infinite;
 }
-.sim-copy.done {
-  background: rgba(52, 211, 153, 0.14);
-  border-color: rgba(52, 211, 153, 0.5);
-  color: #34D399;
+.sim-wa-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 14px 32px -8px rgba(22, 163, 74, 0.75);
+}
+.sim-wa-btn svg { width: 17px; height: 17px; }
+@keyframes sim-wa-glow {
+  0%, 100% { box-shadow: 0 8px 24px -8px rgba(22, 163, 74, 0.45); }
+  50% { box-shadow: 0 8px 30px -6px rgba(22, 163, 74, 0.85); }
 }
 
 .sim-status {
@@ -446,6 +495,12 @@ html[data-theme='light'] .help-text em { color: #047857; }
   width: 14px; height: 14px;
   color: #34D399;
 }
+html[data-theme='light'] .sim-id-badge-demo { background: rgba(255, 255, 255, 0.7); }
+html[data-theme='light'] .sim-id-example {
+  background: linear-gradient(180deg, rgba(20, 26, 36, 0.5), rgba(85, 97, 122, 0.35));
+  -webkit-background-clip: text;
+  background-clip: text;
+}
 
 .sim-hint {
   display: flex;
@@ -478,7 +533,7 @@ html[data-theme='light'] .help-text em { color: #047857; }
 
 @media (max-width: 600px) {
   .anydesk-section { padding: 72px 0; }
-  .sim-id { font-size: 27px; letter-spacing: 2px; }
+  .sim-id-example { font-size: 24px; letter-spacing: 3px; }
   .sim-body { padding: 26px 16px 20px; }
   .sim-footer { gap: 6px 14px; }
 }

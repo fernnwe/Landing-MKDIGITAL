@@ -1,42 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Icon } from '@iconify/react';
 import './DownloadAnyDesk.css';
 
-const randomId = () =>
-  Array.from({ length: 3 }, () =>
-    String(Math.floor(100 + Math.random() * 900)),
-  ).join(' ');
-
-const randomPass = () => String(Math.floor(1000 + Math.random() * 9000));
+const WA_SEND_ID =
+  'https://wa.me/50581088124?text=Hola%2C%20ya%20descargu%C3%A9%20el%20programa%2C%20mi%20ID%20es%3A%20';
 
 export default function DownloadAnyDesk() {
   const [activeTab, setActiveTab] = useState<'anydesk' | 'teamviewer'>('anydesk');
-  const [adId, setAdId] = useState(randomId);
-  const [adPass, setAdPass] = useState(randomPass);
-  const [idFlip, setIdFlip] = useState(false);
-  const [copied, setCopied] = useState(false);
-
-  useEffect(() => {
-    const t = window.setInterval(() => {
-      setIdFlip(true);
-      window.setTimeout(() => {
-        setAdId(randomId());
-        setAdPass(randomPass());
-        setIdFlip(false);
-      }, 260);
-    }, 3200);
-    return () => window.clearInterval(t);
-  }, []);
-
-  const copyId = async () => {
-    try {
-      await navigator.clipboard.writeText(adId.replace(/\s/g, ''));
-    } catch {
-      /* clipboard unavailable */
-    }
-    setCopied(true);
-    window.setTimeout(() => setCopied(false), 1800);
-  };
 
   const steps = {
     anydesk: [
@@ -150,32 +120,30 @@ export default function DownloadAnyDesk() {
             </div>
 
             <div className="sim-body">
-              <p className="sim-label">Este es tu ID de conexión</p>
-              <button
-                type="button"
-                className={`sim-id${idFlip ? ' flip' : ''}`}
-                onClick={copyId}
-                title="Haz clic para copiar (demo)"
-              >
-                {activeTab === 'anydesk'
-                  ? adId.split(' ').map((chunk, i) => (
-                      <span key={i} className={i > 0 ? 'sim-id-sep-wrap' : ''}>
-                        {i > 0 && <span className="sim-id-sep">@</span>}
-                        {chunk}
-                      </span>
-                    ))
-                  : adId.replace(/ /g, '')}
-                {activeTab === 'anydesk' && <span className="sim-id-pass">· {adPass}</span>}
-              </button>
+              <p className="sim-label">Dentro del programa verás algo así</p>
 
-              <button type="button" className={`sim-copy${copied ? ' done' : ''}`} onClick={copyId}>
-                <Icon icon={copied ? 'mdi:check' : 'mdi:content-copy'} />
-                {copied ? '¡ID copiado!' : 'Copiar mi ID'}
-              </button>
+              <div className="sim-id-zone">
+                <span className="sim-id-scanline" aria-hidden="true" />
+                <span className="sim-id-example" aria-hidden="true">
+                  {activeTab === 'anydesk' ? 'XXX·XXX·XXX' : 'ID · XXXX'}
+                </span>
+                <span className="sim-id-note">
+                  Tu {activeTab === 'anydesk' ? 'ID' : 'ID y contraseña'} aparecerán aquí al abrir el programa
+                </span>
+                <span className="sim-id-badge-demo">
+                  <Icon icon="mdi:eye-outline" />
+                  Ejemplo ilustrativo
+                </span>
+              </div>
+
+              <a href={WA_SEND_ID} target="_blank" rel="noopener noreferrer" className="sim-wa-btn">
+                <Icon icon="simple-icons:whatsapp" />
+                Ya lo descargué — enviar mi ID
+              </a>
 
               <div className="sim-status">
                 <Icon icon="mdi:account-clock" />
-                <span>Esperando conexión del técnico…</span>
+                <span>Un técnico te responderá de inmediato</span>
                 <span className="sim-waiting" aria-hidden="true"><i /><i /><i /></span>
               </div>
             </div>
@@ -188,8 +156,8 @@ export default function DownloadAnyDesk() {
           </div>
 
           <div className="sim-hint">
-            <Icon icon="mdi:gesture-tap" />
-            Así se ve la pantalla que enviarás al técnico — haz clic en el ID para probar
+            <Icon icon="mdi:information-outline" />
+            Ejemplo ilustrativo de la pantalla del programa — tu ID real solo aparece en tu computadora
           </div>
         </div>
 
