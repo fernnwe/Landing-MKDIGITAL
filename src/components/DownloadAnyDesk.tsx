@@ -64,7 +64,7 @@ export default function DownloadAnyDesk() {
             </button>
           </div>
 
-          <div className="steps-panel reveal reveal-up stagger-4" key={activeTab}>
+          <div className="steps-panel" key={activeTab}>
             <ol className="steps-list">
               {steps.map((s, i) => (
                 <li className="step" key={s.title}>
