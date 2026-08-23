@@ -1,4 +1,5 @@
 :root {
+  color-scheme: dark;
   --primary: #06B6D4;
   --primary-bright: #22D3EE;
   --on-primary: #03121a;
@@ -65,6 +66,50 @@
   --motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
   --motion-easing-decelerate: cubic-bezier(0, 0, 0.2, 1);
   --motion-easing-accelerate: cubic-bezier(0.4, 0, 1, 1);
+}
+
+html[data-theme='light'] {
+  color-scheme: light;
+  --primary: #0891B2;
+  --primary-bright: #077FA3;
+  --on-primary: #ffffff;
+  --primary-container: #CFFAFE;
+  --on-primary-container: #155E75;
+  --secondary: #D97706;
+  --secondary-bright: #B45309;
+  --on-secondary: #ffffff;
+  --secondary-container: #FEF3C7;
+  --on-secondary-container: #92400E;
+  --tertiary: #059669;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #D1FAE5;
+  --on-tertiary-container: #065F46;
+  --violet: #6366F1;
+  --violet-bright: #4F46E5;
+  --error: #DC2626;
+  --on-error: #ffffff;
+  --error-container: #FEE2E2;
+  --on-error-container: #991B1B;
+  --background: #F2F5F9;
+  --on-background: #1A2230;
+  --surface: #FFFFFF;
+  --on-surface: #141A24;
+  --surface-variant: #EEF2F7;
+  --on-surface-variant: #55617A;
+  --outline: #D9E0EA;
+  --outline-variant: #E6EBF2;
+  --shadow: rgba(15, 23, 42, 0.12);
+  --surface-container-low: #F7F9FC;
+  --surface-container: #EDF1F7;
+  --surface-container-high: #E5EAF2;
+  --surface-container-highest: #DDE3EE;
+  --inverse-surface: #1A2230;
+  --inverse-on-surface: #F2F5F9;
+  --inverse-primary: #06B6D4;
+  --glow-cyan: rgba(6, 182, 212, 0.25);
+  --glow-cyan-soft: rgba(6, 182, 212, 0.12);
+  --glow-violet: rgba(99, 102, 241, 0.18);
+  --glow-amber: rgba(217, 119, 6, 0.16);
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -254,6 +299,21 @@ section, [id] { scroll-margin-top: 90px; }
 .spotlight-card:hover::after { opacity: 1; }
 
 .glass { background: rgba(11, 13, 21, 0.6); backdrop-filter: blur(24px) saturate(1.3); border: 1px solid rgba(255, 255, 255, 0.07); }
+
+/* ---------- Light theme overrides ---------- */
+html[data-theme='light'] body::before { opacity: 0.35; }
+html[data-theme='light'] body::after { background: radial-gradient(circle, rgba(6, 182, 212, 0.07) 0%, transparent 65%); }
+html[data-theme='light'] .glass { background: rgba(255, 255, 255, 0.72); border-color: rgba(15, 23, 42, 0.08); }
+html[data-theme='light'] .btn-outline { background: rgba(255, 255, 255, 0.75); box-shadow: inset 0 1px 0 rgba(255,255,255,0.8); }
+html[data-theme='light'] .btn-outline:hover { background: rgba(6, 182, 212, 0.06); }
+html[data-theme='light'] .spotlight-card::after { background: radial-gradient(520px circle at var(--mx, 50%) var(--my, 50%), rgba(6, 182, 212, 0.12), transparent 45%); }
+html[data-theme='light'] .badge {
+  background: var(--surface-container);
+  border-color: var(--outline);
+}
+html[data-theme='light'] .card {
+  box-shadow: var(--elevation-1);
+}
 
 .text-accent {
   background: linear-gradient(120deg, var(--primary-bright) 0%, var(--primary) 35%, var(--violet-bright) 100%);
