@@ -124,15 +124,18 @@ export default function DownloadAnyDesk() {
 
               <div className="sim-id-zone">
                 <span className="sim-id-scanline" aria-hidden="true" />
-                <span className="sim-id-example" aria-hidden="true">
-                  {activeTab === 'anydesk' ? 'XXX·XXX·XXX' : 'ID · XXXX'}
-                </span>
-                <span className="sim-id-note">
-                  Tu {activeTab === 'anydesk' ? 'ID' : 'ID y contraseña'} aparecerán aquí al abrir el programa
-                </span>
                 <span className="sim-id-badge-demo">
                   <Icon icon="mdi:eye-outline" />
                   Ejemplo ilustrativo
+                </span>
+                <span className="sim-id-app-label">
+                  {activeTab === 'anydesk' ? 'Este puesto de trabajo' : 'Su ID'}
+                </span>
+                <span className="sim-id-example" aria-hidden="true">
+                  {activeTab === 'anydesk' ? 'XXX · XXX · XXX' : 'XXXX XXXXXX'}
+                </span>
+                <span className="sim-id-note">
+                  Tu {activeTab === 'anydesk' ? 'ID' : 'ID y contraseña'} aparecerán aquí al abrir el programa
                 </span>
               </div>
 
