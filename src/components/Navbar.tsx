@@ -1,10 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Icon } from '@iconify/react';
-import { useCart } from '../context/CartContext';
 import './Navbar.css';
-
-const THEME_KEY = 'mk-theme';
 
 const links = [
   { to: '/', label: 'Inicio' },
@@ -23,19 +19,7 @@ export default function Navbar() {
   const [hidden, setHidden] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [theme, setTheme] = useState<'dark' | 'light'>(() =>
-    typeof document !== 'undefined' && document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark',
-  );
   const lastScroll = useRef(0);
-
-  const toggleTheme = () => {
-    const next = theme === 'dark' ? 'light' : 'dark';
-    setTheme(next);
-    document.documentElement.setAttribute('data-theme', next);
-    try {
-      localStorage.setItem(THEME_KEY, next);
-    } catch {}
-  };
 
   useEffect(() => {
     const onScroll = () => {
@@ -62,8 +46,6 @@ export default function Navbar() {
   useEffect(() => {
     setMenuOpen(false);
   }, [pathname]);
-
-  const { openCart, totalItems } = useCart();
 
   const isActive = (to: string) => !to.includes('#') && pathname === to;
   const navClass = `navbar${scrolled ? ' scrolled' : ''}${hidden ? ' hidden' : ''}`;
@@ -119,24 +101,6 @@ export default function Navbar() {
 
           <div className="nav-links">
             {links.map((l) => renderLink(l.to, l.label, false))}
-            <button
-              className="cart-btn"
-              onClick={openCart}
-              aria-label={`Carrito de compras (${totalItems} productos)`}
-            >
-              <Icon icon="mdi:cart" />
-              {totalItems > 0 && (
-                <span className="cart-badge">{totalItems > 99 ? '99+' : totalItems}</span>
-              )}
-            </button>
-            <button
-              className="theme-toggle"
-              onClick={toggleTheme}
-              aria-label={theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'}
-              title={theme === 'dark' ? 'Modo claro' : 'Modo oscuro'}
-            >
-              <Icon icon={theme === 'dark' ? 'mdi:weather-sunny' : 'mdi:weather-night'} />
-            </button>
             <a href="https://wa.me/50581088124" target="_blank" rel="noopener noreferrer" className="btn-primary nav-cta">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
@@ -156,10 +120,6 @@ export default function Navbar() {
             </svg>
             Escríbenos
           </a>
-          <button className="theme-toggle overlay-theme-toggle" onClick={toggleTheme}>
-            <Icon icon={theme === 'dark' ? 'mdi:weather-sunny' : 'mdi:weather-night'} />
-            {theme === 'dark' ? 'Modo claro' : 'Modo oscuro'}
-          </button>
         </div>
       </div>
     </>
