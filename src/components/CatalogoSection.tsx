@@ -43,21 +43,43 @@ return (
             </p>
 
             <div className="hero-trust reveal reveal-up stagger-4">
-              <div className="trust-item">
-                <Icon icon="mdi:shield-check" />
-                Licencias originales
-              </div>
-              <div className="trust-item">
-                <Icon icon="mdi:download-circle" />
-                Descarga inmediata
-              </div>
-              <div className="trust-item">
-                <Icon icon="mdi:credit-card" />
-                Pago seguro
-              </div>
-              <div className="trust-item">
-                <Icon icon="mdi:headset" />
-                Soporte incluido
+              <div className="trust-grid">
+                <div className="trust-card">
+                  <div className="trust-icon">
+                    <Icon icon="mdi:shield-check" />
+                  </div>
+                  <div className="trust-content">
+                    <h4>Licencias originales</h4>
+                    <p>Software genuino con activación oficial</p>
+                  </div>
+                </div>
+                <div className="trust-card">
+                  <div className="trust-icon">
+                    <Icon icon="mdi:download-circle" />
+                  </div>
+                  <div className="trust-content">
+                    <h4>Descarga inmediata</h4>
+                    <p>Acceso instantáneo tras el pago</p>
+                  </div>
+                </div>
+                <div className="trust-card">
+                  <div className="trust-icon">
+                    <Icon icon="mdi:credit-card" />
+                  </div>
+                  <div className="trust-content">
+                    <h4>Pago seguro</h4>
+                    <p>Transferencia bancaria o PayPal</p>
+                  </div>
+                </div>
+                <div className="trust-card">
+                  <div className="trust-icon">
+                    <Icon icon="mdi:headset" />
+                  </div>
+                  <div className="trust-content">
+                    <h4>Soporte incluido</h4>
+                    <p>Instalación remota y ayuda técnica</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
