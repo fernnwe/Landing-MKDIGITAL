@@ -38,7 +38,7 @@ export default function CartSidebar() {
     msg += `\nTotal: ${formatCordoba(subtotal)} (${formatUSD(subtotal)})`;
     msg += `\n\n--- Datos del cliente ---`;
     msg += `\nNombre: ${clientName}`;
-    msg += `\nBanco para depósito: ${bankAccount.toUpperCase()}`;
+    msg += `\nBanco para transferencia: ${bankAccount.toUpperCase()}`;
     return encodeURIComponent(msg);
   };
 
@@ -182,7 +182,7 @@ export default function CartSidebar() {
                   />
                 </div>
                 <div className="form-group">
-                  <label>Tipo de cuenta para depósito <span className="required">*</span></label>
+                  <label>Banco para transferencia <span className="required">*</span></label>
                   <div className="bank-options" role="radiogroup" aria-label="Selecciona tu banco">
                     {BANK_OPTIONS.map((bank) => (
                       <label key={bank.id} className={`bank-option${bankAccount === bank.id ? ' selected' : ''}`}>
