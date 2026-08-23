@@ -14,17 +14,18 @@ function formatUSD(n: number): string {
   return '$' + (n / TASA).toFixed(2);
 }
 
-const BANK_OPTIONS = [
-  { id: 'banpro', name: 'BANPRO', icon: 'mdi:bank' },
-  { id: 'bac', name: 'BAC', icon: 'mdi:bank' },
-  { id: 'lafise', name: 'LAFISE', icon: 'mdi:bank' },
+const PAYMENT_OPTIONS = [
+  { id: 'banpro', name: 'BANPRO', icon: 'mdi:bank', type: 'bank' },
+  { id: 'bac', name: 'BAC', icon: 'mdi:bank', type: 'bank' },
+  { id: 'lafise', name: 'LAFISE', icon: 'mdi:bank', type: 'bank' },
+  { id: 'paypal', name: 'PayPal', icon: 'simple-icons:paypal', type: 'paypal', link: 'https://www.paypal.me/FernandoAguirreC' },
 ];
 
 export default function CartSidebar() {
   const { items, isOpen, closeCart, removeItem, updateQuantity, clearCart, subtotal, totalItems } = useCart();
   const [step, setStep] = useState<'cart' | 'client-data'>('cart');
   const [clientName, setClientName] = useState('');
-  const [bankAccount, setBankAccount] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState('');
 
   if (!isOpen) return null;
 
@@ -38,7 +39,7 @@ export default function CartSidebar() {
     msg += `\nTotal: ${formatCordoba(subtotal)} (${formatUSD(subtotal)})`;
     msg += `\n\n--- Datos del cliente ---`;
     msg += `\nNombre: ${clientName}`;
-    msg += `\nBanco para transferencia: ${bankAccount.toUpperCase()}`;
+    msg += `\nMétodo de pago: ${paymentMethod.toUpperCase()}`;
     return encodeURIComponent(msg);
   };
 
@@ -49,7 +50,7 @@ export default function CartSidebar() {
       return;
     }
     if (step === 'client-data') {
-      if (!clientName.trim() || !bankAccount) {
+      if (!clientName.trim() || !paymentMethod) {
         alert('Por favor completa todos los campos');
         return;
       }
@@ -182,20 +183,20 @@ export default function CartSidebar() {
                   />
                 </div>
                 <div className="form-group">
-                  <label>Banco para transferencia <span className="required">*</span></label>
-                  <div className="bank-options" role="radiogroup" aria-label="Selecciona tu banco">
-                    {BANK_OPTIONS.map((bank) => (
-                      <label key={bank.id} className={`bank-option${bankAccount === bank.id ? ' selected' : ''}`}>
+                  <label>Método de pago <span className="required">*</span></label>
+                  <div className="bank-options" role="radiogroup" aria-label="Selecciona método de pago">
+                    {PAYMENT_OPTIONS.map((method) => (
+                      <label key={method.id} className={`bank-option${paymentMethod === method.id ? ' selected' : ''}`}>
                         <input
                           type="radio"
-                          name="bankAccount"
-                          value={bank.id}
-                          checked={bankAccount === bank.id}
-                          onChange={() => setBankAccount(bank.id)}
+                          name="paymentMethod"
+                          value={method.id}
+                          checked={paymentMethod === method.id}
+                          onChange={() => setPaymentMethod(method.id)}
                         />
                         <div className="bank-option-content">
-                          <Icon icon={bank.icon} style={{ width: 24, height: 24 }} />
-                          <span>{bank.name}</span>
+                          <Icon icon={method.icon} style={{ width: 24, height: 24 }} />
+                          <span>{method.name}</span>
                         </div>
                         <div className="bank-radio" />
                       </label>
