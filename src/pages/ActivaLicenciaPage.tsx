@@ -60,9 +60,7 @@ const mcafee: Product = {
   btnRevealedText: 'Listo',
   licenseLabel: 'Códigos de activación McAfee',
   licenseItems: [
-    { key: 'CY35V-F79TY-5PRR5-54SPM-A2DA2' },
     { product: '3 dispositivos', productColor: '#CF0A2C', key: 'S447V-HPAD2-926H9-49FLD-APMP4' },
-    { key: 'AJX32-7AV9K-UC96Y-U6GDN-AP6M2' },
     { key: 'AKF5Z-2R346-2N2EP-55EWX-APHAP' },
   ],
   copyLabel: 'Copiar código',
@@ -96,8 +94,6 @@ const avast: Product = {
   btnRevealedText: 'Listo',
   licenseLabel: 'Código de activación Avast',
   licenseItems: [
-    { key: 'U8TJST-VHHCQ2-4Z448J' },
-    { key: 'QTULFA-FCQLW2-54UCFW' },
     { key: 'ES8769-KXH4E2-45LDY6' },
   ],
   copyLabel: 'Copiar código',
