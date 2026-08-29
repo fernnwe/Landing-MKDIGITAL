@@ -3,9 +3,13 @@ import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const EXCHANGE_RATE = 36.5;
+const EXCHANGE_RATE = 37; // TASA = 37 (1 USD = C$37)
 const TIENDA_URL = 'https://softkeypc.com/tienda/';
 const OUTPUT = resolve(__dirname, '..', 'src', 'data', 'prices.ts');
+
+// Note: softkeypc.com now loads prices dynamically via JavaScript.
+// The original HTML parsing approach no longer works.
+// Prices in productos.ts are manually maintained with markup applied.
 
 const markupForPrice = (usd) => {
   if (usd < 30) return 5;
