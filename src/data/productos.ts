@@ -260,6 +260,17 @@ const productosBase: Producto[] = [
     url: "/mkfarma"
   },
   {
+    id: "dentalPro",
+    nombre: "DentalPro - Gestión de clinicas dentales",
+    precio: "C$5,500",
+    categoria: "clinicas dentales",
+    iconoId: "mdi:tooth-outline",
+    iconoColor: "#00A896",
+    badge: "own",
+    descripcion: "Control de inventario, ventas, facturación, clientes, proveedores y fechas de vencimiento",
+    url: "/mkfarma"
+  },
+  {
     id: "office2019",
     nombre: "Office 2019 Pro Plus",
     precio: "C$400",
@@ -272,8 +283,10 @@ const productosBase: Producto[] = [
   },
   {
     id: "office365",
-    nombre: "Office 365 Pro Plus (5 Disp)",
-    precio: "C$500",
+    nombre: "Office 365 - Activación mediante cmd",
+    precio: "C$400",
+    old: "600",
+    off: "20%",
     categoria: "microsoft",
     iconoId: "mdi:microsoft-office",
     iconoColor: "#D83B01",
