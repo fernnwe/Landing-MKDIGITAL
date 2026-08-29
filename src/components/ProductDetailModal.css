@@ -1,0 +1,355 @@
+/* =============================================
+   PRODUCT DETAIL MODAL
+   ============================================= */
+
+.pdm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: pdm-fade 0.2s ease;
+}
+
+@keyframes pdm-fade {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.pdm-modal {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: linear-gradient(160deg, var(--surface-container-high), var(--surface-container));
+  border: 1px solid var(--outline-variant);
+  border-radius: 20px;
+  box-shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.6);
+  animation: pdm-pop 0.25s cubic-bezier(0.2, 0, 0, 1);
+}
+
+@keyframes pdm-pop {
+  from { transform: translateY(16px) scale(0.97); opacity: 0; }
+  to { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+.pdm-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 5;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid var(--outline-variant);
+  background: var(--surface-container);
+  color: var(--on-surface-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.pdm-close svg { width: 20px; height: 20px; }
+.pdm-close:hover {
+  border-color: var(--primary);
+  color: var(--primary-bright);
+  transform: rotate(90deg);
+}
+
+.pdm-header {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 26px 26px 18px;
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.pdm-icon {
+  flex-shrink: 0;
+  width: 84px;
+  height: 84px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 30px -8px rgba(0, 0, 0, 0.4);
+}
+
+.pdm-title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.pdm-cat {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--primary-bright);
+}
+
+.pdm-title {
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--on-surface);
+  letter-spacing: -0.02em;
+}
+
+.pdm-off {
+  align-self: flex-start;
+  background: linear-gradient(135deg, #F97316, #EF4444);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 9999px;
+}
+
+.pdm-body {
+  padding: 20px 26px;
+}
+
+.pdm-detail {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--on-surface-variant);
+}
+
+.pdm-apps {
+  margin-top: 22px;
+  background: rgba(6, 182, 212, 0.05);
+  border: 1px solid var(--outline-variant);
+  border-radius: 14px;
+  padding: 18px;
+}
+
+.pdm-apps-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+.pdm-apps-header h3 {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--on-surface);
+}
+
+.pdm-apps-count {
+  font-size: 12px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--primary-bright);
+  white-space: nowrap;
+}
+
+.pdm-apps-hint {
+  font-size: 12.5px;
+  color: var(--on-surface-variant);
+  margin-bottom: 14px;
+}
+
+.pdm-apps-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 10px;
+}
+
+.pdm-app {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1.5px solid var(--outline-variant);
+  background: var(--surface-container);
+  color: var(--on-surface-variant);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  text-align: left;
+}
+
+.pdm-app-check {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 1.5px solid var(--outline-variant);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background: transparent;
+  transition: all 0.18s ease;
+}
+.pdm-app-check svg { width: 14px; height: 14px; color: #fff; opacity: 0; }
+
+.pdm-app:hover {
+  border-color: var(--primary);
+  color: var(--on-surface);
+}
+
+.pdm-app.selected {
+  border-color: var(--primary);
+  background: rgba(6, 182, 212, 0.1);
+  color: var(--on-surface);
+}
+.pdm-app.selected .pdm-app-check {
+  background: linear-gradient(135deg, var(--primary), #0891B2);
+  border-color: var(--primary);
+}
+.pdm-app.selected .pdm-app-check svg { opacity: 1; }
+
+.pdm-app.disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.pdm-app.disabled:hover {
+  border-color: var(--outline-variant);
+  color: var(--on-surface-variant);
+}
+
+.pdm-includes {
+  background: rgba(6, 182, 212, 0.05);
+}
+.pdm-includes h3 { font-size: 14px; font-weight: 700; margin-bottom: 10px; color: var(--on-surface); }
+.pdm-includes-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pdm-includes-list li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--on-surface-variant);
+}
+.pdm-includes-list svg { width: 16px; height: 16px; color: var(--primary-bright); }
+
+.pdm-footer {
+  padding: 18px 26px 24px;
+  border-top: 1px solid var(--outline-variant);
+}
+
+.pdm-pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.pdm-old {
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.pdm-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.pdm-price {
+  font-size: 28px;
+  font-weight: 800;
+  font-family: var(--font-display);
+  background: linear-gradient(135deg, var(--primary-bright) 0%, var(--primary) 50%, #0891B2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+
+.pdm-usd {
+  font-size: 13.5px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  color: var(--on-surface-variant);
+  opacity: 0.7;
+}
+
+.pdm-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.pdm-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex: 1;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+.pdm-btn svg { width: 20px; height: 20px; }
+
+.pdm-btn-wa {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.25);
+}
+.pdm-btn-wa:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+}
+
+.pdm-btn-cart {
+  background: linear-gradient(135deg, var(--primary) 0%, #0891B2 100%);
+  color: var(--on-primary);
+  box-shadow: 0 4px 16px rgba(6, 182, 212, 0.25);
+}
+.pdm-btn-cart:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(6, 182, 212, 0.4);
+}
+.pdm-btn-cart:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .pdm-modal { max-height: 92vh; }
+  .pdm-header { padding: 22px 20px 16px; }
+  .pdm-icon { width: 68px; height: 68px; }
+  .pdm-icon svg { width: 42px !important; height: 42px !important; }
+  .pdm-body, .pdm-footer { padding-left: 20px; padding-right: 20px; }
+  .pdm-apps-grid { grid-template-columns: 1fr 1fr; }
+  .pdm-title { font-size: 18px; }
+  .pdm-actions { flex-direction: column; }
+}
+
+/* Light theme */
+html[data-theme='light'] .pdm-modal {
+  background: linear-gradient(160deg, #ffffff, #F7F9FC);
+  box-shadow: 0 30px 80px -20px rgba(15, 23, 42, 0.25);
+}
+html[data-theme='light'] .pdm-app { background: #fff; }
+html[data-theme='light'] .pdm-app.selected { background: rgba(6, 182, 212, 0.08); }
+html[data-theme='light'] .pdm-apps,
+html[data-theme='light'] .pdm-includes { background: rgba(6, 182, 212, 0.04); }

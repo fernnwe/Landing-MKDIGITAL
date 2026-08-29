@@ -12,7 +12,23 @@ export interface Producto {
   badge?: "top" | "own";
   descripcion: string;
   url?: string;
+  detalle?: string;
+  apps?: string[];
+  appsSelect?: number;
 }
+
+export const APPS_ADOBE = [
+  'Photoshop',
+  'Illustrator',
+  'Premiere Pro',
+  'After Effects',
+  'Lightroom',
+  'InDesign',
+  'Dreamweaver',
+  'Animate',
+  'Audition',
+  'Acrobat DC',
+];
 
 export interface Categoria {
   id: string;
@@ -45,7 +61,8 @@ const productosBase: Producto[] = [
     iconoId: "mdi:microsoft-office",
     iconoColor: "#D83B01",
     badge: "top",
-    descripcion: "Word, Excel, PowerPoint, Outlook y más"
+    descripcion: "Word, Excel, PowerPoint, Outlook y más",
+    detalle: "La suite de ofimática más usada del mundo con licencia permanente (no requiere renovación). Incluye Word para documentos, Excel para hojas de cálculo, PowerPoint para presentaciones, Outlook para correo y OneNote. Compatible con Windows 10 y 11."
   },
   {
     id: "office2021",
@@ -56,7 +73,8 @@ const productosBase: Producto[] = [
     categoria: "microsoft",
     iconoId: "mdi:microsoft-office",
     iconoColor: "#D83B01",
-    descripcion: "Word, Excel, PowerPoint, Outlook y más"
+    descripcion: "Word, Excel, PowerPoint, Outlook y más",
+    detalle: "Suite de ofimática completa con licencia permanente. Incluye Word, Excel, PowerPoint, Outlook y OneNote. Perfecta para estudiantes, oficinas y uso personal en Windows 10 y 11."
   },
   {
     id: "win10",
@@ -67,7 +85,8 @@ const productosBase: Producto[] = [
     categoria: "microsoft",
     iconoId: "mdi:microsoft-windows",
     iconoColor: "#00A4EF",
-    descripcion: "Licencia digital con activación permanente"
+    descripcion: "Licencia digital con activación permanente",
+    detalle: "Sistema operativo de Microsoft con licencia digital y activación permanente. Edición Pro para equipos y negocios: incluye BitLocker, Escritorio remoto, Hyper-V y unión a dominio."
   },
   {
     id: "win11",
@@ -78,7 +97,8 @@ const productosBase: Producto[] = [
     categoria: "microsoft",
     iconoId: "mdi:microsoft-windows",
     iconoColor: "#00A4EF",
-    descripcion: "Licencia digital con activación permanente"
+    descripcion: "Licencia digital con activación permanente",
+    detalle: "La última versión del sistema operativo de Microsoft con licencia digital y activación permanente. Edición Pro con funciones avanzadas de seguridad, virtualización y productividad."
   },
   {
     id: "adobe3",
@@ -90,7 +110,10 @@ const productosBase: Producto[] = [
     iconoId: "simple-icons:adobe",
     iconoColor: "#FF0000",
     badge: "top",
-    descripcion: "Photoshop, Illustrator, Premiere"
+    descripcion: "Photoshop, Illustrator, Premiere",
+    detalle: "Paquete de licencias para instalar 3 programas de Adobe a tu elección. Ideal para diseño gráfico, edición de fotos y video. Elige 3 apps del listado según lo que necesites.",
+    appsSelect: 3,
+    apps: ["Photoshop", "Illustrator", "Premiere Pro"]
   },
   {
     id: "adobe7",
@@ -101,7 +124,10 @@ const productosBase: Producto[] = [
     categoria: "adobe",
     iconoId: "simple-icons:adobe",
     iconoColor: "#FF0000",
-    descripcion: "Suite completa de Adobe Creative Cloud"
+    descripcion: "Suite completa de Adobe Creative Cloud",
+    detalle: "Paquete de licencias para instalar 7 programas de Adobe a tu elección. La solución completa para diseño, edición, video y fotografía. Elige 7 apps del listado según lo que necesites.",
+    appsSelect: 7,
+    apps: ["Photoshop", "Illustrator", "Premiere Pro", "After Effects", "Lightroom", "InDesign", "Acrobat DC"]
   },
   {
     id: "creativecloud",
@@ -111,7 +137,9 @@ const productosBase: Producto[] = [
     iconoId: "simple-icons:adobecreativecloud",
     iconoColor: "#FF0000",
     badge: "top",
-    descripcion: "1 mes C$1,295 · 3 meses C$1,850 · 6 meses C$3,330 · 12 meses C$7,030"
+    descripcion: "1 mes C$1,295 · 3 meses C$1,850 · 6 meses C$3,330 · 12 meses C$7,030",
+    detalle: "Toda la suite Adobe Creative Cloud con acceso a todas las apps: Photoshop, Illustrator, Premiere, After Effects, Lightroom y más. Suscripción con varios planes de duración.",
+    apps: APPS_ADOBE
   },
   {
     id: "acrobat",
@@ -122,7 +150,8 @@ const productosBase: Producto[] = [
     categoria: "adobe",
     iconoId: "simple-icons:adobe",
     iconoColor: "#FF0000",
-    descripcion: "Suscripción anual · Editor PDF profesional"
+    descripcion: "Suscripción anual · Editor PDF profesional",
+    detalle: "El editor PDF profesional de Adobe. Crea, edita, convierte y firma documentos PDF con herramientas avanzadas de OCR, combinación de archivos y protección por contraseña."
   },
   {
     id: "acrobat2020perm",
@@ -134,7 +163,8 @@ const productosBase: Producto[] = [
     iconoId: "simple-icons:adobe",
     iconoColor: "#FF0000",
     badge: "top",
-    descripcion: "Licencia permanente · Editor PDF profesional"
+    descripcion: "Licencia permanente · Editor PDF profesional",
+    detalle: "Editor PDF profesional de Adobe con licencia permanente (no requiere renovación). Crea, edita, convierte y firma documentos PDF con herramientas avanzadas de OCR y protección."
   },
   {
     id: "coreldraw",
@@ -145,7 +175,8 @@ const productosBase: Producto[] = [
     categoria: "adobe",
     iconoId: "simple-icons:coreldraw",
     iconoColor: "#47A84B",
-    descripcion: "Diseño gráfico profesional · Vector, ilustración y maquetación"
+    descripcion: "Diseño gráfico profesional · Vector, ilustración y maquetación",
+    detalle: "Software profesional de diseño gráfico para crear ilustraciones vectoriales, logotipos, maquetas y materiales de imprenta. La alternativa líder a Illustrator con herramientas de edición de fotos."
   },
   {
     id: "autocad",
@@ -157,7 +188,8 @@ const productosBase: Producto[] = [
     iconoId: "simple-icons:autodesk",
     iconoColor: "#E51050",
     badge: "top",
-    descripcion: "Diseño y dibujo asistido por computadora"
+    descripcion: "Diseño y dibujo asistido por computadora",
+    detalle: "El software líder mundial de CAD (diseño asistido por computadora). Crea planos 2D y modelos 3D precisos para arquitectura, ingeniería y construcción."
   },
   {
     id: "revit",
@@ -168,7 +200,8 @@ const productosBase: Producto[] = [
     categoria: "autodesk",
     iconoId: "simple-icons:autodesk",
     iconoColor: "#E51050",
-    descripcion: "Modelado de información para construcción"
+    descripcion: "Modelado de información para construcción",
+    detalle: "Software BIM (Modelado de Información para la Construcción). Diseña edificios y estructuras en 3D con documentación automática, ideal para arquitectos e ingenieros civiles."
   },
   {
     id: "avast",
@@ -180,7 +213,8 @@ const productosBase: Producto[] = [
     iconoId: "simple-icons:avast",
     iconoColor: "#FF7800",
     badge: "top",
-    descripcion: "12 meses · Protección completa contra malware y ransomware"
+    descripcion: "12 meses · Protección completa contra malware y ransomware",
+    detalle: "Antivirus premium con licencia de 12 meses. Protege tu equipo en tiempo real contra malware, ransomware, phishing y amenazas web. Incluye firewall, protección de correo y VPN."
   },
   {
     id: "mcafee",
@@ -191,7 +225,8 @@ const productosBase: Producto[] = [
     categoria: "seguridad",
     iconoId: "simple-icons:mcafee",
     iconoColor: "#C01818",
-    descripcion: "Protección completa contra amenazas y virus"
+    descripcion: "Protección completa contra amenazas y virus",
+    detalle: "Antivirus de McAfee con protección en tiempo real contra virus, malware y amenazas online. Incluye firewall y protección de navegación web para mantener seguro tu equipo."
   },
   {
     id: "eset",
@@ -201,7 +236,8 @@ const productosBase: Producto[] = [
     iconoId: "mdi:shield-check",
     iconoColor: "#00A64E",
     badge: "top",
-    descripcion: "1 dispositivo · 1 año · Antivirus ligero y eficaz"
+    descripcion: "1 dispositivo · 1 año · Antivirus ligero y eficaz",
+    detalle: "Antivirus ESET NOD32 con licencia de 1 año para 1 dispositivo. Muy ligero y rápido, detecta y bloquea virus, malware y ransomware sin ralentizar tu equipo."
   },
   {
     id: "kaspersky",
@@ -211,7 +247,8 @@ const productosBase: Producto[] = [
     iconoId: "simple-icons:kaspersky",
     iconoColor: "#00A65E",
     badge: "top",
-    descripcion: "1 dispositivo · 1 año · Protección avanzada contra malware"
+    descripcion: "1 dispositivo · 1 año · Protección avanzada contra malware",
+    detalle: "Antivirus Kaspersky con licencia de 1 año para 1 dispositivo. Protección avanzada contra malware, ransomware y amenazas en tiempo real, reconocido mundialmente por su eficacia."
   },
   {
     id: "factulite",
@@ -223,7 +260,8 @@ const productosBase: Producto[] = [
     iconoId: "mdi:cellphone",
     iconoColor: "#818CF8",
     badge: "own",
-    descripcion: "App de facturación para emprendedores"
+    descripcion: "App de facturación para emprendedores",
+    detalle: "Aplicación móvil de facturación pensada para emprendedores y pequeños negocios. Permite crear facturas, controlar ventas e inventario desde tu celular Android de forma sencilla."
   },
   {
     id: "viperpos",
@@ -234,7 +272,8 @@ const productosBase: Producto[] = [
     iconoId: "mdi:web",
     iconoColor: "#818CF8",
     badge: "own",
-    descripcion: "Sistema profesional de facturación e inventario"
+    descripcion: "Sistema profesional de facturación e inventario",
+    detalle: "Sistema de facturación e inventario profesional accesible desde el navegador web. Gestiona ventas, stock, clientes y reportes desde cualquier dispositivo con conexión a internet."
   },
   {
     id: "facturacionwin",
@@ -246,7 +285,8 @@ const productosBase: Producto[] = [
     iconoId: "mdi:monitor-dashboard",
     iconoColor: "#818CF8",
     badge: "top",
-    descripcion: "Software de facturación para escritorio"
+    descripcion: "Software de facturación para escritorio",
+    detalle: "Software de facturación profesional para Windows. Emite facturas, maneja inventario, clientes, proveedores y genera reportes, instalado directamente en tu computadora."
   },
 
   {
@@ -258,6 +298,7 @@ const productosBase: Producto[] = [
     iconoColor: "#22D3EE",
     badge: "own",
     descripcion: "Control de inventario, ventas, facturación, clientes, proveedores y fechas de vencimiento",
+    detalle: "Sistema completo de gestión para farmacias desarrollado por MKDIGITAL. Controla inventario, ventas, facturación, clientes, proveedores y alertas de fechas de vencimiento de medicamentos.",
     url: "/mkfarma"
   },
   {
@@ -269,6 +310,7 @@ const productosBase: Producto[] = [
     iconoColor: "#00A896",
     badge: "own",
     descripcion: "Gestión integral para tu clínica dental: pacientes, odontograma 2D/3D, citas con recordatorios por WhatsApp, pagos y reportes",
+    detalle: "Sistema integral para clínicas dentales de MKDIGITAL. Gestiona pacientes, odontograma 2D y 3D, citas con recordatorios automáticos por WhatsApp, pagos e historial clínico.",
     url: "/dentalpro"
   },
   {
@@ -280,7 +322,8 @@ const productosBase: Producto[] = [
     categoria: "microsoft",
     iconoId: "mdi:microsoft-office",
     iconoColor: "#D83B01",
-    descripcion: "Word, Excel, PowerPoint, Outlook y más"
+    descripcion: "Word, Excel, PowerPoint, Outlook y más",
+    detalle: "Suite ofimática de Microsoft con licencia permanente para Windows. Incluye Word, Excel, PowerPoint y Outlook para tus tareas diarias."
   },
   {
     id: "office365",
@@ -291,7 +334,8 @@ const productosBase: Producto[] = [
     categoria: "microsoft",
     iconoId: "mdi:microsoft-office",
     iconoColor: "#D83B01",
-    descripcion: "Suscripción · 5 dispositivos"
+    descripcion: "Suscripción · 5 dispositivos",
+    detalle: "Suscripción de Office 365 con activación mediante línea de comandos (CMD). Válida para 5 dispositivos con acceso a Word, Excel, PowerPoint y Outlook con actualizaciones continuas."
   },
   {
     id: "winserver2019",

@@ -1,7 +1,8 @@
 import { useMemo, useState } from 'react';
 import { Icon } from '@iconify/react';
-import { productos, categorias } from '../data/productos';
+import { productos, categorias, type Producto } from '../data/productos';
 import ProductCard from './ProductCard';
+import ProductDetailModal from './ProductDetailModal';
 import CurrencyConverter from './CurrencyConverter';
 import CartSidebar from './CartSidebar';
 import './CatalogoSection.css';
@@ -9,6 +10,7 @@ import './CatalogoSection.css';
 export default function CatalogoSection() {
   const [query, setQuery] = useState('');
   const [filter, setFilter] = useState('all');
+  const [detailProduct, setDetailProduct] = useState<Producto | null>(null);
 
   const q = query.trim().toLowerCase();
 
@@ -25,6 +27,9 @@ export default function CatalogoSection() {
 return (
       <section className="catalogo" id="catalogo">
         <CartSidebar />
+        {detailProduct && (
+          <ProductDetailModal producto={detailProduct} onClose={() => setDetailProduct(null)} />
+        )}
         <div className="catalogo-hero">
           <div className="catalogo-hero-bg">
             <div className="hero-orb orb-1"></div>
@@ -163,7 +168,7 @@ return (
                           className="product-wrapper"
                           style={show ? undefined : { display: 'none' }}
                         >
-                          <ProductCard producto={p} />
+                          <ProductCard producto={p} onOpenDetail={() => setDetailProduct(p)} />
                         </div>
                       );
                     })}

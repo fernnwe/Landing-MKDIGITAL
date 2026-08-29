@@ -22,7 +22,7 @@ function precioUSDSimple(n: number): string {
   return '$' + (n / TASA).toFixed(2);
 }
 
-export default function ProductCard({ producto: p }: { producto: Producto }) {
+export default function ProductCard({ producto: p, onOpenDetail }: { producto: Producto; onOpenDetail?: () => void }) {
   const { addItem } = useCart();
   const cat = categorias.find((c) => c.id === p.categoria)!;
   const pCordoba = p.precio;
@@ -31,11 +31,33 @@ export default function ProductCard({ producto: p }: { producto: Producto }) {
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
+    if ((p.appsSelect !== undefined || p.apps) && onOpenDetail) {
+      onOpenDetail();
+      return;
+    }
     addItem(p);
   };
 
+  const handleWhatsApp = (e: React.MouseEvent) => {
+    e.stopPropagation();
+  };
+
   return (
-    <div className="product-card" data-categoria={p.categoria} data-nombre={p.nombre.toLowerCase()}>
+    <div
+      className="product-card"
+      data-categoria={p.categoria}
+      data-nombre={p.nombre.toLowerCase()}
+      onClick={onOpenDetail}
+      role="button"
+      tabIndex={0}
+      onKeyDown={(e) => {
+        if ((e.key === 'Enter' || e.key === ' ') && onOpenDetail) {
+          e.preventDefault();
+          onOpenDetail();
+        }
+      }}
+      style={{ cursor: 'pointer' }}
+    >
       {p.off && <span className="badge-discount">-{p.off}</span>}
       {p.badge === 'own' && (
         <span className="badge-own">
@@ -70,7 +92,14 @@ export default function ProductCard({ producto: p }: { producto: Producto }) {
 
           <div className="card-actions">
             {p.url && (
-              <a href={p.url} target="_blank" className="card-btn card-btn-demo">
+              <a
+                href={p.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={(e) => e.stopPropagation()}
+                className="card-btn card-btn-demo"
+                aria-label={`Ver más sobre ${p.nombre}`}
+              >
                 <Icon icon="mdi:eye-outline" color="#FFFFFF" />
               </a>
             )}
@@ -84,6 +113,8 @@ export default function ProductCard({ producto: p }: { producto: Producto }) {
             <a
               href={`https://wa.me/50581088124?text=${encodeURIComponent(`Hola, quiero información sobre ${p.nombre}`)}`}
               target="_blank"
+              rel="noopener noreferrer"
+              onClick={handleWhatsApp}
               className="card-btn card-btn-wa"
             >
               <Icon icon="simple-icons:whatsapp" />

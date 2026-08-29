@@ -35,6 +35,9 @@ export default function CartSidebar() {
       const precioNum = parseFloat(item.producto.precio.replace(/[^0-9,]/g, '').replace(/,/g, ''));
       const lineTotal = isNaN(precioNum) ? 0 : precioNum * item.quantity;
       msg += `${i + 1}. ${item.producto.nombre} x${item.quantity} - ${formatCordoba(lineTotal)} (${formatUSD(lineTotal)})\n`;
+      if (item.apps && item.apps.length > 0) {
+        msg += `     Apps: ${item.apps.join(', ')}\n`;
+      }
     });
     msg += `\nTotal: ${formatCordoba(subtotal)} (${formatUSD(subtotal)})`;
     msg += `\n\n--- Datos del cliente ---`;
@@ -100,6 +103,9 @@ export default function CartSidebar() {
                           </div>
                           <div className="cart-item-details">
                             <h4 className="cart-item-name">{item.producto.nombre}</h4>
+                            {item.apps && item.apps.length > 0 && (
+                              <div className="cart-item-apps">Apps: {item.apps.join(', ')}</div>
+                            )}
                             <div className="cart-item-price">
                               <span className="cart-item-unit">{formatCordoba(lineTotal)}</span>
                               <span className="cart-item-usd">({formatUSD(lineTotal)})</span>
