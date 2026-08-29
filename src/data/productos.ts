@@ -31,6 +31,7 @@ export const categorias: Categoria[] = [
   { id: "facturacion", nombre: "Facturación", icono: "fa-solid fa-calculator", iconoId: "mdi:receipt-text", color: "#818CF8", bgGradient: "linear-gradient(135deg, #818CF8 0%, #6366F1 100%)" },
   { id: "restaurantes", nombre: "Restaurantes", icono: "fa-solid fa-utensils", iconoId: "mdi:silverware-variant", color: "#06B6D4", bgGradient: "linear-gradient(135deg, #06B6D4 0%, #0891B2 100%)" },
   { id: "farmacias", nombre: "Farmacias", icono: "fa-solid fa-prescription-bottle", iconoId: "mdi:medical-bag", color: "#22D3EE", bgGradient: "linear-gradient(135deg, #22D3EE 0%, #0891B2 100%)" },
+  { id: "clinicas dentales", nombre: "Clínicas dentales", icono: "fa-solid fa-tooth", iconoId: "mdi:tooth-outline", color: "#00A896", bgGradient: "linear-gradient(135deg, #00A896 0%, #00796B 100%)" },
 ];
 
 const productosBase: Producto[] = [
@@ -267,8 +268,8 @@ const productosBase: Producto[] = [
     iconoId: "mdi:tooth-outline",
     iconoColor: "#00A896",
     badge: "own",
-    descripcion: "Control de inventario, ventas, facturación, clientes, proveedores y fechas de vencimiento",
-    url: "/mkfarma"
+    descripcion: "Gestión integral para tu clínica dental: pacientes, odontograma 2D/3D, citas con recordatorios por WhatsApp, pagos y reportes",
+    url: "/dentalpro"
   },
   {
     id: "office2019",
