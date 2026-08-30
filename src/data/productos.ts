@@ -186,8 +186,8 @@ const productosBase: Producto[] = [
     iconoId: "simple-icons:adobecreativecloud",
     iconoColor: "#FF0000",
     badge: "top",
-    descripcion: "1 mes C$1,295 · 3 meses C$1,850 · 6 meses C$3,330 · 12 meses C$7,030",
-    detalle: "Toda la suite Adobe Creative Cloud con acceso a todas las apps: Photoshop, Illustrator, Premiere, After Effects, Lightroom y más. Suscripción con varios planes de duración.",
+    descripcion: "1 mes C$1,295 · 3 meses C$2,220 · 6 meses C$3,700 · 12 meses C$7,030 ($190 USD)",
+    detalle: "Toda la suite Adobe Creative Cloud con acceso a todas las apps: Photoshop, Illustrator, Premiere, After Effects, Lightroom y más. Suscripción con varios planes de duración. El envío de la licencia es de 1 a 3 días después de realizado el pago a nuestras cuentas correspondientes.",
     apps: APPS_ADOBE,
     requisitos: [
       "Windows 10 o Windows 11 (64 bits)",
