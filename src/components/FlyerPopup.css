@@ -85,7 +85,11 @@
 
 .flyer-header .badge {
   margin-bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
 }
+.flyer-header .badge svg { width: 14px; height: 14px; }
 
 .flyer-header h2 {
   font-size: clamp(24px, 4vw, 32px);
@@ -104,27 +108,97 @@
   position: relative;
 }
 
-.flyer-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  padding: 0 36px 28px;
+/* Ofertas concretas */
+.flyer-offers {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0 36px 8px;
 }
 
-.flyer-item {
+.flyer-offer {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 14px;
   padding: 12px 14px;
-  border-radius: 8px;
+  border-radius: 12px;
   background: var(--surface-container-high);
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--on-surface);
+  border: 1px solid var(--outline-variant);
+  position: relative;
+  overflow: hidden;
   transition: all 0.2s ease;
 }
-.flyer-item svg { width: 20px; height: 20px; min-width: 20px; }
+.flyer-offer:hover {
+  border-color: rgba(6, 182, 212, 0.4);
+  transform: translateX(4px);
+}
+
+.flyer-offer-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flyer-offer-info {
+  flex: 1;
+  min-width: 0;
+}
+.flyer-offer-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--on-surface);
+  line-height: 1.2;
+}
+.flyer-offer-desc {
+  display: block;
+  font-size: 11.5px;
+  color: var(--on-surface-variant);
+  margin-top: 2px;
+}
+
+.flyer-offer-price {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1px;
+  flex-shrink: 0;
+  padding-top: 22px;
+  padding-right: 12px;
+}
+.flyer-offer-old {
+  font-size: 11px;
+  color: var(--on-surface-variant);
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+.flyer-offer-now {
+  font-size: 17px;
+  font-weight: 800;
+  font-family: var(--font-display);
+  background: linear-gradient(135deg, var(--primary-bright), var(--primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1.1;
+}
+
+.flyer-offer-tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: linear-gradient(135deg, #F97316, #EF4444);
+  color: #fff;
+  font-size: 10.5px;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-bottom-left-radius: 8px;
+  letter-spacing: 0.5px;
+}
 
 .flyer-footer {
   padding: 20px 36px 32px;
@@ -201,9 +275,10 @@
 
 @media (max-width: 500px) {
   .flyer-header { padding: 32px 24px 20px; }
-  .flyer-grid { padding: 0 24px 24px; gap: 6px; }
-  .flyer-item { padding: 10px 12px; font-size: 12px; }
-  .flyer-item svg { width: 17px; height: 17px; min-width: 17px; }
+  .flyer-offers { padding: 0 24px 6px; gap: 8px; }
+  .flyer-offer { padding: 10px 12px; gap: 10px; }
+  .flyer-offer-icon { width: 40px; height: 40px; min-width: 40px; }
+  .flyer-offer-now { font-size: 15px; }
   .flyer-footer { padding: 16px 24px 28px; }
   .btn-primary { width: 100%; justify-content: center; }
   .flyer-contact { margin: 0 24px 16px; }

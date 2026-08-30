@@ -3,6 +3,36 @@ import { Link } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 import './FlyerPopup.css';
 
+const OFFERS = [
+  {
+    nombre: 'Microsoft Office 2024',
+    desc: 'Licencia permanente · Full',
+    precio: 'C$400',
+    old: 'C$720',
+    off: '40%',
+    icon: 'simple-icons:microsoftoffice',
+    color: '#D83B01',
+  },
+  {
+    nombre: 'Pack Adobe 7 Apps',
+    desc: 'Elige tus programas',
+    precio: 'C$2,000',
+    old: 'C$2,500',
+    off: '20%',
+    icon: 'simple-icons:adobe',
+    color: '#FF0000',
+  },
+  {
+    nombre: 'Windows 11 Pro',
+    desc: 'Licencia permanente',
+    precio: 'C$925',
+    old: 'C$1,340',
+    off: '20%',
+    icon: 'simple-icons:windows',
+    color: '#00A4EF',
+  },
+];
+
 export default function FlyerPopup() {
   const [hidden, setHidden] = useState(
     () => typeof sessionStorage !== 'undefined' && sessionStorage.getItem('flyer-shown') === '1',
@@ -35,42 +65,37 @@ export default function FlyerPopup() {
         </button>
 
         <div className="flyer-header">
-          <span className="badge">OFERTA DEL MES</span>
+          <span className="badge">
+            <Icon icon="mdi:fire" />
+            OFERTAS DEL MES
+          </span>
           <h2>
-            Programas para tu PC<br />
-            <span className="text-accent">al mejor precio</span>
+            Las mejores ofertas<br />
+            <span className="text-accent">de esta temporada</span>
           </h2>
           <p>
-            Office, Adobe, sistemas de facturación, sistemas web,
-            antivirus y más — todo 100% original con instalación remota incluida.
+            Software 100% original con instalación remota y soporte técnico
+            gratuito incluidos en cada compra.
           </p>
         </div>
 
-        <div className="flyer-grid">
-          <div className="flyer-item">
-            <Icon icon="simple-icons:microsoft" color="#00A4EF" />
-            <span>Office 2024 / 2021</span>
-          </div>
-          <div className="flyer-item">
-            <Icon icon="mdi:palette" color="#FF0000" />
-            <span>Adobe Creative Cloud</span>
-          </div>
-          <div className="flyer-item">
-            <Icon icon="mdi:file-document-outline" color="#818CF8" />
-            <span>Facturación Windows</span>
-          </div>
-          <div className="flyer-item">
-            <Icon icon="mdi:globe" color="#22D3EE" />
-            <span>Sistemas Web</span>
-          </div>
-          <div className="flyer-item">
-            <Icon icon="mdi:shield-half-full" color="#00C853" />
-            <span>Antivirus Premium</span>
-          </div>
-          <div className="flyer-item">
-            <Icon icon="simple-icons:windows" color="#00A4EF" />
-            <span>Windows Pro</span>
-          </div>
+        <div className="flyer-offers">
+          {OFFERS.map((o) => (
+            <div className="flyer-offer" key={o.nombre}>
+              <div className="flyer-offer-icon" style={{ background: `${o.color}18` }}>
+                <Icon icon={o.icon} color={o.color} style={{ width: 26, height: 26 }} />
+              </div>
+              <div className="flyer-offer-info">
+                <span className="flyer-offer-name">{o.nombre}</span>
+                <span className="flyer-offer-desc">{o.desc}</span>
+              </div>
+              <div className="flyer-offer-price">
+                <span className="flyer-offer-old">{o.old}</span>
+                <span className="flyer-offer-now">{o.precio}</span>
+              </div>
+              <span className="flyer-offer-tag">-{o.off}</span>
+            </div>
+          ))}
         </div>
 
         <div className="flyer-contact">
@@ -79,19 +104,19 @@ export default function FlyerPopup() {
             <strong>Ing. Fernando Aguirre</strong>
             <span>Asesor en software y soporte técnico</span>
           </div>
-          <a href="https://wa.me/50581088124" target="_blank" className="flyer-contact-wa">
+          <a href="https://wa.me/50581088124" target="_blank" rel="noopener noreferrer" className="flyer-contact-wa">
             <Icon icon="simple-icons:whatsapp" />
           </a>
         </div>
 
         <div className="flyer-footer">
           <Link to="/catalogo" className="btn-primary" onClick={dismiss}>
-            Ver catálogo completo
+            Ver todas las ofertas
             <Icon icon="mdi:arrow-right" />
           </Link>
           <p className="flyer-note">
             <Icon icon="mdi:clock-outline" />
-            Promociones válidas hasta fin de mes
+            Precios especiales válidos hasta fin de mes
           </p>
         </div>
       </div>
