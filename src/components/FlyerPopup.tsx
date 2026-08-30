@@ -74,8 +74,7 @@ export default function FlyerPopup() {
             <span className="text-accent">de esta temporada</span>
           </h2>
           <p>
-            Software 100% original con instalación remota y soporte técnico
-            gratuito incluidos en cada compra.
+            Instalación 100% remota, mediante AnyDesk o RustDesk
           </p>
         </div>
 
