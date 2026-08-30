@@ -619,6 +619,117 @@ const productosBase: Producto[] = [
     iconoColor: "#D83B01",
     descripcion: "Word, Excel, PowerPoint, Outlook"
   },
+  {
+    id: "office2024orig",
+    nombre: "Office 2024 Original",
+    precio: "C$925",
+    categoria: "microsoft",
+    iconoId: "mdi:microsoft-office",
+    iconoColor: "#D83B01",
+    badge: "top",
+    descripcion: "Licencia original y permanente · Word, Excel, PowerPoint y más",
+    detalle: "Licencia original y permanente de Microsoft Office 2024. Incluye Word, Excel, PowerPoint, Outlook y OneNote para siempre, sin renovaciones ni suscripciones. Licencia original verificada para uso personal y profesional en Windows 10 y 11.",
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits)",
+      "Procesador de 1.6 GHz o superior",
+      "4 GB de RAM (8 GB recomendados)",
+      "4 GB de espacio en disco",
+      "Resolución de pantalla 1280×768"
+    ]
+  },
+  {
+    id: "winactivate",
+    nombre: "Activación Windows 10 y 11 vía CMD",
+    precio: "C$400",
+    categoria: "microsoft",
+    iconoId: "mdi:microsoft-windows",
+    iconoColor: "#00A4EF",
+    descripcion: "Activación permanente mediante línea de comandos",
+    detalle: "Activación de Windows 10 o Windows 11 mediante línea de comandos (CMD). Activación permanente y segura realizada de forma remota. No requiere instalar programas adicionales en tu equipo.",
+    requisitos: ["Windows 10 o Windows 11", "Conexión a internet para activación"]
+  },
+  {
+    id: "coreldrawmac",
+    nombre: "CorelDRAW Graphics Suite para macOS",
+    precio: "C$850",
+    categoria: "adobe",
+    iconoId: "simple-icons:coreldraw",
+    iconoColor: "#47A84B",
+    badge: "top",
+    descripcion: "2025 o 2026 · Licencia de por vida · Diseño profesional para Mac",
+    detalle: "CorelDRAW Graphics Suite 2025 o 2026 para macOS con licencia de por vida. Diseño gráfico profesional con soporte nativo para Apple Silicon: ilustración vectorial, maquetación, edición de fotos y diseño para redes sociales. Elige la versión 2025 o 2026.",
+    requisitos: [
+      "macOS 12 o superior (Apple Silicon y Intel)",
+      "4 GB de RAM (8 GB recomendados)",
+      "2 GB de espacio en disco",
+      "Tarjeta gráfica con 1 GB de VRAM"
+    ]
+  },
+  {
+    id: "canvapro",
+    nombre: "Canva Pro",
+    precio: "C$720",
+    categoria: "adobe",
+    iconoId: "simple-icons:canva",
+    iconoColor: "#00C4CC",
+    descripcion: "1 año · Diseño ilimitado con herramientas premium",
+    detalle: "Canva Pro con licencia de 1 año. Accede a todas las plantillas premium, millones de recursos, herramientas de IA, redimensionamiento mágico, fondo transparente y exportación en alta calidad. Ideal para creadores de contenido y negocios.",
+    requisitos: ["Navegador web moderno (Chrome, Edge, Safari o Firefox)", "Conexión a internet", "Se entrega con tu cuenta o la activa en tu correo"]
+  },
+  {
+    id: "autodeskappcol",
+    nombre: "Autodesk App Collection",
+    precio: "C$1,500",
+    categoria: "autodesk",
+    iconoId: "simple-icons:autodesk",
+    iconoColor: "#E51050",
+    badge: "top",
+    descripcion: "1 año · Windows y macOS · Todo el ecosistema Autodesk",
+    detalle: "Autodesk App Collection con licencia de 1 año para Windows y macOS. Acceso a todo el portafolio de Autodesk: AutoCAD, Revit, Maya, 3ds Max, Inventor, Fusion y más con todas sus actualizaciones durante el año.",
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits) o macOS",
+      "8 GB de RAM (16 GB recomendados)",
+      "10 GB de espacio en disco (según producto)",
+      "Tarjeta gráfica con 4 GB de VRAM",
+      "Conexión a internet para activación"
+    ]
+  },
+  {
+    id: "lumion24",
+    nombre: "Lumion 24 Pro",
+    precio: "C$3,700",
+    categoria: "autodesk",
+    iconoId: "mdi:cube",
+    iconoColor: "#3B8EF2",
+    badge: "top",
+    descripcion: "Renderizado y visualización 3D profesional",
+    detalle: "Lumion 24 Pro, el software de visualización arquitectónica más rápido. Convierte tus modelos 3D (de Revit, SketchUp, AutoCAD y más) en renders y animaciones fotorrealistas en minutos. Este producto se entrega entre 1 a 3 días una vez realizado el pago.",
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits)",
+      "16 GB de RAM (32 GB recomendados)",
+      "25 GB de espacio en disco (SSD)",
+      "Tarjeta gráfica con 6 GB de VRAM (NVIDIA GeForce RTX o AMD Radeon)",
+      "Conexión a internet para activación"
+    ]
+  },
+  {
+    id: "autocadedu",
+    nombre: "AutoCAD EDU",
+    precio: "C$1,480",
+    categoria: "autodesk",
+    iconoId: "simple-icons:autodesk",
+    iconoColor: "#E51050",
+    descripcion: "Licencia educativa · Diseño asistido por computadora",
+    detalle: "AutoCAD en versión educativa (EDU) con licencia válida: crea planos 2D y modelos 3D precisos para arquitectura, ingeniería y construcción. Incluye todas las herramientas del AutoCAD estándar. Este producto se entrega entre 1 a 3 días una vez realizado el pago.",
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits)",
+      "Procesador de 3+ GHz o superior",
+      "8 GB de RAM (16 GB recomendados)",
+      "10 GB de espacio en disco",
+      "Tarjeta gráfica con 4 GB de VRAM",
+      "Conexión a internet para activación"
+    ]
+  },
 ];
 
 // Hardcoded products with price override from softkeypc
