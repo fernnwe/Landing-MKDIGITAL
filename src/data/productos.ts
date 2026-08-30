@@ -321,6 +321,42 @@ const productosBase: Producto[] = [
     requisitos: ["Windows 10 o Windows 11", "2 GB de RAM", "1.5 GB de espacio en disco", "Conexión a internet para activación"]
   },
   {
+    id: "mcafee3",
+    nombre: "McAfee AntiVirus - 3 años",
+    precio: "C$750",
+    categoria: "seguridad",
+    iconoId: "simple-icons:mcafee",
+    iconoColor: "#C01818",
+    descripcion: "Licencia de 3 años · Protección completa contra amenazas",
+    detalle: "Antivirus de McAfee con licencia de 3 años. Protección en tiempo real contra virus, malware, ransomware y amenazas online. Incluye firewall, protección de navegación web y actualizaciones incluidas durante toda la licencia.",
+    requisitos: ["Windows 10 o Windows 11", "2 GB de RAM", "1.5 GB de espacio en disco", "Conexión a internet para activación"]
+  },
+  {
+    id: "mcafee3dev",
+    nombre: "McAfee Total Protection 3 dispositivos",
+    precio: "C$980",
+    categoria: "seguridad",
+    iconoId: "simple-icons:mcafee",
+    iconoColor: "#C01818",
+    descripcion: "1 año · Hasta 3 dispositivos protegidos",
+    detalle: "McAfee Total Protection con licencia de 1 año para 3 dispositivos (PC, Mac, tablet o celular). Incluye antivirus en tiempo real, protección contra ransomware, VPN, gestor de contraseñas y protección de identidad para cada dispositivo.",
+    requisitos: ["Windows 10 o Windows 11 o macOS", "2 GB de RAM", "1.5 GB de espacio en disco", "Conexión a internet para activación"]
+  },
+  {
+    id: "combo-office-mcafee",
+    nombre: "Combo Office + McAfee",
+    precio: "C$990",
+    old: "C$1,190",
+    off: "17%",
+    categoria: "seguridad",
+    iconoId: "mdi:microsoft-office",
+    iconoColor: "#D83B01",
+    badge: "top",
+    descripcion: "Office 2024 + McAfee AntiVirus de 1 año",
+    detalle: "Combo especial: Office 2024 completo permanentemente + McAfee AntiVirus con 1 año de protección. Ahorras en ambos productos. Office incluye Word, Excel, PowerPoint, Outlook y OneNote; McAfee protege tu equipo contra virus, malware y amenazas online.",
+    requisitos: ["Windows 10 o Windows 11 (64 bits)", "4 GB de RAM (8 GB recomendados)", "4 GB de espacio en disco", "Conexión a internet para activación"]
+  },
+  {
     id: "eset",
     nombre: "ESET NOD32",
     precio: "C$1,295",
