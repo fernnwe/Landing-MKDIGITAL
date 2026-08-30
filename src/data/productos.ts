@@ -202,7 +202,7 @@ const productosBase: Producto[] = [
     iconoColor: "#FF0000",
     badge: "top",
     descripcion: "$190 USD · 12 meses · Windows y macOS",
-    detalle: "Suscripción anual de Adobe Creative Cloud por $190 USD (C$7,030). Acceso completo a todas las apps: Photoshop, Illustrator, Premiere, After Effects, Lightroom y más. Disponible para Windows y macOS.",
+    detalle: "Suscripción anual de Adobe Creative Cloud por $190 USD (C$7,030). Acceso completo a todas las apps: Photoshop, Illustrator, Premiere, After Effects, Lightroom y más. Disponible para Windows y macOS. El tiempo de activación es de 1 a 3 días una vez realizado el pago a nuestras cuentas autorizadas.",
     apps: APPS_ADOBE,
     requisitos: [
       "Windows 10 o Windows 11 (64 bits) o macOS",
@@ -471,7 +471,7 @@ const productosBase: Producto[] = [
     iconoId: "simple-icons:adobecreativecloud",
     iconoColor: "#FF0000",
     descripcion: "Photoshop, Illustrator, Premiere y más",
-    detalle: "Suscripción de Adobe Creative Cloud por 3 meses. Acceso completo a todas las apps de Adobe Creative Cloud. Disponible para Windows y macOS.",
+    detalle: "Suscripción de Adobe Creative Cloud por 3 meses. Acceso completo a todas las apps de Adobe Creative Cloud. Disponible para Windows y macOS. El tiempo de activación es de 1 a 3 días una vez realizado el pago a nuestras cuentas autorizadas.",
     apps: APPS_ADOBE,
     requisitos: [
       "Windows 10 o Windows 11 (64 bits) o macOS",
@@ -488,7 +488,7 @@ const productosBase: Producto[] = [
     iconoId: "simple-icons:adobecreativecloud",
     iconoColor: "#FF0000",
     descripcion: "Photoshop, Illustrator, Premiere y más",
-    detalle: "Suscripción de Adobe Creative Cloud por 6 meses. Acceso completo a todas las apps de Adobe Creative Cloud. Disponible para Windows y macOS.",
+    detalle: "Suscripción de Adobe Creative Cloud por 6 meses. Acceso completo a todas las apps de Adobe Creative Cloud. Disponible para Windows y macOS. El tiempo de activación es de 1 a 3 días una vez realizado el pago a nuestras cuentas autorizadas.",
     apps: APPS_ADOBE,
     requisitos: [
       "Windows 10 o Windows 11 (64 bits) o macOS",
@@ -505,7 +505,7 @@ const productosBase: Producto[] = [
     iconoId: "simple-icons:adobecreativecloud",
     iconoColor: "#FF0000",
     descripcion: "Photoshop, Illustrator, Premiere y más",
-    detalle: "Suscripción de Adobe Creative Cloud por 1 mes. Acceso completo a todas las apps de Adobe Creative Cloud. Disponible para Windows y macOS.",
+    detalle: "Suscripción de Adobe Creative Cloud por 1 mes. Acceso completo a todas las apps de Adobe Creative Cloud. Disponible para Windows y macOS. El tiempo de activación es de 1 a 3 días una vez realizado el pago a nuestras cuentas autorizadas.",
     apps: APPS_ADOBE,
     requisitos: [
       "Windows 10 o Windows 11 (64 bits) o macOS",
