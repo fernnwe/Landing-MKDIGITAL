@@ -221,6 +221,113 @@
   color: var(--on-surface-variant);
 }
 
+/* Support (gratis incluido) */
+.pdm-support {
+  margin-top: 18px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(37, 211, 102, 0.12), rgba(18, 140, 126, 0.10));
+  border: 1px solid rgba(37, 211, 102, 0.3);
+}
+.pdm-support svg {
+  width: 26px;
+  height: 26px;
+  flex-shrink: 0;
+  color: #25D366;
+}
+.pdm-support div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.pdm-support strong {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: var(--on-surface);
+}
+.pdm-support span {
+  font-size: 12.5px;
+  color: var(--on-surface-variant);
+  line-height: 1.4;
+}
+
+/* Platform */
+.pdm-platform {
+  margin-top: 16px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.pdm-platform-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 14px;
+  border-radius: 9999px;
+  font-size: 12.5px;
+  font-weight: 700;
+  border: 1.5px solid var(--outline-variant);
+  background: var(--surface-container);
+  color: var(--on-surface-variant);
+}
+.pdm-platform-item svg { width: 16px; height: 16px; }
+.pdm-platform-item.win { color: #00A4EF; border-color: rgba(0, 164, 239, 0.4); }
+.pdm-platform-item.win svg { color: #00A4EF; }
+.pdm-platform-item.mac.soon { color: var(--on-surface-variant); opacity: 0.75; }
+.pdm-platform-item.mac.soon svg { color: #999; }
+.pdm-platform-item.mac.soon::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #F97316;
+}
+
+/* Requisitos */
+.pdm-req {
+  margin-top: 16px;
+  background: rgba(129, 140, 248, 0.05);
+  border: 1px solid var(--outline-variant);
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.pdm-req h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--on-surface);
+  margin-bottom: 12px;
+}
+.pdm-req h3 svg { width: 19px; height: 19px; color: var(--primary-bright); }
+.pdm-req-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pdm-req-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--on-surface-variant);
+  line-height: 1.4;
+}
+.pdm-req-list svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 1px;
+  color: var(--primary-bright);
+}
+
 .pdm-includes {
   background: rgba(6, 182, 212, 0.05);
 }

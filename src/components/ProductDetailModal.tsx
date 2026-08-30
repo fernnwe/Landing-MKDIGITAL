@@ -20,6 +20,12 @@ function precioUSD(precio: string): string | null {
   return '$' + (n / TASA).toFixed(2);
 }
 
+const DEFAULT_REQUISITOS = [
+  'Windows 10 o Windows 11',
+  '4 GB de RAM',
+  '2 GB de espacio en disco disponible',
+];
+
 interface Props {
   producto: Producto;
   onClose: () => void;
@@ -32,6 +38,8 @@ export default function ProductDetailModal({ producto: p, onClose }: Props) {
 
   const appsList = p.categoria === 'adobe' ? APPS_ADOBE : p.apps || [];
   const maxSelect = p.appsSelect;
+  const requisitos = p.requisitos && p.requisitos.length > 0 ? p.requisitos : DEFAULT_REQUISITOS;
+  const isAndroid = p.id === 'factulite';
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -86,6 +94,36 @@ export default function ProductDetailModal({ producto: p, onClose }: Props) {
 
         <div className="pdm-body">
           <p className="pdm-detail">{p.detalle || p.descripcion}</p>
+
+          <div className="pdm-support">
+            <Icon icon="mdi:headset" />
+            <div>
+              <strong>Soporte técnico 100% GRATIS incluido</strong>
+              <span>Instalación remota y asistencia ya incluidas en el precio.</span>
+            </div>
+          </div>
+
+          {!isAndroid && (
+            <div className="pdm-platform">
+              <span className="pdm-platform-item win"><Icon icon="mdi:microsoft-windows" /> Windows</span>
+              <span className="pdm-platform-item mac soon"><Icon icon="mdi:apple" /> macOS: Próximamente</span>
+            </div>
+          )}
+          {isAndroid && (
+            <div className="pdm-platform">
+              <span className="pdm-platform-item win"><Icon icon="mdi:cellphone" /> Android</span>
+              <span className="pdm-platform-item mac soon"><Icon icon="mdi:apple" /> iOS: Próximamente</span>
+            </div>
+          )}
+
+          <div className="pdm-req">
+            <h3><Icon icon="mdi:desktop-classic" /> Requisitos del sistema</h3>
+            <ul className="pdm-req-list">
+              {requisitos.map((r) => (
+                <li key={r}><Icon icon="mdi:check" /> {r}</li>
+              ))}
+            </ul>
+          </div>
 
           {maxSelect !== undefined && appsList.length > 0 && (
             <div className="pdm-apps">

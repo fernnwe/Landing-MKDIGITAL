@@ -15,6 +15,7 @@ export interface Producto {
   detalle?: string;
   apps?: string[];
   appsSelect?: number;
+  requisitos?: string[];
 }
 
 export const APPS_ADOBE = [
@@ -62,7 +63,14 @@ const productosBase: Producto[] = [
     iconoColor: "#D83B01",
     badge: "top",
     descripcion: "Word, Excel, PowerPoint, Outlook y más",
-    detalle: "La suite de ofimática más usada del mundo con licencia permanente (no requiere renovación). Incluye Word para documentos, Excel para hojas de cálculo, PowerPoint para presentaciones, Outlook para correo y OneNote. Compatible con Windows 10 y 11."
+    detalle: "La suite de ofimática más usada del mundo con licencia permanente (no requiere renovación). Incluye Word para documentos, Excel para hojas de cálculo, PowerPoint para presentaciones, Outlook para correo y OneNote. Compatible con Windows 10 y 11.",
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits)",
+      "Procesador de 1.6 GHz o superior",
+      "4 GB de RAM (8 GB recomendados)",
+      "4 GB de espacio en disco",
+      "Resolución de pantalla 1280×768"
+    ]
   },
   {
     id: "office2021",
@@ -74,7 +82,13 @@ const productosBase: Producto[] = [
     iconoId: "mdi:microsoft-office",
     iconoColor: "#D83B01",
     descripcion: "Word, Excel, PowerPoint, Outlook y más",
-    detalle: "Suite de ofimática completa con licencia permanente. Incluye Word, Excel, PowerPoint, Outlook y OneNote. Perfecta para estudiantes, oficinas y uso personal en Windows 10 y 11."
+    detalle: "Suite de ofimática completa con licencia permanente. Incluye Word, Excel, PowerPoint, Outlook y OneNote. Perfecta para estudiantes, oficinas y uso personal en Windows 10 y 11.",
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits)",
+      "Procesador de 1.6 GHz o superior",
+      "4 GB de RAM",
+      "4 GB de espacio en disco"
+    ]
   },
   {
     id: "win10",
@@ -86,7 +100,14 @@ const productosBase: Producto[] = [
     iconoId: "mdi:microsoft-windows",
     iconoColor: "#00A4EF",
     descripcion: "Licencia digital con activación permanente",
-    detalle: "Sistema operativo de Microsoft con licencia digital y activación permanente. Edición Pro para equipos y negocios: incluye BitLocker, Escritorio remoto, Hyper-V y unión a dominio."
+    detalle: "Sistema operativo de Microsoft con licencia digital y activación permanente. Edición Pro para equipos y negocios: incluye BitLocker, Escritorio remoto, Hyper-V y unión a dominio.",
+    requisitos: [
+      "Procesador de 1 GHz o superior",
+      "2 GB de RAM (4 GB recomendados)",
+      "20 GB de espacio en disco",
+      "Tarjeta gráfica compatible con DirectX 9",
+      "Resolución de pantalla 800×600"
+    ]
   },
   {
     id: "win11",
@@ -98,7 +119,15 @@ const productosBase: Producto[] = [
     iconoId: "mdi:microsoft-windows",
     iconoColor: "#00A4EF",
     descripcion: "Licencia digital con activación permanente",
-    detalle: "La última versión del sistema operativo de Microsoft con licencia digital y activación permanente. Edición Pro con funciones avanzadas de seguridad, virtualización y productividad."
+    detalle: "La última versión del sistema operativo de Microsoft con licencia digital y activación permanente. Edición Pro con funciones avanzadas de seguridad, virtualización y productividad.",
+    requisitos: [
+      "Procesador compatible de 1 GHz o superior (2 núcleos)",
+      "4 GB de RAM",
+      "64 GB de espacio en disco",
+      "UEFI + arranque seguro",
+      "TPM versión 2.0",
+      "Tarjeta gráfica compatible con DirectX 12"
+    ]
   },
   {
     id: "adobe3",
@@ -113,7 +142,15 @@ const productosBase: Producto[] = [
     descripcion: "Photoshop, Illustrator, Premiere",
     detalle: "Paquete de licencias para instalar 3 programas de Adobe a tu elección. Ideal para diseño gráfico, edición de fotos y video. Elige 3 apps del listado según lo que necesites.",
     appsSelect: 3,
-    apps: ["Photoshop", "Illustrator", "Premiere Pro"]
+    apps: ["Photoshop", "Illustrator", "Premiere Pro"],
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits)",
+      "Procesador Intel o AMD de 4 núcleos",
+      "8 GB de RAM (16 GB recomendados)",
+      "10 GB de espacio en disco SSD",
+      "Tarjeta gráfica con 2 GB de VRAM",
+      "Resolución de pantalla 1920×1080"
+    ]
   },
   {
     id: "adobe7",
@@ -127,7 +164,15 @@ const productosBase: Producto[] = [
     descripcion: "Suite completa de Adobe Creative Cloud",
     detalle: "Paquete de licencias para instalar 7 programas de Adobe a tu elección. La solución completa para diseño, edición, video y fotografía. Elige 7 apps del listado según lo que necesites.",
     appsSelect: 7,
-    apps: ["Photoshop", "Illustrator", "Premiere Pro", "After Effects", "Lightroom", "InDesign", "Acrobat DC"]
+    apps: ["Photoshop", "Illustrator", "Premiere Pro", "After Effects", "Lightroom", "InDesign", "Acrobat DC"],
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits)",
+      "Procesador Intel o AMD de 6 núcleos o superior",
+      "16 GB de RAM (32 GB recomendados)",
+      "25 GB de espacio en disco SSD",
+      "Tarjeta gráfica con 4 GB de VRAM",
+      "Resolución de pantalla 1920×1080"
+    ]
   },
   {
     id: "creativecloud",
@@ -139,7 +184,14 @@ const productosBase: Producto[] = [
     badge: "top",
     descripcion: "1 mes C$1,295 · 3 meses C$1,850 · 6 meses C$3,330 · 12 meses C$7,030",
     detalle: "Toda la suite Adobe Creative Cloud con acceso a todas las apps: Photoshop, Illustrator, Premiere, After Effects, Lightroom y más. Suscripción con varios planes de duración.",
-    apps: APPS_ADOBE
+    apps: APPS_ADOBE,
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits)",
+      "Procesador de 4 núcleos o superior",
+      "8 GB de RAM (16 GB recomendados)",
+      "Variable según la app (10–30 GB)",
+      "Conexión a internet para activación"
+    ]
   },
   {
     id: "acrobat",
@@ -151,7 +203,8 @@ const productosBase: Producto[] = [
     iconoId: "simple-icons:adobe",
     iconoColor: "#FF0000",
     descripcion: "Suscripción anual · Editor PDF profesional",
-    detalle: "El editor PDF profesional de Adobe. Crea, edita, convierte y firma documentos PDF con herramientas avanzadas de OCR, combinación de archivos y protección por contraseña."
+    detalle: "El editor PDF profesional de Adobe. Crea, edita, convierte y firma documentos PDF con herramientas avanzadas de OCR, combinación de archivos y protección por contraseña.",
+    requisitos: ["Windows 10 o Windows 11 (64 bits)", "2 GB de RAM", "3 GB de espacio en disco", "Conexión a internet para activación"]
   },
   {
     id: "acrobat2020perm",
@@ -164,7 +217,8 @@ const productosBase: Producto[] = [
     iconoColor: "#FF0000",
     badge: "top",
     descripcion: "Licencia permanente · Editor PDF profesional",
-    detalle: "Editor PDF profesional de Adobe con licencia permanente (no requiere renovación). Crea, edita, convierte y firma documentos PDF con herramientas avanzadas de OCR y protección."
+    detalle: "Editor PDF profesional de Adobe con licencia permanente (no requiere renovación). Crea, edita, convierte y firma documentos PDF con herramientas avanzadas de OCR y protección.",
+    requisitos: ["Windows 10 o Windows 11 (64 bits)", "2 GB de RAM", "3 GB de espacio en disco"]
   },
   {
     id: "coreldraw",
@@ -176,7 +230,8 @@ const productosBase: Producto[] = [
     iconoId: "simple-icons:coreldraw",
     iconoColor: "#47A84B",
     descripcion: "Diseño gráfico profesional · Vector, ilustración y maquetación",
-    detalle: "Software profesional de diseño gráfico para crear ilustraciones vectoriales, logotipos, maquetas y materiales de imprenta. La alternativa líder a Illustrator con herramientas de edición de fotos."
+    detalle: "Software profesional de diseño gráfico para crear ilustraciones vectoriales, logotipos, maquetas y materiales de imprenta. La alternativa líder a Illustrator con herramientas de edición de fotos.",
+    requisitos: ["Windows 10 o Windows 11 (64 bits)", "4 GB de RAM (8 GB recomendados)", "2.5 GB de espacio en disco", "Tarjeta gráfica con 1 GB de VRAM"]
   },
   {
     id: "autocad",
@@ -189,7 +244,15 @@ const productosBase: Producto[] = [
     iconoColor: "#E51050",
     badge: "top",
     descripcion: "Diseño y dibujo asistido por computadora",
-    detalle: "El software líder mundial de CAD (diseño asistido por computadora). Crea planos 2D y modelos 3D precisos para arquitectura, ingeniería y construcción."
+    detalle: "El software líder mundial de CAD (diseño asistido por computadora). Crea planos 2D y modelos 3D precisos para arquitectura, ingeniería y construcción.",
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits)",
+      "Procesador de 3+ GHz o superior",
+      "8 GB de RAM (16 GB recomendados)",
+      "10 GB de espacio en disco",
+      "Tarjeta gráfica con 4 GB de VRAM",
+      "Resolución de pantalla 1920×1080"
+    ]
   },
   {
     id: "revit",
@@ -201,7 +264,14 @@ const productosBase: Producto[] = [
     iconoId: "simple-icons:autodesk",
     iconoColor: "#E51050",
     descripcion: "Modelado de información para construcción",
-    detalle: "Software BIM (Modelado de Información para la Construcción). Diseña edificios y estructuras en 3D con documentación automática, ideal para arquitectos e ingenieros civiles."
+    detalle: "Software BIM (Modelado de Información para la Construcción). Diseña edificios y estructuras en 3D con documentación automática, ideal para arquitectos e ingenieros civiles.",
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits)",
+      "Procesador de 4+ GHz o superior",
+      "16 GB de RAM (32 GB recomendados)",
+      "30 GB de espacio en disco",
+      "Tarjeta gráfica con 4 GB de VRAM"
+    ]
   },
   {
     id: "avast",
@@ -214,7 +284,8 @@ const productosBase: Producto[] = [
     iconoColor: "#FF7800",
     badge: "top",
     descripcion: "12 meses · Protección completa contra malware y ransomware",
-    detalle: "Antivirus premium con licencia de 12 meses. Protege tu equipo en tiempo real contra malware, ransomware, phishing y amenazas web. Incluye firewall, protección de correo y VPN."
+    detalle: "Antivirus premium con licencia de 12 meses. Protege tu equipo en tiempo real contra malware, ransomware, phishing y amenazas web. Incluye firewall, protección de correo y VPN.",
+    requisitos: ["Windows 8.1 o superior", "2 GB de RAM", "2 GB de espacio en disco", "Conexión a internet para activación"]
   },
   {
     id: "mcafee",
@@ -226,7 +297,8 @@ const productosBase: Producto[] = [
     iconoId: "simple-icons:mcafee",
     iconoColor: "#C01818",
     descripcion: "Protección completa contra amenazas y virus",
-    detalle: "Antivirus de McAfee con protección en tiempo real contra virus, malware y amenazas online. Incluye firewall y protección de navegación web para mantener seguro tu equipo."
+    detalle: "Antivirus de McAfee con protección en tiempo real contra virus, malware y amenazas online. Incluye firewall y protección de navegación web para mantener seguro tu equipo.",
+    requisitos: ["Windows 10 o Windows 11", "2 GB de RAM", "1.5 GB de espacio en disco", "Conexión a internet para activación"]
   },
   {
     id: "eset",
@@ -237,7 +309,8 @@ const productosBase: Producto[] = [
     iconoColor: "#00A64E",
     badge: "top",
     descripcion: "1 dispositivo · 1 año · Antivirus ligero y eficaz",
-    detalle: "Antivirus ESET NOD32 con licencia de 1 año para 1 dispositivo. Muy ligero y rápido, detecta y bloquea virus, malware y ransomware sin ralentizar tu equipo."
+    detalle: "Antivirus ESET NOD32 con licencia de 1 año para 1 dispositivo. Muy ligero y rápido, detecta y bloquea virus, malware y ransomware sin ralentizar tu equipo.",
+    requisitos: ["Windows 10 o Windows 11", "2 GB de RAM", "5 GB de espacio en disco (recomendado)"]
   },
   {
     id: "kaspersky",
@@ -248,7 +321,8 @@ const productosBase: Producto[] = [
     iconoColor: "#00A65E",
     badge: "top",
     descripcion: "1 dispositivo · 1 año · Protección avanzada contra malware",
-    detalle: "Antivirus Kaspersky con licencia de 1 año para 1 dispositivo. Protección avanzada contra malware, ransomware y amenazas en tiempo real, reconocido mundialmente por su eficacia."
+    detalle: "Antivirus Kaspersky con licencia de 1 año para 1 dispositivo. Protección avanzada contra malware, ransomware y amenazas en tiempo real, reconocido mundialmente por su eficacia.",
+    requisitos: ["Windows 10 o Windows 11", "2 GB de RAM", "4 GB de espacio en disco", "Conexión a internet para activación"]
   },
   {
     id: "factulite",
@@ -261,7 +335,8 @@ const productosBase: Producto[] = [
     iconoColor: "#818CF8",
     badge: "own",
     descripcion: "App de facturación para emprendedores",
-    detalle: "Aplicación móvil de facturación pensada para emprendedores y pequeños negocios. Permite crear facturas, controlar ventas e inventario desde tu celular Android de forma sencilla."
+    detalle: "Aplicación móvil de facturación pensada para emprendedores y pequeños negocios. Permite crear facturas, controlar ventas e inventario desde tu celular Android de forma sencilla.",
+    requisitos: ["Celular Android 6.0 o superior", "1 GB de RAM", "100 MB de espacio disponible"]
   },
   {
     id: "viperpos",
@@ -273,7 +348,8 @@ const productosBase: Producto[] = [
     iconoColor: "#818CF8",
     badge: "own",
     descripcion: "Sistema profesional de facturación e inventario",
-    detalle: "Sistema de facturación e inventario profesional accesible desde el navegador web. Gestiona ventas, stock, clientes y reportes desde cualquier dispositivo con conexión a internet."
+    detalle: "Sistema de facturación e inventario profesional accesible desde el navegador web. Gestiona ventas, stock, clientes y reportes desde cualquier dispositivo con conexión a internet.",
+    requisitos: ["PC o dispositivo con navegador web", "4 GB de RAM", "Conexión a internet estable"]
   },
   {
     id: "facturacionwin",
@@ -286,7 +362,8 @@ const productosBase: Producto[] = [
     iconoColor: "#818CF8",
     badge: "top",
     descripcion: "Software de facturación para escritorio",
-    detalle: "Software de facturación profesional para Windows. Emite facturas, maneja inventario, clientes, proveedores y genera reportes, instalado directamente en tu computadora."
+    detalle: "Software de facturación profesional para Windows. Emite facturas, maneja inventario, clientes, proveedores y genera reportes, instalado directamente en tu computadora.",
+    requisitos: ["Windows 10 o Windows 11", "4 GB de RAM", "2 GB de espacio en disco"]
   },
 
   {
@@ -299,6 +376,7 @@ const productosBase: Producto[] = [
     badge: "own",
     descripcion: "Control de inventario, ventas, facturación, clientes, proveedores y fechas de vencimiento",
     detalle: "Sistema completo de gestión para farmacias desarrollado por MKDIGITAL. Controla inventario, ventas, facturación, clientes, proveedores y alertas de fechas de vencimiento de medicamentos.",
+    requisitos: ["Windows 10 o Windows 11", "4 GB de RAM", "2 GB de espacio en disco"],
     url: "/mkfarma"
   },
   {
@@ -311,6 +389,7 @@ const productosBase: Producto[] = [
     badge: "own",
     descripcion: "Gestión integral para tu clínica dental: pacientes, odontograma 2D/3D, citas con recordatorios por WhatsApp, pagos y reportes",
     detalle: "Sistema integral para clínicas dentales de MKDIGITAL. Gestiona pacientes, odontograma 2D y 3D, citas con recordatorios automáticos por WhatsApp, pagos e historial clínico.",
+    requisitos: ["Windows 10 o Windows 11", "4 GB de RAM", "2 GB de espacio en disco"],
     url: "/dentalpro"
   },
   {
@@ -323,7 +402,8 @@ const productosBase: Producto[] = [
     iconoId: "mdi:microsoft-office",
     iconoColor: "#D83B01",
     descripcion: "Word, Excel, PowerPoint, Outlook y más",
-    detalle: "Suite ofimática de Microsoft con licencia permanente para Windows. Incluye Word, Excel, PowerPoint y Outlook para tus tareas diarias."
+    detalle: "Suite ofimática de Microsoft con licencia permanente para Windows. Incluye Word, Excel, PowerPoint y Outlook para tus tareas diarias.",
+    requisitos: ["Windows 10 o Windows 11", "2 GB de RAM", "4 GB de espacio en disco"]
   },
   {
     id: "office365",
