@@ -28,6 +28,11 @@ export default function CartSidebar() {
   const [clientName, setClientName] = useState('');
   const [location, setLocation] = useState<'nicaragua' | 'extranjero' | ''>('');
   const [paymentMethod, setPaymentMethod] = useState('');
+  const [discount10, setDiscount10] = useState(false);
+
+  const eligibleForDiscount = totalItems > 4;
+  const discount = discount10 && eligibleForDiscount ? subtotal * 0.1 : 0;
+  const total = subtotal - discount;
 
   const availableMethods = location === 'extranjero'
     ? PAYMENT_OPTIONS.filter((m) => m.type !== 'bank')
@@ -53,7 +58,11 @@ export default function CartSidebar() {
         msg += `     Apps: ${item.apps.join(', ')}\n`;
       }
     });
-    msg += `\nTotal: ${formatCordoba(subtotal)} (${formatUSD(subtotal)})`;
+    msg += '\n\n';
+    if (discount > 0) {
+      msg += `Descuento 10% MultiCompra: -${formatCordoba(discount)} (${formatUSD(discount)})\n`;
+    }
+    msg += `Total: ${formatCordoba(total)} (${formatUSD(total)})`;
     msg += `\n\n--- Datos del cliente ---`;
     msg += `\nNombre: ${clientName}`;
     msg += `\nResidencia: ${location === 'extranjero' ? 'Otro país' : 'Nicaragua'}`;
@@ -168,10 +177,33 @@ export default function CartSidebar() {
                         {formatCordoba(subtotal)} <span className="usd">({formatUSD(subtotal)})</span>
                       </span>
                     </div>
+                    {eligibleForDiscount && (
+                      <label className={`discount-option${discount10 ? ' active' : ''}`}>
+                        <input
+                          type="checkbox"
+                          checked={discount10}
+                          onChange={(e) => setDiscount10(e.target.checked)}
+                        />
+                        <span className="discount-custom-check">
+                          <Icon icon="mdi:check" />
+                        </span>
+                        <span className="discount-label">
+                          Activar 10% de descuento MultiCompra
+                        </span>
+                      </label>
+                    )}
+                    {discount > 0 && (
+                      <div className="summary-row discount">
+                        <span>Descuento (10%)</span>
+                        <span className="summary-value discount-value">
+                          −{formatCordoba(discount)} <span className="usd">(−{formatUSD(discount)})</span>
+                        </span>
+                      </div>
+                    )}
                     <div className="summary-row total">
                       <span>Total</span>
                       <span className="summary-value total-value">
-                        {formatCordoba(subtotal)} <span className="usd">({formatUSD(subtotal)})</span>
+                        {formatCordoba(total)} <span className="usd">({formatUSD(total)})</span>
                       </span>
                     </div>
                     <button className="btn-checkout" onClick={handleCheckout}>
