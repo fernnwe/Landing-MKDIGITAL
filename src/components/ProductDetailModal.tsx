@@ -92,9 +92,32 @@ export default function ProductDetailModal({ producto: p, onClose }: Props) {
             {cat && <span className="pdm-cat">{cat.nombre}</span>}
             <h2 className="pdm-title">{p.nombre}</h2>
             {p.off && <span className="pdm-off">-{p.off}</span>}
+            {p.agotado && <span className="pdm-soldout">AGOTADO</span>}
           </div>
         </div>
 
+        {p.agotado ? (
+          <div className="pdm-soldout-body">
+            <div className="pdm-soldout-icon">
+              <Icon icon="mdi:package-variant-closed-remove" />
+            </div>
+            <h3>Este producto actualmente está agotado</h3>
+            <p>
+              Trabajamos para reponerlo pronto. Puedes escribirnos por WhatsApp y
+              te avisamos apenas vuelva a estar disponible.
+            </p>
+            <a
+              href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(`Hola, quiero que me avisen cuando esté disponible ${p.nombre}`)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pdm-btn pdm-btn-wa pdm-btn-soldout-wa"
+            >
+              <Icon icon="simple-icons:whatsapp" />
+              Avisarme por WhatsApp
+            </a>
+          </div>
+        ) : (
+          <>
         <div className="pdm-body">
           <p className="pdm-detail">{p.detalle || p.descripcion}</p>
 
@@ -210,6 +233,8 @@ export default function ProductDetailModal({ producto: p, onClose }: Props) {
             </button>
           </div>
         </div>
+          </>
+        )}
       </div>
     </div>
   );

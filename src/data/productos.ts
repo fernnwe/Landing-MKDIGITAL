@@ -11,6 +11,7 @@ export interface Producto {
   iconoColor: string;
   badge?: "top" | "own";
   descripcion: string;
+  agotado?: boolean;
   url?: string;
   detalle?: string;
   apps?: string[];
@@ -443,7 +444,8 @@ const productosBase: Producto[] = [
     categoria: "microsoft",
     iconoId: "simple-icons:microsoft",
     iconoColor: "#00A4EF",
-    descripcion: "Licencia para servidor empresarial"
+    descripcion: "Licencia para servidor empresarial",
+    agotado: true
   },
   {
     id: "winserver2022",
@@ -452,7 +454,8 @@ const productosBase: Producto[] = [
     categoria: "microsoft",
     iconoId: "simple-icons:microsoft",
     iconoColor: "#00A4EF",
-    descripcion: "Servidor empresarial moderno"
+    descripcion: "Servidor empresarial moderno",
+    agotado: true
   },
   {
     id: "winserver2025",
@@ -461,7 +464,8 @@ const productosBase: Producto[] = [
     categoria: "microsoft",
     iconoId: "simple-icons:microsoft",
     iconoColor: "#00A4EF",
-    descripcion: "Última generación de servidor Microsoft"
+    descripcion: "Última generación de servidor Microsoft",
+    agotado: true
   },
   {
     id: "creativecloud3",

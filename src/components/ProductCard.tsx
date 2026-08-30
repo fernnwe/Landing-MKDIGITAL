@@ -65,6 +65,12 @@ export default function ProductCard({ producto: p, onOpenDetail }: { producto: P
           MK
         </span>
       )}
+      {p.agotado && (
+        <span className="badge-soldout">
+          <Icon icon="mdi:alert-circle" />
+          AGOTADO
+        </span>
+      )}
 
       <div className="card-icon" style={{ background: `${cat.color}15` }}>
         <div className="card-icon-bg" style={{ background: cat.bgGradient }}></div>
@@ -95,34 +101,43 @@ export default function ProductCard({ producto: p, onOpenDetail }: { producto: P
           </div>
 
           <div className="card-actions">
-            {p.url && (
-              <a
-                href={p.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={(e) => e.stopPropagation()}
-                className="card-btn card-btn-demo"
-                aria-label={`Ver más sobre ${p.nombre}`}
-              >
-                <Icon icon="mdi:eye-outline" color="#FFFFFF" />
-              </a>
+            {p.agotado ? (
+              <span className="card-soldout-tag">
+                <Icon icon="mdi:package-variant-closed" />
+                Sin stock
+              </span>
+            ) : (
+              <>
+                {p.url && (
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="card-btn card-btn-demo"
+                    aria-label={`Ver más sobre ${p.nombre}`}
+                  >
+                    <Icon icon="mdi:eye-outline" color="#FFFFFF" />
+                  </a>
+                )}
+                <button
+                  onClick={handleAddToCart}
+                  className="card-btn card-btn-cart"
+                  aria-label={`Agregar ${p.nombre} al carrito`}
+                >
+                  <Icon icon="mdi:cart-plus" />
+                </button>
+                <a
+                  href={`https://wa.me/50581088124?text=${encodeURIComponent(`Hola, quiero información sobre ${p.nombre}`)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={handleWhatsApp}
+                  className="card-btn card-btn-wa"
+                >
+                  <Icon icon="simple-icons:whatsapp" />
+                </a>
+              </>
             )}
-            <button
-              onClick={handleAddToCart}
-              className="card-btn card-btn-cart"
-              aria-label={`Agregar ${p.nombre} al carrito`}
-            >
-              <Icon icon="mdi:cart-plus" />
-            </button>
-            <a
-              href={`https://wa.me/50581088124?text=${encodeURIComponent(`Hola, quiero información sobre ${p.nombre}`)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={handleWhatsApp}
-              className="card-btn card-btn-wa"
-            >
-              <Icon icon="simple-icons:whatsapp" />
-            </a>
           </div>
         </div>
       </div>

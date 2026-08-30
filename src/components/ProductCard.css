@@ -56,6 +56,26 @@
 }
 .badge-own svg { width: 10px; height: 10px; }
 
+.badge-soldout {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 3;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  background: #EF4444;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 4px 16px -4px rgba(239, 68, 68, 0.5);
+}
+.badge-soldout svg { width: 12px; height: 12px; }
+
 /* Icon Area */
 .card-icon {
   position: relative;
@@ -236,6 +256,27 @@
   align-items: center;
   gap: 10px;
   flex-shrink: 0;
+}
+
+.card-soldout-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  padding: 13px 16px;
+  border-radius: 12px;
+  background: rgba(239, 68, 68, 0.08);
+  border: 1px dashed rgba(239, 68, 68, 0.4);
+  color: var(--on-surface-variant);
+  font-size: 12.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.card-soldout-tag svg {
+  width: 18px;
+  height: 18px;
+  color: #EF4444;
 }
 
 .card-btn {
