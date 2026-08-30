@@ -25,7 +25,17 @@ export default function CartSidebar() {
   const { items, isOpen, closeCart, removeItem, updateQuantity, clearCart, subtotal, totalItems } = useCart();
   const [step, setStep] = useState<'cart' | 'client-data'>('cart');
   const [clientName, setClientName] = useState('');
+  const [location, setLocation] = useState<'nicaragua' | 'extranjero' | ''>('');
   const [paymentMethod, setPaymentMethod] = useState('');
+
+  const availableMethods = location === 'extranjero'
+    ? PAYMENT_OPTIONS.filter((m) => m.type === 'paypal')
+    : PAYMENT_OPTIONS;
+
+  const handleLocationChange = (loc: 'nicaragua' | 'extranjero') => {
+    setLocation(loc);
+    if (loc === 'extranjero') setPaymentMethod('paypal');
+  };
 
   if (!isOpen) return null;
 
@@ -42,6 +52,7 @@ export default function CartSidebar() {
     msg += `\nTotal: ${formatCordoba(subtotal)} (${formatUSD(subtotal)})`;
     msg += `\n\n--- Datos del cliente ---`;
     msg += `\nNombre: ${clientName}`;
+    msg += `\nResidencia: ${location === 'extranjero' ? 'Otro país' : 'Nicaragua'}`;
     msg += `\nMétodo de pago: ${paymentMethod.toUpperCase()}`;
     return encodeURIComponent(msg);
   };
@@ -53,7 +64,7 @@ export default function CartSidebar() {
       return;
     }
     if (step === 'client-data') {
-      if (!clientName.trim() || !paymentMethod) {
+      if (!clientName.trim() || !location || !paymentMethod) {
         alert('Por favor completa todos los campos');
         return;
       }
@@ -61,6 +72,7 @@ export default function CartSidebar() {
       window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
       clearCart();
       setClientName('');
+      setLocation('');
       setPaymentMethod('');
       setStep('cart');
       closeCart();
@@ -193,9 +205,46 @@ export default function CartSidebar() {
                   />
                 </div>
                 <div className="form-group">
+                  <label>¿Desde qué país realizas tu pedido? <span className="required">*</span></label>
+                  <div className="bank-options" role="radiogroup" aria-label="Selecciona tu país">
+                    <label className={`bank-option${location === 'nicaragua' ? ' selected' : ''}`}>
+                      <input
+                        type="radio"
+                        name="location"
+                        value="nicaragua"
+                        checked={location === 'nicaragua'}
+                        onChange={() => handleLocationChange('nicaragua')}
+                        required={!location}
+                      />
+                      <div className="bank-option-content">
+                        <Icon icon="mdi:flag" style={{ width: 24, height: 24 }} />
+                        <span>Nicaragua</span>
+                      </div>
+                      <div className="bank-radio" />
+                    </label>
+                    <label className={`bank-option${location === 'extranjero' ? ' selected' : ''}`}>
+                      <input
+                        type="radio"
+                        name="location"
+                        value="extranjero"
+                        checked={location === 'extranjero'}
+                        onChange={() => handleLocationChange('extranjero')}
+                      />
+                      <div className="bank-option-content">
+                        <Icon icon="mdi:earth" style={{ width: 24, height: 24 }} />
+                        <span>Otro país</span>
+                      </div>
+                      <div className="bank-radio" />
+                    </label>
+                  </div>
+                </div>
+                <div className="form-group">
                   <label>Método de pago <span className="required">*</span></label>
+                  {location === 'extranjero' && (
+                    <p className="pay-method-hint">Solo está disponible el pago por PayPal para pedidos fuera de Nicaragua.</p>
+                  )}
                   <div className="bank-options" role="radiogroup" aria-label="Selecciona método de pago">
-                    {PAYMENT_OPTIONS.map((method) => (
+                    {availableMethods.map((method) => (
                       <label key={method.id} className={`bank-option${paymentMethod === method.id ? ' selected' : ''}`}>
                         <input
                           type="radio"
