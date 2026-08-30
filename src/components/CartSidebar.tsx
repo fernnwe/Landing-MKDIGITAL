@@ -59,6 +59,10 @@ export default function CartSidebar() {
       }
       const msg = buildWhatsAppMessage();
       window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
+      clearCart();
+      setClientName('');
+      setPaymentMethod('');
+      setStep('cart');
       closeCart();
     }
   };
