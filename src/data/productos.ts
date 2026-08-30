@@ -427,8 +427,8 @@ const productosBase: Producto[] = [
   {
     id: "office365",
     nombre: "Office 365 - Activación mediante cmd",
-    precio: "C$400",
-    old: "600",
+    precio: "C$1,500",
+    old: "C$1,900",
     off: "20%",
     categoria: "microsoft",
     iconoId: "mdi:microsoft-office",
