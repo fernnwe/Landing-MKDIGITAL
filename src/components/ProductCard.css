@@ -76,6 +76,26 @@
 }
 .badge-soldout svg { width: 12px; height: 12px; }
 
+.badge-cracked {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 3;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #F59E0B, #D97706);
+  color: #1C1917;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 4px 16px -4px rgba(245, 158, 11, 0.5);
+}
+.badge-cracked svg { width: 12px; height: 12px; }
+
 /* Icon Area */
 .card-icon {
   position: relative;

@@ -12,6 +12,7 @@ export interface Producto {
   badge?: "top" | "own";
   descripcion: string;
   agotado?: boolean;
+  cracked?: boolean;
   url?: string;
   detalle?: string;
   apps?: string[];
@@ -140,6 +141,7 @@ const productosBase: Producto[] = [
     iconoId: "simple-icons:adobe",
     iconoColor: "#FF0000",
     badge: "top",
+    cracked: true,
     descripcion: "Photoshop, Illustrator, Premiere",
     detalle: "Paquete de licencias para instalar 3 programas de Adobe a tu elección. Ideal para diseño gráfico, edición de fotos y video. Elige 3 apps del listado según lo que necesites.",
     appsSelect: 3,
@@ -162,6 +164,7 @@ const productosBase: Producto[] = [
     categoria: "adobe",
     iconoId: "simple-icons:adobe",
     iconoColor: "#FF0000",
+    cracked: true,
     descripcion: "Suite completa de Adobe Creative Cloud",
     detalle: "Paquete de licencias para instalar 7 programas de Adobe a tu elección. La solución completa para diseño, edición, video y fotografía. Elige 7 apps del listado según lo que necesites.",
     appsSelect: 7,

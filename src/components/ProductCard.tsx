@@ -71,6 +71,12 @@ export default function ProductCard({ producto: p, onOpenDetail }: { producto: P
           AGOTADO
         </span>
       )}
+      {p.cracked && (
+        <span className="badge-cracked">
+          <Icon icon="mdi:lock-open-variant" />
+          CRACK
+        </span>
+      )}
 
       <div className="card-icon" style={{ background: `${cat.color}15` }}>
         <div className="card-icon-bg" style={{ background: cat.bgGradient }}></div>

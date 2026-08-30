@@ -121,6 +121,19 @@ export default function ProductDetailModal({ producto: p, onClose }: Props) {
         <div className="pdm-body">
           <p className="pdm-detail">{p.detalle || p.descripcion}</p>
 
+          {p.cracked && (
+            <div className="pdm-cracked">
+              <Icon icon="mdi:lock-open-variant" />
+              <div>
+                <strong>Versión crackeada (no oficial)</strong>
+                <span>
+                  Este pack se entrega como versión modificada (crack). No es una
+                  licencia oficial de Adobe y no incluye actualizaciones ni soporte de Adobe.
+                </span>
+              </div>
+            </div>
+          )}
+
           <div className="pdm-support">
             <Icon icon="mdi:headset" />
             <div>
