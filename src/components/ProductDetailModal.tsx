@@ -14,6 +14,8 @@ function parsePrecio(precio: string): number | null {
   return isNaN(n) ? null : n;
 }
 
+const MAC_SUPPORT_IDS = ['creativecloud', 'creativecloud1', 'creativecloud3', 'creativecloud6', 'creativecloud190'];
+
 function precioUSD(precio: string): string | null {
   const n = parsePrecio(precio);
   if (n === null) return null;
@@ -40,6 +42,7 @@ export default function ProductDetailModal({ producto: p, onClose }: Props) {
   const maxSelect = p.appsSelect;
   const requisitos = p.requisitos && p.requisitos.length > 0 ? p.requisitos : DEFAULT_REQUISITOS;
   const isAndroid = p.id === 'factulite';
+  const macSupported = MAC_SUPPORT_IDS.includes(p.id);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -103,16 +106,22 @@ export default function ProductDetailModal({ producto: p, onClose }: Props) {
             </div>
           </div>
 
-          {!isAndroid && (
-            <div className="pdm-platform">
-              <span className="pdm-platform-item win"><Icon icon="mdi:microsoft-windows" /> Windows</span>
-              <span className="pdm-platform-item mac soon"><Icon icon="mdi:apple" /> macOS: Próximamente</span>
-            </div>
-          )}
           {isAndroid && (
             <div className="pdm-platform">
               <span className="pdm-platform-item win"><Icon icon="mdi:cellphone" /> Android</span>
               <span className="pdm-platform-item mac soon"><Icon icon="mdi:apple" /> iOS: Próximamente</span>
+            </div>
+          )}
+          {!isAndroid && macSupported && (
+            <div className="pdm-platform">
+              <span className="pdm-platform-item win"><Icon icon="mdi:microsoft-windows" /> Windows</span>
+              <span className="pdm-platform-item mac"><Icon icon="mdi:apple" /> macOS</span>
+            </div>
+          )}
+          {!isAndroid && !macSupported && (
+            <div className="pdm-platform">
+              <span className="pdm-platform-item win"><Icon icon="mdi:microsoft-windows" /> Windows</span>
+              <span className="pdm-platform-item mac soon"><Icon icon="mdi:apple" /> macOS: Próximamente</span>
             </div>
           )}
 

@@ -194,6 +194,25 @@ const productosBase: Producto[] = [
     ]
   },
   {
+    id: "creativecloud190",
+    nombre: "Adobe Creative Cloud 12 meses",
+    precio: "C$7,030",
+    categoria: "adobe",
+    iconoId: "simple-icons:adobecreativecloud",
+    iconoColor: "#FF0000",
+    badge: "top",
+    descripcion: "$190 USD · 12 meses · Windows y macOS",
+    detalle: "Suscripción anual de Adobe Creative Cloud por $190 USD (C$7,030). Acceso completo a todas las apps: Photoshop, Illustrator, Premiere, After Effects, Lightroom y más. Disponible para Windows y macOS.",
+    apps: APPS_ADOBE,
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits) o macOS",
+      "Procesador de 4 núcleos o superior",
+      "8 GB de RAM (16 GB recomendados)",
+      "Variable según la app (10–30 GB)",
+      "Conexión a internet para activación"
+    ]
+  },
+  {
     id: "acrobat",
     nombre: "Adobe Acrobat Pro 2020 DC",
     precio: "C$950",
@@ -451,7 +470,15 @@ const productosBase: Producto[] = [
     categoria: "adobe",
     iconoId: "simple-icons:adobecreativecloud",
     iconoColor: "#FF0000",
-    descripcion: "Photoshop, Illustrator, Premiere y más"
+    descripcion: "Photoshop, Illustrator, Premiere y más",
+    detalle: "Suscripción de Adobe Creative Cloud por 3 meses. Acceso completo a todas las apps de Adobe Creative Cloud. Disponible para Windows y macOS.",
+    apps: APPS_ADOBE,
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits) o macOS",
+      "4 GB de RAM (8 GB recomendados)",
+      "Variable según la app (10–30 GB)",
+      "Conexión a internet para activación"
+    ]
   },
   {
     id: "creativecloud6",
@@ -460,7 +487,15 @@ const productosBase: Producto[] = [
     categoria: "adobe",
     iconoId: "simple-icons:adobecreativecloud",
     iconoColor: "#FF0000",
-    descripcion: "Photoshop, Illustrator, Premiere y más"
+    descripcion: "Photoshop, Illustrator, Premiere y más",
+    detalle: "Suscripción de Adobe Creative Cloud por 6 meses. Acceso completo a todas las apps de Adobe Creative Cloud. Disponible para Windows y macOS.",
+    apps: APPS_ADOBE,
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits) o macOS",
+      "4 GB de RAM (8 GB recomendados)",
+      "Variable según la app (10–30 GB)",
+      "Conexión a internet para activación"
+    ]
   },
   {
     id: "creativecloud1",
@@ -469,7 +504,15 @@ const productosBase: Producto[] = [
     categoria: "adobe",
     iconoId: "simple-icons:adobecreativecloud",
     iconoColor: "#FF0000",
-    descripcion: "Photoshop, Illustrator, Premiere y más"
+    descripcion: "Photoshop, Illustrator, Premiere y más",
+    detalle: "Suscripción de Adobe Creative Cloud por 1 mes. Acceso completo a todas las apps de Adobe Creative Cloud. Disponible para Windows y macOS.",
+    apps: APPS_ADOBE,
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits) o macOS",
+      "4 GB de RAM (8 GB recomendados)",
+      "Variable según la app (10–30 GB)",
+      "Conexión a internet para activación"
+    ]
   },
   {
     id: "win11home",

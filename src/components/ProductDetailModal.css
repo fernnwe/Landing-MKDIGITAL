@@ -276,6 +276,8 @@
 .pdm-platform-item svg { width: 16px; height: 16px; }
 .pdm-platform-item.win { color: #00A4EF; border-color: rgba(0, 164, 239, 0.4); }
 .pdm-platform-item.win svg { color: #00A4EF; }
+.pdm-platform-item.mac { color: #A2AAAD; border-color: rgba(162, 170, 173, 0.4); }
+.pdm-platform-item.mac svg { color: #A2AAAD; }
 .pdm-platform-item.mac.soon { color: var(--on-surface-variant); opacity: 0.75; }
 .pdm-platform-item.mac.soon svg { color: #999; }
 .pdm-platform-item.mac.soon::after {
