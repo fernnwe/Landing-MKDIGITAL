@@ -177,6 +177,14 @@ export default function CartSidebar() {
                         {formatCordoba(subtotal)} <span className="usd">({formatUSD(subtotal)})</span>
                       </span>
                     </div>
+                    {!eligibleForDiscount && (
+                      <div className="discount-hint">
+                        <Icon icon="mdi:tag-percent-outline" />
+                        <span>
+                          Agrega <strong>{5 - totalItems}</strong> producto{5 - totalItems === 1 ? '' : 's'} más para desbloquear el 10% de descuento
+                        </span>
+                      </div>
+                    )}
                     {eligibleForDiscount && (
                       <label className={`discount-option${discount10 ? ' active' : ''}`}>
                         <input
