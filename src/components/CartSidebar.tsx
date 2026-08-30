@@ -18,7 +18,8 @@ const PAYMENT_OPTIONS = [
   { id: 'banpro', name: 'BANPRO', icon: 'mdi:bank', type: 'bank' },
   { id: 'bac', name: 'BAC', icon: 'mdi:bank', type: 'bank' },
   { id: 'lafise', name: 'LAFISE', icon: 'mdi:bank', type: 'bank' },
-  { id: 'paypal', name: 'PayPal', icon: 'simple-icons:paypal', type: 'paypal', link: 'https://www.paypal.me/FernandoAguirreC' },
+  { id: 'paypal', name: 'PayPal', icon: 'simple-icons:paypal', type: 'international', link: 'https://www.paypal.me/FernandoAguirreC' },
+  { id: 'binance', name: 'Binance Pay', icon: 'simple-icons:binance', type: 'international' },
 ];
 
 export default function CartSidebar() {
@@ -29,12 +30,15 @@ export default function CartSidebar() {
   const [paymentMethod, setPaymentMethod] = useState('');
 
   const availableMethods = location === 'extranjero'
-    ? PAYMENT_OPTIONS.filter((m) => m.type === 'paypal')
+    ? PAYMENT_OPTIONS.filter((m) => m.type !== 'bank')
     : PAYMENT_OPTIONS;
 
   const handleLocationChange = (loc: 'nicaragua' | 'extranjero') => {
     setLocation(loc);
-    if (loc === 'extranjero') setPaymentMethod('paypal');
+    if (loc === 'extranjero') {
+      const current = PAYMENT_OPTIONS.find((m) => m.id === paymentMethod);
+      if (!current || current.type === 'bank') setPaymentMethod('paypal');
+    }
   };
 
   if (!isOpen) return null;
@@ -241,7 +245,7 @@ export default function CartSidebar() {
                 <div className="form-group">
                   <label>Método de pago <span className="required">*</span></label>
                   {location === 'extranjero' && (
-                    <p className="pay-method-hint">Solo está disponible el pago por PayPal para pedidos fuera de Nicaragua.</p>
+                    <p className="pay-method-hint">Para pedidos fuera de Nicaragua los pagos se realizan por PayPal o Binance Pay.</p>
                   )}
                   <div className="bank-options" role="radiogroup" aria-label="Selecciona método de pago">
                     {availableMethods.map((method) => (
