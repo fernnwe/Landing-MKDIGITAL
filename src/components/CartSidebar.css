@@ -363,6 +363,109 @@
   color: #22C55E;
 }
 
+/* Discount code */
+.discount-code-box {
+  margin-bottom: 6px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--outline-variant);
+  background: var(--surface-container-high);
+}
+.code-input-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.code-input-row > svg {
+  width: 18px;
+  height: 18px;
+  min-width: 18px;
+  color: var(--on-surface-variant);
+}
+.code-input-row input {
+  flex: 1;
+  min-width: 0;
+  padding: 9px 11px;
+  border-radius: 8px;
+  border: 1px solid var(--outline);
+  background: transparent;
+  color: var(--on-surface);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+.code-input-row input::placeholder {
+  text-transform: none;
+  font-weight: 400;
+  color: var(--on-surface-variant);
+  opacity: 0.7;
+}
+.code-input-row input:focus {
+  border-color: var(--primary);
+}
+.code-input-row input.code-error {
+  border-color: #EF4444;
+}
+.code-apply {
+  padding: 9px 14px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(135deg, var(--primary-bright), var(--primary));
+  color: #04121A;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.code-apply:hover {
+  transform: translateY(-1px);
+  opacity: 0.9;
+}
+.code-error-msg {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #EF4444;
+}
+.code-applied {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #22C55E;
+}
+.code-applied svg {
+  min-width: 18px;
+}
+.code-applied span {
+  flex: 1;
+}
+.code-applied strong {
+  font-weight: 800;
+}
+.code-remove {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(239, 68, 68, 0.12);
+  color: #EF4444;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.code-remove svg { width: 16px; height: 16px; }
+.code-remove:hover {
+  background: #EF4444;
+  color: #fff;
+}
+
 .usd {
   font-family: var(--font-mono);
   font-size: 12px !important;

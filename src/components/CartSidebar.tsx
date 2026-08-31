@@ -22,6 +22,10 @@ const PAYMENT_OPTIONS = [
   { id: 'binance', name: 'Binance Pay', icon: 'simple-icons:binance', type: 'international' },
 ];
 
+const DISCOUNT_CODES: Record<string, number> = {
+  MK2026: 0.03,
+};
+
 export default function CartSidebar() {
   const { items, isOpen, closeCart, removeItem, updateQuantity, clearCart, subtotal, totalItems } = useCart();
   const [step, setStep] = useState<'cart' | 'client-data'>('cart');
@@ -29,10 +33,27 @@ export default function CartSidebar() {
   const [location, setLocation] = useState<'nicaragua' | 'extranjero' | ''>('');
   const [paymentMethod, setPaymentMethod] = useState('');
   const [discount10, setDiscount10] = useState(false);
+  const [discountCode, setDiscountCode] = useState('');
+  const [appliedCode, setAppliedCode] = useState('');
+  const [codeError, setCodeError] = useState(false);
 
   const eligibleForDiscount = totalItems > 4;
   const discount = discount10 && eligibleForDiscount ? subtotal * 0.1 : 0;
-  const total = subtotal - discount;
+  const codeRate = appliedCode ? DISCOUNT_CODES[appliedCode] : 0;
+  const codeDiscount = codeRate ? subtotal * codeRate : 0;
+  const total = subtotal - discount - codeDiscount;
+
+  const applyDiscountCode = () => {
+    const code = discountCode.trim().toUpperCase();
+    if (!code) return;
+    if (DISCOUNT_CODES[code]) {
+      setAppliedCode(code);
+      setCodeError(false);
+    } else {
+      setAppliedCode('');
+      setCodeError(true);
+    }
+  };
 
   const availableMethods = location === 'extranjero'
     ? PAYMENT_OPTIONS.filter((m) => m.type !== 'bank')
@@ -62,6 +83,9 @@ export default function CartSidebar() {
     if (discount > 0) {
       msg += `Descuento 10% MultiCompra: -${formatCordoba(discount)} (${formatUSD(discount)})\n`;
     }
+    if (codeDiscount > 0) {
+      msg += `Código ${appliedCode} (${codeRate * 100}%): -${formatCordoba(codeDiscount)} (${formatUSD(codeDiscount)})\n`;
+    }
     msg += `Total: ${formatCordoba(total)} (${formatUSD(total)})`;
     msg += `\n\n--- Datos del cliente ---`;
     msg += `\nNombre: ${clientName}`;
@@ -87,6 +111,9 @@ export default function CartSidebar() {
       setClientName('');
       setLocation('');
       setPaymentMethod('');
+      setDiscountCode('');
+      setAppliedCode('');
+      setCodeError(false);
       setStep('cart');
       closeCart();
     }
@@ -171,6 +198,49 @@ export default function CartSidebar() {
                   </ul>
 
                   <div className="cart-summary">
+                    <div className="discount-code-box">
+                      {appliedCode ? (
+                        <div className="code-applied">
+                          <Icon icon="mdi:check-circle" style={{ width: 18, height: 18 }} />
+                          <span>
+                            Código <strong>{appliedCode}</strong> aplicado (−{codeRate * 100}%)
+                          </span>
+                          <button
+                            className="code-remove"
+                            onClick={() => {
+                              setAppliedCode('');
+                              setDiscountCode('');
+                            }}
+                            aria-label="Quitar código de descuento"
+                          >
+                            <Icon icon="mdi:close" />
+                          </button>
+                        </div>
+                      ) : (
+                        <>
+                          <div className="code-input-row">
+                            <Icon icon="mdi:ticket-percent-outline" style={{ width: 18, height: 18 }} />
+                            <input
+                              type="text"
+                              value={discountCode}
+                              onChange={(e) => {
+                                setDiscountCode(e.target.value.toUpperCase());
+                                setCodeError(false);
+                              }}
+                              placeholder="Código de descuento"
+                              aria-label="Código de descuento"
+                              className={codeError ? ' code-error' : ''}
+                            />
+                            <button className="code-apply" onClick={applyDiscountCode}>
+                              Aplicar
+                            </button>
+                          </div>
+                          {codeError && (
+                            <p className="code-error-msg">Código inválido. Verifica e intenta de nuevo.</p>
+                          )}
+                        </>
+                      )}
+                    </div>
                     <div className="summary-row">
                       <span>Subtotal ({totalItems} productos)</span>
                       <span className="summary-value">
@@ -205,6 +275,14 @@ export default function CartSidebar() {
                         <span>Descuento (10%)</span>
                         <span className="summary-value discount-value">
                           −{formatCordoba(discount)} <span className="usd">(−{formatUSD(discount)})</span>
+                        </span>
+                      </div>
+                    )}
+                    {codeDiscount > 0 && (
+                      <div className="summary-row discount">
+                        <span>Descuento código ({codeRate * 100}%)</span>
+                        <span className="summary-value discount-value">
+                          −{formatCordoba(codeDiscount)} <span className="usd">(−{formatUSD(codeDiscount)})</span>
                         </span>
                       </div>
                     )}
