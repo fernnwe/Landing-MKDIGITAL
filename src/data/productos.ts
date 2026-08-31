@@ -631,7 +631,7 @@ const productosBase: Producto[] = [
     iconoColor: "#D83B01",
     badge: "top",
     descripcion: "Licencia original y permanente · Word, Excel, PowerPoint y más",
-    detalle: "Licencia original y permanente de Microsoft Office 2024. Incluye Word, Excel, PowerPoint, Outlook y OneNote para siempre, sin renovaciones ni suscripciones. Licencia original verificada para uso personal y profesional en Windows 10 y 11.",
+    detalle: "Licencia original y permanente de Microsoft Office 2024. Incluye Word, Excel, PowerPoint, Outlook y OneNote para siempre, sin renovaciones ni suscripciones. Licencia original verificada para uso personal y profesional en Windows 10 y 11. El tiempo de activación es de 1 a 3 días una vez realizado el pago a nuestras cuentas correspondientes.",
     requisitos: [
       "Windows 10 o Windows 11 (64 bits)",
       "Procesador de 1.6 GHz o superior",
