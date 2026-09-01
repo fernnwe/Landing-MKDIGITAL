@@ -163,6 +163,10 @@
   margin-top: 3px;
   line-height: 1.35;
 }
+.cart-item-apps.support {
+  color: var(--secondary-bright);
+  font-weight: 600;
+}
 
 .cart-item-price {
   display: flex;

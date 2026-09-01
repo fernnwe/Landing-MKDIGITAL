@@ -37,6 +37,9 @@ export default function ProductDetailModal({ producto: p, onClose }: Props) {
   const { addItem } = useCart();
   const cat = categorias.find((c) => c.id === p.categoria);
   const [selectedApps, setSelectedApps] = useState<string[]>(p.apps ? [...p.apps] : []);
+  const [withSupport, setWithSupport] = useState(false);
+
+  const supportPrice = p.soporteRemoto || 0;
 
   const appsList = p.categoria === 'adobe' ? APPS_ADOBE : p.apps || [];
   const maxSelect = p.appsSelect;
@@ -69,9 +72,14 @@ export default function ProductDetailModal({ producto: p, onClose }: Props) {
   const remaining = maxSelect !== undefined ? maxSelect - selectedApps.length : 0;
 
   const handleAdd = () => {
-    addItem(p, selectedApps.length > 0 ? selectedApps : undefined);
+    addItem(p, selectedApps.length > 0 ? selectedApps : undefined, withSupport);
     onClose();
   };
+
+  const finalPrice = parsePrecio(p.precio) ?? 0;
+  const displayPrice = withSupport ? finalPrice + supportPrice : finalPrice;
+  const displayPriceStr = 'C$' + displayPrice.toLocaleString();
+  const displaySupportStr = supportPrice > 0 ? 'C$' + supportPrice.toLocaleString() : '';
 
   const waMessage = encodeURIComponent(
     `Hola, quiero información sobre ${p.nombre}${selectedApps.length > 0 ? ` (${selectedApps.join(', ')})` : ''}`,
@@ -220,15 +228,39 @@ export default function ProductDetailModal({ producto: p, onClose }: Props) {
               </ul>
             </div>
           )}
+
+          {supportPrice > 0 && (
+            <label className={`support-option${withSupport ? ' active' : ''}`}>
+              <input
+                type="checkbox"
+                checked={withSupport}
+                onChange={(e) => setWithSupport(e.target.checked)}
+              />
+              <span className="support-custom-check">
+                <Icon icon="mdi:check" />
+              </span>
+              <span className="support-info">
+                <strong>Soporte remoto adicional</strong>
+                <span>Instalación y activación asistida · +{displaySupportStr}</span>
+              </span>
+            </label>
+          )}
         </div>
 
         <div className="pdm-footer">
           <div className="pdm-pricing">
             {p.old && <span className="pdm-old">{p.old}</span>}
             <div className="pdm-price-row">
-              <span className="pdm-price">{p.precio}</span>
-              {precioUSD(p.precio) && <span className="pdm-usd">{precioUSD(p.precio)}</span>}
+              <span className="pdm-price">{displayPriceStr}</span>
+              {precioUSD(p.precio) && withSupport && supportPrice > 0 && (
+                <span className="pdm-usd">({precioUSD(p.precio)})</span>
+              )}
             </div>
+            {withSupport && supportPrice > 0 && (
+              <span className="pdm-support-note">
+                + Soporte remoto {displaySupportStr}
+              </span>
+            )}
           </div>
           <div className="pdm-actions">
             <a

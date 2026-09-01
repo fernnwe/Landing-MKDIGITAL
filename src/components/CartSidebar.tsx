@@ -73,10 +73,15 @@ export default function CartSidebar() {
     let msg = 'Hola, quiero realizar mi pedido:\n\n';
     items.forEach((item, i) => {
       const precioNum = parseFloat(item.producto.precio.replace(/[^0-9,]/g, '').replace(/,/g, ''));
-      const lineTotal = isNaN(precioNum) ? 0 : precioNum * item.quantity;
+      const base = isNaN(precioNum) ? 0 : precioNum;
+      const support = item.soporteRemoto ? item.producto.soporteRemoto || 0 : 0;
+      const lineTotal = (base + support) * item.quantity;
       msg += `${i + 1}. ${item.producto.nombre} x${item.quantity} - ${formatCordoba(lineTotal)} (${formatUSD(lineTotal)})\n`;
       if (item.apps && item.apps.length > 0) {
         msg += `     Apps: ${item.apps.join(', ')}\n`;
+      }
+      if (item.soporteRemoto) {
+        msg += `     + Soporte remoto adicional (C$${support.toLocaleString()})\n`;
       }
     });
     msg += '\n\n';
@@ -151,7 +156,9 @@ export default function CartSidebar() {
                   <ul className="cart-items">
                     {items.map((item) => {
                       const precioNum = parseFloat(item.producto.precio.replace(/[^0-9,]/g, '').replace(/,/g, ''));
-                      const lineTotal = isNaN(precioNum) ? 0 : precioNum * item.quantity;
+                      const base = isNaN(precioNum) ? 0 : precioNum;
+                      const support = item.soporteRemoto ? item.producto.soporteRemoto || 0 : 0;
+                      const lineTotal = (base + support) * item.quantity;
                       return (
                         <li key={item.producto.id} className="cart-item">
                           <div className="cart-item-icon" style={{ background: `rgba(0,0,0,0.05)` }}>
@@ -161,6 +168,9 @@ export default function CartSidebar() {
                             <h4 className="cart-item-name">{item.producto.nombre}</h4>
                             {item.apps && item.apps.length > 0 && (
                               <div className="cart-item-apps">Apps: {item.apps.join(', ')}</div>
+                            )}
+                            {item.soporteRemoto && (
+                              <div className="cart-item-apps support">+ Soporte remoto</div>
                             )}
                             <div className="cart-item-price">
                               <span className="cart-item-unit">{formatCordoba(lineTotal)}</span>

@@ -31,7 +31,7 @@ export default function ProductCard({ producto: p, onOpenDetail }: { producto: P
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.stopPropagation();
-    if ((p.appsSelect !== undefined || p.apps) && onOpenDetail) {
+    if ((p.appsSelect !== undefined || p.apps || p.soporteRemoto !== undefined) && onOpenDetail) {
       onOpenDetail();
       return;
     }

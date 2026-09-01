@@ -5,6 +5,7 @@ interface CartItem {
   producto: Producto;
   quantity: number;
   apps?: string[];
+  soporteRemoto?: boolean;
 }
 
 interface CartContextType {
@@ -13,7 +14,7 @@ interface CartContextType {
   openCart: () => void;
   closeCart: () => void;
   toggleCart: () => void;
-  addItem: (producto: Producto, apps?: string[]) => void;
+  addItem: (producto: Producto, apps?: string[], soporteRemoto?: boolean) => void;
   removeItem: (productId: string) => void;
   updateQuantity: (productId: string, quantity: number) => void;
   clearCart: () => void;
@@ -32,17 +33,22 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const closeCart = useCallback(() => setIsOpen(false), []);
   const toggleCart = useCallback(() => setIsOpen((v) => !v), []);
 
-  const addItem = useCallback((producto: Producto, apps?: string[]) => {
+  const addItem = useCallback((producto: Producto, apps?: string[], soporteRemoto?: boolean) => {
     setItems((prev) => {
       const existing = prev.find((item) => item.producto.id === producto.id);
       if (existing) {
         return prev.map((item) =>
           item.producto.id === producto.id
-            ? { ...item, quantity: item.quantity + 1, apps: apps || item.apps }
+            ? {
+                ...item,
+                quantity: item.quantity + 1,
+                apps: apps || item.apps,
+                soporteRemoto: soporteRemoto ?? item.soporteRemoto,
+              }
             : item,
         );
       }
-      return [...prev, { producto, quantity: 1, apps }];
+      return [...prev, { producto, quantity: 1, apps, soporteRemoto }];
     });
     setIsOpen(true);
   }, []);
@@ -73,7 +79,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const subtotal = useMemo(() => {
     return items.reduce((sum, item) => {
       const price = parseFloat(item.producto.precio.replace(/[^0-9,]/g, '').replace(/,/g, ''));
-      return sum + (isNaN(price) ? 0 : price) * item.quantity;
+      const base = isNaN(price) ? 0 : price;
+      const support = item.soporteRemoto ? item.producto.soporteRemoto || 0 : 0;
+      return sum + (base + support) * item.quantity;
     }, 0);
   }, [items]);
 

@@ -18,6 +18,7 @@ export interface Producto {
   apps?: string[];
   appsSelect?: number;
   requisitos?: string[];
+  soporteRemoto?: number;
 }
 
 export const APPS_ADOBE = [
@@ -296,6 +297,124 @@ const productosBase: Producto[] = [
       "16 GB de RAM (32 GB recomendados)",
       "30 GB de espacio en disco",
       "Tarjeta gráfica con 4 GB de VRAM"
+    ]
+  },
+  {
+    id: "autocadkey",
+    nombre: "AutoCAD 2027 - Clave de activación",
+    precio: "C$700",
+    categoria: "autodesk",
+    iconoId: "simple-icons:autodesk",
+    iconoColor: "#E51050",
+    badge: "top",
+    descripcion: "Clave de activación · Diseño asistido por computadora",
+    soporteRemoto: 400,
+    detalle: "Clave de activación para AutoCAD 2027, el software líder mundial de CAD. Tú mismo instalas y activas. Si prefieres, añade el soporte remoto adicional (C$400) para que realicemos la instalación y activación asistida de forma remota.",
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits)",
+      "Procesador de 3+ GHz o superior",
+      "8 GB de RAM (16 GB recomendados)",
+      "10 GB de espacio en disco",
+      "Tarjeta gráfica con 4 GB de VRAM",
+      "Conexión a internet para activación"
+    ]
+  },
+  {
+    id: "revitkey",
+    nombre: "Revit 2026 - Clave de activación",
+    precio: "C$700",
+    categoria: "autodesk",
+    iconoId: "simple-icons:autodesk",
+    iconoColor: "#E51050",
+    badge: "top",
+    descripcion: "Clave de activación · Modelado de información para construcción",
+    soporteRemoto: 400,
+    detalle: "Clave de activación para Revit 2026, el software BIM líder. Tú mismo instalas y activas. Si prefieres, añade el soporte remoto adicional (C$400) para realizar la instalación y activación asistida de forma remota.",
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits)",
+      "Procesador de 4+ GHz o superior",
+      "16 GB de RAM (32 GB recomendados)",
+      "30 GB de espacio en disco",
+      "Tarjeta gráfica con 4 GB de VRAM",
+      "Conexión a internet para activación"
+    ]
+  },
+  {
+    id: "civil3d",
+    nombre: "Civil 3D - Clave de activación",
+    precio: "C$700",
+    categoria: "autodesk",
+    iconoId: "simple-icons:autodesk",
+    iconoColor: "#E51050",
+    badge: "top",
+    descripcion: "Clave de activación · Diseño y topografía de infraestructura",
+    soporteRemoto: 400,
+    detalle: "Clave de activación para Autodesk Civil 3D, especializado en diseño de carreteras, vías, topografía y obras de infraestructura civil. Añade el soporte remoto adicional (C$400) si necesitas instalación y activación asistida.",
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits)",
+      "Procesador de 3+ GHz o superior",
+      "8 GB de RAM (16 GB recomendados)",
+      "20 GB de espacio en disco",
+      "Tarjeta gráfica con 4 GB de VRAM",
+      "Conexión a internet para activación"
+    ]
+  },
+  {
+    id: "inventorkey",
+    nombre: "Inventor - Clave de activación",
+    precio: "C$700",
+    categoria: "autodesk",
+    iconoId: "simple-icons:autodesk",
+    iconoColor: "#E51050",
+    badge: "top",
+    descripcion: "Clave de activación · Diseño mecánico y 3D paramétrico",
+    soporteRemoto: 400,
+    detalle: "Clave de activación para Autodesk Inventor, software de diseño mecánico y modelado 3D paramétrico para ingeniería de producto. Añade el soporte remoto adicional (C$400) si necesitas instalación y activación asistida.",
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits)",
+      "Procesador de 3+ GHz o superior",
+      "16 GB de RAM (32 GB recomendados)",
+      "20 GB de espacio en disco",
+      "Tarjeta gráfica con 4 GB de VRAM",
+      "Conexión a internet para activación"
+    ]
+  },
+  {
+    id: "3dsmaxkey",
+    nombre: "3ds Max - Clave de activación",
+    precio: "C$700",
+    categoria: "autodesk",
+    iconoId: "simple-icons:autodesk",
+    iconoColor: "#E51050",
+    descripcion: "Clave de activación · Modelado y render 3D",
+    soporteRemoto: 400,
+    detalle: "Clave de activación para Autodesk 3ds Max, el estándar en modelado, animación y renderizado 3D para videojuegos, cine y visualización arquitectónica. Añade el soporte remoto adicional (C$400) si necesitas instalación y activación asistida.",
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits)",
+      "Procesador de 4+ GHz o superior",
+      "16 GB de RAM (32 GB recomendados)",
+      "30 GB de espacio en disco",
+      "Tarjeta gráfica con 4 GB de VRAM",
+      "Conexión a internet para activación"
+    ]
+  },
+  {
+    id: "mayakey",
+    nombre: "Maya - Clave de activación",
+    precio: "C$700",
+    categoria: "autodesk",
+    iconoId: "simple-icons:autodesk",
+    iconoColor: "#E51050",
+    descripcion: "Clave de activación · Animación 3D y VFX",
+    soporteRemoto: 400,
+    detalle: "Clave de activación para Autodesk Maya, el software líder en animación 3D, modelado y efectos visuales (VFX). Añade el soporte remoto adicional (C$400) si necesitas instalación y activación asistida.",
+    requisitos: [
+      "Windows 10 o Windows 11 (64 bits) o macOS",
+      "Procesador de 4+ GHz o superior",
+      "16 GB de RAM (32 GB recomendados)",
+      "30 GB de espacio en disco",
+      "Tarjeta gráfica con 4 GB de VRAM",
+      "Conexión a internet para activación"
     ]
   },
   {
