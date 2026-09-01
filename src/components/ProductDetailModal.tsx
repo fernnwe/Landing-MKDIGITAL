@@ -142,13 +142,15 @@ export default function ProductDetailModal({ producto: p, onClose }: Props) {
             </div>
           )}
 
-          <div className="pdm-support">
-            <Icon icon="mdi:headset" />
-            <div>
-              <strong>Soporte técnico 100% GRATIS incluido</strong>
-              <span>Instalación remota y asistencia ya incluidas en el precio.</span>
+          {supportPrice === 0 && (
+            <div className="pdm-support">
+              <Icon icon="mdi:headset" />
+              <div>
+                <strong>Soporte técnico 100% GRATIS incluido</strong>
+                <span>Instalación remota y asistencia ya incluidas en el precio.</span>
+              </div>
             </div>
-          </div>
+          )}
 
           {isAndroid && (
             <div className="pdm-platform">

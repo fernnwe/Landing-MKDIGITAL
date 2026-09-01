@@ -87,10 +87,12 @@ export default function ProductCard({ producto: p, onOpenDetail }: { producto: P
       <div className="card-body">
         <h3 className="card-title">{p.nombre}</h3>
         {p.descripcion && <p className="card-desc">{p.descripcion}</p>}
-        <div className="card-support-tag">
-          <Icon icon="mdi:headset" />
-          Soporte técnico gratis incluido
-        </div>
+        {p.soporteRemoto === undefined && (
+          <div className="card-support-tag">
+            <Icon icon="mdi:headset" />
+            Soporte técnico gratis incluido
+          </div>
+        )}
 
         <div className="card-footer">
           <div className="card-pricing">
