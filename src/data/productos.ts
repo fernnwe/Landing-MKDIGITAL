@@ -321,7 +321,7 @@ const productosBase: Producto[] = [
   },
   {
     id: "revitkey",
-    nombre: "Revit 2026 - Clave de activación",
+    nombre: "Revit 2027 - Clave de activación",
     precio: "C$700",
     categoria: "autodesk",
     iconoId: "simple-icons:autodesk",
@@ -329,7 +329,7 @@ const productosBase: Producto[] = [
     badge: "top",
     descripcion: "Clave de activación · Modelado de información para construcción",
     soporteRemoto: 400,
-    detalle: "Clave de activación para Revit 2026, el software BIM líder. Tú mismo instalas y activas. Si prefieres, añade el soporte remoto adicional (C$400) para realizar la instalación y activación asistida de forma remota.",
+    detalle: "Clave de activación para Revit 2027, el software BIM líder. Tú mismo instalas y activas. Si prefieres, añade el soporte remoto adicional (C$400) para realizar la instalación y activación asistida de forma remota.",
     requisitos: [
       "Windows 10 o Windows 11 (64 bits)",
       "Procesador de 4+ GHz o superior",
