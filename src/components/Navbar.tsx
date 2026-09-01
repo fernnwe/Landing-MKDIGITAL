@@ -22,6 +22,16 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [progress, setProgress] = useState(0);
   const lastScroll = useRef(0);
+  const [isLight, setIsLight] = useState<boolean>(() => {
+    const stored = localStorage.getItem('mk-theme');
+    if (stored) return stored === 'light';
+    return window.matchMedia('(prefers-color-scheme: light)').matches;
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', isLight ? 'light' : 'dark');
+    localStorage.setItem('mk-theme', isLight ? 'light' : 'dark');
+  }, [isLight]);
 
   useEffect(() => {
     const onScroll = () => {
@@ -118,6 +128,14 @@ export default function Navbar() {
                 )}
               </button>
             )}
+            <button
+              className="theme-toggle"
+              onClick={() => setIsLight(!isLight)}
+              aria-label={isLight ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro'}
+              title={isLight ? 'Modo oscuro' : 'Modo claro'}
+            >
+              <Icon icon={isLight ? 'mdi:weather-night' : 'mdi:white-balance-sunny'} style={{ width: 20, height: 20 }} />
+            </button>
             <a href="https://wa.me/50581088124" target="_blank" rel="noopener noreferrer" className="btn-primary nav-cta">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
@@ -144,6 +162,16 @@ export default function Navbar() {
               )}
             </button>
           )}
+          <button
+            className="theme-toggle overlay-theme-toggle"
+            onClick={() => {
+              setIsLight(!isLight);
+              setMenuOpen(false);
+            }}
+          >
+            <Icon icon={isLight ? 'mdi:weather-night' : 'mdi:white-balance-sunny'} style={{ width: 20, height: 20 }} />
+            {isLight ? 'Modo oscuro' : 'Modo claro'}
+          </button>
           <a href="https://wa.me/50581088124" target="_blank" rel="noopener noreferrer" className="btn-primary overlay-cta">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
