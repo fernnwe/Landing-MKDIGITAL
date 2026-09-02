@@ -434,6 +434,22 @@
   font-size: 12px;
   color: #EF4444;
 }
+.code-used-msg {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #F59E0B;
+}
+.code-used-msg svg {
+  min-width: 18px;
+}
+.code-used-msg span {
+  flex: 1;
+}
+.code-used-msg strong {
+  font-weight: 800;
+}
 .code-applied {
   display: flex;
   align-items: center;

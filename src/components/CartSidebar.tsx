@@ -39,6 +39,7 @@ export default function CartSidebar() {
   const [discountCode, setDiscountCode] = useState('');
   const [appliedCode, setAppliedCode] = useState('');
   const [codeError, setCodeError] = useState(false);
+  const [codeUsed, setCodeUsed] = useState('');
 
   const eligibleForDiscount = totalItems > 4;
   const discount = discount10 && eligibleForDiscount ? subtotal * 0.1 : 0;
@@ -50,6 +51,14 @@ export default function CartSidebar() {
     const code = discountCode.trim().toUpperCase();
     if (!code) return;
     if (DISCOUNT_CODES[code]) {
+      const used = JSON.parse(localStorage.getItem('mk-used-codes') || '[]') as string[];
+      if (used.includes(code)) {
+        setAppliedCode('');
+        setCodeError(false);
+        setCodeUsed(code);
+        return;
+      }
+      if (codeUsed === code) setCodeUsed('');
       setAppliedCode(code);
       setCodeError(false);
     } else {
@@ -115,6 +124,13 @@ export default function CartSidebar() {
       }
       const msg = buildWhatsAppMessage();
       window.open(`https://wa.me/${WA_NUMBER}?text=${msg}`, '_blank');
+      if (appliedCode) {
+        const used = JSON.parse(localStorage.getItem('mk-used-codes') || '[]') as string[];
+        if (!used.includes(appliedCode)) {
+          used.push(appliedCode);
+          localStorage.setItem('mk-used-codes', JSON.stringify(used));
+        }
+      }
       clearCart();
       setClientName('');
       setLocation('');
@@ -122,6 +138,7 @@ export default function CartSidebar() {
       setDiscountCode('');
       setAppliedCode('');
       setCodeError(false);
+      setCodeUsed('');
       setStep('cart');
       closeCart();
     }
@@ -229,6 +246,21 @@ export default function CartSidebar() {
                             <Icon icon="mdi:close" />
                           </button>
                         </div>
+                      ) : codeUsed ? (
+                        <div className="code-used-msg">
+                          <Icon icon="mdi:alert-circle" style={{ width: 18, height: 18 }} />
+                          <span>Este código (<strong>{codeUsed}</strong>) ya fue utilizado</span>
+                          <button
+                            className="code-remove"
+                            onClick={() => {
+                              setCodeUsed('');
+                              setDiscountCode('');
+                            }}
+                            aria-label="Entendido"
+                          >
+                            <Icon icon="mdi:close" />
+                          </button>
+                        </div>
                       ) : (
                         <>
                           <div className="code-input-row">
@@ -239,6 +271,7 @@ export default function CartSidebar() {
                               onChange={(e) => {
                                 setDiscountCode(e.target.value.toUpperCase());
                                 setCodeError(false);
+                                if (codeUsed === e.target.value.toUpperCase()) setCodeUsed('');
                               }}
                               placeholder="Código de descuento"
                               aria-label="Código de descuento"
