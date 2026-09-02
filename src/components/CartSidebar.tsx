@@ -24,6 +24,9 @@ const PAYMENT_OPTIONS = [
 
 const DISCOUNT_CODES: Record<string, number> = {
   MK2026: 0.03,
+  DES15: 0.15,
+  PROM2026: 0.05,
+  TI1604: 0.1,
 };
 
 export default function CartSidebar() {
