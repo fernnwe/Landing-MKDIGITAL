@@ -5,7 +5,6 @@ import PromoSection from '../components/PromoSection';
 import StatsSection from '../components/StatsSection';
 import SoftwareLogos from '../components/SoftwareLogos';
 import ProductosShowcase from '../components/ProductosShowcase';
-import Promociones from '../components/Promociones';
 import VideoPresentacion from '../components/VideoPresentacion';
 import Services from '../components/Services';
 import Software from '../components/Software';
@@ -34,9 +33,6 @@ export default function HomePage() {
       </section>
       <section className="reveal reveal-up">
         <ProductosShowcase />
-      </section>
-      <section className="reveal reveal-up">
-        <Promociones />
       </section>
       <section className="reveal reveal-up">
         <VideoPresentacion />
