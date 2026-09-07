@@ -102,8 +102,12 @@ export default function CartSidebar() {
     if (discount > 0) {
       msg += `Descuento 10% MultiCompra: -${formatCordoba(discount)} (${formatUSD(discount)})\n`;
     }
-    if (codeDiscount > 0) {
-      msg += `Código ${appliedCode} (${codeRate * 100}%): -${formatCordoba(codeDiscount)} (${formatUSD(codeDiscount)})\n`;
+    if (appliedCode) {
+      msg += `Cupón utilizado: ${appliedCode} (-${codeRate * 100}%)`;
+      if (codeDiscount > 0) {
+        msg += ` — ${formatCordoba(codeDiscount)} (${formatUSD(codeDiscount)})`;
+      }
+      msg += '\n';
     }
     msg += `Total: ${formatCordoba(total)} (${formatUSD(total)})`;
     msg += `\n\n--- Datos del cliente ---`;
