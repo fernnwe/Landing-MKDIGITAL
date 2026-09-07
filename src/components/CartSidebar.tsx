@@ -27,6 +27,8 @@ const DISCOUNT_CODES: Record<string, number> = {
   DES15: 0.15,
   PROM2026: 0.05,
   TI1604: 0.1,
+  ALV15: 0.15,
+  ERN15: 0.15,
 };
 
 export default function CartSidebar() {
