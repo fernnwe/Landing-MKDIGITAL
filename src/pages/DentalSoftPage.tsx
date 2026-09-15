@@ -110,7 +110,7 @@ export default function DentalSoftPage() {
           <div className="dp-hero-grid">
             <div className="dp-hero-content">
               <span className="badge dp-hero-badge"><Icon icon="mdi:tooth" /> SISTEMA PARA CLÍNICAS DENTALES</span>
-              <h1 className="dp-hero-title">Dental<span>Pro</span></h1>
+              <h1 className="dp-hero-title">Dental<span>Soft</span></h1>
               <p className="dp-hero-desc">
                 Gestión integral para tu clínica dental: pacientes con expediente completo,
                 odontograma interactivo 2D y 3D, agenda de citas con recordatorios por WhatsApp,
