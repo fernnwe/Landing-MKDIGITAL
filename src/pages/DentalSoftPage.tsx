@@ -1,47 +1,47 @@
-import { useEffect, useRef, useState } from 'react';
+﻿import { useEffect, useRef, useState } from 'react';
 import { Icon } from '@iconify/react';
 import { usePageMeta } from '../hooks/usePageMeta';
-import './DentalProPage.css';
+import './DentalSoftPage.css';
 
 const WA_BUY =
-  'https://wa.me/50581088124?text=Hola%2C%20quiero%20adquirir%20DENTALPRO%20(C%245%2C550%20%3D%20%24150%20USD%2C%20pago%20%C3%BAnico%2C%20actualizaciones%20gratuitas)';
-const WA_INFO = 'https://wa.me/50581088124?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20DENTALPRO';
-const WA_HELP = 'https://wa.me/50581088124?text=Hola%2C%20necesito%20ayuda%20para%20instalar%20DENTALPRO';
+  'https://wa.me/50581088124?text=Hola%2C%20quiero%20adquirir%20DentalSoft%20(C%245%2C550%20%3D%20%24150%20USD%2C%20pago%20%C3%BAnico%2C%20actualizaciones%20gratuitas)';
+const WA_INFO = 'https://wa.me/50581088124?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20DentalSoft';
+const WA_HELP = 'https://wa.me/50581088124?text=Hola%2C%20necesito%20ayuda%20para%20instalar%20DentalSoft';
 
 const workflow = [
-  { icon: 'mdi:download-circle', step: '01', title: 'Descarga', desc: 'Obtén el instalador para Windows o Android. La versión de escritorio funciona 100% offline.' },
-  { icon: 'mdi:cog-play', step: '02', title: 'Configura', desc: 'Registra los datos de tu clínica, agrega doctores, tratamientos y personaliza los módulos.' },
+  { icon: 'mdi:download-circle', step: '01', title: 'Descarga', desc: 'ObtÃ©n el instalador para Windows o Android. La versiÃ³n de escritorio funciona 100% offline.' },
+  { icon: 'mdi:cog-play', step: '02', title: 'Configura', desc: 'Registra los datos de tu clÃ­nica, agrega doctores, tratamientos y personaliza los mÃ³dulos.' },
   { icon: 'mdi:tooth', step: '03', title: 'Gestiona', desc: 'Administra pacientes, agenda citas, registra odontogramas, pagos y genera reportes al instante.' },
 ];
 
 const features = [
-  { icon: 'mdi:view-dashboard', color: '#22D3EE', title: 'Dashboard', desc: 'Panel de control con estadísticas en tiempo real: pacientes, citas del día, cobros y movimientos recientes.' },
-  { icon: 'mdi:account-heart', color: '#818CF8', title: 'Pacientes', desc: 'Expediente completo: historia clínica, notas, citas, planes, presupuestos, pagos y odontograma por paciente.' },
-  { icon: 'mdi:tooth', color: '#22D3EE', title: 'Odontograma 2D/3D', desc: 'Interactivo por diente: caries, restauración, corona, endodoncia, extracción, prótesis, implante y fractura con giro y zoom en 3D.' },
-  { icon: 'mdi:calendar-check', color: '#00C853', title: 'Agenda y Citas', desc: 'Calendario con estados (confirmada, cancelada, pendiente) y recordatorios automáticos por WhatsApp.' },
-  { icon: 'mdi:shield-account', color: '#818CF8', title: 'Roles y Permisos', desc: 'Acceso por módulo: Admin, Doctor y Recepcionista. Menús ocultos según el permiso del usuario.' },
-  { icon: 'mdi:cash', color: '#00C853', title: 'Pagos y Presupuestos', desc: 'Registro de cobros por método de pago y cotizaciones por paciente listas para compartir.' },
-  { icon: 'mdi:chart-bar', color: '#22D3EE', title: 'Reportes', desc: 'Ingresos por método de pago, tratamientos más demandados, evolución de pacientes y más.' },
-  { icon: 'mdi:database-arrow-up', color: '#818CF8', title: 'Respaldos', desc: 'Copia de seguridad y restauración completa de la base de datos local con un solo clic.' },
+  { icon: 'mdi:view-dashboard', color: '#22D3EE', title: 'Dashboard', desc: 'Panel de control con estadÃ­sticas en tiempo real: pacientes, citas del dÃ­a, cobros y movimientos recientes.' },
+  { icon: 'mdi:account-heart', color: '#818CF8', title: 'Pacientes', desc: 'Expediente completo: historia clÃ­nica, notas, citas, planes, presupuestos, pagos y odontograma por paciente.' },
+  { icon: 'mdi:tooth', color: '#22D3EE', title: 'Odontograma 2D/3D', desc: 'Interactivo por diente: caries, restauraciÃ³n, corona, endodoncia, extracciÃ³n, prÃ³tesis, implante y fractura con giro y zoom en 3D.' },
+  { icon: 'mdi:calendar-check', color: '#00C853', title: 'Agenda y Citas', desc: 'Calendario con estados (confirmada, cancelada, pendiente) y recordatorios automÃ¡ticos por WhatsApp.' },
+  { icon: 'mdi:shield-account', color: '#818CF8', title: 'Roles y Permisos', desc: 'Acceso por mÃ³dulo: Admin, Doctor y Recepcionista. MenÃºs ocultos segÃºn el permiso del usuario.' },
+  { icon: 'mdi:cash', color: '#00C853', title: 'Pagos y Presupuestos', desc: 'Registro de cobros por mÃ©todo de pago y cotizaciones por paciente listas para compartir.' },
+  { icon: 'mdi:chart-bar', color: '#22D3EE', title: 'Reportes', desc: 'Ingresos por mÃ©todo de pago, tratamientos mÃ¡s demandados, evoluciÃ³n de pacientes y mÃ¡s.' },
+  { icon: 'mdi:database-arrow-up', color: '#818CF8', title: 'Respaldos', desc: 'Copia de seguridad y restauraciÃ³n completa de la base de datos local con un solo clic.' },
 ];
 
 const specs = [
   { icon: 'mdi:desktop-classic', title: 'Escritorio', desc: 'Windows 10/11, offline' },
-  { icon: 'simple-icons:android', title: 'Móvil', desc: 'Android 6.0+, .apk' },
+  { icon: 'simple-icons:android', title: 'MÃ³vil', desc: 'Android 6.0+, .apk' },
   { icon: 'mdi:database', title: 'BD local', desc: 'Datos en cada equipo' },
   { icon: 'mdi:tooth', title: 'Odontograma', desc: '2D y 3D interactivo' },
   { icon: 'simple-icons:whatsapp', title: 'WhatsApp', desc: 'Recordatorios de citas' },
-  { icon: 'mdi:lock', title: 'Seguridad', desc: 'Hash + roles por módulo' },
-  { icon: 'mdi:reload', title: 'Respaldos', desc: 'Backup y restauración' },
-  { icon: 'mdi:account-group', title: 'Multiusuario', desc: 'Admin, Doctor, Recepción' },
+  { icon: 'mdi:lock', title: 'Seguridad', desc: 'Hash + roles por mÃ³dulo' },
+  { icon: 'mdi:reload', title: 'Respaldos', desc: 'Backup y restauraciÃ³n' },
+  { icon: 'mdi:account-group', title: 'Multiusuario', desc: 'Admin, Doctor, RecepciÃ³n' },
   { icon: 'mdi:update', title: 'Gratis', desc: 'Actualizaciones sin costo' },
 ];
 
-export default function DentalProPage() {
+export default function DentalSoftPage() {
   usePageMeta(
-    'DentalPro - Sistema para clínicas dentales | MKDIGITAL',
-    'Gestión integral para tu clínica dental: pacientes, odontograma 2D/3D, citas con recordatorios por WhatsApp, pagos y reportes. DentalPro para Windows y Android.',
-    'https://mkdigitalnic.com/dentalpro/logo.png',
+    'DentalSoft - Sistema para clÃ­nicas dentales | MKDIGITAL',
+    'GestiÃ³n integral para tu clÃ­nica dental: pacientes, odontograma 2D/3D, citas con recordatorios por WhatsApp, pagos y reportes. DentalSoft para Windows y Android.',
+    'https://mkdigitalnic.com/DentalSoft/logo.png',
   );
 
   const [showModal, setShowModal] = useState(false);
@@ -81,11 +81,11 @@ export default function DentalProPage() {
       setShowModal(false);
       const a = document.createElement('a');
       if (downloadTarget === 'android') {
-        a.href = '/dentalpro/DentalPro-1.0.0.apk';
-        a.download = 'DentalPro-1.0.0.apk';
+        a.href = '/DentalSoft/DentalSoft-1.0.0.apk';
+        a.download = 'DentalSoft-1.0.0.apk';
       } else {
-        a.href = '/dentalpro/DentalProSetup-1.0.0.exe';
-        a.download = 'DentalProSetup-1.0.0.exe';
+        a.href = '/DentalSoft/DentalSoftSetup-1.0.0.exe';
+        a.download = 'DentalSoftSetup-1.0.0.exe';
       }
       document.body.appendChild(a);
       a.click();
@@ -109,10 +109,10 @@ export default function DentalProPage() {
         <div className="container">
           <div className="dp-hero-grid">
             <div className="dp-hero-content">
-              <span className="badge dp-hero-badge"><Icon icon="mdi:tooth" /> SISTEMA PARA CLÍNICAS DENTALES</span>
+              <span className="badge dp-hero-badge"><Icon icon="mdi:tooth" /> SISTEMA PARA CLÃNICAS DENTALES</span>
               <h1 className="dp-hero-title">Dental<span>Pro</span></h1>
               <p className="dp-hero-desc">
-                Gestión integral para tu clínica dental: pacientes con expediente completo,
+                GestiÃ³n integral para tu clÃ­nica dental: pacientes con expediente completo,
                 odontograma interactivo 2D y 3D, agenda de citas con recordatorios por WhatsApp,
                 pagos, presupuestos y reportes.
               </p>
@@ -120,7 +120,7 @@ export default function DentalProPage() {
               <div className="dp-hero-meta">
                 <div className="dp-version-badge">
                   <span className="dp-version-dot"></span>
-                  Versión 1.0.0
+                  VersiÃ³n 1.0.0
                 </div>
                 <div className="dp-platform-badge">
                   <Icon icon="simple-icons:windows" />
@@ -134,14 +134,14 @@ export default function DentalProPage() {
                   <span className="dp-price-amount">$150</span>
                   <span className="dp-price-sep">/</span>
                   <span className="dp-price-usd">C$5,550</span>
-                  <span className="dp-price-label">Pago único</span>
+                  <span className="dp-price-label">Pago Ãºnico</span>
                 </div>
               </div>
 
               <div className="dp-hero-actions">
                 <a href={WA_BUY} target="_blank" className="dp-btn-primary">
                   <Icon icon="mdi:cart" />
-                  Adquirir DentalPro
+                  Adquirir DentalSoft
                 </a>
                 <a href={WA_INFO} target="_blank" className="dp-btn-secondary">
                   <Icon icon="simple-icons:whatsapp" />
@@ -151,7 +151,7 @@ export default function DentalProPage() {
 
               <p className="dp-update-note">
                 <Icon icon="mdi:check-decagram" />
-                Actualizaciones gratuitas de por vida — no es obligatorio actualizar.
+                Actualizaciones gratuitas de por vida â€” no es obligatorio actualizar.
               </p>
             </div>
 
@@ -163,7 +163,7 @@ export default function DentalProPage() {
                 <div className="dp-ring-dot dp-ring-dot-3"></div>
               </div>
               <div className="dp-logo-panel">
-                <img src="/dentalpro/logo.png" alt="DentalPro" className="dp-logo-img" />
+                <img src="/DentalSoft/logo.png" alt="DentalSoft" className="dp-logo-img" />
               </div>
               <div className="dp-visual-chip dp-chip-1">
                 <span className="dp-chip-icon dp-chip-icon-cyan"><Icon icon="mdi:tooth" /></span>
@@ -204,7 +204,7 @@ export default function DentalProPage() {
             <div className="dp-trust-item">
               <Icon icon="mdi:laptop" />
               <div>
-                <strong>Escritorio y Móvil</strong>
+                <strong>Escritorio y MÃ³vil</strong>
                 <span>Windows + Android</span>
               </div>
             </div>
@@ -228,8 +228,8 @@ export default function DentalProPage() {
             <div className="dp-trust-item">
               <Icon icon="mdi:credit-card" />
               <div>
-                <strong>Pago Único</strong>
-                <span>$150 USD — sin mensualidades</span>
+                <strong>Pago Ãšnico</strong>
+                <span>$150 USD â€” sin mensualidades</span>
               </div>
             </div>
           </div>
@@ -240,9 +240,9 @@ export default function DentalProPage() {
       <section className="dp-workflow reveal reveal-up">
         <div className="container">
           <div className="section-header">
-            <span className="badge">CÓMO FUNCIONA</span>
-            <h2>En 3 pasos tienes tu clínica gestionada</h2>
-            <p>De la instalación al primer paciente en menos de 10 minutos.</p>
+            <span className="badge">CÃ“MO FUNCIONA</span>
+            <h2>En 3 pasos tienes tu clÃ­nica gestionada</h2>
+            <p>De la instalaciÃ³n al primer paciente en menos de 10 minutos.</p>
           </div>
           <div className="dp-workflow-grid">
             {workflow.map((w, i) => (
@@ -265,8 +265,8 @@ export default function DentalProPage() {
         <div className="container">
           <div className="section-header">
             <span className="badge">FUNCIONALIDADES</span>
-            <h2>Todo lo que tu clínica dental necesita</h2>
-            <p>Herramientas diseñadas para que tu consultorio funcione sin complicaciones</p>
+            <h2>Todo lo que tu clÃ­nica dental necesita</h2>
+            <p>Herramientas diseÃ±adas para que tu consultorio funcione sin complicaciones</p>
           </div>
 
           <div className="dp-features-grid">
@@ -288,13 +288,13 @@ export default function DentalProPage() {
         <div className="container">
           <div className="section-header">
             <span className="badge">CAPTURAS</span>
-            <h2>Así se ve DentalPro</h2>
-            <p>Interfaz moderna, intuitiva y profesional. Diseñada para uso diario en clínica.</p>
+            <h2>AsÃ­ se ve DentalSoft</h2>
+            <p>Interfaz moderna, intuitiva y profesional. DiseÃ±ada para uso diario en clÃ­nica.</p>
           </div>
           <div className="dp-gallery-grid">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((n) => (
               <div className={`dp-gallery-item reveal reveal-up stagger-${Math.min(n, 8)}`} key={n} onClick={() => setLightboxIndex(n)} role="button" tabIndex={0}>
-                <img src={`/dentalpro/screenshot-${n}.png`} alt={`DentalPro - Captura ${n}`} loading="lazy" />
+                <img src={`/DentalSoft/screenshot-${n}.png`} alt={`DentalSoft - Captura ${n}`} loading="lazy" />
               </div>
             ))}
           </div>
@@ -306,8 +306,8 @@ export default function DentalProPage() {
         <div className="container">
           <div className="section-header">
             <span className="badge">ESPECIFICACIONES</span>
-            <h2>Características técnicas</h2>
-            <p>DentalPro funciona localmente en tu consultorio, sin depender de internet.</p>
+            <h2>CaracterÃ­sticas tÃ©cnicas</h2>
+            <p>DentalSoft funciona localmente en tu consultorio, sin depender de internet.</p>
           </div>
 
           <div className="dp-specs-grid">
@@ -329,9 +329,9 @@ export default function DentalProPage() {
         <div className="container">
           <div className="dp-download-grid">
             <div className="dp-dl-pricing">
-              <img src="/dentalpro/logo.png" alt="DentalPro" className="dp-download-logo" />
-              <h2>DentalPro</h2>
-              <p className="dp-dl-tagline">Sistema de gestión para clínicas dentales</p>
+              <img src="/DentalSoft/logo.png" alt="DentalSoft" className="dp-download-logo" />
+              <h2>DentalSoft</h2>
+              <p className="dp-dl-tagline">Sistema de gestiÃ³n para clÃ­nicas dentales</p>
 
               <div className="dp-dl-price-block">
                 <div className="dp-dl-price-main">
@@ -339,14 +339,14 @@ export default function DentalProPage() {
                   <span className="dp-dl-currency">USD</span>
                 </div>
                 <span className="dp-dl-price-cord">C$5,550</span>
-                <span className="dp-dl-price-type">Pago único</span>
+                <span className="dp-dl-price-type">Pago Ãºnico</span>
               </div>
 
               <ul className="dp-dl-perks">
                 <li><Icon icon="mdi:check-circle" /> Actualizaciones gratuitas de por vida</li>
                 <li><Icon icon="mdi:check-circle" /> Sin mensualidades ni costos ocultos</li>
-                <li><Icon icon="mdi:check-circle" /> Soporte técnico incluido</li>
-                <li><Icon icon="mdi:check-circle" /> Funciona sin conexión a internet</li>
+                <li><Icon icon="mdi:check-circle" /> Soporte tÃ©cnico incluido</li>
+                <li><Icon icon="mdi:check-circle" /> Funciona sin conexiÃ³n a internet</li>
               </ul>
 
               <a href={WA_BUY} target="_blank" className="dp-btn-primary dp-btn-wide">
@@ -357,13 +357,13 @@ export default function DentalProPage() {
 
             <div className="dp-dl-downloads">
               <h3>Descargar</h3>
-              <p className="dp-dl-downloads-desc">Selecciona tu plataforma para descargar DentalPro.</p>
+              <p className="dp-dl-downloads-desc">Selecciona tu plataforma para descargar DentalSoft.</p>
 
               <button onClick={() => openModal('windows')} className="dp-dl-platform-card">
                 <Icon icon="simple-icons:windows" className="dp-dl-platform-icon dp-dl-win-icon" />
                 <div className="dp-dl-platform-info">
                   <strong>Windows 10 / 11</strong>
-                  <span>Instalador .exe · 4 GB RAM mínimo</span>
+                  <span>Instalador .exe Â· 4 GB RAM mÃ­nimo</span>
                 </div>
                 <Icon icon="mdi:download" className="dp-dl-platform-arrow" />
               </button>
@@ -372,14 +372,14 @@ export default function DentalProPage() {
                 <Icon icon="simple-icons:android" className="dp-dl-platform-icon dp-dl-android-icon" />
                 <div className="dp-dl-platform-info">
                   <strong>Android 6.0+</strong>
-                  <span>Archivo .apk · Instalación directa</span>
+                  <span>Archivo .apk Â· InstalaciÃ³n directa</span>
                 </div>
                 <Icon icon="mdi:download" className="dp-dl-platform-arrow" />
               </button>
 
               <p className="dp-dl-help">
-                ¿Necesitas ayuda con la instalación?
-                <a href={WA_HELP} target="_blank"> Contáctanos por WhatsApp</a>
+                Â¿Necesitas ayuda con la instalaciÃ³n?
+                <a href={WA_HELP} target="_blank"> ContÃ¡ctanos por WhatsApp</a>
               </p>
             </div>
           </div>
@@ -398,19 +398,19 @@ export default function DentalProPage() {
             </div>
             <h3>Descarga protegida</h3>
             <p>{downloadTarget === 'android'
-              ? 'Ingresa la contraseña para descargar DentalPro para Android (.apk).'
-              : 'Ingresa la contraseña para descargar DentalPro para Windows (.exe).'
+              ? 'Ingresa la contraseÃ±a para descargar DentalSoft para Android (.apk).'
+              : 'Ingresa la contraseÃ±a para descargar DentalSoft para Windows (.exe).'
             }</p>
             <input
               type="password"
-              placeholder="Contraseña"
+              placeholder="ContraseÃ±a"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               onKeyDown={(e) => { if (e.key === 'Enter') checkPass(); }}
               ref={inputRef}
             />
             <button className="dp-password-submit" onClick={checkPass}>Descargar</button>
-            {error && <p className="dp-pass-error">Contraseña incorrecta</p>}
+            {error && <p className="dp-pass-error">ContraseÃ±a incorrecta</p>}
           </div>
         </div>
       )}
@@ -424,8 +424,8 @@ export default function DentalProPage() {
             <Icon icon="mdi:chevron-left" />
           </button>
           <img
-            src={`/dentalpro/screenshot-${lightboxIndex}.png`}
-            alt={`DentalPro - Captura ${lightboxIndex}`}
+            src={`/DentalSoft/screenshot-${lightboxIndex}.png`}
+            alt={`DentalSoft - Captura ${lightboxIndex}`}
             className="dp-lightbox-img"
             onClick={(e) => e.stopPropagation()}
           />

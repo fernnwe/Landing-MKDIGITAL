@@ -560,8 +560,8 @@ const productosBase: Producto[] = [
     url: "/mkfarma"
   },
   {
-    id: "dentalPro",
-    nombre: "DentalPro - Gestión de clinicas dentales",
+    id: "dentalSoft",
+    nombre: "DentalSoft - Gestión de clinicas dentales",
     precio: "C$5,500",
     categoria: "clinicas dentales",
     iconoId: "mdi:tooth-outline",
@@ -570,7 +570,7 @@ const productosBase: Producto[] = [
     descripcion: "Gestión integral para tu clínica dental: pacientes, odontograma 2D/3D, citas con recordatorios por WhatsApp, pagos y reportes",
     detalle: "Sistema integral para clínicas dentales de MKDIGITAL. Gestiona pacientes, odontograma 2D y 3D, citas con recordatorios automáticos por WhatsApp, pagos e historial clínico.",
     requisitos: ["Windows 10 o Windows 11", "4 GB de RAM", "2 GB de espacio en disco"],
-    url: "/dentalpro"
+    url: "/dentalsoft"
   },
   {
     id: "office2019",

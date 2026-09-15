@@ -30,9 +30,14 @@
   status = 200
 
 [[redirects]]
-  from = "/dentalpro"
-  to = "/dentalpro.html"
+  from = "/dentalsoft"
+  to = "/dentalsoft.html"
   status = 200
+
+[[redirects]]
+  from = "/dentalpro"
+  to = "/dentalsoft"
+  status = 301
 
 [[redirects]]
   from = "/activa-licencia"
