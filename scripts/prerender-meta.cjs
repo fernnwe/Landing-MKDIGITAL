@@ -34,11 +34,11 @@ const routes = [
     image: 'https://mkdigitalnic.com/mkfarma.png',
   },
   {
-    slug: 'dentalpro',
-    path: '/dentalpro',
-    title: 'DentalPro - Sistema para clínicas dentales | MKDIGITAL',
-    description: 'Gestión integral para tu clínica dental: pacientes, odontograma 2D/3D, citas con recordatorios por WhatsApp, pagos y reportes. DentalPro para Windows y Android.',
-    image: 'https://mkdigitalnic.com/dentalpro/logo.png',
+    slug: 'dentalsoft',
+    path: '/dentalsoft',
+    title: 'DentalSoft - Sistema para clínicas dentales | MKDIGITAL',
+    description: 'Gestión integral para tu clínica dental: pacientes, odontograma 2D/3D, citas con recordatorios por WhatsApp, pagos y reportes. DentalSoft para Windows y Android.',
+    image: 'https://mkdigitalnic.com/dentalsoft/logo.png',
   },
   {
     slug: 'activa-licencia',
